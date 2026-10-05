@@ -1,0 +1,218 @@
+page_types:
+  source-pr:
+    id_prefix: pr-
+    description: Merged PRs from tracked ROCm repositories
+    required_fields:
+    - id
+    - title
+    - type
+    - repo
+    - pr
+    - author
+    - date
+    - url
+    - source_category
+    - architectures
+    - tags
+    - captured_at
+    - status
+    - inclusion_reason
+    optional_fields:
+    - techniques
+    - hardware_features
+    - kernel_types
+    - languages
+    - aliases
+    - base_branch
+    - merge_commit
+    - landed_via
+    - upstream_landed_at
+  source-doc:
+    id_prefix: doc-
+    description: Official AMD documentation, whitepapers, ISA guides
+    required_fields:
+    - id
+    - title
+    - type
+    - architectures
+    - tags
+    - date
+    - url
+    optional_fields:
+    - hardware_features
+    - techniques
+    - confidence
+    - aliases
+  source-blog:
+    id_prefix: blog-
+    description: Community blog posts, tutorials, optimization guides
+    required_fields:
+    - id
+    - title
+    - type
+    - author
+    - date
+    - url
+    - architectures
+    - tags
+    optional_fields:
+    - techniques
+    - hardware_features
+    - kernel_types
+    - languages
+    - confidence
+    - aliases
+  wiki-hardware:
+    id_prefix: hw-
+    description: Hardware feature pages (MFMA, LDS, DPP, Wavefront...)
+    required_fields:
+    - id
+    - title
+    - type
+    - architectures
+    - tags
+    - confidence
+    - sources
+    optional_fields:
+    - hardware_features
+    - related
+    - cuda_equivalent
+    - aliases
+    - performance_notes
+  wiki-technique:
+    id_prefix: technique-
+    description: Optimization techniques and patterns
+    required_fields:
+    - id
+    - title
+    - type
+    - architectures
+    - tags
+    - confidence
+    - sources
+    optional_fields:
+    - techniques
+    - hardware_features
+    - kernel_types
+    - related
+    - reproducibility
+    - aliases
+  wiki-kernel:
+    id_prefix: kernel-
+    description: Kernel case studies with performance claims
+    required_fields:
+    - id
+    - title
+    - type
+    - architectures
+    - tags
+    - confidence
+    - kernel_types
+    - languages
+    - sources
+    optional_fields:
+    - performance_claims
+    - artifact_dir
+    - reproducibility
+    - related
+    - techniques
+    - aliases
+  wiki-pattern:
+    id_prefix: pattern-
+    description: Problem → solution diagnosis patterns
+    required_fields:
+    - id
+    - title
+    - type
+    - architectures
+    - tags
+    - confidence
+    - sources
+    optional_fields:
+    - symptoms
+    - techniques
+    - related
+    - aliases
+  wiki-language:
+    id_prefix: lang-
+    description: DSL and programming language guides
+    required_fields:
+    - id
+    - title
+    - type
+    - tags
+    - confidence
+    - sources
+    optional_fields:
+    - architectures
+    - languages
+    - related
+    - aliases
+  wiki-migration:
+    id_prefix: migration-
+    description: Architecture or API migration guides
+    required_fields:
+    - id
+    - title
+    - type
+    - tags
+    - confidence
+    - sources
+    optional_fields:
+    - from_architecture
+    - to_architecture
+    - from_concept
+    - to_concept
+    - difficulty
+    - related
+    - aliases
+  source-experiment:
+    id_prefix: exp-
+    description: Locally retained experiment, protocol or environment evidence with
+      explicit scope
+    required_fields:
+    - id
+    - title
+    - type
+    - architectures
+    - tags
+    - confidence
+    - date
+    - evidence_root
+    - artifacts
+    - evidence_scope
+    optional_fields:
+    - compiler
+    - source_commit
+    - dtype
+    - shape
+    - baseline
+    - measurement
+    - limitations
+    - workloads
+    - rounds
+    - status
+confidence_levels:
+  verified:
+    description: Official doc + upstream code evidence
+    color: green
+  source-reported:
+    description: ≥1 authoritative source
+    color: blue
+  inferred:
+    description: Synthesized from multiple sources
+    color: yellow
+  experimental:
+    description: Undocumented, assembly-level tricks
+    color: red
+reproducibility_levels:
+  concept:
+    description: Text description only
+  pseudocode:
+    description: Language-agnostic algorithm
+  snippet:
+    description: Compilable code fragment
+  runnable:
+    description: Self-contained buildable example
+  benchmarked:
+    description: Runnable + performance numbers

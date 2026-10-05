@@ -1,0 +1,91 @@
+architectures:
+- id: gfx938
+  gfx:
+  - gfx938
+  gpus:
+  - BW1101
+  - C-3000 HCU
+  vendor: hygon
+- id: cdna3
+  gfx:
+  - gfx942
+  gpus:
+  - MI300X
+hardware_features:
+  mmac: {}
+  wave64: {}
+  lds: {}
+  vgpr: {}
+  scratch-memory: {}
+techniques:
+  kernel-fusion: {}
+  runtime-guard: {}
+  launch-configuration: {}
+  occupancy-tuning: {}
+  regression-test: {}
+  masking: {}
+  layout-transform: {}
+  cache-invalidation: {}
+  tiling: {}
+  runtime-dispatch: {}
+kernel_types:
+- rmsnorm
+- rope
+- gemm
+- moe
+- attention
+- conv
+- reduction
+- activation
+- custom-fusion
+- histogram
+- grouped-gemm
+- flash-attention
+- normalization
+- embedding
+languages:
+- python
+- triton-rocm
+- hip-cpp
+- assembly
+aliases: {}
+aux_tags:
+- admission
+- aiter
+- backward
+- bf16
+- broadcast
+- community-baseline
+- compiler-coevolution
+- copy
+- correctness
+- cuda-graph
+- dtk
+- empty-trace
+- evidence
+- execution-groups
+- fla
+- fp16
+- fp32
+- fusion
+- hcu-sock
+- hip
+- host-overhead
+- hygon
+- int32
+- jit-compilation
+- local-evidence
+- migration
+- negative-result
+- paired-timing
+- precision
+- profiling
+- register-spilling
+- resource-release
+- rocprof
+- runtime-dispatch
+- scan
+- scratch
+- stable-sort
+- triton
+- valid-extent

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
+if [[ -x "$root/.venv/bin/python" ]]; then py="$root/.venv/bin/python"; else py=${BWWIKI_PYTHON:-python3}; fi
+if [[ -d "$root/.python-deps" ]]; then export PYTHONPATH="$root/.python-deps${PYTHONPATH:+:$PYTHONPATH}"; fi
+command=${1:-help}; [[ $# == 0 ]] || shift
+case "$command" in
+ query) exec "$py" "$root/scripts/query.py" "$@" ;;
+ get) exec "$py" "$root/scripts/get_page.py" "$@" ;;
+ index) exec "$py" "$root/scripts/generate-indices.py" "$@" ;;
+ validate) "$py" "$root/scripts/validate.py" --strict "$@"; exec "$py" "$root/scripts/validate-evidence.py" ;;
+ *) printf 'Usage: ./bwiki query WORDS [--tag TAG --type kernel --architecture gfx938] | get ID | index | validate\n' ;;
+esac
