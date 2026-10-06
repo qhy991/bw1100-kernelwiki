@@ -72,3 +72,18 @@ exp-gemm-placement-20261006在同binary、同parent中比较所有仍满足16-by
 大形状的A/B16或32-byte相位及32/32/64组合出现明显变慢；这仍只是有界的单次设备运行。
 不要把编译器可依赖的最小对齐保证与memory-system最有利的位置混为一谈，也不要将
 256这个探针坐标升级成硬件cache-line事实。具体原因需要独立profile与复验。
+
+## 从vector宽度追到lane地址
+
+exp-gemm-placement-geometry-20261007进一步读取原位置实验的4096形状ISA。
+A/B虽然都是每lane16byte的global_load_dwordx4，连续片段分别由4/8个lane组成，
+形成64/128byte片段；这来自指令地址表达式，不是硬件cache-line声明。
+agent应先写出t=64*w+lane到byte offset的函数，再讨论位置如何改变跨边界片段。
+
+跨lane的字节区间、单指令sector集合、跨指令集合复用和设备交易计数是不同层次。
+例如A的两个load在假设128B分组下可共享区间；把每指令计数相加会重复统计共享部分。
+即使静态几何改变，也不能按同一比例预测时间或HBM流量；后续仍需独立复验和实际counter。
+
+位置效应现已有exp-gemm-placement-confirmation-20261007的独立复验和counter补证。
+大形状的慢位置主要表现为更多TCC总计数，而FETCH_SIZE接近不变；
+这缩小了解释范围，但不把前述字节几何中的假设sector认定为真实硬件line。

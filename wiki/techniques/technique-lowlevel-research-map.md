@@ -124,3 +124,13 @@ exp-gemm-operand-alignment-20261006将per-pointer事实、mixed vectorization与
 exp-gemm-placement-20261006的已完成结果于2026-10-07恢复下载并验证。该轮隔离位置变量，
 还区分首点host开销与device变化；没有独立重复或profiler归因。累计22份官方来源。
 仍需把未完成的解释保留为unknown，而不是把一次相位曲线写成硬件规则。
+
+## 第九轮的离线深入：lane到地址
+
+exp-gemm-placement-geometry-20261007和doc-llvm-workitem-address-abi把保留ISA还原为
+A/B的工作项地址函数，并区分单指令区间与跨指令复用。累计23份官方来源，仍是九轮设备观察。
+这一步没有新增设备运行；其产物是CPU可重放的地址审计和下次profile的区分点。
+
+位置补证exp-gemm-placement-confirmation-20261007在同HCU3独立复现，并接受两组各168条
+目标profile记录。最慢位置的hit fraction更高、TCC总计数约2.198倍而FETCH_SIZE几乎不变；
+请求分母与读取字节指标成为后续诊断重点。冻结源码和计时边界保持不变。

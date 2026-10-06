@@ -71,3 +71,14 @@ HIP API trace与kernel counters是不同能力。exp-gemm-packing-cost-20261006�
 首次sample异常先比较wall与device span。位置实验的小形状首点wall明显偏高，而device变化很小。
 event首次record的惰性初始化是待验证因素；kernel预热不自动证明timer已预热。
 冻结数据保留原样，若改变timer预热边界，需要后继实验，不回删旧outlier。
+
+## 命中率升高但更慢的地址反例
+
+exp-gemm-placement-confirmation-20261007复现固定binary的地址位置效应。
+大形状组合偏移下，TCC hit+miss约为zero的2.198倍，FETCH_SIZE只增约0.144%，
+L2 hit fraction从87.299%升至92.440%，而独立计时从409.339增至706.241μs。
+因此同时看请求分母、hit/miss绝对数、外部读取指标和时间；百分比变好不足以认定优化。
+
+同一输入的不同位置不必产生同样的内部请求工作量。仍需核对vendor实际metric映射，
+不能直接用假定line大小把miss换算成HBM字节，也不能用单dispatch profile除以replay时间。
+本机XML未显式声明gfx938区段；实测fraction校验只解决尺度，不自动解决全部硬件计数语义。

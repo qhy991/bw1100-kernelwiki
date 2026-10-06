@@ -161,6 +161,21 @@
   "summary": ""
  },
  {
+  "id": "doc-llvm-workitem-address-abi",
+  "type": "source-doc",
+  "title": "LLVM work-item register ABI for reading emitted addresses",
+  "path": "sources/docs/doc-llvm-workitem-address-abi.md",
+  "architectures": [],
+  "tags": [
+   "tiling",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-clone-format",
   "type": "source-doc",
   "title": "Clone memory format and explicit packing",
@@ -541,6 +556,45 @@
    "correctness",
    "gemm",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-gemm-placement-confirmation-20261007",
+  "type": "source-experiment",
+  "title": "Placement replication and request-count profile on HCU3",
+  "path": "sources/experiments/exp-gemm-placement-confirmation-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "paired-timing",
+   "correctness",
+   "gemm",
+   "profiling",
+   "rocprof"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-gemm-placement-geometry-20261007",
+  "type": "source-experiment",
+  "title": "Selected GEMM load address geometry from retained ISA",
+  "path": "sources/experiments/exp-gemm-placement-geometry-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "tiling",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],

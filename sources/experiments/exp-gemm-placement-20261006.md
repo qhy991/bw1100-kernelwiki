@@ -106,3 +106,8 @@ A/B phase16或32约比zero用时多28%，guarded组合约多72.6%。其他接近
 结果说明“满足16-byte合法性合同”不等于“所有合法位置具有相同速度”。
 它不授权加强到128/256-byte硬件要求，不构成layout algebra或自动padding/dispatch规则。
 No promotion。独立重复、counter归因及计时器初始化对照仍未完成，本页不暗示它们已通过。
+
+## 后继证据
+
+2026-10-07的exp-gemm-placement-confirmation-20261007已独立重放冻结探针并采集两组counter。
+本页保留首次运行的原始范围；复验、计数器解释及其限制由后继来源页拥有。
