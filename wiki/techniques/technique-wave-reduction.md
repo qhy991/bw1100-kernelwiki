@@ -10,6 +10,7 @@ tags:
 - lds
 confidence: experimental
 sources:
+- exp-rectangular-compact-20261006
 - doc-hip-reduction
 - doc-hip-extensions
 - doc-amd-wave-builtins
@@ -48,3 +49,10 @@ RMSNorm、softmax、Welford 的组合状态也不能直接当一个标量 sum �
 本次 width32/64 均正确，幅度小的计时差异不足以确立通用赢家。
 先读每个形状的 A/A 与正反顺序，再决定是否值得改 caller。
 新版上游 wave_reduce builtin 和手写 DPP 在 gfx938 的可用性仍未验证。
+
+## 后继：把声明真正缩小之后
+
+exp-rectangular-compact-20261006 只缩小同 width 的 shared 数组，确实将 HIP/metadata
+shared 降到32/16 bytes，但 profiler 均分配512 bytes，原实现1024 bytes。VGPR、
+barrier、bpermute 和 HIP 驻留估计均未改善；四个形状两轮 matched timing 没有稳定收益。
+原“减少 partials 不一定减少分配”之后，还需检查“分配减少是否跨过实际性能阈值”。

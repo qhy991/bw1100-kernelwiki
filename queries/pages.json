@@ -65,6 +65,22 @@
   "summary": ""
  },
  {
+  "id": "doc-hip-occupancy-api",
+  "type": "source-doc",
+  "title": "HIP occupancy API and its estimation boundary",
+  "path": "sources/docs/doc-hip-occupancy-api.md",
+  "architectures": [],
+  "tags": [
+   "occupancy-tuning",
+   "hip",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hip-reduction",
   "type": "source-doc",
   "title": "HIP hierarchical reduction",
@@ -73,6 +89,22 @@
   "tags": [
    "reduction",
    "wave64",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hip-tiled-transpose",
+  "type": "source-doc",
+  "title": "HIP tiled transpose and coalescing",
+  "path": "sources/docs/doc-hip-tiled-transpose.md",
+  "architectures": [],
+  "tags": [
+   "tiling",
+   "layout-transform",
    "lds"
   ],
   "kernel_types": [],
@@ -334,6 +366,27 @@
   "languages": [],
   "confidence": "source-reported",
   "summary": "DTK\u5de5\u5177\u8def\u5f84/opt/dtk/rocprofiler/bin/rocprof\uff1bsource env\u5e76\u4e0d\u81ea\u52a8\u52a0\u8be5bin\u3002"
+ },
+ {
+  "id": "exp-rectangular-compact-20261006",
+  "type": "source-experiment",
+  "title": "Rectangular transpose and compact LDS reduction follow-up",
+  "path": "sources/experiments/exp-rectangular-compact-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "reduction",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-register-values",

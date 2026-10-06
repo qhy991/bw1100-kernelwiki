@@ -11,6 +11,9 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-hip-occupancy-api
+- doc-hip-tiled-transpose
+- exp-rectangular-compact-20261006
 - doc-ck-lds-phases
 - doc-hip-memory-performance
 - doc-hip-reduction
@@ -51,3 +54,11 @@ LDS padding/XOR、分层 shuffle 归约。资料的采集日为 2026-10-06；dev
 通过现有 admission 做有界测试→保留失败、counter 和释放凭据→把结论放回其 owner。
 本轮是原生机制探索，不是 Cake 作者比较、Bench 分数或 Compiler 性能提升。
 No promotion：不凭一个 native 微基准修改 Compiler/Target/成本模型。
+
+## 第二轮：资源阈值与非方形覆盖
+
+新增 doc-hip-occupancy-api、doc-hip-tiled-transpose，两轮累计12份官方来源。
+exp-rectangular-compact-20261006 记录紧凑shared数组的负结果和矩形转置确认。
+同一源代码必须区分声明字节数、分配粒度、驻留模型和测得的速度；减少资源并不自动加速。
+源码后继为5572a1fe，旧4ce5d2ce证据继续按原提交解释。
+下一项尚未验证的是 GEMM program ordering 与 panel reuse，需要保持 tile/精度不变的对照。

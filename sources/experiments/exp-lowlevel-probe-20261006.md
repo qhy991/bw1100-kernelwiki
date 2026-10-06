@@ -110,3 +110,5 @@ HCU1、HCU2 被现有 per-user 锁拒绝，没有运行 probe；未干预锁 own
 No promotion。这里只晋升 wiki 机制与原生开发探针；没有新增 Compiler primitive、
 Target bank 常数、cost calibration 或性能资格。将来若用于 Cake，应保持 Task oracle，
 以自己的 emission 和框架端到端验证建立新的证据。
+
+后继 exp-rectangular-compact-20261006 扩展矩形并验证 compact shared；本页原形状/源码/数值不变。

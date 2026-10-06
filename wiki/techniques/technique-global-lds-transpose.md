@@ -11,6 +11,8 @@ tags:
 - paired-timing
 confidence: experimental
 sources:
+- doc-hip-tiled-transpose
+- exp-rectangular-compact-20261006
 - doc-hip-memory-performance
 - doc-ck-lds-phases
 - exp-lowlevel-probe-20261006
@@ -49,3 +51,11 @@ XOR 较省 LDS，但本次大矩阵仍略慢于 padding。不要把省空间等�
 用于 GEMM/attention 时还要验证消费指令需要的 operand mapping、向量对齐与精度。
 本次没有验证 b128、MMAC operand、矩形矩阵或任意 stride。Cake 只应记录具体 storage/access
 承诺；这个例子不要求新增 layout algebra。
+
+## 后继：矩形和双侧尾部
+
+exp-rectangular-compact-20261006 增加64×4096及反向、1023×1025及反向。
+保留旧 tile/thread mapping，输入和输出各自使用正确 leading dimension；三分布全部通过。
+padding/XOR 仍消除所记录的 conflict 读数，但实际速度收益随 shape 改变。
+尾部 LDSInsts 出现小数，因为它是平均值；不能把小数解读为异常指令。
+该后继扩展了 contiguous 矩形范围，仍不覆盖任意 stride、in-place 或矩阵指令 operand。

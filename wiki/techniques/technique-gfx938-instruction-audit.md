@@ -11,6 +11,8 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- doc-hip-occupancy-api
+- exp-rectangular-compact-20261006
 - doc-llvm-amdgpu-waits
 - doc-llvm-occupancy-tool
 - doc-triton-softmax-residency
@@ -48,3 +50,10 @@ private_segment=0 与 profiler scr=0 是本轮没有记录 scratch 的证据，�
 s_waitcnt 关联异步 memory 的完成和使用依赖；block barrier 关联线程协作。
 看到等待密集时先检查依赖距离、独立工作和 double buffering 的资源代价，不能直接删 wait/barrier。
 是否能重叠由真实 emission 和正确性决定，不按 AMD 另一架构的 opcode 机械替换。
+
+## 后继：三种资源观察不要合并
+
+exp-rectangular-compact-20261006 中，同 width 归约的 metadata/HIP attribute显示
+1024→32或16 bytes；profiler为1024→512；HIP occupancy API仍是8 blocks/CU。
+独立计时没有稳定改善。这三个输出分别回答声明、实际分配和模型驻留；
+任何一个都不能代替速度。详见 doc-hip-occupancy-api。
