@@ -36,9 +36,6 @@ artifacts:
 - profile-memory-admission-terminal.json
 - profile-memory.log
 - l2-definitions.txt
-- analyze.py
-- verify_evidence.py
-- accepted-analysis.json
 compiler: native vendor Triton 3.6.0 in fixed DTK image; no Cake lowering
 source_commit: 34716efd
 shape: MxNxK=512x512x512,2048x2048x512,4096x4096x1024,4096x1024x1024,1024x4096x1024,1088x1025x513
@@ -136,3 +133,12 @@ raw scale验证只确定接口输出尺度，未追究下游collector为何与XM
 
 No promotion：不新增Compiler调度规则、cache常数或校准。保留runtime-G探针和正/负shape证据。
 若要用于Cake，应先由可表达的Schedule/现有mapping机制给出候选，再做原Task端到端验收。
+
+## 分析文件回写状态
+
+raw、compiled产物和所有terminal/CSV/checks在上述远端evidence_root；成功取回后完成了本地分析。
+`analyze.py`、`verify_evidence.py`、`accepted-analysis.json`及manifest目前保留在
+`/private/tmp/bw1100-grouped-gemm-evidence-20261006/`。回写这些派生文件时SSH被远端关闭，
+随后只读复查也失败，远端落盘状态未确认；不能把这次传输算成功。
+这一观察失败发生在全部设备阶段完成并取回terminal之后，不撤销已观察到的释放。
+本地wiki已更新；远端wiki最后确认版本仍为25690bb，待连接恢复再同步。
