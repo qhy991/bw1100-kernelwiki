@@ -81,4 +81,20 @@ L2 hit fraction从87.299%升至92.440%，而独立计时从409.339增至706.241�
 
 同一输入的不同位置不必产生同样的内部请求工作量。仍需核对vendor实际metric映射，
 不能直接用假定line大小把miss换算成HBM字节，也不能用单dispatch profile除以replay时间。
-本机XML未显式声明gfx938区段；实测fraction校验只解决尺度，不自动解决全部硬件计数语义。
+仅检查常见metrics.xml会漏掉vendor的derived_counters.xml。后继exp-metric-definitions-20261007
+已找到gfx938定义，并用运行时枚举确认；软件公式明确不等于全部硅计数语义已验证。
+
+
+## 有效表达式优先于指标名字和description
+
+exp-metric-definitions-20261007通过运行时枚举查明L2CacheHit的fraction表达式，
+并在168条同dispatch记录中重建FETCH_SIZE。vendor定义位于
+/opt/dtk/share/profiler/counters/derived_counters.xml，不能只读常见安装路径的metrics.xml。
+
+agent使用RDATA1_SIZE时按表达式检查单位：它是未除1024的byte-weighted量，
+description的kilobytes不能直接采用；本轮EA1全零，非零尺度仍未验证。
+L2ReadReqs实际取EA0+EA1请求，不能代替hit+miss总计数。
+metric总数限制与底层counter依赖容量分别检查；两层都通过才开始采集。
+
+本版--list-derived固定exit1。保留真实not_qualified回执，分别判断枚举信息和释放证据，
+不要因该退出码重装环境，也不要将列表成功伪装为性能资格。

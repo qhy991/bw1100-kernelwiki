@@ -292,6 +292,21 @@
   "summary": ""
  },
  {
+  "id": "doc-rocprof-runtime-metrics",
+  "type": "source-doc",
+  "title": "ROCProfiler runtime metric enumeration and expression definitions",
+  "path": "sources/docs/doc-rocprof-runtime-metrics.md",
+  "architectures": [],
+  "tags": [
+   "profiling",
+   "rocprof"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-alignment-hints",
   "type": "source-doc",
   "title": "Triton alignment and contiguity are compiler promises",
@@ -676,6 +691,25 @@
    "lds",
    "wave64",
    "reduction"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-metric-definitions-20261007",
+  "type": "source-experiment",
+  "title": "Runtime DCU metric definitions and same-dispatch fetch composition",
+  "path": "sources/experiments/exp-metric-definitions-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "profiling",
+   "rocprof",
+   "correctness"
   ],
   "kernel_types": [],
   "languages": [],

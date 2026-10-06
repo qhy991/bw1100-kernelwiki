@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-81 pages. Machine-readable form: [pages.json](pages.json).
+83 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (23)
+## source-doc (24)
 
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
@@ -24,13 +24,14 @@
 - `doc-pytorch-view-alignment` — [Tensor views, storage offset and contiguous semantics](../sources/docs/doc-pytorch-view-alignment.md)
 - `doc-rocprof-l2-request-semantics` — [L2 request metrics and hit-on-miss interpretation](../sources/docs/doc-rocprof-l2-request-semantics.md)
 - `doc-rocprof-lds-metrics` — [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md)
+- `doc-rocprof-runtime-metrics` — [ROCProfiler runtime metric enumeration and expression definitions](../sources/docs/doc-rocprof-runtime-metrics.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
 - `doc-triton-dot-precision` — [Triton dot input types and precision controls](../sources/docs/doc-triton-dot-precision.md)
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (24)
+## source-experiment (25)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -48,6 +49,7 @@
 - `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-lowlevel-probe-20261006` — [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md)
+- `exp-metric-definitions-20261007` — [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md)
 - `exp-night-exclusions` — [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md)
 - `exp-platform-contract` — [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md)
 - `exp-profiler-skill` — [已安装 DCU rocprof 技能的收集与解析边界](../sources/experiments/exp-profiler-skill.md)

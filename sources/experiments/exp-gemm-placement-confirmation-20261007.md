@@ -111,3 +111,10 @@ profile只测reset后的单次dispatch，计时是reset后20次replay，两者�
 
 No promotion。知识归属view/指针对齐与profile解释；没有新增Compiler规则或Target常数。
 下一步如要认定瓶颈，需校准vendor实际metric映射并做相应计数器或干预对照。
+
+## 后继：有效定义已定位
+
+exp-metric-definitions-20261007找到share/profiler/counters/derived_counters.xml中的gfx938声明，
+并通过运行时枚举和同次采集公式检查补齐本页的有效表达式缺口。
+本页“没有显式gfx938区段”仅描述当时查看的metrics.xml，不代表整个DTK没有定义；
+硬件事件语义和唯一瓶颈仍未完成验证。

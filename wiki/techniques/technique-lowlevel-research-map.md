@@ -134,3 +134,9 @@ A/B的工作项地址函数，并区分单指令区间与跨指令复用。累�
 位置补证exp-gemm-placement-confirmation-20261007在同HCU3独立复现，并接受两组各168条
 目标profile记录。最慢位置的hit fraction更高、TCC总计数约2.198倍而FETCH_SIZE几乎不变；
 请求分母与读取字节指标成为后续诊断重点。冻结源码和计时边界保持不变。
+
+## 指标口径补证
+
+exp-metric-definitions-20261007定位vendor derived_counters与运行时实际表达式，
+同次168条kernel记录验证FETCH_SIZE重建，并保留EA1全零限制、列表固定exit1和预检6项上限。
+新增doc-rocprof-runtime-metrics，累计24份官方来源；本轮是指标验证，没有新增速度排名。
