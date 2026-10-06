@@ -10,6 +10,7 @@ sources:
 - doc-hip-memory-performance
 - doc-rocprof-l2-request-semantics
 - exp-grouped-gemm-20261006
+- exp-gemm-alignment-stages-20261006
 kernel_types: [gemm]
 reproducibility: benchmarked
 ---
@@ -53,3 +54,6 @@ profile每个target dispatch前做相同64MiB reset，并在3分布上使用正�
 waves_per_eu为1。成本模型没有这个目标的校准时报告缺口，不自动排序为“最优”。
 将其用于Cake前先找已有具体映射能表达的候选；本轮原生探针不证明Compiler缺口，
 不要求引入layout代数，也不自动推广到attention、MoE或persistent GEMM。
+
+后继alignment实验提醒：本页group结果属于未传pointer attrs的固定binary。补充真实alignment
+后代码/资源明显改变，所以旧G选择不能未经重测迁移过去。原数字继续按原编译合同解释。

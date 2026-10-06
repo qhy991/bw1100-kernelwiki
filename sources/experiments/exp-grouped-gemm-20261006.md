@@ -137,8 +137,11 @@ No promotion：不新增Compiler调度规则、cache常数或校准。保留runt
 ## 分析文件回写状态
 
 raw、compiled产物和所有terminal/CSV/checks在上述远端evidence_root；成功取回后完成了本地分析。
-`analyze.py`、`verify_evidence.py`、`accepted-analysis.json`及manifest目前保留在
+中断时，`analyze.py`、`verify_evidence.py`、`accepted-analysis.json`及manifest暂时仅保留在
 `/private/tmp/bw1100-grouped-gemm-evidence-20261006/`。回写这些派生文件时SSH被远端关闭，
 随后只读复查也失败，远端落盘状态未确认；不能把这次传输算成功。
 这一观察失败发生在全部设备阶段完成并取回terminal之后，不撤销已观察到的释放。
-本地wiki已更新；远端wiki最后确认版本仍为25690bb，待连接恢复再同步。
+中断当时，本地wiki已更新，远端最后确认版本为25690bb。
+
+恢复后补记：SSH已重新连通；上述分析文件和manifest已回写并成功解析，远端wiki已
+fast-forward到cbac174且通过61页校验。先前的传输失败按历史事实保留，设备任务未重启。

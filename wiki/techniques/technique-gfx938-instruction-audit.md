@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-gemm-alignment-stages-20261006
 - doc-hip-occupancy-api
 - exp-rectangular-compact-20261006
 - doc-llvm-amdgpu-waits
@@ -57,3 +58,7 @@ exp-rectangular-compact-20261006 中，同 width 归约的 metadata/HIP attribut
 1024→32或16 bytes；profiler为1024→512；HIP occupancy API仍是8 blocks/CU。
 独立计时没有稳定改善。这三个输出分别回答声明、实际分配和模型驻留；
 任何一个都不能代替速度。详见 doc-hip-occupancy-api。
+
+后继exp-gemm-alignment-stages-20261006证明另一个查询陷阱：HSACO static group segment为0，
+但Triton launch使用8/16/24KiB dynamic LDS。遗漏dynamic LDS会把HIP occupancy统一估成8，
+而完整launch参数给出8/4/2。详见technique-aot-alignment-pipeline。

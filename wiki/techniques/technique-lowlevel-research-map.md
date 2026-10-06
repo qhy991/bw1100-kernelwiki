@@ -11,6 +11,9 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-gemm-alignment-stages-20261006
+- doc-triton-alignment-hints
+- doc-triton-loop-pipeline
 - exp-grouped-gemm-20261006
 - doc-rocprof-l2-request-semantics
 - doc-hip-occupancy-api
@@ -72,3 +75,10 @@ exp-grouped-gemm-20261006 把group ordering从上游建议推进到gfx938固定b
 新增doc-rocprof-l2-request-semantics，两轮后继续累计到13份官方来源。
 同轮还记录了3个metric也可能超硬件容量、L2CacheHit fraction与XML percent描述不一致的实测。
 后续可研究tile/K流水与MMAC操作数搬运，但需分别改变一个机制并保留资源/精度边界。
+
+## 第四轮：AOT事实与流水资源
+
+technique-aot-alignment-pipeline连接TTIR指针对齐、向量化、stage数与dynamic LDS。
+exp-gemm-alignment-stages-20261006保留规则形状收益、odd-stride无收益、stage4退化和
+遗漏dynamic LDS导致驻留误判的对照。累计15份官方来源；既有Compiler对齐owner已存在，
+本轮不制造缺口或新增规则。上一轮因SSH中断未同步的分析和wiki也已恢复同步。

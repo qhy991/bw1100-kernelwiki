@@ -179,6 +179,22 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-alignment-hints",
+  "type": "source-doc",
+  "title": "Triton alignment and contiguity are compiler promises",
+  "path": "sources/docs/doc-triton-alignment-hints.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "tiling",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-grouped-gemm",
   "type": "source-doc",
   "title": "Triton grouped GEMM program ordering",
@@ -187,6 +203,23 @@
   "tags": [
    "gemm",
    "tiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-triton-loop-pipeline",
+  "type": "source-doc",
+  "title": "Triton loop pipeline attributes and actual lowering",
+  "path": "sources/docs/doc-triton-loop-pipeline.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "gemm",
+   "vgpr",
+   "lds"
   ],
   "kernel_types": [],
   "languages": [],
@@ -293,6 +326,28 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "a1ef4d20\u4ece\u5b8c\u6574two-stage Programs\u63a8\u5bfcM128/131/256/512\u56db\u4e2adual-GEMM\uff0bGELU kernel\u3002"
+ },
+ {
+  "id": "exp-gemm-alignment-stages-20261006",
+  "type": "source-experiment",
+  "title": "Truthful AOT alignment unlocks vectorization; deeper stages lose residency",
+  "path": "sources/experiments/exp-gemm-alignment-stages-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "gemm",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "vgpr",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-grouped-gemm-20261006",
@@ -949,6 +1004,29 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u5148\u533a\u5206\u56fa\u5b9akernel\u7684codegen/runtime\u6548\u679c\u3001\u663e\u5f0f\u5de5\u5177\u5bf9\u641c\u7d22\u7684\u5e2e\u52a9\u3001\u4ee5\u53ca\u66f4\u591a\u7ee7\u627f\u6750\u6599\u9020\u6210\u7684\u4f18\u52bf\u3002"
+ },
+ {
+  "id": "technique-aot-alignment-pipeline",
+  "type": "wiki-technique",
+  "title": "AOT \u5bf9\u9f50\u5408\u540c\u4e0e GEMM \u6d41\u6c34\uff1a\u5148\u786e\u8ba4\u5b9e\u9645 lowering",
+  "path": "wiki/techniques/technique-aot-alignment-pipeline.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "triton",
+   "gemm",
+   "correctness",
+   "lds",
+   "vgpr",
+   "paired-timing"
+  ],
+  "kernel_types": [
+   "gemm"
+  ],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "technique-atomic-precision-boundary",
