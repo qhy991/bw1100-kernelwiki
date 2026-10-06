@@ -145,6 +145,22 @@
   "summary": ""
  },
  {
+  "id": "doc-llvm-pointer-alignment",
+  "type": "source-doc",
+  "title": "Pointer alignment attributes are caller facts, not memory repair",
+  "path": "sources/docs/doc-llvm-pointer-alignment.md",
+  "architectures": [],
+  "tags": [
+   "correctness",
+   "runtime-guard",
+   "triton"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-clone-format",
   "type": "source-doc",
   "title": "Clone memory format and explicit packing",
@@ -446,6 +462,27 @@
    "profiling",
    "lds",
    "vgpr",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-gemm-operand-alignment-20261006",
+  "type": "source-experiment",
+  "title": "Independent operand facts can avoid packing, with asymmetric resource costs",
+  "path": "sources/experiments/exp-gemm-operand-alignment-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "paired-timing",
+   "copy",
+   "correctness",
+   "profiling",
    "negative-result"
   ],
   "kernel_types": [],

@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-gemm-operand-alignment-20261006
+- doc-llvm-pointer-alignment
 - exp-gemm-packing-cost-20261006
 - doc-pytorch-complete-call-timing
 - exp-gemm-view-precision-20261006
@@ -108,3 +110,9 @@ technique-view-admission和exp-gemm-view-precision-20261006连接view/stride/ali
 exp-gemm-packing-cost-20261006对比直接generic、动态packing、storage-only workspace。
 它保留小形状与tail退化、大形状净收益及HIP API trace不可用的边界。累计20份官方来源。
 下一步需要检验per-operand事实与buffer placement，不能把目前三条路径称为全局最优。
+
+## 第八轮：逐operand合同
+
+exp-gemm-operand-alignment-20261006将per-pointer事实、mixed vectorization与完整caller选择连起来。
+初测HCU4、独立复验和profile为HCU3，绝对时间不混合；位置余数只作观察，不成为Target常数。
+累计21份官方来源；没有因native探针的收益而自动添加Compiler规则。

@@ -10,6 +10,8 @@ sources:
 - doc-pytorch-clone-format
 - exp-gemm-view-precision-20261006
 - exp-gemm-packing-cost-20261006
+- exp-gemm-operand-alignment-20261006
+- doc-llvm-pointer-alignment
 - doc-pytorch-complete-call-timing
 related:
 - technique-aot-alignment-pipeline
@@ -53,3 +55,12 @@ exp-gemm-packing-cost-20261006将input packing、临时输出、copy-back和临�
 这些是指定view/shape的完整策略对照，不是最佳dispatch规则。clone还改变buffer位置，
 不能拿另一份分配上的kernel-only时间直接相减，声称差值全是copy成本。
 只损失某个operand的对齐时，应先考虑其余operand事实能否保留，再决定是否物化整个调用。
+
+## 每个operand保留自己的事实
+
+exp-gemm-operand-alignment-20261006证明无需将调用简单分成“全aligned”和“全generic”。
+只有C偏移时保留A/B16-byte事实、C只声明4-byte，直接路径避免输出搬移并在本轮优于packing。
+小形状A/B偏移也可受益；大形状的输入packing仍可能更快。all-offset和odd-stride继续是反例。
+
+A与B的资源代价不对称，C的store事实还可能影响layout转换/LDS；按实际emission检查。
+packing改变buffer位置的事实已记录，位置对性能的独立贡献仍待验证，不能扩写成硬件常数。

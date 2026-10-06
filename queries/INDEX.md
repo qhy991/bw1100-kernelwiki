@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-74 pages. Machine-readable form: [pages.json](pages.json).
+76 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (20)
+## source-doc (21)
 
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
@@ -15,6 +15,7 @@
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
 - `doc-llvm-occupancy-tool` — [LLVM occupancy calculator boundary](../sources/docs/doc-llvm-occupancy-tool.md)
+- `doc-llvm-pointer-alignment` — [Pointer alignment attributes are caller facts, not memory repair](../sources/docs/doc-llvm-pointer-alignment.md)
 - `doc-pytorch-clone-format` — [Clone memory format and explicit packing](../sources/docs/doc-pytorch-clone-format.md)
 - `doc-pytorch-complete-call-timing` — [Asynchronous device work, stream lifetime and complete-call timing](../sources/docs/doc-pytorch-complete-call-timing.md)
 - `doc-pytorch-numerical-accuracy` — [Floating point ordering, reference precision and target-specific denorms](../sources/docs/doc-pytorch-numerical-accuracy.md)
@@ -27,7 +28,7 @@
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (20)
+## source-experiment (21)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -36,6 +37,7 @@
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
 - `exp-gemm-alignment-stages-20261006` — [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md)
+- `exp-gemm-operand-alignment-20261006` — [Independent operand facts can avoid packing, with asymmetric resource costs](../sources/experiments/exp-gemm-operand-alignment-20261006.md)
 - `exp-gemm-packing-cost-20261006` — [Full-call packing cost and storage-only workspace reuse](../sources/experiments/exp-gemm-packing-cost-20261006.md)
 - `exp-gemm-view-precision-20261006` — [Contiguous offset views and FP16 GEMM numerical boundaries](../sources/experiments/exp-gemm-view-precision-20261006.md)
 - `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)

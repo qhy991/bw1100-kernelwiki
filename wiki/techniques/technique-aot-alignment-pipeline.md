@@ -11,6 +11,7 @@ sources:
 - doc-hip-occupancy-api
 - exp-gemm-alignment-stages-20261006
 - exp-aligned-grouped-gemm-20261006
+- exp-gemm-operand-alignment-20261006
 - exp-gemm-view-precision-20261006
 related:
 - technique-gfx938-instruction-audit
@@ -66,3 +67,6 @@ G8在大方阵的相对收益更大，旧的2048退化未复现。对齐合同�
 
 实际view边界已由technique-view-admission补充：连续offset view仍可能不对齐，
 contiguous()可能不复制；stride与alignment分别拒绝，packing验证storage效果后才谈成本。
+
+逐operand后继进一步区分A/B/C事实：部分pointer降级不必丢弃其余事实，
+但更细的合同也可能改变资源和epilogue搬运，详见exp-gemm-operand-alignment-20261006。
