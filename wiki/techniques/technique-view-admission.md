@@ -11,6 +11,7 @@ sources:
 - exp-gemm-view-precision-20261006
 - exp-gemm-packing-cost-20261006
 - exp-gemm-operand-alignment-20261006
+- exp-gemm-placement-20261006
 - doc-llvm-pointer-alignment
 - doc-pytorch-complete-call-timing
 related:
@@ -64,3 +65,10 @@ exp-gemm-operand-alignment-20261006证明无需将调用简单分成“全aligne
 
 A与B的资源代价不对称，C的store事实还可能影响layout转换/LDS；按实际emission检查。
 packing改变buffer位置的事实已记录，位置对性能的独立贡献仍待验证，不能扩写成硬件常数。
+
+## 合法性与实际位置
+
+exp-gemm-placement-20261006在同binary、同parent中比较所有仍满足16-byte合同的位置。
+大形状的A/B16或32-byte相位及32/32/64组合出现明显变慢；这仍只是有界的单次设备运行。
+不要把编译器可依赖的最小对齐保证与memory-system最有利的位置混为一谈，也不要将
+256这个探针坐标升级成硬件cache-line事实。具体原因需要独立profile与复验。

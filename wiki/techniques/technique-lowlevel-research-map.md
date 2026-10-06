@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-gemm-placement-20261006
+- doc-pytorch-event-initialization
 - exp-gemm-operand-alignment-20261006
 - doc-llvm-pointer-alignment
 - exp-gemm-packing-cost-20261006
@@ -116,3 +118,9 @@ exp-gemm-packing-cost-20261006对比直接generic、动态packing、storage-only
 exp-gemm-operand-alignment-20261006将per-pointer事实、mixed vectorization与完整caller选择连起来。
 初测HCU4、独立复验和profile为HCU3，绝对时间不混合；位置余数只作观察，不成为Target常数。
 累计21份官方来源；没有因native探针的收益而自动添加Compiler规则。
+
+## 第九轮：固定binary的位置观察
+
+exp-gemm-placement-20261006的已完成结果于2026-10-07恢复下载并验证。该轮隔离位置变量，
+还区分首点host开销与device变化；没有独立重复或profiler归因。累计22份官方来源。
+仍需把未完成的解释保留为unknown，而不是把一次相位曲线写成硬件规则。

@@ -194,6 +194,22 @@
   "summary": ""
  },
  {
+  "id": "doc-pytorch-event-initialization",
+  "type": "source-doc",
+  "title": "Event creation and first-record host overhead",
+  "path": "sources/docs/doc-pytorch-event-initialization.md",
+  "architectures": [],
+  "tags": [
+   "host-overhead",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-numerical-accuracy",
   "type": "source-doc",
   "title": "Floating point ordering, reference precision and target-specific denorms",
@@ -504,6 +520,26 @@
    "host-overhead",
    "paired-timing",
    "correctness",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-gemm-placement-20261006",
+  "type": "source-experiment",
+  "title": "Fixed-binary legal address-placement observations",
+  "path": "sources/experiments/exp-gemm-placement-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "paired-timing",
+   "correctness",
+   "gemm",
    "negative-result"
   ],
   "kernel_types": [],

@@ -11,6 +11,8 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- exp-gemm-placement-20261006
+- doc-pytorch-event-initialization
 - exp-gemm-packing-cost-20261006
 - exp-grouped-gemm-20261006
 - doc-rocprof-l2-request-semantics
@@ -65,3 +67,7 @@ exp-grouped-gemm-20261006 中Wavefronts/FETCH_SIZE/WRITE_SIZE仅3个指标仍超
 HIP API trace与kernel counters是不同能力。exp-gemm-packing-cost-20261006中，
 --hip-trace虽出现在help，却因镜像路径缺失而无法产出有效trace；counter-only仍可独立接受。
 保留失败和release，不修补环境后把同一次check改称通过，也不从counter CSV推导缺失的API耗时。
+
+首次sample异常先比较wall与device span。位置实验的小形状首点wall明显偏高，而device变化很小。
+event首次record的惰性初始化是待验证因素；kernel预热不自动证明timer已预热。
+冻结数据保留原样，若改变timer预热边界，需要后继实验，不回删旧outlier。
