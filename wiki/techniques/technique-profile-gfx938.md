@@ -11,6 +11,8 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- exp-grouped-gemm-20261006
+- doc-rocprof-l2-request-semantics
 - exp-profiler-skill
 - exp-host-entry
 - exp-gateup-fusion
@@ -47,3 +49,14 @@ GPU duration只作归因，普通双顺序完整callable+A/A决定速度。host�
 见 exp-lowlevel-probe-20261006 的失败与成功凭据。`LDSInsts` 是 derived 平均值，
 `LDSBankConflict` 是 derived 百分比口径，均不当作可相加的事件总数。
 metrics.xml 没有显式 gfx938 entry 时，保留公式来源与继承未验证的限制。
+
+## Counter group与单位必须在本机验证
+
+exp-grouped-gemm-20261006 中Wavefronts/FETCH_SIZE/WRITE_SIZE仅3个指标仍超出硬件group，
+按工具建议拆分后通过。数量≤6只是入口限制，不证明所有指标能共存；derived metric会展开到
+多个底层counter。不得把失败的profile记作kernel失败或性能样本。
+
+同轮L2CacheHit的108条值等于同pass的hits/(hits+misses)，是0–1比例；安装XML描述却为百分比。
+需要raw counters时，先问它们能否解决当前解释分歧，再做一个同pass校验，不随意乘100、
+重命名或回写旧结果。高命中率也不保证低延迟；上游hit-on-miss机制见对应doc，Hygon行为
+按本机证据解释。该scale结论只绑定本次image与collector。

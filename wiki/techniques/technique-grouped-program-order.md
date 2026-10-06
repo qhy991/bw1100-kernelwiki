@@ -2,33 +2,54 @@
 id: technique-grouped-program-order
 title: Grouped program ordering：先改变复用距离，再测缓存收益
 type: wiki-technique
-architectures:
-- gfx938
-tags:
-- gemm
-- tiling
-- runtime-dispatch
-confidence: inferred
+architectures: [gfx938]
+tags: [gemm, tiling, runtime-dispatch, paired-timing]
+confidence: experimental
 sources:
 - doc-triton-grouped-gemm
 - doc-hip-memory-performance
-kernel_types:
-- gemm
-reproducibility: concept
+- doc-rocprof-l2-request-semantics
+- exp-grouped-gemm-20261006
+kernel_types: [gemm]
+reproducibility: benchmarked
 ---
 
-## 可验证假设
+## 改写的是复用距离
 
-相邻输出 tiles 访问同一 A 或 B panel 时，缩短它们的调度间距可能增加缓存复用。
-对 GEMM 保持 BM/BN/BK、warp 数、精度、operand mapping 和实际指令相同，仅改变
-program_id 到 (tile_m,tile_n) 的映射。最后一个不完整 group 需使用实际 group 大小。
+相邻输出tiles访问同一A或B panel时，缩短调度间距可能减少重复取数。
+行主序输出tile为pid_m=pid//tiles_n、pid_n=pid%tiles_n。
+G行分组先在这G个M tiles中走列，再前进到下一N tile；它增加B panel的局部复用，
+同时改变A panel的复用距离。不是单方面让所有操作数都更容易命中。
 
-## 代价与反例
+令span=G*tiles_n，first_m=(pid//span)*G，actual_G=min(tiles_m-first_m,G)，
+local=pid%span，则pid_m=first_m+local%actual_G、pid_n=local//actual_G。
+最后不完整group必须使用actual_G，不能继续除以名义G，否则可能漏算或重复输出。
 
-调度次序不是执行次序保证。小 grid、已经命中缓存的 panel、不同 M/N/K 比例都可能没有收益。
-更大 tile 会同时改变 registers/LDS，不应与 ordering 一起改后声称因果来自 L2。
-收集同一 kernel 的 fetch/write 与缓存计数，再用无 profiler 的完整调用作对照。
+## 如何隔离原因
 
-目前只有上游来源；本轮未在 gfx938 测此项，不能填入经验速度表。
-agent 的下一步应先找到已有 Cake 具体映射能表达的合法候选；若不足，保留完整 Schedule 和
-当前拒绝诊断，再决定是否形成 Finding。此机制不要求引入通用 layout 代数。
+固定BM/BN/BK、精度、warp/stage、实际矩阵指令和资源，仅改变映射。
+本机探针把G设为runtime i32，三种order调用同一个compiled object；这是对比方法，
+不表示runtime除法优于constexpr专门化。部署专门化版需要重新检查代码和性能。
+
+所有形状均使用FP16 input/FP32 accumulator-output，16×16×16的F16 MMAC。
+实测包含17×17个输出tiles和K尾部，CPU oracle与tile双射检查共同验证mapping。
+该有限dyadic数值域不覆盖任意FP16 GEMM精度。
+
+## 本机适用条件和反例
+
+exp-grouped-gemm-20261006 中，大方阵和宽矩形的G8降低fetch并改善配对时间；
+2048方阵和窄矩形则读计数增加、速度退化。相同总元素数、长宽互换也可能换掉赢家。
+小矩阵有显著A/A漂移，不把约1%的变化写成稳定优化。
+大方阵读计数约少70%，时间仅快约3.55%，所以不能将减少的流量比例当预计速度收益。
+
+profile每个target dispatch前做相同64MiB reset，并在3分布上使用正反group顺序。
+完整cache eviction未证明；profile是单dispatch，speed是20次replay摊销，口径不混合。
+读取/写入分别采集，资源、实际kernel、grid与对应shape都有绑定。
+
+## Agent下一步
+
+先判断哪个panel需要复用、grid是否足够、尾部group是否完整，再选择少量G值。
+使用自己实际compiled metadata，而不是只看requested options；本机默认配置的有效
+waves_per_eu为1。成本模型没有这个目标的校准时报告缺口，不自动排序为“最优”。
+将其用于Cake前先找已有具体映射能表达的候选；本轮原生探针不证明Compiler缺口，
+不要求引入layout代数，也不自动推广到attention、MoE或persistent GEMM。

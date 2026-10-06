@@ -6,13 +6,14 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (47 pages)
+## gfx938 (48 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
 - [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md) `[source-experiment]` arch:gfx938
 - [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md) `[source-experiment]` arch:gfx938
 - [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md) `[source-experiment]` arch:gfx938
+- [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md) `[source-experiment]` arch:gfx938
 - [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md) `[source-experiment]` arch:gfx938
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md) `[source-experiment]` arch:gfx938

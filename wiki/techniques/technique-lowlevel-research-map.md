@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-grouped-gemm-20261006
+- doc-rocprof-l2-request-semantics
 - doc-hip-occupancy-api
 - doc-hip-tiled-transpose
 - exp-rectangular-compact-20261006
@@ -42,7 +44,7 @@ LDS padding/XOR、分层 shuffle 归约。资料的采集日为 2026-10-06；dev
 | 转置或 strided global store 慢 | technique-global-lds-transpose | 本机配对+counter；确认 consumer 地址与尾部 |
 | 归约 barrier 多 | technique-wave-reduction | 本机 ISA+正确性；width32/64 没有通用赢家 |
 | tile 变大后反而慢 | technique-gfx938-instruction-audit、technique-execution-groups | metadata 与实际分配分别读取 |
-| GEMM panel 重复加载 | technique-grouped-program-order | 仅上游；固定 tile 后测 ordering |
+| GEMM panel 重复加载 | technique-grouped-program-order | 已有固定binary实测；收益和退化都依赖shape |
 | FP32 atomic 想走 fast path | technique-atomic-precision-boundary | 仅上游；保留精度与并发合同 |
 | rocprof 空数据或数值难解释 | technique-profile-gfx938 | 先接受真实 kernel/columns，再读本机公式 |
 
@@ -62,3 +64,11 @@ exp-rectangular-compact-20261006 记录紧凑shared数组的负结果和矩形�
 同一源代码必须区分声明字节数、分配粒度、驻留模型和测得的速度；减少资源并不自动加速。
 源码后继为5572a1fe，旧4ce5d2ce证据继续按原提交解释。
 下一项尚未验证的是 GEMM program ordering 与 panel reuse，需要保持 tile/精度不变的对照。
+
+## 第三轮：GEMM复用与counter尺度
+
+exp-grouped-gemm-20261006 把group ordering从上游建议推进到gfx938固定binary对照。
+大方阵/宽矩形有收益，另有方阵/窄矩形退化；计数器说明读流量方向，但不等比例决定速度。
+新增doc-rocprof-l2-request-semantics，两轮后继续累计到13份官方来源。
+同轮还记录了3个metric也可能超硬件容量、L2CacheHit fraction与XML percent描述不一致的实测。
+后续可研究tile/K流水与MMAC操作数搬运，但需分别改变一个机制并保留资源/精度边界。

@@ -35,7 +35,7 @@
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) conf:experimental arch:gfx938
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) conf:experimental arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
-- [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md) conf:inferred arch:gfx938
+- [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md) conf:experimental arch:gfx938
 
 ## grouped-gemm (1 pages)
 

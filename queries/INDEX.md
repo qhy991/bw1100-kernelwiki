@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-59 pages. Machine-readable form: [pages.json](pages.json).
+61 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (12)
+## source-doc (13)
 
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
@@ -15,17 +15,19 @@
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
 - `doc-llvm-occupancy-tool` — [LLVM occupancy calculator boundary](../sources/docs/doc-llvm-occupancy-tool.md)
+- `doc-rocprof-l2-request-semantics` — [L2 request metrics and hit-on-miss interpretation](../sources/docs/doc-rocprof-l2-request-semantics.md)
 - `doc-rocprof-lds-metrics` — [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md)
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (15)
+## source-experiment (16)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
+- `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-lowlevel-probe-20261006` — [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md)
 - `exp-night-exclusions` — [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md)

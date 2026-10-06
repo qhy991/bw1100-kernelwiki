@@ -145,6 +145,22 @@
   "summary": ""
  },
  {
+  "id": "doc-rocprof-l2-request-semantics",
+  "type": "source-doc",
+  "title": "L2 request metrics and hit-on-miss interpretation",
+  "path": "sources/docs/doc-rocprof-l2-request-semantics.md",
+  "architectures": [],
+  "tags": [
+   "profiling",
+   "rocprof",
+   "tiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-rocprof-lds-metrics",
   "type": "source-doc",
   "title": "ROCm profiler LDS metric meaning",
@@ -277,6 +293,27 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "a1ef4d20\u4ece\u5b8c\u6574two-stage Programs\u63a8\u5bfcM128/131/256/512\u56db\u4e2adual-GEMM\uff0bGELU kernel\u3002"
+ },
+ {
+  "id": "exp-grouped-gemm-20261006",
+  "type": "source-experiment",
+  "title": "Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale",
+  "path": "sources/experiments/exp-grouped-gemm-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "gemm",
+   "tiling",
+   "paired-timing",
+   "profiling",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-host-entry",
@@ -1017,13 +1054,14 @@
   "tags": [
    "gemm",
    "tiling",
-   "runtime-dispatch"
+   "runtime-dispatch",
+   "paired-timing"
   ],
   "kernel_types": [
    "gemm"
   ],
   "languages": [],
-  "confidence": "inferred",
+  "confidence": "experimental",
   "summary": ""
  },
  {
