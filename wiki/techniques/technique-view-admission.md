@@ -9,6 +9,8 @@ sources:
 - doc-pytorch-view-alignment
 - doc-pytorch-clone-format
 - exp-gemm-view-precision-20261006
+- exp-gemm-packing-cost-20261006
+- doc-pytorch-complete-call-timing
 related:
 - technique-aot-alignment-pipeline
 - pattern-precision-not-output-only
@@ -40,3 +42,14 @@ exp-gemm-view-precision-20261006验证了offset、stepped及transposed三类边�
 相对更高精度oracle的误差，回答数值合同；两者可能一项通过、另一项仍有精度限制。
 本轮所有受支持view/packing检查通过，但抵消分布相对FP64仍有1的差异。
 所以不能把caller检查通过汇总为“任意输入的完整正确性”。
+
+## 完整调用成本与workspace
+
+exp-gemm-packing-cost-20261006将input packing、临时输出、copy-back和临时分配纳入时间。
+小512 all-offset例中，快kernel的收益不足以支付搬移；大规则矩阵仍有净收益。
+复用workspace减少分配但没有取消每次输入刷新和输出回写。测试用连续变化的三组输入
+验证这一点，不能把storage cache实现成内容cache。workspace首次分配在计时外，需要明确摊销条件。
+
+这些是指定view/shape的完整策略对照，不是最佳dispatch规则。clone还改变buffer位置，
+不能拿另一份分配上的kernel-only时间直接相减，声称差值全是copy成本。
+只损失某个operand的对齐时，应先考虑其余operand事实能否保留，再决定是否物化整个调用。

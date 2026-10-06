@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-gemm-packing-cost-20261006
+- doc-pytorch-complete-call-timing
 - exp-gemm-view-precision-20261006
 - doc-pytorch-view-alignment
 - doc-pytorch-clone-format
@@ -100,3 +102,9 @@ exp-aligned-grouped-gemm-20261006复验了对齐后的group映射。其意义是
 technique-view-admission和exp-gemm-view-precision-20261006连接view/stride/alignment、
 显式packing、storage保护与数值oracle。384个view检查与96个数值观察分开报告；
 本轮没有速度排名，避免把FP64差异隐藏在新容差里。累计19份官方来源。
+
+## 第七轮：把packing放回caller边界
+
+exp-gemm-packing-cost-20261006对比直接generic、动态packing、storage-only workspace。
+它保留小形状与tail退化、大形状净收益及HIP API trace不可用的边界。累计20份官方来源。
+下一步需要检验per-operand事实与buffer placement，不能把目前三条路径称为全局最优。

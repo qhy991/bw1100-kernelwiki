@@ -161,6 +161,23 @@
   "summary": ""
  },
  {
+  "id": "doc-pytorch-complete-call-timing",
+  "type": "source-doc",
+  "title": "Asynchronous device work, stream lifetime and complete-call timing",
+  "path": "sources/docs/doc-pytorch-complete-call-timing.md",
+  "architectures": [],
+  "tags": [
+   "host-overhead",
+   "paired-timing",
+   "correctness",
+   "copy"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-numerical-accuracy",
   "type": "source-doc",
   "title": "Floating point ordering, reference precision and target-specific denorms",
@@ -429,6 +446,27 @@
    "profiling",
    "lds",
    "vgpr",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-gemm-packing-cost-20261006",
+  "type": "source-experiment",
+  "title": "Full-call packing cost and storage-only workspace reuse",
+  "path": "sources/experiments/exp-gemm-packing-cost-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "copy",
+   "host-overhead",
+   "paired-timing",
+   "correctness",
    "negative-result"
   ],
   "kernel_types": [],

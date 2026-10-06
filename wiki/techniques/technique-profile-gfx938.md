@@ -11,6 +11,7 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- exp-gemm-packing-cost-20261006
 - exp-grouped-gemm-20261006
 - doc-rocprof-l2-request-semantics
 - exp-profiler-skill
@@ -60,3 +61,7 @@ exp-grouped-gemm-20261006 中Wavefronts/FETCH_SIZE/WRITE_SIZE仅3个指标仍超
 需要raw counters时，先问它们能否解决当前解释分歧，再做一个同pass校验，不随意乘100、
 重命名或回写旧结果。高命中率也不保证低延迟；上游hit-on-miss机制见对应doc，Hygon行为
 按本机证据解释。该scale结论只绑定本次image与collector。
+
+HIP API trace与kernel counters是不同能力。exp-gemm-packing-cost-20261006中，
+--hip-trace虽出现在help，却因镜像路径缺失而无法产出有效trace；counter-only仍可独立接受。
+保留失败和release，不修补环境后把同一次check改称通过，也不从counter CSV推导缺失的API耗时。
