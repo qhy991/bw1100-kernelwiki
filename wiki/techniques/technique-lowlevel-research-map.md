@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-aligned-grouped-gemm-20261006
 - exp-gemm-alignment-stages-20261006
 - doc-triton-alignment-hints
 - doc-triton-loop-pipeline
@@ -82,3 +83,9 @@ technique-aot-alignment-pipeline连接TTIR指针对齐、向量化、stage数与
 exp-gemm-alignment-stages-20261006保留规则形状收益、odd-stride无收益、stage4退化和
 遗漏dynamic LDS导致驻留误判的对照。累计15份官方来源；既有Compiler对齐owner已存在，
 本轮不制造缺口或新增规则。上一轮因SSH中断未同步的分析和wiki也已恢复同步。
+
+## 第五轮：优化之间的适用关系
+
+exp-aligned-grouped-gemm-20261006复验了对齐后的group映射。其意义是给出新lowering下
+的条件化结果，保留旧版负结果，同时拒绝把约0.2%的差异当作新胜利。
+本轮复用既有harness、输入/oracle与已验证的counter尺度，不增加另一套参数或测量owner。

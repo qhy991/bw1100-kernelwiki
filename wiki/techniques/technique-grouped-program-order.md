@@ -11,6 +11,7 @@ sources:
 - doc-rocprof-l2-request-semantics
 - exp-grouped-gemm-20261006
 - exp-gemm-alignment-stages-20261006
+- exp-aligned-grouped-gemm-20261006
 kernel_types: [gemm]
 reproducibility: benchmarked
 ---
@@ -57,3 +58,12 @@ waves_per_eu为1。成本模型没有这个目标的校准时报告缺口，不�
 
 后继alignment实验提醒：本页group结果属于未传pointer attrs的固定binary。补充真实alignment
 后代码/资源明显改变，所以旧G选择不能未经重测迁移过去。原数字继续按原编译合同解释。
+
+## 对齐后的复验
+
+exp-aligned-grouped-gemm-20261006在同一对齐binary内重新比较G1/G4/G8。大方阵G8两轮
+收益约8.4%–9.0%，宽矩形约5.1%–5.2%；原2048方阵的明显退化在当前代码路径下没有复现，
+但其新差异太小，不认定为赢家反转。尾部仍沿用scalar路径，边界未被对齐hint掩盖。
+
+旧观察继续绑定旧lowering。改变alignment、tile、stage或融合后，应该重新验证调度选择；
+不能把一份旧参数表独立于指令、资源和caller合同长期使用。counter变化也不能线性预测速度。

@@ -10,6 +10,7 @@ sources:
 - doc-triton-loop-pipeline
 - doc-hip-occupancy-api
 - exp-gemm-alignment-stages-20261006
+- exp-aligned-grouped-gemm-20261006
 related:
 - technique-gfx938-instruction-audit
 - technique-grouped-program-order
@@ -57,3 +58,7 @@ Triton可能将LDS全部放在launch的dynamic shared参数里，HSACO static gr
 在同一基线上改变一个选项→分别收集正确性、计时、profile与资源估计。
 当前Cake已有pointer alignment合同；如果使用Cake，应复用其owner，不能建立第二个独立
 硬件/对齐规则表。若上下游事实丢失，保留最早分歧再决定是否形成Compiler Finding。
+
+后继group复验已完成，见exp-aligned-grouped-gemm-20261006。alignment改善之后，
+G8在大方阵的相对收益更大，旧的2048退化未复现。对齐合同不是只改变一个全局倍率；
+它可能改变后续调度选择的有效范围，需要在新代码路径内重新比较。
