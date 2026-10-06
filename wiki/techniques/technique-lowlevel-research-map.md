@@ -1,0 +1,53 @@
+---
+id: technique-lowlevel-research-map
+title: BW1100 底层优化入口：来源、探针与适用边界
+type: wiki-technique
+architectures:
+- gfx938
+tags:
+- hygon
+- assembly
+- profiling
+- local-evidence
+confidence: experimental
+sources:
+- doc-ck-lds-phases
+- doc-hip-memory-performance
+- doc-hip-reduction
+- doc-hip-extensions
+- doc-llvm-amdgpu-waits
+- doc-triton-grouped-gemm
+- doc-triton-softmax-residency
+- doc-rocprof-lds-metrics
+- doc-amd-wave-builtins
+- doc-llvm-occupancy-tool
+- exp-lowlevel-probe-20261006
+related:
+- technique-global-lds-transpose
+- technique-wave-reduction
+- technique-gfx938-instruction-audit
+- technique-grouped-program-order
+- technique-atomic-precision-boundary
+---
+
+本轮以 10 份上游官方文档/教程为入口，在 BW1100-1 验证其中三类机制：global coalescing、
+LDS padding/XOR、分层 shuffle 归约。资料的采集日为 2026-10-06；develop/main/preview
+文档是可变来源，不能当成本机 DTK API 承诺。其余机制保留为带验证方法的候选。
+
+| 当前问题 | 读取页 | 证据与下一步 |
+|---|---|---|
+| 转置或 strided global store 慢 | technique-global-lds-transpose | 本机配对+counter；确认 consumer 地址与尾部 |
+| 归约 barrier 多 | technique-wave-reduction | 本机 ISA+正确性；width32/64 没有通用赢家 |
+| tile 变大后反而慢 | technique-gfx938-instruction-audit、technique-execution-groups | metadata 与实际分配分别读取 |
+| GEMM panel 重复加载 | technique-grouped-program-order | 仅上游；固定 tile 后测 ordering |
+| FP32 atomic 想走 fast path | technique-atomic-precision-boundary | 仅上游；保留精度与并发合同 |
+| rocprof 空数据或数值难解释 | technique-profile-gfx938 | 先接受真实 kernel/columns，再读本机公式 |
+
+代码 owner：open-cake-ir task/dcu-lowlevel-knowledge-20261006，提交 4ce5d2ce，
+工具 tools/dcu/lowlevel_probe.hip。raw owner：exp-lowlevel-probe-20261006 引用的远端 results。
+本 wiki sources 拥有证据解读，wiki 正文拥有机制综合，queries 只由生成器更新。
+
+对 agent 的使用顺序：读取机制的适用条件→取 source 页定位→声明一个改写假设→保持原 oracle→
+通过现有 admission 做有界测试→保留失败、counter 和释放凭据→把结论放回其 owner。
+本轮是原生机制探索，不是 Cake 作者比较、Bench 分数或 Compiler 性能提升。
+No promotion：不凭一个 native 微基准修改 Compiler/Target/成本模型。

@@ -15,6 +15,8 @@ sources:
 - exp-host-entry
 - exp-gateup-fusion
 - exp-width-qualification
+- exp-lowlevel-probe-20261006
+- doc-rocprof-lds-metrics
 date: '2026-10-05'
 description: 正确profile至少要同source、实际入口、原workload、image、cache和terminal绑定。
 techniques:
@@ -40,3 +42,8 @@ related:
 
 GPU duration只作归因，普通双顺序完整callable+A/A决定速度。host开销需要同kernel host对照。
 可复用诊断表见相关patterns。
+
+本轮原生探针补充：DTK rocprof 的输入后缀必须是 `.txt` 或 `.xml`；`.pmc` 会在执行前拒绝。
+见 exp-lowlevel-probe-20261006 的失败与成功凭据。`LDSInsts` 是 derived 平均值，
+`LDSBankConflict` 是 derived 百分比口径，均不当作可相加的事件总数。
+metrics.xml 没有显式 gfx938 entry 时，保留公式来源与继承未验证的限制。

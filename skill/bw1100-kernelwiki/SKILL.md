@@ -11,6 +11,7 @@ README and `queries/pages.json`, then read the mechanism and cited source pages.
 ```bash
 bash scripts/wiki.sh query "GEMM 融合" --limit 5
 bash scripts/wiki.sh query --architecture gfx938 --kernel-type moe --type kernel
+bash scripts/wiki.sh get technique-lowlevel-research-map
 bash scripts/wiki.sh get technique-execution-groups
 bash scripts/wiki.sh get exp-width-qualification
 bash scripts/wiki.sh validate

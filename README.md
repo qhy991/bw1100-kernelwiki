@@ -4,6 +4,8 @@
 
 ## 从哪里开始
 
+- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：10 份上游资料、访存/LDS/wave 归约实测、指令与资源检查。
+
 - [硬件身份与边界](wiki/hardware/hw-bw1100-gfx938.md)：Hygon、gfx938、MMAC、wave64、DTK。
 - [双 GEMM＋GELU 融合](wiki/kernels/kernel-bw-gateup.md)：输入tile复用、中间materialization、舍入与register生命周期。
 - [严格 FP32 MoE](wiki/kernels/kernel-bw-moe-fp32.md)：路由布局、专家GEMM/epilogue、combine及padding。

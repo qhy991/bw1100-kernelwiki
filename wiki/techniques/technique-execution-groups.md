@@ -11,6 +11,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-lowlevel-probe-20261006
+- doc-llvm-occupancy-tool
 - exp-width-qualification
 - exp-fp32-staging
 date: '2026-10-05'
@@ -41,3 +43,6 @@ related:
 
 ## 本机观察
 width2在一个GateUp域中数值正确但scratch较大、完整调用较慢；width8的scratch为0。这支持把width作为显式搜索参数，并保留负结果，不支持默认少线程或固定8组。原source保存条件和原始资源。
+
+底层检查见 technique-gfx938-instruction-audit：本轮 source metadata 的 VGPR/LDS 与
+profiler allocation 存在粒度差异；只改线程分组或 partial 数量不能保证 allocation 下降。

@@ -1,7 +1,12 @@
 # Index: By Architecture
 
 
-## gfx938 (39 pages)
+## cdna3 (2 pages)
+
+- [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
+- [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
+
+## gfx938 (46 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -9,6 +14,7 @@
 - [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md) `[source-experiment]` arch:gfx938
 - [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md) `[source-experiment]` arch:gfx938
 - [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md) `[source-experiment]` arch:gfx938
+- [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md) `[source-experiment]` arch:gfx938
 - [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md) `[source-experiment]` arch:gfx938
 - [已安装 DCU rocprof 技能的收集与解析边界](../sources/experiments/exp-profiler-skill.md) `[source-experiment]` arch:gfx938
@@ -36,9 +42,15 @@
 - [输出 matched ratio 通过不授权降低中间精度](../wiki/patterns/pattern-precision-not-output-only.md) `[wiki-pattern]` arch:gfx938
 - [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md) `[wiki-pattern]` arch:gfx938
 - [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md) `[wiki-pattern]` arch:gfx938
+- [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md) `[wiki-technique]` arch:gfx938
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md) `[wiki-technique]` arch:gfx938
 - [先用现有 access maps 表达有界 memory permutation](../wiki/techniques/technique-existing-layout-maps.md) `[wiki-technique]` arch:gfx938
+- [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
+- [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md) `[wiki-technique]` arch:gfx938
+- [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md) `[wiki-technique]` arch:gfx938
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md) `[wiki-technique]` arch:gfx938
+- [BW1100 底层优化入口：来源、探针与适用边界](../wiki/techniques/technique-lowlevel-research-map.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md) `[wiki-technique]` arch:gfx938
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md) `[wiki-technique]` arch:gfx938
+- [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md) `[wiki-technique]` arch:gfx938

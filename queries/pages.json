@@ -1,5 +1,167 @@
 [
  {
+  "id": "doc-amd-wave-builtins",
+  "type": "source-doc",
+  "title": "AMD wave builtin strategies and DPP",
+  "path": "sources/docs/doc-amd-wave-builtins.md",
+  "architectures": [],
+  "tags": [
+   "wave64",
+   "reduction",
+   "assembly"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-ck-lds-phases",
+  "type": "source-doc",
+  "title": "CK LDS banks and instruction phases",
+  "path": "sources/docs/doc-ck-lds-phases.md",
+  "architectures": [
+   "cdna3"
+  ],
+  "tags": [
+   "lds",
+   "layout-transform"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hip-extensions",
+  "type": "source-doc",
+  "title": "HIP shuffle width and atomic semantics",
+  "path": "sources/docs/doc-hip-extensions.md",
+  "architectures": [],
+  "tags": [
+   "wave64",
+   "precision",
+   "hip"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hip-memory-performance",
+  "type": "source-doc",
+  "title": "HIP coalescing and resource tradeoffs",
+  "path": "sources/docs/doc-hip-memory-performance.md",
+  "architectures": [],
+  "tags": [
+   "tiling",
+   "lds",
+   "occupancy-tuning"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hip-reduction",
+  "type": "source-doc",
+  "title": "HIP hierarchical reduction",
+  "path": "sources/docs/doc-hip-reduction.md",
+  "architectures": [],
+  "tags": [
+   "reduction",
+   "wave64",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-llvm-amdgpu-waits",
+  "type": "source-doc",
+  "title": "LLVM AMDGPU waits and code object metadata",
+  "path": "sources/docs/doc-llvm-amdgpu-waits.md",
+  "architectures": [],
+  "tags": [
+   "assembly",
+   "vgpr",
+   "scratch-memory"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-llvm-occupancy-tool",
+  "type": "source-doc",
+  "title": "LLVM occupancy calculator boundary",
+  "path": "sources/docs/doc-llvm-occupancy-tool.md",
+  "architectures": [],
+  "tags": [
+   "occupancy-tuning",
+   "vgpr",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-rocprof-lds-metrics",
+  "type": "source-doc",
+  "title": "ROCm profiler LDS metric meaning",
+  "path": "sources/docs/doc-rocprof-lds-metrics.md",
+  "architectures": [
+   "cdna3"
+  ],
+  "tags": [
+   "profiling",
+   "lds",
+   "rocprof"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-triton-grouped-gemm",
+  "type": "source-doc",
+  "title": "Triton grouped GEMM program ordering",
+  "path": "sources/docs/doc-triton-grouped-gemm.md",
+  "architectures": [],
+  "tags": [
+   "gemm",
+   "tiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-triton-softmax-residency",
+  "type": "source-doc",
+  "title": "Triton fused row reduction and residency",
+  "path": "sources/docs/doc-triton-softmax-residency.md",
+  "architectures": [],
+  "tags": [
+   "reduction",
+   "register-spilling",
+   "occupancy-tuning"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "exp-admission",
   "type": "source-experiment",
   "title": "Standalone HCU gateway\u3001\u8d85\u65f6\u4e0e\u771f\u5b9e\u91ca\u653e",
@@ -100,6 +262,27 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "parent86cacc54\u4e0esuccessorf2c3d89c\u7684\u4e09\u4e2akernel AST\u76f8\u540c\uff0c\u5904\u7406\u662fhost wrapper\u3002"
+ },
+ {
+  "id": "exp-lowlevel-probe-20261006",
+  "type": "source-experiment",
+  "title": "BW1100-1 native transpose and reduction mechanism probes",
+  "path": "sources/experiments/exp-lowlevel-probe-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "wave64",
+   "reduction"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-night-exclusions",
@@ -678,6 +861,24 @@
   "summary": "\u5148\u533a\u5206\u56fa\u5b9akernel\u7684codegen/runtime\u6548\u679c\u3001\u663e\u5f0f\u5de5\u5177\u5bf9\u641c\u7d22\u7684\u5e2e\u52a9\u3001\u4ee5\u53ca\u66f4\u591a\u7ee7\u627f\u6750\u6599\u9020\u6210\u7684\u4f18\u52bf\u3002"
  },
  {
+  "id": "technique-atomic-precision-boundary",
+  "type": "wiki-technique",
+  "title": "\u6d6e\u70b9 atomics\uff1a\u6027\u80fd\u9009\u62e9\u524d\u5148\u56fa\u5b9a\u6570\u503c\u4e0e memory scope",
+  "path": "wiki/techniques/technique-atomic-precision-boundary.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "precision",
+   "hip",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "inferred",
+  "summary": ""
+ },
+ {
   "id": "technique-execution-groups",
   "type": "wiki-technique",
   "title": "\u6267\u884c\u7ec4\u9009\u62e9\uff1a\u5de5\u5177\u53ef\u590d\u7528\uff0c\u53c2\u6570\u9700\u8981\u6d4b\u91cf",
@@ -715,6 +916,64 @@
   "summary": "\u5e03\u5c40\u4f18\u5316\u5148\u95ee\u80fd\u5426\u901a\u8fc7\u5df2\u6709\u8bfb\u5199\u7d22\u5f15\u6539\u53d8\u8bbf\u95ee\uff0c\u800c\u4e0d\u662f\u5148\u589e\u52a0\u4e00\u79cdlayout\u62bd\u8c61\u3002"
  },
  {
+  "id": "technique-gfx938-instruction-audit",
+  "type": "wiki-technique",
+  "title": "\u4ece HIP/Triton \u5230 gfx938\uff1a\u68c0\u67e5\u6307\u4ee4\u3001\u7b49\u5f85\u548c\u8d44\u6e90",
+  "path": "wiki/techniques/technique-gfx938-instruction-audit.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "assembly",
+   "vgpr",
+   "scratch-memory",
+   "occupancy-tuning"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "technique-global-lds-transpose",
+  "type": "wiki-technique",
+  "title": "Global \u5408\u5e76\u8bbf\u5b58\u4e0e LDS \u8f6c\u7f6e\uff1a\u5206\u522b\u9a8c\u8bc1\u4e24\u5c42\u5730\u5740\u6620\u5c04",
+  "path": "wiki/techniques/technique-global-lds-transpose.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "lds",
+   "layout-transform",
+   "tiling",
+   "paired-timing"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "technique-grouped-program-order",
+  "type": "wiki-technique",
+  "title": "Grouped program ordering\uff1a\u5148\u6539\u53d8\u590d\u7528\u8ddd\u79bb\uff0c\u518d\u6d4b\u7f13\u5b58\u6536\u76ca",
+  "path": "wiki/techniques/technique-grouped-program-order.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "gemm",
+   "tiling",
+   "runtime-dispatch"
+  ],
+  "kernel_types": [
+   "gemm"
+  ],
+  "languages": [],
+  "confidence": "inferred",
+  "summary": ""
+ },
+ {
   "id": "technique-host-entry",
   "type": "wiki-technique",
   "title": "host \u5165\u53e3\u6210\u672c\uff1a\u56fa\u5b9a kernel \u624d\u80fd\u5f52\u56e0",
@@ -731,6 +990,25 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u77edGPU\u8c03\u7528\u7684\u6210\u672c\u4e0d\u4ec5\u5728kernel\u5185\u90e8\uff0c\u5206\u914d\u3001metadata\u68c0\u67e5\u548cdispatch\u4e5f\u53ef\u80fd\u5360\u660e\u663e\u6bd4\u4f8b\u3002"
+ },
+ {
+  "id": "technique-lowlevel-research-map",
+  "type": "wiki-technique",
+  "title": "BW1100 \u5e95\u5c42\u4f18\u5316\u5165\u53e3\uff1a\u6765\u6e90\u3001\u63a2\u9488\u4e0e\u9002\u7528\u8fb9\u754c",
+  "path": "wiki/techniques/technique-lowlevel-research-map.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "assembly",
+   "profiling",
+   "local-evidence"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "technique-profile-gfx938",
@@ -793,5 +1071,25 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u878d\u5408private rounded tile\u7684\u76ee\u6807\u662f\u7701\u53bbproducer\u5230consumer\u4e4b\u95f4\u7684global\u5199\u56de\u548c\u91cd\u65b0\u8bfb\u53d6\u3002"
+ },
+ {
+  "id": "technique-wave-reduction",
+  "type": "wiki-technique",
+  "title": "Wave64 \u4e0a\u7684\u5f52\u7ea6\uff1a\u5b50\u7ec4\u5bbd\u5ea6\u3001partials \u4e0e\u5b9e\u9645 shuffle \u6307\u4ee4",
+  "path": "wiki/techniques/technique-wave-reduction.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "reduction",
+   "wave64",
+   "lds"
+  ],
+  "kernel_types": [
+   "reduction"
+  ],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  }
 ]
