@@ -6,6 +6,8 @@ architectures: [gfx938]
 tags: [triton, gemm, correctness, lds, vgpr, paired-timing]
 confidence: experimental
 sources:
+- doc-triton-cache-modifier-lowering
+- exp-cache-policy-20261007
 - doc-triton-alignment-hints
 - doc-triton-loop-pipeline
 - doc-hip-occupancy-api
@@ -70,3 +72,15 @@ contiguous()可能不复制；stride与alignment分别拒绝，packing验证stor
 
 逐operand后继进一步区分A/B/C事实：部分pointer降级不必丢弃其余事实，
 但更细的合同也可能改变资源和epilogue搬运，详见exp-gemm-operand-alignment-20261006。
+
+## Cache hint也可能改变等待
+
+exp-cache-policy-20261007在同GEMM上先检查ISA，再选择可归因的设备对照。
+本机.ca与default所检查指令序列相同；.cg只给选定operand的load增加glc slc；
+.cv除了glc还在每个global load后增加s_waitcnt vmcnt(0)，不能当作只改变缓存策略。
+前端cache名字的PTX解释不直接提供gfx938语义，见doc-triton-cache-modifier-lowering。
+
+本轮.cg没有修复合法位置的退化，反而在大形状zero位置增加约8.4%–18.5%时间。
+两输入都加时profile读取指标显著增加，位置相关请求计数膨胀仍在。
+使用hint前先确认实际load flags、等待、资源和正确性；当序列无变化时不盲目重复设备搜索，
+当序列同时改变多个机制时保留归因边界。候选规则不能只写“绕过L1会更快”。

@@ -323,6 +323,22 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-cache-modifier-lowering",
+  "type": "source-doc",
+  "title": "Triton load cache modifiers require backend inspection",
+  "path": "sources/docs/doc-triton-cache-modifier-lowering.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "profiling",
+   "tiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-dot-precision",
   "type": "source-doc",
   "title": "Triton dot input types and precision controls",
@@ -436,6 +452,28 @@
    "paired-timing",
    "profiling",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-cache-policy-20261007",
+  "type": "source-experiment",
+  "title": "Per-operand cache hints change flags, traffic and waiting on gfx938",
+  "path": "sources/experiments/exp-cache-policy-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "paired-timing",
+   "gemm",
+   "triton",
+   "profiling",
+   "rocprof"
   ],
   "kernel_types": [],
   "languages": [],

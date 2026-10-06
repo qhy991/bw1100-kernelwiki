@@ -98,3 +98,10 @@ metric总数限制与底层counter依赖容量分别检查；两层都通过才�
 
 本版--list-derived固定exit1。保留真实not_qualified回执，分别判断枚举信息和释放证据，
 不要因该退出码重装环境，也不要将列表成功伪装为性能资格。
+
+## Cache hint的干预反例
+
+exp-cache-policy-20261007的cg-ab在大形状zero位置使FETCH_SIZE约增至4.979倍，
+L2 hit fraction从87.295%降到58.520%，独立计时用时增加约18.5%。
+这比只观察地址曲线多了实际load-flag干预，但profile与计时边界仍不同，
+不能按流量比例推断速度或把这次干预认定为唯一cache-level解释。

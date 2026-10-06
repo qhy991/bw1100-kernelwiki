@@ -140,3 +140,10 @@ A/B的工作项地址函数，并区分单指令区间与跨指令复用。累�
 exp-metric-definitions-20261007定位vendor derived_counters与运行时实际表达式，
 同次168条kernel记录验证FETCH_SIZE重建，并保留EA1全零限制、列表固定exit1和预检6项上限。
 新增doc-rocprof-runtime-metrics，累计24份官方来源；本轮是指标验证，没有新增速度排名。
+
+## 第十轮：cache modifier干预
+
+exp-cache-policy-20261007编译六种policy，过滤与default相同的.ca及同时改变等待的.cv，
+对四个policy进行两批反序复验，并给default/cg-ab各做两组profile。
+.cg在本轮大形状退化，.cv插入逐load等待的事实可供agent提前过滤混合机制对照。
+新增doc-triton-cache-modifier-lowering，累计25份官方来源与十轮设备机制观察。
