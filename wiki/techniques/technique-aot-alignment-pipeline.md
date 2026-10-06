@@ -11,6 +11,7 @@ sources:
 - doc-hip-occupancy-api
 - exp-gemm-alignment-stages-20261006
 - exp-aligned-grouped-gemm-20261006
+- exp-gemm-view-precision-20261006
 related:
 - technique-gfx938-instruction-audit
 - technique-grouped-program-order
@@ -62,3 +63,6 @@ Triton可能将LDS全部放在launch的dynamic shared参数里，HSACO static gr
 后继group复验已完成，见exp-aligned-grouped-gemm-20261006。alignment改善之后，
 G8在大方阵的相对收益更大，旧的2048退化未复现。对齐合同不是只改变一个全局倍率；
 它可能改变后续调度选择的有效范围，需要在新代码路径内重新比较。
+
+实际view边界已由technique-view-admission补充：连续offset view仍可能不对齐，
+contiguous()可能不复制；stride与alignment分别拒绝，packing验证storage效果后才谈成本。

@@ -145,6 +145,55 @@
   "summary": ""
  },
  {
+  "id": "doc-pytorch-clone-format",
+  "type": "source-doc",
+  "title": "Clone memory format and explicit packing",
+  "path": "sources/docs/doc-pytorch-clone-format.md",
+  "architectures": [],
+  "tags": [
+   "copy",
+   "correctness",
+   "layout-transform"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-pytorch-numerical-accuracy",
+  "type": "source-doc",
+  "title": "Floating point ordering, reference precision and target-specific denorms",
+  "path": "sources/docs/doc-pytorch-numerical-accuracy.md",
+  "architectures": [],
+  "tags": [
+   "precision",
+   "fp32",
+   "fp16",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-pytorch-view-alignment",
+  "type": "source-doc",
+  "title": "Tensor views, storage offset and contiguous semantics",
+  "path": "sources/docs/doc-pytorch-view-alignment.md",
+  "architectures": [],
+  "tags": [
+   "correctness",
+   "copy",
+   "runtime-guard"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-rocprof-l2-request-semantics",
   "type": "source-doc",
   "title": "L2 request metrics and hit-on-miss interpretation",
@@ -188,6 +237,23 @@
    "triton",
    "tiling",
    "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-triton-dot-precision",
+  "type": "source-doc",
+  "title": "Triton dot input types and precision controls",
+  "path": "sources/docs/doc-triton-dot-precision.md",
+  "architectures": [],
+  "tags": [
+   "precision",
+   "triton",
+   "gemm",
+   "mmac"
   ],
   "kernel_types": [],
   "languages": [],
@@ -363,6 +429,28 @@
    "profiling",
    "lds",
    "vgpr",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-gemm-view-precision-20261006",
+  "type": "source-experiment",
+  "title": "Contiguous offset views and FP16 GEMM numerical boundaries",
+  "path": "sources/experiments/exp-gemm-view-precision-20261006.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp16",
+   "fp32",
+   "copy",
    "negative-result"
   ],
   "kernel_types": [],
@@ -1261,6 +1349,25 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u878d\u5408private rounded tile\u7684\u76ee\u6807\u662f\u7701\u53bbproducer\u5230consumer\u4e4b\u95f4\u7684global\u5199\u56de\u548c\u91cd\u65b0\u8bfb\u53d6\u3002"
+ },
+ {
+  "id": "technique-view-admission",
+  "type": "wiki-technique",
+  "title": "Tensor view admission\uff1a\u8fde\u7eed\u3001\u5bf9\u9f50\u548cstorage\u6548\u679c\u5206\u522b\u68c0\u67e5",
+  "path": "wiki/techniques/technique-view-admission.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "correctness",
+   "copy",
+   "runtime-guard",
+   "precision"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "technique-wave-reduction",

@@ -11,6 +11,11 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-gemm-view-precision-20261006
+- doc-pytorch-view-alignment
+- doc-pytorch-clone-format
+- doc-pytorch-numerical-accuracy
+- doc-triton-dot-precision
 - exp-aligned-grouped-gemm-20261006
 - exp-gemm-alignment-stages-20261006
 - doc-triton-alignment-hints
@@ -89,3 +94,9 @@ exp-gemm-alignment-stages-20261006保留规则形状收益、odd-stride无收益
 exp-aligned-grouped-gemm-20261006复验了对齐后的group映射。其意义是给出新lowering下
 的条件化结果，保留旧版负结果，同时拒绝把约0.2%的差异当作新胜利。
 本轮复用既有harness、输入/oracle与已验证的counter尺度，不增加另一套参数或测量owner。
+
+## 第六轮：实际caller与数值分布
+
+technique-view-admission和exp-gemm-view-precision-20261006连接view/stride/alignment、
+显式packing、storage保护与数值oracle。384个view检查与96个数值观察分开报告；
+本轮没有速度排名，避免把FP64差异隐藏在新容差里。累计19份官方来源。

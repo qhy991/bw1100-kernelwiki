@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-66 pages. Machine-readable form: [pages.json](pages.json).
+72 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (15)
+## source-doc (19)
 
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
@@ -15,14 +15,18 @@
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
 - `doc-llvm-occupancy-tool` — [LLVM occupancy calculator boundary](../sources/docs/doc-llvm-occupancy-tool.md)
+- `doc-pytorch-clone-format` — [Clone memory format and explicit packing](../sources/docs/doc-pytorch-clone-format.md)
+- `doc-pytorch-numerical-accuracy` — [Floating point ordering, reference precision and target-specific denorms](../sources/docs/doc-pytorch-numerical-accuracy.md)
+- `doc-pytorch-view-alignment` — [Tensor views, storage offset and contiguous semantics](../sources/docs/doc-pytorch-view-alignment.md)
 - `doc-rocprof-l2-request-semantics` — [L2 request metrics and hit-on-miss interpretation](../sources/docs/doc-rocprof-l2-request-semantics.md)
 - `doc-rocprof-lds-metrics` — [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
+- `doc-triton-dot-precision` — [Triton dot input types and precision controls](../sources/docs/doc-triton-dot-precision.md)
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (18)
+## source-experiment (19)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -31,6 +35,7 @@
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
 - `exp-gemm-alignment-stages-20261006` — [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md)
+- `exp-gemm-view-precision-20261006` — [Contiguous offset views and FP16 GEMM numerical boundaries](../sources/experiments/exp-gemm-view-precision-20261006.md)
 - `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-lowlevel-probe-20261006` — [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md)
@@ -78,7 +83,7 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (13)
+## wiki-technique (14)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
@@ -92,4 +97,5 @@
 - `technique-profile-gfx938` — [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md)
 - `technique-register-scan-broadcast` — [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 - `technique-rounded-tiled-fusion` — [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
+- `technique-view-admission` — [Tensor view admission：连续、对齐和storage效果分别检查](../wiki/techniques/technique-view-admission.md)
 - `technique-wave-reduction` — [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md)
