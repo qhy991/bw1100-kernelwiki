@@ -6,6 +6,8 @@ architectures: [gfx938]
 tags: [triton, reduction, fusion, precision, profiling]
 confidence: experimental
 sources:
+- doc-triton-tensor-gather
+- exp-target-selection-20261007
 - doc-pytorch-class-index-cross-entropy
 - exp-cross-entropy-20261007
 date: '2026-10-07'
@@ -40,3 +42,11 @@ exp-cross-entropy-20261007在六shape的normal/peaked输入上通过预设误差
 融合kernel仍有小loss向量转换，静态barrier增加，VGPR随N可能增加或减少。
 必须在同最终loss接口下比较两kernel基线与单kernel候选，聚合完整策略的计数，并保留ABA/BAB噪声。
 该结果不是PyTorch/AITER最佳库排名，也没有训练端到端或通用API资格。
+
+## 已加载的目标值也可能需要昂贵搬运
+
+exp-target-selection-20261007保持同loss合同，把额外global读取替换为where+sum或tl.gather。
+当前4行/4-wave布局下没有稳健收益，4097×1024分别约慢11%/24%。
+gather前转换整个4×1024 tensor到每wave一行的布局，LDS达16KiB、每wave LDS指标增至3倍；
+局部gather的efficient_layout标记不保证前置转换廉价。掩码选择还保留int64比较与额外归约。
+因此不能只因值已在片上就删去reload；需同时核对值在哪个lane/wave、存活时间与选择路径的真实lowering。

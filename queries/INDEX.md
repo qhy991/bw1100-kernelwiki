@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-118 pages. Machine-readable form: [pages.json](pages.json).
+120 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (36)
+## source-doc (37)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -40,10 +40,11 @@
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
+- `doc-triton-tensor-gather` — [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md)
 - `doc-triton-thread-layout` — [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 
-## source-experiment (46)
+## source-experiment (47)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -89,6 +90,7 @@
 - `exp-row-mapping-20261007` — [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md)
 - `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)
 - `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
+- `exp-target-selection-20261007` — [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
 - `exp-width-qualification` — [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md)
 

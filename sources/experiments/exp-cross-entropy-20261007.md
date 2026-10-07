@@ -139,3 +139,6 @@ fused最终输出使用buffer_store_dword；目标索引等访问还出现buffer
 保留该受限前向消费者融合的有界收益与4097×129小收益边界；No promotion to Compiler/Target。
 机制属于kernel-bw-cross-entropy中的消费者合同与materialization消除，不更改原softmax输出义务或训练API。
 若加入ignore/weight/smoothing、backward或其他消费者，先恢复其完整语义再测，不继承这里的比值。
+
+后继exp-target-selection-20261007保持本合同，比较重新读取目标logit与两种片上选择；当前布局下没有稳健替换收益。
+本轮的消费者融合收益和后继的内部选择负例是不同对照，不混合计算加速比。

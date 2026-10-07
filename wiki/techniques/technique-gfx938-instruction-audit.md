@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-target-selection-20261007
 - exp-cross-entropy-20261007
 - exp-output-layout-20261007
 - exp-row-stride-20261007
@@ -57,6 +58,10 @@ exp-output-layout-20261007是另一个边界：核心已无convert_layout/LDS/ba
 exp-cross-entropy-20261007还显示只搜global_load/store会漏证据：loss写出走buffer_store_dword，
 类别索引等访问出现buffer_load_dwordx2，scalar load还可能服务kernel参数。
 同时检查global/buffer/flat/scalar访问及对应IR数据流；静态拼写计数不是实际访存事务或写量。
+
+exp-target-selection-20261007中，tt.gather标有efficient_layout，但前面先convert整个4×1024 tensor，
+对应16KiB LDS与更多ds操作。优化标记的范围仅限所修饰操作，不证明整条数据通路低成本。
+同时检查索引类型：本轮where+sum保留i64比较，而gather在合法小索引域转i32；不要遗漏这种实际实现差异。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。

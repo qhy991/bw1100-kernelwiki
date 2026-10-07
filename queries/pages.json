@@ -554,6 +554,24 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-tensor-gather",
+  "type": "source-doc",
+  "title": "Tensor gather specifies selected values, not a free register lookup",
+  "path": "sources/docs/doc-triton-tensor-gather.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "reduction",
+   "lds",
+   "vgpr",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-thread-layout",
   "type": "source-doc",
   "title": "Triton tensor layout separates register, lane and wave tiling",
@@ -1486,6 +1504,30 @@
    "profiling",
    "lds",
    "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-target-selection-20261007",
+  "type": "source-experiment",
+  "title": "On-chip target selection can cost more than a second global load",
+  "path": "sources/experiments/exp-target-selection-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "vgpr",
+   "negative-result"
   ],
   "kernel_types": [],
   "languages": [],
