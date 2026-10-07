@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-torch-max-output-contract
+- exp-argmax-torch-20261008
 - doc-float-order-key-policy
 - exp-argmax-fp-key-20261008
 - doc-argmax-tie-contract
@@ -580,3 +582,11 @@ exp-argmax-fp-key-20261008明确首次NaN/数值最大值及原bits合同，16�
 指令/请求各1056目标dispatch、每pass96刷新/12首次重放通过；两批192刷新、24首次重放、3456样本通过，四任务释放。
 三臂区分携带原bits、pair回读和顺序键回读；大N129直接graph约1.17–1.20倍、N1024约1.09–1.10倍，原值回读及A/A成本保留。
 新增浮点排序policy来源，累计51份上游资料；不把归一键当成输出payload，不继承sort或框架默认NaN语义，不默认库替换。
+
+
+## 第六十六轮：实际Torch max与原生同ABI对照
+
+exp-argmax-torch-20261008记录当前Torch2.11.0身份/安装头文件和16组CPU观察，原生改为int64输出后通过相同GPU特殊值合同。
+指令/请求各704目标dispatch、每pass64刷新/8首次重放通过；两批128刷新、16首次重放、1152计时样本通过，四任务释放。
+大batch graph对实际Torch out路径N129约1.42–1.46倍、N1024约1.68–1.70倍；小batch eager、A/A及更多wave/请求反例保留。
+新增Torch max输出合同来源，累计52份上游资料；区分offset与返回索引dtype，不宣称默认分配、autograd或一般框架替换资格。

@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-173 pages. Machine-readable form: [pages.json](pages.json).
+175 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (51)
+## source-doc (52)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -40,6 +40,7 @@
 - `doc-runtime-division-descriptors` — [Runtime integer division can use precomputed reciprocal descriptors](../sources/docs/doc-runtime-division-descriptors.md)
 - `doc-selection-contract` — [Selection contracts distinguish output count, capacity and relative order](../sources/docs/doc-selection-contract.md)
 - `doc-stall-counter-domains` — [Stall counters have interface, aggregation and normalization domains](../sources/docs/doc-stall-counter-domains.md)
+- `doc-torch-max-output-contract` — [Torch row max returns both values and first indices and exposes an out-buffer contract](../sources/docs/doc-torch-max-output-contract.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
 - `doc-triton-atomic-reduction` — [Atomic reduction changes require order, scope and returned-value contracts](../sources/docs/doc-triton-atomic-reduction.md)
 - `doc-triton-cache-modifier-lowering` — [Triton load and store cache modifiers require backend inspection](../sources/docs/doc-triton-cache-modifier-lowering.md)
@@ -58,13 +59,14 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (81)
+## source-experiment (82)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
 - `exp-aligned-grouped-gemm-20261006` — [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md)
 - `exp-argmax-fp-key-20261008` — [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md)
 - `exp-argmax-key-20261008` — [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md)
+- `exp-argmax-torch-20261008` — [Installed Torch max out matches FP32 special-value cases and provides a same-ABI framework baseline](../sources/experiments/exp-argmax-torch-20261008.md)
 - `exp-atomic-numerical-20261007` — [Reduction repeatability and reference accuracy diverge under cancellation](../sources/experiments/exp-atomic-numerical-20261007.md)
 - `exp-atomic-reduction-20261007` — [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md)
 - `exp-bf16-cast-20261007` — [BF16 exhaustive casts and an RTZ low-payload NaN counterexample](../sources/experiments/exp-bf16-cast-20261007.md)

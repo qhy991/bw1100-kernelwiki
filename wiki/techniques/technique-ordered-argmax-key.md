@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [reduction, int32, fp32, correctness, vgpr]
 confidence: experimental
-sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008]
+sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008]
 date: '2026-10-08'
 description: 将值与并列索引映射到顺序键；整数符号、FP32 NaN/零等价类、原始位模式输出和padding分别验证。
 kernel_types: [reduction]
@@ -41,3 +41,12 @@ exp-argmax-fp-key-20261008另外声明首次NaN优先、否则首次数值最大
 CPU反例分别暴露错误次序、FTZ改变索引和反解丢失payload；设备检查包含quiet/signaling NaN和subnormal原bits。
 大batch N129 graph对直接pair约1.17–1.20倍，N1024约1.09–1.10倍，回读增加部分请求仍可更快。
 保留A/A、eager和小batch边界；这是明确本地合同的资格，不是默认库argmax、任意NaN策略或浮点异常行为的资格。
+
+
+## 框架基线必须对齐输出ABI和分配边界
+
+exp-argmax-torch-20261008将原生index输出改为int64，与当前Torch2.11.0的max(dim=1,out=...)比较，继承16组特殊值oracle。
+CPU和GPU的value bits与index均匹配，固定地址graph刷新输入也通过；这是当前build及固定contiguous/no-grad/out合同的资格。
+大batch graph相对实际Torch约1.42–1.46(N129)、1.68–1.70(N1024)，小batch普通eager收益显著小于graph。
+框架kernel名字中的unsigned int用于其offset模板，不能据此把返回index也写成int32；实际输出类型另有owner。
+波数、资源和请求同时变化，不把整个框架差异归给顺序键一个机制，也不将out路径收益迁移到默认分配或autograd。
