@@ -66,6 +66,22 @@
   "summary": ""
  },
  {
+  "id": "doc-hip-graph-replay",
+  "type": "source-doc",
+  "title": "HIP graph replay separates construction, submission and fixed-address data",
+  "path": "sources/docs/doc-hip-graph-replay.md",
+  "architectures": [],
+  "tags": [
+   "host-overhead",
+   "correctness",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hip-memory-performance",
   "type": "source-doc",
   "title": "HIP coalescing and resource tradeoffs",
@@ -764,6 +780,27 @@
    "fp32",
    "copy",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-graph-replay-20261007",
+  "type": "source-experiment",
+  "title": "Opaque HIP graph qualification and bounded resident replay savings",
+  "path": "sources/experiments/exp-graph-replay-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "host-overhead",
+   "paired-timing",
+   "profiling",
+   "gemm"
   ],
   "kernel_types": [],
   "languages": [],

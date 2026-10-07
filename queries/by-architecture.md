@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (65 pages)
+## gfx938 (66 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -24,6 +24,7 @@
 - [Placement replication and request-count profile on HCU3](../sources/experiments/exp-gemm-placement-confirmation-20261007.md) `[source-experiment]` arch:gfx938
 - [Selected GEMM load address geometry from retained ISA](../sources/experiments/exp-gemm-placement-geometry-20261007.md) `[source-experiment]` arch:gfx938
 - [Contiguous offset views and FP16 GEMM numerical boundaries](../sources/experiments/exp-gemm-view-precision-20261006.md) `[source-experiment]` arch:gfx938
+- [Opaque HIP graph qualification and bounded resident replay savings](../sources/experiments/exp-graph-replay-20261007.md) `[source-experiment]` arch:gfx938
 - [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md) `[source-experiment]` arch:gfx938
 - [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md) `[source-experiment]` arch:gfx938
 - [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md) `[source-experiment]` arch:gfx938

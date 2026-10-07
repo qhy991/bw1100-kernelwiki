@@ -133,3 +133,10 @@ exp-execution-groups-20261007同时采原始SQ计数与VALUInsts/LDSInsts，在�
 公式。4→8个wave/workgroup使总wave数翻倍，归一化VALU指标797→528，原始计数却增加32.5%。
 因此跨launch配置比较先核对wave/线程/CTA口径，不能把平均值当总量；同样不能将原始指令数
 直接解释为FLOP数或按比例预测时间。
+
+## 图节点、dispatch与事件区间
+
+exp-graph-replay-20261007的两个vendor type200节点动态重放20次kernel；标准枚举不认识该类型，
+必须保留opaque状态并通过动态记录校验实际工作量。profile的240目标行用于资格化，
+带profiler的首次replay时间不能用于速度；另跑无profiler配对。event span包含launch间隙，
+不能从图的整块event时间直接推导单kernel指令吞吐改善。

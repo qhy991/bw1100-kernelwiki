@@ -1,15 +1,16 @@
 # Page Manifest
 
 
-93 pages. Machine-readable form: [pages.json](pages.json).
+95 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (28)
+## source-doc (29)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
 - `doc-hip-extensions` — [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md)
+- `doc-hip-graph-replay` — [HIP graph replay separates construction, submission and fixed-address data](../sources/docs/doc-hip-graph-replay.md)
 - `doc-hip-memory-performance` — [HIP coalescing and resource tradeoffs](../sources/docs/doc-hip-memory-performance.md)
 - `doc-hip-occupancy-api` — [HIP occupancy API and its estimation boundary](../sources/docs/doc-hip-occupancy-api.md)
 - `doc-hip-reduction` — [HIP hierarchical reduction](../sources/docs/doc-hip-reduction.md)
@@ -35,7 +36,7 @@
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (31)
+## source-experiment (32)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -53,6 +54,7 @@
 - `exp-gemm-placement-confirmation-20261007` — [Placement replication and request-count profile on HCU3](../sources/experiments/exp-gemm-placement-confirmation-20261007.md)
 - `exp-gemm-placement-geometry-20261007` — [Selected GEMM load address geometry from retained ISA](../sources/experiments/exp-gemm-placement-geometry-20261007.md)
 - `exp-gemm-view-precision-20261006` — [Contiguous offset views and FP16 GEMM numerical boundaries](../sources/experiments/exp-gemm-view-precision-20261006.md)
+- `exp-graph-replay-20261007` — [Opaque HIP graph qualification and bounded resident replay savings](../sources/experiments/exp-graph-replay-20261007.md)
 - `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-initial-warmup-20261007` — [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md)

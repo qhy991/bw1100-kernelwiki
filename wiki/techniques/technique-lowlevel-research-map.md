@@ -178,3 +178,9 @@ exp-execution-groups-20261007在保留MMAC16时比较2/4/8-wave，完成两批�
 exp-route-precision-20261007复用第六轮固定FP64 oracle，在三个shape/八分布上比较g2/g4/g8 MMAC与m32 vector-dot。
 两次反序运行的96个输出文件逐位一致；MMAC组间在当前输入相等，vector-dot在随机分布不同。
 记录最大误差与逐元素更接近reference的计数，不从dyadic通过推断普遍数值等价；复用既有28份来源。
+
+## 第十六轮：图replay与host提交
+
+exp-graph-replay-20261007从标准节点假设失败出发，识别type200 opaque结构，
+动态验证240条目标dispatch和输入刷新，再进行独立反序计时。host提交显著减少，
+完成wall的收益受shape与重叠影响；构建成本和未验证caller范围单列。新增doc-hip-graph-replay。
