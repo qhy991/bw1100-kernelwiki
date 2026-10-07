@@ -116,3 +116,9 @@ alias、autograd或内存池回收。因此本结果不授权在任意caller上�
 No promotion。图构建、提交、设备完成与caller成本分别记录，知识归属host入口与profile解释。
 未知vendor图节点必须通过实际工作量/正确性证据资格化，不能跳过原检查直接发布速度。
 本轮有界resident block的host提交节省已复验，模型端到端收益和通用图封装仍未验证。
+
+## Caller-bound successor
+
+exp-graph-caller-20261007 measures one GEMM per logical call with rotating caller pointers,
+including required input copies and outputcopy-back. It finds no net graph benefit in those two shapes.
+This does not overwrite the resident20-call result; it records a different, wider caller boundary.

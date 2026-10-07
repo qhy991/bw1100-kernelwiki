@@ -184,3 +184,9 @@ exp-route-precision-20261007复用第六轮固定FP64 oracle，在三个shape/�
 exp-graph-replay-20261007从标准节点假设失败出发，识别type200 opaque结构，
 动态验证240条目标dispatch和输入刷新，再进行独立反序计时。host提交显著减少，
 完成wall的收益受shape与重叠影响；构建成本和未验证caller范围单列。新增doc-hip-graph-replay。
+
+## 第十七轮：图复用放回caller成本
+
+exp-graph-caller-20261007比较直接调用与两种workspace路径，单GEMM/轮换caller/必要复制与回写计时。
+先用42条动态目标dispatch资格化一枚type200节点，再做两次反序计时；workspace graph无净收益。
+29份上游来源不变，机制回到host入口：固定地址resident收益不能替代caller完整策略接受。

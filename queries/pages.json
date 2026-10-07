@@ -787,6 +787,29 @@
   "summary": ""
  },
  {
+  "id": "exp-graph-caller-20261007",
+  "type": "source-experiment",
+  "title": "Single-GEMM graph replay loses its advantage when caller copies are required",
+  "path": "sources/experiments/exp-graph-caller-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "host-overhead",
+   "paired-timing",
+   "profiling",
+   "gemm",
+   "copy",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-graph-replay-20261007",
   "type": "source-experiment",
   "title": "Opaque HIP graph qualification and bounded resident replay savings",

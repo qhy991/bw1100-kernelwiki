@@ -10,6 +10,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-graph-caller-20261007
 - doc-hip-graph-replay
 - exp-graph-replay-20261007
 - exp-host-entry
@@ -44,3 +45,13 @@ exp-graph-replay-20261007固定20个resident GEMM调用，graph replay将host提
 DTK捕获结果是两个type200 opaque节点，不能数节点推断kernel数量。先保留失败，再用240条
 实际dispatch与新输入正确性补证。图保留固定storage地址，每次刷新内容；setup、首次replay与
 caller搬移均单列。没有动态shape、重绑或端到端资格时，不推广为任意caller图缓存策略。
+
+## 单kernel图的复制成本反例
+
+exp-graph-caller-20261007把每次调用改成一个GEMM，轮换三个caller地址集合；图固定workspace，
+每次复制A/B并回写C。512复验direct18.721μs，workspace-graph34.255μs；大shape412.312→547.243μs。
+相同复制的workspace-eager与graph也没有稳定收益。前轮20-call resident graph的提交收益不能直接迁移到该caller。
+
+先区分稳定地址上的内容刷新、caller指针轮换、是否需要copy-back、图中捕获的工作量及setup摊销。
+只比较graph.replay与Python多次launch会漏掉必要搬移；只比较两个workspace路径又会漏掉更便宜的直接路径。
+单GEMM图是一枚type200节点，20-call图曾为两枚；仍需动态dispatch资格，不能从节点数猜内部命令容量。
