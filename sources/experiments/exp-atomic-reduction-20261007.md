@@ -137,3 +137,8 @@ No promotion to Compiler/Target。机制知识是先识别原子真实lowering�
 通过block聚合或partial缓冲减少单地址竞争；数据规模决定额外launch与冲突成本的交换。
 不是默认“所有atomic改成两阶段”，也不支持需要返回旧值的fetch-add。
 先固定数值域、返回值、memory scope/order和完整caller初始化成本，再讨论速度。
+
+## Numerical successor
+
+exp-atomic-numerical-20261007改变输入域但不改kernel，观察到CAS结果变动及staged稳定但失真的抵消结果。
+本页速度仅保留原精确dyadic范围；后继不能被合并成一般FP32数值资格。

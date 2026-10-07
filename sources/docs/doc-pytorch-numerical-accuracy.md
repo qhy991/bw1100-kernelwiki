@@ -19,3 +19,7 @@ PyTorch2.14数值说明，2026-10-06读取。浮点运算顺序会影响结果�
 2026-10-07复查该说明与[rocBLAS6.2的MI200范围说明](https://rocm.docs.amd.com/projects/rocBLAS/en/docs-6.2.0/how-to/what-is-rocblas.html)。
 本机后继exp-bf16-numerical-20261007验证两个gfx938 BF16路径的指定subnormal输入与输出保留，
 仍将上游设备特定声明与本机有限观察分开；没有改写成全面FTZ或cast舍入保证。
+
+2026-10-07另读取[与本机版本对应的PyTorch2.11数值说明](https://docs.pytorch.org/docs/2.11/notes/numerical_accuracy.html)。
+其非结合性与跨实现不保证逐bit相等的说明由本机exp-atomic-numerical-20261007作有界补证；
+该说明不能用来忽略具体Task的误差接受条件。

@@ -71,3 +71,7 @@ exp-bf16-cast-20261007把GPU cast独立出来：全部有限BF16往返、391680�
 widen还观察到126个BF16 NaN只改变quiet bit，分类相同但payload不逐位相同。
 需要分别声明舍入、signed zero、NaN分类/payload和覆盖空间；不能将更简单的bit截断当作无条件优化。
 当前Cake cast未显式选择RTZ，本条不宣称它已触发原生探针的特殊值问题。
+
+exp-atomic-numerical-20261007提供另一反例：staged归约48次输出bits一致，
+仍可在大数抵消输入上严重偏离FP64/解析参考。重复性、单次正确性与误差分布不是同一证据，
+也不能把原子顺序变化解释为唯一舍入来源。

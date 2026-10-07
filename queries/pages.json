@@ -560,6 +560,26 @@
   "summary": ""
  },
  {
+  "id": "exp-atomic-numerical-20261007",
+  "type": "source-experiment",
+  "title": "Reduction repeatability and reference accuracy diverge under cancellation",
+  "path": "sources/experiments/exp-atomic-numerical-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp32",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-atomic-reduction-20261007",
   "type": "source-experiment",
   "title": "Contended FP32 CAS reduction versus block aggregation and staged reduction",

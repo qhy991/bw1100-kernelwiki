@@ -208,3 +208,9 @@ RTNE/RTZ有限检查通过，但RTZ低payload NaN变Inf，widen另有quiet-bit�
 exp-atomic-reduction-20261007在精确dyadic域比较elements、block后CAS和partial/final策略，
 两批完整计时与72条目标profile补齐冲突/规模边界。实际CAS与自动地址处理不等于源码atomic数量，
 需保留输出清零和额外launch成本。新增doc-triton-atomic-reduction，累计31份上游资料条目。
+
+## 第二十一轮：归约重复性不是精度资格
+
+exp-atomic-numerical-20261007复用三条原策略，在18输入单元重复两批2592次观察，
+精确dyadic继续通过；CAS随机/抵消输出会变，staged固定结果仍可能严重偏离解析参考。
+特殊值分类与CAS整数bits比较单独留证据，复用现有31份上游资料条目。

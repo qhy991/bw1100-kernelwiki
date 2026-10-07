@@ -10,6 +10,7 @@ tags:
 - correctness
 confidence: experimental
 sources:
+- exp-atomic-numerical-20261007
 - doc-triton-atomic-reduction
 - exp-atomic-reduction-20261007
 - doc-hip-extensions
@@ -35,3 +36,12 @@ agent 应固定 global/LDS 地址空间、粒度、memory order/scope、数据�
 
 浮点值域限制让本轮改变结合顺序仍精确；任意FP32分布没有这样的保证。返回旧值被消费时，
 预聚合还会改变fetch-add合同，不能据最终sum正确就推广。counter变化也不是CAS失败次数本身。
+
+## 重复性与准确性分开
+
+exp-atomic-numerical-20261007在同一冻结策略上补抵消/随机/特殊值输入。两条CAS路线出现
+同输入多种输出，staged的18个单元均稳定；但N65537的triplets参考21845，staged固定6725。
+移除共享输出CAS不等于移除局部FP32舍入误差，输出稳定不能充当数值正确性证明。
+
+本机quiet-NaN/+Inf/混合Inf分类保持，CAS回环以整数bits比较返回值，所有调用有界结束。
+这不建立NaN payload或任意非有限值并发资格；精确dyadic域的性能结论也不自动覆盖新分布。
