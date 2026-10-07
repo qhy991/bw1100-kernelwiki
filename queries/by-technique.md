@@ -9,7 +9,7 @@
 
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
-- [行 Softmax：融合收益与小概率保留是不同合同](../wiki/kernels/kernel-bw-softmax.md)
+- [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
 
 ## launch-configuration (3 pages)
@@ -26,12 +26,12 @@
 ## masking (3 pages)
 
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md)
-- [行 Softmax：融合收益与小概率保留是不同合同](../wiki/kernels/kernel-bw-softmax.md)
+- [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 
 ## occupancy-tuning (2 pages)
 
-- [行 Softmax：融合收益与小概率保留是不同合同](../wiki/kernels/kernel-bw-softmax.md)
+- [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md)
 
 ## regression-test (2 pages)

@@ -147,3 +147,8 @@ No promotion to Compiler/Target。本轮把融合收益推进到完整native row
 同时保留输出support变化和强库/框架验证缺口。
 agent应分别检查masked尾部、稳定max-shift、归约精度、指数路线、微小概率与完整调用成本。
 若Task需要非零概率、log-softmax、backward或特殊mask行为，必须沿其原语义重新验证。
+
+## Downstream successor
+
+exp-log-softmax-20261007用同一批输入检验log消费，证明本页的softmax误差接受不能继承为
+log-softmax接受。稳定公式和materialized两步的差异由后继独立记录，未扩写为backward或模型资格。

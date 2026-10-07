@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (76 pages)
+## gfx938 (77 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -35,6 +35,7 @@
 - [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md) `[source-experiment]` arch:gfx938
 - [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md) `[source-experiment]` arch:gfx938
 - [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md) `[source-experiment]` arch:gfx938
+- [Stable log-softmax avoids zero probabilities and amplified FP32 materialization error](../sources/experiments/exp-log-softmax-20261007.md) `[source-experiment]` arch:gfx938
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md) `[source-experiment]` arch:gfx938
 - [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md) `[source-experiment]` arch:gfx938
@@ -58,7 +59,7 @@
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) `[wiki-kernel]` arch:gfx938
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md) `[wiki-kernel]` arch:gfx938
 - [RoPE cos/sin：输入频率、社区分母与 dispatch](../wiki/kernels/kernel-bw-rope.md) `[wiki-kernel]` arch:gfx938
-- [行 Softmax：融合收益与小概率保留是不同合同](../wiki/kernels/kernel-bw-softmax.md) `[wiki-kernel]` arch:gfx938
+- [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) `[wiki-kernel]` arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) `[wiki-kernel]` arch:gfx938
 - [Ragged vision attention：不要抹掉两次 BF16 舍入](../wiki/kernels/kernel-bw-vision-attention.md) `[wiki-kernel]` arch:gfx938
 - [DTK、HCU Triton 与已有 vLLM 镜像怎样使用](../wiki/languages/lang-dtk-triton.md) `[wiki-language]` arch:gfx938

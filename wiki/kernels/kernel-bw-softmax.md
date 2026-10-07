@@ -1,11 +1,13 @@
 ---
 id: kernel-bw-softmax
-title: 行 Softmax：融合收益与小概率保留是不同合同
+title: 行 Softmax / log-softmax：融合收益与概率尾部合同
 type: wiki-kernel
 architectures: [gfx938]
 tags: [triton, reduction, precision, host-overhead, profiling]
 confidence: experimental
 sources:
+- doc-pytorch-log-softmax-stability
+- exp-log-softmax-20261007
 - doc-triton-softmax-residency
 - doc-triton-exp-lowering
 - exp-exp-route-20261007
@@ -39,3 +41,10 @@ OCML在该尖峰分布保留尾项，但其单独exp边界也不是全域正确�
 
 当前证据覆盖有限FP32连续行及四个固定shape，不是PyTorch/AITER最佳库排名，也不是模型端到端资格。
 扩展到新shape、dtype、stride、mask或backward时保留原Task接受条件，不能直接继承当前比值或误差界。
+
+## 下游log要在丢信息之前计算
+
+exp-log-softmax-20261007复用相同输入：先近似softmax再log会在尖峰尾部产生-Inf，
+先OCML softmax再log虽有限仍有约0.0169误差；稳定z-log(sum(exp(z)))通过本轮预设误差界。
+原softmax的行和与绝对误差通过不能转移成log-softmax接受。避免materialize概率也减少一次launch与中间读写，
+但只在normal/offset这些所有比较路线均通过的域内报告速度；不把无效结果当作优化候选。

@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-109 pages. Machine-readable form: [pages.json](pages.json).
+111 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (33)
+## source-doc (34)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -23,6 +23,7 @@
 - `doc-pytorch-clone-format` — [Clone memory format and explicit packing](../sources/docs/doc-pytorch-clone-format.md)
 - `doc-pytorch-complete-call-timing` — [Asynchronous device work, stream lifetime and complete-call timing](../sources/docs/doc-pytorch-complete-call-timing.md)
 - `doc-pytorch-event-initialization` — [Event creation and first-record host overhead](../sources/docs/doc-pytorch-event-initialization.md)
+- `doc-pytorch-log-softmax-stability` — [Stable log-softmax avoids materializing tiny probabilities before log](../sources/docs/doc-pytorch-log-softmax-stability.md)
 - `doc-pytorch-numerical-accuracy` — [Floating point ordering, reference precision and target-specific denorms](../sources/docs/doc-pytorch-numerical-accuracy.md)
 - `doc-pytorch-view-alignment` — [Tensor views, storage offset and contiguous semantics](../sources/docs/doc-pytorch-view-alignment.md)
 - `doc-rocprof-l2-request-semantics` — [L2 request metrics and hit-on-miss interpretation](../sources/docs/doc-rocprof-l2-request-semantics.md)
@@ -40,7 +41,7 @@
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 
-## source-experiment (41)
+## source-experiment (42)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -69,6 +70,7 @@
 - `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-initial-warmup-20261007` — [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md)
+- `exp-log-softmax-20261007` — [Stable log-softmax avoids zero probabilities and amplified FP32 materialization error](../sources/experiments/exp-log-softmax-20261007.md)
 - `exp-lowlevel-probe-20261006` — [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md)
 - `exp-matrix-instruction-20261007` — [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md)
 - `exp-metric-definitions-20261007` — [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md)
@@ -98,7 +100,7 @@
 - `kernel-bw-moe-fp32` — [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md)
 - `kernel-bw-rmsnorm` — [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - `kernel-bw-rope` — [RoPE cos/sin：输入频率、社区分母与 dispatch](../wiki/kernels/kernel-bw-rope.md)
-- `kernel-bw-softmax` — [行 Softmax：融合收益与小概率保留是不同合同](../wiki/kernels/kernel-bw-softmax.md)
+- `kernel-bw-softmax` — [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - `kernel-bw-training-backward` — [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md)
 - `kernel-bw-vision-attention` — [Ragged vision attention：不要抹掉两次 BF16 舍入](../wiki/kernels/kernel-bw-vision-attention.md)
 

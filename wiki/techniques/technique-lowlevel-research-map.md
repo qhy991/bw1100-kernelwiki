@@ -238,3 +238,9 @@ exp-exp-route-20261007过滤exp/exp2同实现候选，比较OCML范围处理、�
 exp-softmax-fusion-20261007比较四-pass、近似融合与OCML融合，两个tail附近宽度和长行均验证。
 两批576样本复现约2.3倍对本分步基线收益，144目标profile按完整策略聚合；
 绝对/行和误差通过与tiny概率归零同时存在，强库/框架与下游log语义不外推。复用现有33份上游资料。
+
+## 第二十六轮：log消费与稳定公式
+
+exp-log-softmax-20261007复用softmax输入，稳定公式避免-Inf和概率量化放大；
+两步OCML仍不能挽回materialization误差。合格normal/offset域上完整调用约1.43–1.49倍，
+144目标profile按策略聚合。新增doc-pytorch-log-softmax-stability，累计34份上游资料条目。
