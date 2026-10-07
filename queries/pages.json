@@ -999,6 +999,29 @@
   "summary": "clean35abf4f1\u91cd\u65b0emit9\u4e2a\u539fSchedule\uff0c\u539fwrapper\u4e0evLLM/AITER baseline\u4fdd\u6301\u3002"
  },
  {
+  "id": "exp-route-precision-20261007",
+  "type": "source-experiment",
+  "title": "Numerical distributions distinguish MMAC grouping from vector-dot lowering",
+  "path": "sources/experiments/exp-route-precision-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp16",
+   "fp32",
+   "gemm",
+   "triton",
+   "mmac"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-version-pilot",
   "type": "source-experiment",
   "title": "\u4e09\u4efb\u52a1\u4e24Compiler\u540c3\u5c0f\u65f6\u7684\u5de5\u7a0b\u5148\u5bfc\u534f\u8bae",

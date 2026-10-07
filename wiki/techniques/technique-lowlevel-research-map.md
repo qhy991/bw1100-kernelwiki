@@ -172,3 +172,9 @@ exp-matrix-instruction-20261007编译auto/16/32，跳过与16相同的auto序列
 exp-execution-groups-20261007在保留MMAC16时比较2/4/8-wave，完成两批反序测量和三组profile。
 大形状zero偏好2-wave，guarded位置8-wave更快；实际LDS/vector宽度变化与counter分母分别记录。
 新增doc-triton-config-execution-groups，累计28份上游来源；不新增通用最优参数或dispatcher。
+
+## 第十五轮：实际路线的数值分布
+
+exp-route-precision-20261007复用第六轮固定FP64 oracle，在三个shape/八分布上比较g2/g4/g8 MMAC与m32 vector-dot。
+两次反序运行的96个输出文件逐位一致；MMAC组间在当前输入相等，vector-dot在随机分布不同。
+记录最大误差与逐元素更接近reference的计数，不从dyadic通过推断普遍数值等价；复用既有28份来源。

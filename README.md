@@ -4,7 +4,7 @@
 
 ## 从哪里开始
 
-- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：28 份上游资料、十四轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
+- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：28 份上游资料、十五轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
 
 - [硬件身份与边界](wiki/hardware/hw-bw1100-gfx938.md)：Hygon、gfx938、MMAC、wave64、DTK。
 - [双 GEMM＋GELU 融合](wiki/kernels/kernel-bw-gateup.md)：输入tile复用、中间materialization、舍入与register生命周期。

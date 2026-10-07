@@ -11,6 +11,7 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-route-precision-20261007
 - doc-triton-config-execution-groups
 - exp-execution-groups-20261007
 - exp-lowlevel-probe-20261006
@@ -60,3 +61,10 @@ profile必须同时查看原始计数和分母。8-wave的VALUInsts从4-wave的7
 总wave数却翻倍，SQ_INSTS_VALU反而多32.5%；LDS原始计数多69%。
 按wave指标下降不表示全kernel工作量下降，也不能仅用VGPR/线程数推算未经校准的驻留。
 详见doc-triton-config-execution-groups；其32-lane示例不能替代本机实测wave64。
+
+## 数值相等也有输入范围
+
+exp-route-precision-20261007补测normal、抵消、极小值、跨尺度随机与特殊值，覆盖两个规则shape和一个tail。
+本轮g2/g4/g8 MMAC路线在24个输入单元上结果相同；m32 vector-dot在normal/dynamic-range不同，
+即便前轮精确dyadic全部通过。不要把“同一数学kernel”或输出FP32当作任意lowering逐bit相等的证明。
+本补证没有新增容差或框架接受规则。

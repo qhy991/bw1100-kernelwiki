@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-route-precision-20261007
 - doc-amd-triton-instruction-shape
 - exp-matrix-instruction-20261007
 - exp-gemm-alignment-stages-20261006
@@ -74,3 +75,8 @@ exp-matrix-instruction-20261007在相同GEMM上设置matrix_instr_nonkdim=0/16/3
 定位时先比较TTIR是否相同，再看矩阵encoding与实际opcode，而不是从metadata选项值推断。
 更慢路径可能掩盖地址敏感性，不能据此宣称修复了原瓶颈。这个结果不证明硬件缺少32形状能力，
 也不授权把一次vendor lowering观察写成Target通用禁止规则。
+
+数值后继exp-route-precision-20261007显示，m32的vector-dot路径不仅速度和资源不同，
+其normal/dynamic-range结果也不同于MMAC；三种MMAC执行组在当前输入上相等。
+比较实际路线时保留分布与reference误差；最大误差变大不表示每个元素都更差，
+较慢也不意味着更精确。浮点差异是否可接受由Task合同决定，不从opcode名字裁定。
