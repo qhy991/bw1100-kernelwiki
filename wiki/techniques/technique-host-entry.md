@@ -10,6 +10,8 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- doc-pytorch-metadata-allocation
+- exp-argmax-template-20261008
 - exp-argmax-allocation-20261008
 - exp-rect-graph-20261007
 - exp-fusion-graph-20261007
@@ -84,3 +86,12 @@ exp-argmax-allocation-20261008保持kernel机器视图，比较Torch/native各�
 大N1024默认分配仍约1.31–1.33倍，但不能沿用预分配对照的较大加速比。分配路径差异包含Python/metadata成本，不是单独hipMalloc成本。
 图replay复用固定地址，不能在旧结果存活时冒充fresh output；若clone是消费者必需，clone要进入计时。
 所有八对新结果、存储非重叠和旧值都应验证，不能通过覆盖旧输出或只检查最后一对来取得名义收益。
+
+
+## 复用metadata不等于复用输出storage
+
+exp-argmax-template-20261008把两次带shape/device/dtype的empty改为empty_like模板，再用typed入口省掉每次输出位视图。
+模板只提供分配描述，仍返回新的FP32/int64结果；八对结果与存活旧值的非覆盖合同保持。
+typed入口在设备侧重解释指针并调用同一个归约body，规范化入口名后机器视图一致，动态指令与资源也相同。
+metadata和typed两步降低完整submit约4.4–4.8μs与2.3–2.5μs，但长kernel的wall不同比下降；不能把省view误说成省GPU复制。
+大N1024对默认Torch约1.54–1.57倍，小shape和大N129仍慢，保留强基线与A/A；模板缓存只对已验证的metadata成立。

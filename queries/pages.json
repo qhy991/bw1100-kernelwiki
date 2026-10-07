@@ -425,6 +425,22 @@
   "summary": ""
  },
  {
+  "id": "doc-pytorch-metadata-allocation",
+  "type": "source-doc",
+  "title": "Empty-like reuses tensor metadata while dtype views share existing data",
+  "path": "sources/docs/doc-pytorch-metadata-allocation.md",
+  "architectures": [],
+  "tags": [
+   "host-overhead",
+   "correctness",
+   "fp32"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-numerical-accuracy",
   "type": "source-doc",
   "title": "Floating point ordering, reference precision and target-specific denorms",
@@ -971,6 +987,27 @@
    "paired-timing",
    "profiling",
    "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-argmax-template-20261008",
+  "type": "source-experiment",
+  "title": "Metadata templates and a typed entry reduce fresh-result wrapper cost without changing device instructions",
+  "path": "sources/experiments/exp-argmax-template-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "fp32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "host-overhead"
   ],
   "kernel_types": [],
   "languages": [],

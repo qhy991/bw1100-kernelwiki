@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-176 pages. Machine-readable form: [pages.json](pages.json).
+178 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (52)
+## source-doc (53)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -32,6 +32,7 @@
 - `doc-pytorch-complete-call-timing` — [Asynchronous device work, stream lifetime and complete-call timing](../sources/docs/doc-pytorch-complete-call-timing.md)
 - `doc-pytorch-event-initialization` — [Event creation and first-record host overhead](../sources/docs/doc-pytorch-event-initialization.md)
 - `doc-pytorch-log-softmax-stability` — [Stable log-softmax avoids materializing tiny probabilities before log](../sources/docs/doc-pytorch-log-softmax-stability.md)
+- `doc-pytorch-metadata-allocation` — [Empty-like reuses tensor metadata while dtype views share existing data](../sources/docs/doc-pytorch-metadata-allocation.md)
 - `doc-pytorch-numerical-accuracy` — [Floating point ordering, reference precision and target-specific denorms](../sources/docs/doc-pytorch-numerical-accuracy.md)
 - `doc-pytorch-view-alignment` — [Tensor views, storage offset and contiguous semantics](../sources/docs/doc-pytorch-view-alignment.md)
 - `doc-rocprof-l2-request-semantics` — [L2 request metrics and hit-on-miss interpretation](../sources/docs/doc-rocprof-l2-request-semantics.md)
@@ -59,7 +60,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (83)
+## source-experiment (84)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -67,6 +68,7 @@
 - `exp-argmax-allocation-20261008` — [Fresh-result allocation can reverse a qualified native argmax kernel win](../sources/experiments/exp-argmax-allocation-20261008.md)
 - `exp-argmax-fp-key-20261008` — [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md)
 - `exp-argmax-key-20261008` — [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md)
+- `exp-argmax-template-20261008` — [Metadata templates and a typed entry reduce fresh-result wrapper cost without changing device instructions](../sources/experiments/exp-argmax-template-20261008.md)
 - `exp-argmax-torch-20261008` — [Installed Torch max out matches FP32 special-value cases and provides a same-ABI framework baseline](../sources/experiments/exp-argmax-torch-20261008.md)
 - `exp-atomic-numerical-20261007` — [Reduction repeatability and reference accuracy diverge under cancellation](../sources/experiments/exp-atomic-numerical-20261007.md)
 - `exp-atomic-reduction-20261007` — [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md)

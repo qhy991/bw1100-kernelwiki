@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-pytorch-metadata-allocation
+- exp-argmax-template-20261008
 - exp-argmax-allocation-20261008
 - doc-torch-max-output-contract
 - exp-argmax-torch-20261008
@@ -599,3 +601,11 @@ exp-argmax-allocation-20261008保持四个native机器视图，四臂比较out/d
 768目标dispatch、64刷新block/512对结果通过；两批128刷新block/1024对结果和2304计时block/18432对新结果通过，三任务释放。
 同kernel指令计数相同，Python分配/view/包装令三个shape默认caller反转为更慢，大N1024仅保留约1.31–1.33倍。
 复用52份来源，区分warm allocator与driver malloc、event提交空隙与纯kernel时间；fresh-output合同不由固定地址graph替代。
+
+
+## 第六十八轮：metadata模板与typed入口的相同设备工作对照
+
+exp-argmax-template-20261008继承fresh-result合同，empty_like复用metadata，typed指针适配调用同一个冻结body，四shape机器视图与动态指令相同。
+768目标dispatch、64刷新block/512对输出通过；两批128刷新block/1024对输出和2304计时block/18432对新输出通过，三任务释放。
+两步降低submit约4.4–4.8μs及2.3–2.5μs；大N1024对Torch约1.54–1.57倍，小shape/大N129仍慢，A/A和长kernel小wall收益保留。
+新增metadata分配来源，累计53份资料；不复用结果storage、不把view当GPU复制，不以慢包装分母代替真实框架对照。
