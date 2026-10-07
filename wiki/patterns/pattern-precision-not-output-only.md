@@ -93,3 +93,9 @@ exp-compensated-reduction-20261007用TwoSum派生hi/lo树恢复了受测有限�
 但一个+Inf加有限值变成NaN。不能因为有限数据变准，就忽略算法的非有限/溢出前提。
 两个FP32 partial和一个FP64同为8bytes，前者本机动态VALU/LDS工作量还更多，未观察到稳定速度优势。
 论文的error-free基本变换不自动证明任意并行pair树的全套误差界；检查真实emission和输入域。
+
+## 归一化检查不等于保留概率support
+
+exp-softmax-fusion-20261007中，三策略都满足预设绝对误差/行和界，
+但近似exp在尖峰输入上把大量FP32参考仍非零的小概率变0，OCML在该输入中保留非零值。
+如果Task需要log或梯度等语义，不可只凭行和接近1接受；本轮尚未验证这些下游操作。

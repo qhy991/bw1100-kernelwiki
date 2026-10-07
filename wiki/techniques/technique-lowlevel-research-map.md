@@ -232,3 +232,9 @@ exp-compensated-reduction-20261007以TwoSum派生pair树复用既有输入和阶
 exp-exp-route-20261007过滤exp/exp2同实现候选，比较OCML范围处理、有限误差与单独吞吐，
 保留subnormal到0及overflow边界差异，并用100位Decimal复核关键点。新增doc-triton-exp-lowering，
 累计33份上游资料条目，不将元素级观察推导成softmax/GELU或SFU峰值资格。
+
+## 第二十五轮：完整行softmax融合
+
+exp-softmax-fusion-20261007比较四-pass、近似融合与OCML融合，两个tail附近宽度和长行均验证。
+两批576样本复现约2.3倍对本分步基线收益，144目标profile按完整策略聚合；
+绝对/行和误差通过与tiny概率归零同时存在，强库/框架与下游log语义不外推。复用现有33份上游资料。

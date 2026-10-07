@@ -97,3 +97,7 @@ exp-exp-route-20261007中，tl.exp与手写exp2(x*log2e)生成相同所检查指
 无需当作两个速度候选。OCML则增加FMA、范围处理和ldexp，动态VALU更多但本轮总时间差不稳定。
 近似exp在部分应舍入为非零subnormal的输入上给0，OCML也有边界差异；
 不能把其他dtype/opcode的denorm观察外推到数学函数，也不能由库名推断正确舍入。
+
+exp-softmax-fusion-20261007把指数放回完整row-softmax，profile按四-pass之和对齐单融合kernel，
+读量指标约降四倍而时间约降至1/2.3；不以流量比例直接推导速度。
+127→129列声明LDS变化但实际仍分配512B；长行VGPR增加，声明资源和实际分配分别记录。

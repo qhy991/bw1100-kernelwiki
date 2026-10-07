@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-107 pages. Machine-readable form: [pages.json](pages.json).
+109 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (33)
@@ -40,7 +40,7 @@
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 
-## source-experiment (40)
+## source-experiment (41)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -80,6 +80,7 @@
 - `exp-register-values` — [寄存器 broadcast、predicate 与 resident scan 的有界设备组件](../sources/experiments/exp-register-values.md)
 - `exp-rms-confirmation` — [RMSNorm 原算法与显式 broadcast 表示的独立确认](../sources/experiments/exp-rms-confirmation.md)
 - `exp-route-precision-20261007` — [Numerical distributions distinguish MMAC grouping from vector-dot lowering](../sources/experiments/exp-route-precision-20261007.md)
+- `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
 - `exp-width-qualification` — [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md)
 
@@ -87,7 +88,7 @@
 
 - `hw-bw1100-gfx938` — [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md)
 
-## wiki-kernel (10)
+## wiki-kernel (11)
 
 - `kernel-bw-baseline-catalog` — [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md)
 - `kernel-bw-convnext-grn` — [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md)
@@ -97,6 +98,7 @@
 - `kernel-bw-moe-fp32` — [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md)
 - `kernel-bw-rmsnorm` — [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - `kernel-bw-rope` — [RoPE cos/sin：输入频率、社区分母与 dispatch](../wiki/kernels/kernel-bw-rope.md)
+- `kernel-bw-softmax` — [行 Softmax：融合收益与小概率保留是不同合同](../wiki/kernels/kernel-bw-softmax.md)
 - `kernel-bw-training-backward` — [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md)
 - `kernel-bw-vision-attention` — [Ragged vision attention：不要抹掉两次 BF16 舍入](../wiki/kernels/kernel-bw-vision-attention.md)
 
