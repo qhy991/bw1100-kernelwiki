@@ -30,3 +30,7 @@ exp-softmax-fusion-20261007现已覆盖独立native行softmax的四-pass与融�
 2026-10-07重读：教程把input_row_stride、output_row_stride与BLOCK_SIZE分别传入，
 地址步长与计算补齐宽度是不同选择。exp-row-stride-20261007用固定逻辑输入在本机隔离二者，
 没有照搬教程occupancy规则，也没有把masked计算宽度当成实际读取字节数。
+
+2026-10-07再读：教程以减少global往返解释融合动机，但不意味着每个融合都能删除中间写出。
+exp-copy-reduce-fusion-20261007的复制Y是可见输出，仍需写回；内部partial归约可使用已加载值，
+检验的是省去重读和一次launch。该本机合同由实验页拥有，不把教程softmax倍数移植到复制归约。

@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (91 pages)
+## gfx938 (93 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -18,6 +18,7 @@
 - [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md) `[source-experiment]` arch:gfx938
 - [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md) `[source-experiment]` arch:gfx938
 - [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md) `[source-experiment]` arch:gfx938
+- [Retain visible copy output while fusing its partial reduction consumer](../sources/experiments/exp-copy-reduce-fusion-20261007.md) `[source-experiment]` arch:gfx938
 - [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md) `[source-experiment]` arch:gfx938
 - [Denormal permission changes both floating-point mode and nonfused MAD selection](../sources/experiments/exp-denorm-policy-20261007.md) `[source-experiment]` arch:gfx938
 - [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md) `[source-experiment]` arch:gfx938
@@ -98,4 +99,5 @@
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md) `[wiki-technique]` arch:gfx938
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md) `[wiki-technique]` arch:gfx938
 - [Tensor view admission：连续、对齐和storage效果分别检查](../wiki/techniques/technique-view-admission.md) `[wiki-technique]` arch:gfx938
+- [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md) `[wiki-technique]` arch:gfx938
 - [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md) `[wiki-technique]` arch:gfx938

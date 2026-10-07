@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-copy-reduce-fusion-20261007
 - doc-triton-vector-mask-limits
 - exp-tail-vectorization-20261007
 - exp-store-policy-20261007
@@ -341,3 +342,11 @@ exp-tail-vectorization-20261007仅改producer控制流，完整块无mask、尾�
 三个大长度完整调用约1.58–1.59倍，小数组无稳定收益；108数值观察、144样本、162目标profile通过。
 producer读写指令事件各65552→16400，VGPR分配8→12；消费者计数不变，不声称HBM字节减少。
 新增doc-triton-vector-mask-limits，累计41份上游资料；机制入口technique-bulk-tail-vectorization保留前提和代价。
+
+
+## 第三十九轮：保留可见输出，融合内部重读
+
+exp-copy-reduce-fusion-20261007在上轮优化基线上融合copy与partial归约，保留完整Y及最终sum。
+两批120数值观察、180样本、150目标profile通过；大长度完整caller约2.48–2.51倍，读取指标约减半。
+融合仍有归约同步，SGPR分配跨档；确认批次时序异常保留，不删样本或只报中位数。
+复用并更新doc-triton-softmax-residency，累计仍41份来源；technique-visible-output-fusion说明输出保留与内部转发边界。

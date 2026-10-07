@@ -5,13 +5,14 @@
 
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
 
-## kernel-fusion (5 pages)
+## kernel-fusion (6 pages)
 
 - [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md)
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
+- [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md)
 
 ## launch-configuration (3 pages)
 

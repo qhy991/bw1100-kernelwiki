@@ -877,6 +877,29 @@
   "summary": ""
  },
  {
+  "id": "exp-copy-reduce-fusion-20261007",
+  "type": "source-experiment",
+  "title": "Retain visible copy output while fusing its partial reduction consumer",
+  "path": "sources/experiments/exp-copy-reduce-fusion-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "triton",
+   "fusion",
+   "copy",
+   "reduction",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-cross-entropy-20261007",
   "type": "source-experiment",
   "title": "Fused class-index cross entropy removes the full log-probability write",
@@ -2578,6 +2601,29 @@
    "precision"
   ],
   "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "technique-visible-output-fusion",
+  "type": "wiki-technique",
+  "title": "\u4fdd\u7559\u5916\u90e8\u53ef\u89c1\u8f93\u51fa\uff0c\u878d\u5408\u5185\u90e8\u6d88\u8d39\u8005\u4ee5\u7701\u53bb\u91cd\u8bfb",
+  "path": "wiki/techniques/technique-visible-output-fusion.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "fusion",
+   "copy",
+   "reduction",
+   "correctness",
+   "profiling",
+   "paired-timing"
+  ],
+  "kernel_types": [
+   "reduction"
+  ],
   "languages": [],
   "confidence": "experimental",
   "summary": ""

@@ -19,6 +19,7 @@ techniques:
 - kernel-fusion
 - tiling
 related:
+- technique-visible-output-fusion
 - kernel-bw-gateup
 - pattern-precision-not-output-only
 ---
@@ -36,3 +37,7 @@ producer完成一个tile后，在寄存器里把显式舍入结果交给pointwis
 
 ## 本机范围
 四个small-M dual-GEMM/GELU可由pass推导，并保留原任务结果。现有手工融合并非新的收益分母，自动推导和kernel性能是两个独立观察。
+
+
+technique-visible-output-fusion记录另一个有界变换：保留外部可见写出，只融合内部消费者并省去重读。
+它不放宽本页删除private materialization的前提，也不把归约消费者纳入当前旧pass的支持范围。

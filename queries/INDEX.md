@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-132 pages. Machine-readable form: [pages.json](pages.json).
+134 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (41)
@@ -48,7 +48,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (54)
+## source-experiment (55)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -60,6 +60,7 @@
 - `exp-cache-policy-20261007` — [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md)
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
 - `exp-compensated-reduction-20261007` — [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md)
+- `exp-copy-reduce-fusion-20261007` — [Retain visible copy output while fusing its partial reduction consumer](../sources/experiments/exp-copy-reduce-fusion-20261007.md)
 - `exp-cross-entropy-20261007` — [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md)
 - `exp-denorm-policy-20261007` — [Denormal permission changes both floating-point mode and nonfused MAD selection](../sources/experiments/exp-denorm-policy-20261007.md)
 - `exp-event-lifecycle-20261007` — [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md)
@@ -142,7 +143,7 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (15)
+## wiki-technique (16)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
@@ -158,4 +159,5 @@
 - `technique-register-scan-broadcast` — [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 - `technique-rounded-tiled-fusion` — [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
 - `technique-view-admission` — [Tensor view admission：连续、对齐和storage效果分别检查](../wiki/techniques/technique-view-admission.md)
+- `technique-visible-output-fusion` — [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md)
 - `technique-wave-reduction` — [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md)
