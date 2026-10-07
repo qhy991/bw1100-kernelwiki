@@ -1020,6 +1020,28 @@
   "summary": ""
  },
  {
+  "id": "exp-compaction-row-guard-20261008",
+  "type": "source-experiment",
+  "title": "Reusing row counts removes empty-rank traffic but its benefit depends on row structure",
+  "path": "sources/experiments/exp-compaction-row-guard-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "masking",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-compensated-reduction-20261007",
   "type": "source-experiment",
   "title": "FP32 pair compensation restores tested finite sums but costs work and loses positive infinity",

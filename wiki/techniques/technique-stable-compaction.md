@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [scan, fusion, masking, int32]
 confidence: experimental
-sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008]
+sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008, exp-compaction-row-guard-20261008]
 date: '2026-10-08'
 description: 逐行保序筛选返回固定容量与Count；融合排名和写出可消除私有中间体，但必须验证顺序、Count和尾部。
 related: [technique-register-scan-broadcast, technique-host-entry, kernel-bw-expert-sort]
@@ -44,3 +44,12 @@ exp-compaction-encoding-20261008将未选P位置显式写0，consumer以P>0选�
 N1024的dense rank可向量化写出，中高密度两批约1.31倍，零命中却退化；N129没有同等改善。
 融合仍更快，但半数/全命中相对更强encoded基线约2.17/1.84倍，不应继续只报旧masked分母。
 保持按shape/density测量，不能把更少逻辑写入或更宽store当作通用胜利。
+
+
+## 用当前Count限定中间体有效域
+
+exp-compaction-row-guard-20261008仅为非空行物化P，consumer先读Count再决定是否读取P/X。
+行级Count mask沿列均匀，保留向量store；但额外Count load和依赖有代价，已有metadata不等于免费使用。
+大N1024空行场景改善，无空行时未见同等收益，短行还可退化。随机半数与整行为空的半数分布不能混为一谈。
+两种同密度空行排列的绝对时间也不同，不能只按全空program数预测或归因调度。
+空行仍需输出Count0，P未定义区域必须在读取前排除；不把新guard当作默认策略。

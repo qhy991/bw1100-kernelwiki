@@ -25,3 +25,8 @@ partition还输出被拒元素，因此不能无条件替代“只写被选前�
 后继exp-compaction-encoding-20261008区分private中间表示：未选位置未定义的masked rank，
 与未选位置必须为0的encoded rank不是可互换协议。Count仍来自raw prefix，不能读取编码后的最后一项代替。
 本机使用正workspace poison验证完整覆盖，没有将必要清零移出计时路径。
+
+
+exp-compaction-row-guard-20261008进一步把P有效域限定到当前Count>0的行。空行P可以不写，
+前提是consumer先读当前Count并排除P load；Count本身仍必须正确写0。这是显式改变内部协议，
+并非允许旧的无条件P>0 consumer读取未初始化内容。

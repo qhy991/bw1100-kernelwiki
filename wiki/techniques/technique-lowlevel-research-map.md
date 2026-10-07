@@ -533,3 +533,11 @@ exp-compaction-encoding-20261008保留旧masked/fused机器实现与16组oracle�
 1760目标dispatch、96刷新/12首次重放先资格化，两批192刷新、24首次重放、3456样本通过并释放。
 N1024中高密度dense store约1.31倍，零命中退化；融合对更强encoded的半数/全命中比约2.17/1.84，独立分母保留。
 复用布局与selection来源，累计仍48份资料，不以逻辑写量或向量宽度代替完整结果，不默认中间表示。
+
+
+## 第六十一轮：Count条件有效域与空行结构
+
+exp-compaction-row-guard-20261008继承16组输入并新增8组交替/成片空行，正workspace poison验证Count0行不读未定义P。
+3360目标dispatch、192刷新/16首次重放先资格化，两批384刷新、32首次重放、5184样本通过并释放。
+大N1024零命中对encoded约1.70倍、对更强masked约1.23倍；有空行时改善，无空行/短行成本与同密度结构差异保留。
+复用mask和selection来源，累计仍48份资料，不把mask向量化、全局density或空program数当作速度规则。
