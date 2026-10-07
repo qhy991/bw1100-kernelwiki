@@ -6,6 +6,8 @@ architectures: [gfx938]
 tags: [triton, assembly, tiling, correctness, paired-timing]
 confidence: experimental
 sources:
+- doc-runtime-division-descriptors
+- exp-runtime-divider-20261007
 - doc-index-constant-lowering
 - exp-index-specialization-20261007
 related:
@@ -38,3 +40,13 @@ exp-index-specialization-20261007在同shape中比较runtime与常量除数，�
 
 编译、变体数量、缓存路由和首次调用成本可能影响真实部署，本机组件测量尚未覆盖这些费用。
 保留原完整合同和A/A噪声，用成本证据筛选候选，最终选择仍依赖完整调用。
+
+
+## 运行时描述参数是另一种候选，不是免费专门化
+
+exp-runtime-divider-20261007预计算unsigned乘数与移位，用同一通用kernel切换三个除数。
+先检查独立商余数，再形成地址；高位输入与完整转置通过，实际去掉reciprocal并降低VALU。
+但完整调用只有接近A/A的小差异，预计算/缓存成本又未计入，因此没有引入新缓存或默认替换。
+
+描述格式、符号和修正必须一致。该branchfree公式内已有一次右移，二次幂shift要相应调整，0/1不在当前生成域。
+不能混用带分支与branchfree字段，不能把CPU库的倍数迁移到GPU，也不能把参数复用证明当作部署净收益。

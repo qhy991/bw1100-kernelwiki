@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-runtime-division-descriptors
+- exp-runtime-divider-20261007
 - doc-index-constant-lowering
 - exp-index-specialization-20261007
 - exp-packed-tail-20261007
@@ -406,3 +408,11 @@ exp-index-specialization-20261007在同一映射中对比运行时uint32除数�
 两批144全量位模式观察、216样本、72目标profile通过；常量降低VALU/寄存器，只有部分大shape约1.6–3.2%小幅收益。
 reciprocal出现在编译器整数算法中不授权手写近似，LLVM中仍有udiv也不代表最终通用除法。
 新增doc-index-constant-lowering，累计44份资料，机制由technique-index-specialization维护，不推广跨shape或缓存成本结论。
+
+
+## 第四十六轮：共享kernel的运行时整数除法描述参数
+
+exp-runtime-divider-20261007保留普通全局常量被拒的CPU前驱，以显式constexpr后继完成设备验证。
+三个描述参数CPU各2162571项检查通过；设备先验商余数，再复用通用二进制切换N，资格与两批324计时样本通过。
+每wave VALU93→62但完整转置仅亚百分比差异，预计算/缓存费用未计入，不引入默认描述缓存。
+66目标profile通过，新增doc-runtime-division-descriptors，累计45份来源，整数修正与成本边界完整保留。

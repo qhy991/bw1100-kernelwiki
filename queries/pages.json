@@ -458,6 +458,23 @@
   "summary": ""
  },
  {
+  "id": "doc-runtime-division-descriptors",
+  "type": "source-doc",
+  "title": "Runtime integer division can use precomputed reciprocal descriptors",
+  "path": "sources/docs/doc-runtime-division-descriptors.md",
+  "architectures": [],
+  "tags": [
+   "assembly",
+   "triton",
+   "correctness",
+   "tiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-alignment-hints",
   "type": "source-doc",
   "title": "Triton alignment and contiguity are compiler promises",
@@ -1853,6 +1870,27 @@
    "profiling",
    "lds",
    "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-runtime-divider-20261007",
+  "type": "source-experiment",
+  "title": "Shared runtime integer descriptors remove reciprocal instructions without a clear transpose win",
+  "path": "sources/experiments/exp-runtime-divider-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "assembly",
+   "triton",
+   "correctness",
+   "paired-timing",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],
