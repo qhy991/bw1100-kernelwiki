@@ -141,3 +141,8 @@ No promotion to Compiler/Target。有效经验是把精度放在信息首次丢�
 同时保留partial存储dtype与最后输出舍入边界；不能只给最终sum加宽来修复早期舍入。
 本轮全FP64是受测数据上的数值改善，不是无成本替代、通用高精度算法或任务端到端接受。
 是否采用更高精度或补偿算法，仍取决于原Task精度要求和该实际工作量下的完整成本。
+
+## FP32 compensation successor
+
+exp-compensated-reduction-20261007记录保持hi/lo误差项的原生候选：受测有限结果改善，
+但+Inf分类失败且没有稳定速度优势。该后继不将本页全FP64观察改写成必须采用补偿算法。

@@ -12,6 +12,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-two-sum-compensation
+- exp-compensated-reduction-20261007
 - exp-reduction-precision-stage-20261007
 - doc-triton-cast-rounding
 - exp-bf16-cast-20261007
@@ -84,3 +86,10 @@ exp-reduction-precision-stage-20261007保存了完整partial：N65537抵消用�
 
 只加宽最后一层不能恢复已丢信息，还可能去掉先前偶然抵消误差的舍入，使某个输入最终误差更大。
 把partial算术、存储dtype、final算术和输出舍入分别列入合同；小kernel总时间相近不证明FP64免费。
+
+## 误差项也有语义和成本
+
+exp-compensated-reduction-20261007用TwoSum派生hi/lo树恢复了受测有限抵消结果，
+但一个+Inf加有限值变成NaN。不能因为有限数据变准，就忽略算法的非有限/溢出前提。
+两个FP32 partial和一个FP64同为8bytes，前者本机动态VALU/LDS工作量还更多，未观察到稳定速度优势。
+论文的error-free基本变换不自动证明任意并行pair树的全套误差界；检查真实emission和输入域。

@@ -220,3 +220,9 @@ exp-atomic-numerical-20261007复用三条原策略，在18输入单元重复两�
 exp-reduction-precision-stage-20261007复用18个数值输入并保留partial，比较两层FP32、仅finalFP64、两层FP64。
 仅final加宽无法恢复早期损失，全FP64在受测输入匹配reference舍入；384计时样本保留跨批漂移，
 216目标profile显示额外动态工作量。复用既有31份上游资料，不宣称FP64免费或新增Compiler能力。
+
+## 第二十三轮：FP32误差项补偿
+
+exp-compensated-reduction-20261007以TwoSum派生pair树复用既有输入和阶段harness，
+有限精度改善与+Inf负例并存，动态指令/LDS成本高于FP64控制；没有稳定速度接受。
+新增doc-two-sum-compensation，累计32份上游资料条目，论文保证与本并行实现严格区分。
