@@ -32,7 +32,7 @@ Symptom → Pattern → Technique → Solution
 - Tags: missing-bitcode, read-only-cache, jit-cold-start
 - Related: `lang-dtk-triton`, `pattern-empty-profile`
 
-### 输出 matched ratio 通过不授权降低中间精度
+### 输出通过不授权改变中间精度与舍入
 
 - ID: `pattern-precision-not-output-only`
 - Path: [wiki/patterns/pattern-precision-not-output-only.md](../wiki/patterns/pattern-precision-not-output-only.md)

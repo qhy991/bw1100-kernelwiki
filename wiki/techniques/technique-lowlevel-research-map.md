@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-fma-rounding-contract
+- exp-fp-contraction-20261007
 - exp-loop-unroll-20261007
 - doc-waves-per-eu-hint
 - exp-waves-hint-20261007
@@ -306,3 +308,9 @@ hint8降低VGPR却引入spill，HIP预测未增加，两个shape约74%/45%退化
 exp-loop-unroll-20261007固定MMAC/stage/wave，过滤auto/u1同代码，比较u2/u4。
 展开增加A/B local_alloc和LDS；小shape约4–7%收益，大shape约6.5%/37.5%退化。
 72精确矩阵检查、96样本、36目标profile通过；重读已有38份来源中的tl.range语义，不混淆IR展开与最终代码。
+
+## 第三十五轮：FMA收缩与舍入合同
+
+exp-fp-contraction-20261007分开隐式收缩、显式FMA与分步乘加，8359诊断项分别匹配各自参考，4674项跨合同不同。
+共同精确域144样本中只有大数组64步约1.44倍收益，30目标profile验证动态VALU减少。
+新增doc-fma-rounding-contract，累计39份上游资料；不以FP32 dtype相同替代中间舍入许可。

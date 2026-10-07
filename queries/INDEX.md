@@ -1,14 +1,15 @@
 # Page Manifest
 
 
-124 pages. Machine-readable form: [pages.json](pages.json).
+126 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (38)
+## source-doc (39)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
+- `doc-fma-rounding-contract` — [FMA and separate multiply-add have different rounding contracts](../sources/docs/doc-fma-rounding-contract.md)
 - `doc-hip-extensions` — [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md)
 - `doc-hip-graph-replay` — [HIP graph replay separates construction, submission and fixed-address data](../sources/docs/doc-hip-graph-replay.md)
 - `doc-hip-memory-performance` — [HIP coalescing and resource tradeoffs](../sources/docs/doc-hip-memory-performance.md)
@@ -45,7 +46,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (50)
+## source-experiment (51)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -61,6 +62,7 @@
 - `exp-event-lifecycle-20261007` — [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md)
 - `exp-execution-groups-20261007` — [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md)
 - `exp-exp-route-20261007` — [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md)
+- `exp-fp-contraction-20261007` — [FP contraction changes numerical semantics and only sometimes improves exact-domain timing](../sources/experiments/exp-fp-contraction-20261007.md)
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
 - `exp-gather-mapping-20261007` — [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md)
@@ -131,7 +133,7 @@
 - `pattern-fp32-staging` — [FP32 dot 很慢或 native LDS0：先核对实际 lowering](../wiki/patterns/pattern-fp32-staging.md)
 - `pattern-hcu-release` — [timeout / SSH 断连：释放证据与数学结果分别看](../wiki/patterns/pattern-hcu-release.md)
 - `pattern-jit-cache` — [JIT / bitcode / HOME：把环境失败与 kernel 错误分开](../wiki/patterns/pattern-jit-cache.md)
-- `pattern-precision-not-output-only` — [输出 matched ratio 通过不授权降低中间精度](../wiki/patterns/pattern-precision-not-output-only.md)
+- `pattern-precision-not-output-only` — [输出通过不授权改变中间精度与舍入](../wiki/patterns/pattern-precision-not-output-only.md)
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 

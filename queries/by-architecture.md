@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (86 pages)
+## gfx938 (87 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -22,6 +22,7 @@
 - [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md) `[source-experiment]` arch:gfx938
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938
 - [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md) `[source-experiment]` arch:gfx938
+- [FP contraction changes numerical semantics and only sometimes improves exact-domain timing](../sources/experiments/exp-fp-contraction-20261007.md) `[source-experiment]` arch:gfx938
 - [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md) `[source-experiment]` arch:gfx938
 - [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md) `[source-experiment]` arch:gfx938
 - [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
@@ -77,7 +78,7 @@
 - [FP32 dot 很慢或 native LDS0：先核对实际 lowering](../wiki/patterns/pattern-fp32-staging.md) `[wiki-pattern]` arch:gfx938
 - [timeout / SSH 断连：释放证据与数学结果分别看](../wiki/patterns/pattern-hcu-release.md) `[wiki-pattern]` arch:gfx938
 - [JIT / bitcode / HOME：把环境失败与 kernel 错误分开](../wiki/patterns/pattern-jit-cache.md) `[wiki-pattern]` arch:gfx938
-- [输出 matched ratio 通过不授权降低中间精度](../wiki/patterns/pattern-precision-not-output-only.md) `[wiki-pattern]` arch:gfx938
+- [输出通过不授权改变中间精度与舍入](../wiki/patterns/pattern-precision-not-output-only.md) `[wiki-pattern]` arch:gfx938
 - [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md) `[wiki-pattern]` arch:gfx938
 - [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md) `[wiki-pattern]` arch:gfx938
 - [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md) `[wiki-technique]` arch:gfx938

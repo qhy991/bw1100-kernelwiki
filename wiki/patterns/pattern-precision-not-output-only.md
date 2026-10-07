@@ -1,6 +1,6 @@
 ---
 id: pattern-precision-not-output-only
-title: 输出 matched ratio 通过不授权降低中间精度
+title: 输出通过不授权改变中间精度与舍入
 type: wiki-pattern
 architectures:
 - gfx938
@@ -12,6 +12,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-fma-rounding-contract
+- exp-fp-contraction-20261007
 - doc-two-sum-compensation
 - exp-compensated-reduction-20261007
 - exp-reduction-precision-stage-20261007
@@ -24,7 +26,7 @@ sources:
 - exp-community-baselines
 - exp-night-exclusions
 date: '2026-10-07'
-description: 最早问reference哪个stage要求FP32、在哪里有BF16/整数舍入，而不是先看输出分数。
+description: 先确认reference的中间dtype、舍入边界与FMA收缩权限，再判断输出和性能。
 symptoms:
 - precision-contract-failure
 - output-only-pass
@@ -36,6 +38,11 @@ related:
 ---
 
 最早问reference哪个stage要求FP32、在哪里有BF16/整数舍入，而不是先看输出分数。
+
+exp-fp-contraction-20261007说明即使所有dtype都是FP32，FMA单舍入与乘加分步舍入也可产生不同结果。
+抵消、乘积溢出和极小值边界均在本机复现；两路各自符合自己的参考，不应把一方事后改判成另一方合同。
+关闭enable_fp_fusion只控制本例隐式收缩，显式tl.fma仍生成融合指令。
+性能只在共同精确域比较；FMA更接近实数表达式或在长链更快，不自动授权改变reference的中间舍入。
 
 strictFP32 MoE候选即使160输出通过，BF16 MMA仍违背Task。Ragged vision score与probability舍入也不能略去。
 GateUp有两projection BF16边界，RMS variance用FP32，backward十个输出及norm reduction保留。

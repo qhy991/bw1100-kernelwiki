@@ -50,6 +50,23 @@
   "summary": ""
  },
  {
+  "id": "doc-fma-rounding-contract",
+  "type": "source-doc",
+  "title": "FMA and separate multiply-add have different rounding contracts",
+  "path": "sources/docs/doc-fma-rounding-contract.md",
+  "architectures": [],
+  "tags": [
+   "precision",
+   "fp32",
+   "triton",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hip-extensions",
   "type": "source-doc",
   "title": "HIP shuffle width and atomic semantics",
@@ -898,6 +915,28 @@
   "type": "source-experiment",
   "title": "Exponential aliases, OCML range handling and bounded precision-cost observations",
   "path": "sources/experiments/exp-exp-route-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp32",
+   "triton",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-fp-contraction-20261007",
+  "type": "source-experiment",
+  "title": "FP contraction changes numerical semantics and only sometimes improves exact-domain timing",
+  "path": "sources/experiments/exp-fp-contraction-20261007.md",
   "architectures": [
    "gfx938"
   ],
@@ -2112,7 +2151,7 @@
  {
   "id": "pattern-precision-not-output-only",
   "type": "wiki-pattern",
-  "title": "\u8f93\u51fa matched ratio \u901a\u8fc7\u4e0d\u6388\u6743\u964d\u4f4e\u4e2d\u95f4\u7cbe\u5ea6",
+  "title": "\u8f93\u51fa\u901a\u8fc7\u4e0d\u6388\u6743\u6539\u53d8\u4e2d\u95f4\u7cbe\u5ea6\u4e0e\u820d\u5165",
   "path": "wiki/patterns/pattern-precision-not-output-only.md",
   "architectures": [
    "gfx938"
@@ -2127,7 +2166,7 @@
   "kernel_types": [],
   "languages": [],
   "confidence": "experimental",
-  "summary": "\u6700\u65e9\u95eereference\u54ea\u4e2astage\u8981\u6c42FP32\u3001\u5728\u54ea\u91cc\u6709BF16/\u6574\u6570\u820d\u5165\uff0c\u800c\u4e0d\u662f\u5148\u770b\u8f93\u51fa\u5206\u6570\u3002"
+  "summary": "\u5148\u786e\u8ba4reference\u7684\u4e2d\u95f4dtype\u3001\u820d\u5165\u8fb9\u754c\u4e0eFMA\u6536\u7f29\u6743\u9650\uff0c\u518d\u5224\u65ad\u8f93\u51fa\u548c\u6027\u80fd\u3002"
  },
  {
   "id": "pattern-storage-rebinding",
