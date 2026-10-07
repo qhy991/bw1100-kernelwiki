@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-gather-mapping-20261007
 - exp-target-selection-20261007
 - exp-cross-entropy-20261007
 - exp-output-layout-20261007
@@ -62,6 +63,9 @@ exp-cross-entropy-20261007还显示只搜global_load/store会漏证据：loss写
 exp-target-selection-20261007中，tt.gather标有efficient_layout，但前面先convert整个4×1024 tensor，
 对应16KiB LDS与更多ds操作。优化标记的范围仅限所修饰操作，不证明整条数据通路低成本。
 同时检查索引类型：本轮where+sum保留i64比较，而gather在合法小索引域转i32；不要遗漏这种实际实现差异。
+
+exp-gather-mapping-20261007观察到单wave gather无s_barrier仍有LDS读写；N127 allocation为0时，
+ds_bpermute仍使每wave LDSInsts为4。counter中的DS指令、LDS存储分配和物理bank事务是不同事实，不能互相替代。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。

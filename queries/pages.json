@@ -932,6 +932,30 @@
   "summary": "a1ef4d20\u4ece\u5b8c\u6574two-stage Programs\u63a8\u5bfcM128/131/256/512\u56db\u4e2adual-GEMM\uff0bGELU kernel\u3002"
  },
  {
+  "id": "exp-gather-mapping-20261007",
+  "type": "source-experiment",
+  "title": "Single-wave mapping changes gather cost but does not make it universally LDS-free",
+  "path": "sources/experiments/exp-gather-mapping-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "execution-groups",
+   "lds",
+   "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-gemm-alignment-stages-20261006",
   "type": "source-experiment",
   "title": "Truthful AOT alignment unlocks vectorization; deeper stages lose residency",

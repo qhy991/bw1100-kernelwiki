@@ -11,6 +11,7 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-gather-mapping-20261007
 - doc-triton-thread-layout
 - exp-row-mapping-20261007
 - exp-route-precision-20261007
@@ -79,3 +80,7 @@ exp-row-mapping-20261007固定log-softmax公式，区分每program行数和wave�
 4097×127多行的完整调用收益与减少program数相容，单wave虽无LDS且VALU更少仍较慢；
 4097×1024单wave却优于本轮多行配置。不能独立用wave数量、VALU总数或LDS为零决定调度策略。
 原实验保留小行数A/A噪声、数值末位变化和未隔离的访存/驻留原因，不建立默认参数或通用occupancy模型。
+
+exp-gather-mapping-20261007的loss交叉对照中，r1w1相比r4w4在4097×1024获益、4097×127退化。
+两者总wave数4100/4097接近，program数却是1025/4097；不能只对齐wave总数就视作等价调度。
+单wave去掉workgroup barrier仍可能保留wave内LDS转换；应分别检查LDS allocation、ds指令和s_waitcnt。

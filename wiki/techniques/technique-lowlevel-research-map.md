@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-gather-mapping-20261007
 - doc-triton-tensor-gather
 - exp-target-selection-20261007
 - doc-pytorch-class-index-cross-entropy
@@ -284,3 +285,9 @@ exp-cross-entropy-20261007新建合法类别索引逐行loss合同，复用冻�
 exp-target-selection-20261007保持同loss合同，where+sum/tl.gather没有稳健收益，1024列大行数分别约慢11%/24%。
 gather前全tensor布局转换带来16KiB LDS；144数值观察、288样本、72目标profile保留。
 新增doc-triton-tensor-gather，累计37份上游资料，说明片上可用不等于本线程可免费取得。
+
+## 第三十二轮：选择方式与行/wave映射交叉
+
+exp-gather-mapping-20261007交叉r4w4/r1w1与reload/gather，1024列单wave reload约1.26倍、127列反转。
+单wave gather仍可用LDS，allocation0与LDSInsts非零也同时出现。192数值观察、360样本、96目标profile通过。
+复用37份上游资料，区分映射收益、selection收益、wave数与program数，不推广固定默认。

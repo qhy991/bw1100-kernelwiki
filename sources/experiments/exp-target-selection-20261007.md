@@ -141,3 +141,6 @@ profiled时间未用于速度，不把LDSInsts当作已校准物理bank事务数
 Reject本轮两个片上选择候选的普遍替换；保留reload控制，No promotion to Compiler/Target。
 经验进入kernel-bw-cross-entropy和指令审计：数据已加载不等于当前线程能免费取得所需值。
 后续若调整wave/行映射、索引宽度或显式gather布局，需要重新固定合同并测量，不能直接复用本轮负例作为一般禁止规则。
+
+后继exp-gather-mapping-20261007已交叉验证r4w4/r1w1：单wave缩小gather转换，但不保证零LDS，
+1024列收益主要来自reload映射变化，127列反转。本页原4行/4-wave负例范围不变。

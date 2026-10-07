@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [triton, reduction, fusion, precision, profiling]
 confidence: experimental
 sources:
+- exp-gather-mapping-20261007
 - doc-triton-tensor-gather
 - exp-target-selection-20261007
 - doc-pytorch-class-index-cross-entropy
@@ -50,3 +51,7 @@ exp-target-selection-20261007保持同loss合同，把额外global读取替换�
 gather前转换整个4×1024 tensor到每wave一行的布局，LDS达16KiB、每wave LDS指标增至3倍；
 局部gather的efficient_layout标记不保证前置转换廉价。掩码选择还保留int64比较与额外归约。
 因此不能只因值已在片上就删去reload；需同时核对值在哪个lane/wave、存活时间与选择路径的真实lowering。
+
+exp-gather-mapping-20261007进一步交叉比较两种映射：4097×1024单行单wave reload约快1.26倍，
+同映射gather仍略慢；4097×127的单wave则退化。收益属于映射选择，不能记成gather改写收益。
+单wave gather在129/1024列仍用1/4KiB LDS，虽无s_barrier；wave内重排也可能走LDS。

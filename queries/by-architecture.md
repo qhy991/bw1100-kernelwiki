@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (83 pages)
+## gfx938 (84 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -24,6 +24,7 @@
 - [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md) `[source-experiment]` arch:gfx938
 - [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md) `[source-experiment]` arch:gfx938
 - [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md) `[source-experiment]` arch:gfx938
+- [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md) `[source-experiment]` arch:gfx938
 - [Independent operand facts can avoid packing, with asymmetric resource costs](../sources/experiments/exp-gemm-operand-alignment-20261006.md) `[source-experiment]` arch:gfx938
 - [Full-call packing cost and storage-only workspace reuse](../sources/experiments/exp-gemm-packing-cost-20261006.md) `[source-experiment]` arch:gfx938

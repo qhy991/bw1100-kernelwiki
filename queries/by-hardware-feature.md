@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (35 pages)
+## lds (36 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -17,6 +17,7 @@
 - [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md) `[source-doc]` arch:
 - [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md) `[source-experiment]` arch:gfx938
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938
+- [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md) `[source-experiment]` arch:gfx938
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md) `[source-experiment]` arch:gfx938
@@ -56,7 +57,7 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
-## vgpr (22 pages)
+## vgpr (23 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md) `[source-doc]` arch:
@@ -66,6 +67,7 @@
 - [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md) `[source-doc]` arch:
 - [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md) `[source-doc]` arch:
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938
+- [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md) `[source-experiment]` arch:gfx938
 - [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md) `[source-experiment]` arch:gfx938
 - [Removing a core layout conversion does not pay for output compaction](../sources/experiments/exp-output-layout-20261007.md) `[source-experiment]` arch:gfx938
