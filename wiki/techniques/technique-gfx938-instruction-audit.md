@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-row-stride-20261007
 - doc-triton-exp-lowering
 - exp-exp-route-20261007
 - exp-route-precision-20261007
@@ -41,6 +42,11 @@ code object metadata 与真实 dispatch profile。单独的 --cuda-device-only -
 替代动态 counter，循环、分支和活跃 lanes 会改变执行数。
 
 ## 三个本轮可直接复用的检查
+
+另一个易错点见exp-row-stride-20261007：TTGIR的第一条#blocked可能只服务store，
+load与归约使用#blocked1，store前还有convert_layout。逐个追踪tt.load、tt.reduce、转换和tt.store的类型，
+不要用布局别名顺序代表整个kernel。该例load每线程持有2/4列，但ISA仍是标量global_load_dword；
+更大的LDS用于布局交换，静态barrier处数反而下降。源码tile、IR布局、ISA和动态资源各回答不同问题。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。

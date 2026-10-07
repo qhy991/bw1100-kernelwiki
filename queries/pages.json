@@ -1382,6 +1382,29 @@
   "summary": ""
  },
  {
+  "id": "exp-row-stride-20261007",
+  "type": "source-experiment",
+  "title": "Separate row stride from reduction padding and inspect both load and store layouts",
+  "path": "sources/experiments/exp-row-stride-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-softmax-fusion-20261007",
   "type": "source-experiment",
   "title": "Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract",

@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-113 pages. Machine-readable form: [pages.json](pages.json).
+114 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (35)
@@ -42,7 +42,7 @@
 - `doc-triton-thread-layout` — [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 
-## source-experiment (43)
+## source-experiment (44)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -84,6 +84,7 @@
 - `exp-rms-confirmation` — [RMSNorm 原算法与显式 broadcast 表示的独立确认](../sources/experiments/exp-rms-confirmation.md)
 - `exp-route-precision-20261007` — [Numerical distributions distinguish MMAC grouping from vector-dot lowering](../sources/experiments/exp-route-precision-20261007.md)
 - `exp-row-mapping-20261007` — [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md)
+- `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)
 - `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
 - `exp-width-qualification` — [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md)

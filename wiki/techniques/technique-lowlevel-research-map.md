@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-row-stride-20261007
 - doc-triton-thread-layout
 - exp-row-mapping-20261007
 - exp-gemm-placement-20261006
@@ -253,3 +254,9 @@ exp-row-mapping-20261007保持稳定log-softmax公式，比较1/2/4/8行与单wa
 实际TTGIR在127/129列改变wave方向；多行减少program，也增加线程持有值和归约成本。
 4097×127多行约1.55倍，4097×1024单wave约1.16倍；240数值观察、432计时样本和120目标profile保留。
 新增doc-triton-thread-layout，累计35份上游资料；指令少不保证完整调用更快，不推广为固定配置。
+
+## 第二十八轮：物理stride与计算padding隔离
+
+exp-row-stride-20261007保持逻辑输入与parent基址，交叉比较N127的S127/256和C128/256，并补N129。
+计算padding独立造成延迟差异；S256还引发load/store布局转换，LDS更大但barrier更少，读量增加仍可能更快。
+两批96数值观察、192样本、48目标profile留证据；预排布输入不包含caller重排成本。复用并重读已有35份来源。

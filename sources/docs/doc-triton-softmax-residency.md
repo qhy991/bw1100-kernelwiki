@@ -26,3 +26,7 @@ Triton main fused softmax tutorial，采集于 2026-10-06。
 
 exp-softmax-fusion-20261007现已覆盖独立native行softmax的四-pass与融合对照，
 但仍不是教程的跨GPU成绩、最佳库比较或框架/模型资格。约束与tiny概率support差异由该实验页拥有。
+
+2026-10-07重读：教程把input_row_stride、output_row_stride与BLOCK_SIZE分别传入，
+地址步长与计算补齐宽度是不同选择。exp-row-stride-20261007用固定逻辑输入在本机隔离二者，
+没有照搬教程occupancy规则，也没有把masked计算宽度当成实际读取字节数。

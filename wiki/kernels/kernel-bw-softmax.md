@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [triton, reduction, precision, host-overhead, profiling]
 confidence: experimental
 sources:
+- exp-row-stride-20261007
 - doc-triton-thread-layout
 - exp-row-mapping-20261007
 - doc-pytorch-log-softmax-stability
@@ -61,3 +62,11 @@ exp-row-mapping-20261007用同一二维稳定log-softmax比较1/2/4/8行program�
 单wave消除了本例LDS与barrier，但127列时总VALU更少也未胜过多行方案，少指令不等于更短完整调用。
 不同N还改变stride与有效字节，不能把差异全归因padding。配置重排必须重新检查数值：本例单wave改变normal输出末位，
 虽仍满足固定误差界，也不是任意输入逐bit相等。具体资源、配对与负结果见source。
+
+## 分开逻辑列数、物理stride与计算宽度
+
+exp-row-stride-20261007固定输入与parent基址：N127/S127仅把计算C128改256便明显变慢，
+FETCH_SIZE几乎不变；固定C256改S256则改善。N129/S256读取指标增加仍更快，读量不能单独预测。
+stride改变会引发vendor编译选择：S256的load/归约每wave一行，而连续store需要convert_layout，
+LDS从几十字节增到2–4KiB，静态barrier却从5处减到1处。
+这不是免费padding建议：本轮输入重排与复制在计时之外，实际caller要加上相应成本后重新接受。

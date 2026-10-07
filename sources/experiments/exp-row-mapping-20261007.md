@@ -138,3 +138,6 @@ N127 r1w1的总VALU最少且无LDS，却慢于r8w4；总wave/指令数也不是�
 No promotion to Compiler/Target。知识进入kernel-bw-softmax和technique-execution-groups，保留同一公式下的
 program粒度、wave内/间通信、寄存器工作和数值顺序权衡。本轮不是自动dispatcher或新IR布局抽象的依据。
 下一步如需区分padding与stride成本，必须用固定逻辑输入及显式物理stride对照另立合同。
+
+后继exp-row-stride-20261007已用同逻辑输入、同parent基址独立改变S与C，补齐这一边界。
+它还观察到load和store的布局分离；本页原配置只有其保存IR声明的布局，不把后继选择倒推到旧产物。
