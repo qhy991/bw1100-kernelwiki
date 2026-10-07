@@ -1975,6 +1975,29 @@
   "summary": ""
  },
  {
+  "id": "exp-scan-group-20261008",
+  "type": "source-experiment",
+  "title": "Grouping independent scans reduces block count but changes automatic carry layout and has a row-length crossover",
+  "path": "sources/experiments/exp-scan-group-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "execution-groups",
+   "lds",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-scan-wave-20261007",
   "type": "source-experiment",
   "title": "Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains",
