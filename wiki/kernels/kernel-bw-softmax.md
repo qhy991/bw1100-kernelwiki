@@ -17,7 +17,7 @@ sources:
 - exp-exp-route-20261007
 - exp-softmax-fusion-20261007
 date: '2026-10-07'
-description: 先明确行归一化与概率尾部要求，再比较完整分步和融合调用。
+description: 覆盖概率尾部、stride/wave映射与padded输出回写的完整调用边界。
 kernel_types: [normalization, reduction]
 languages: [triton-rocm, python]
 techniques: [kernel-fusion, masking, occupancy-tuning]
