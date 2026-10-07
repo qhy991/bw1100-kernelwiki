@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-packed-bf16-inline-asm
+- exp-packed-bf16-20261007
 - exp-rounded-consumer-20261007
 - doc-triton-reduction-hierarchy
 - exp-fusion-wave-20261007
@@ -378,3 +380,11 @@ exp-rounded-consumer-20261007建立BF16 RTNE复制及其FP32 sum新合同：Y逐
 21个独立标量舍入检查与12组解析sum审计后，96有效候选观察通过；48诊断中36个舍入敏感观察违背合同。
 正确融合两批108样本约1.31/1.32/1.93倍，168目标profile保留有效与诊断标记；错误路线从未计时。
 复用doc-triton-cast-rounding，累计仍42份来源，不把有限域或旧FP32输出成绩迁移成新dtype全域资格。
+
+
+## 第四十三轮：打包BF16指令的真实操作数与拆包成本
+
+exp-packed-bf16-20261007先保留tile256的undef输入反例，再以tile1024资格化本机packed转换。
+391680有限舍入边界和特殊值/奇数尾部通过，12完整输出文件CPU复核；两批108计时和30目标profile无稳定收益。
+奇数store拆包抵消转换指令节省，整除长度每wave VALU12→8仍未证明完整收益。
+新增doc-packed-bf16-inline-asm，累计43份来源；编译支持、数值资格、指令减少与性能接受分开记录。

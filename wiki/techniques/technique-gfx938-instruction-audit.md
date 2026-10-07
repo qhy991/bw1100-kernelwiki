@@ -11,6 +11,8 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- doc-packed-bf16-inline-asm
+- exp-packed-bf16-20261007
 - exp-denorm-policy-20261007
 - exp-fp-contraction-20261007
 - exp-loop-unroll-20261007
@@ -145,3 +147,13 @@ exp-exp-route-20261007中，tl.exp与手写exp2(x*log2e)生成相同所检查指
 exp-softmax-fusion-20261007把指数放回完整row-softmax，profile按四-pass之和对齐单融合kernel，
 读量指标约降四倍而时间约降至1/2.3；不以流量比例直接推导速度。
 127→129列声明LDS变化但实际仍分配512B；长行VGPR增加，声明资源和实际分配分别记录。
+
+
+## Packed opcode还要检查有效操作数与输出路径
+
+exp-packed-bf16-20261007发现tile256/四wave的pack2调用第二个FP32输入为undef，只用一个输出。
+后继tile1024提供真实成对操作数，在本机通过有限舍入与特殊值资格；不能由上游gfx950支持表断言Hygon不可用。
+但奇数mask的scalar short store又要求提取两个高半字，转换数减半而总VALU不变；整除长度少VALU仍无稳定调用收益。
+
+检查顺序是target编译与实际发射→寄存器实际持有量→asm参数/结果打包→数值及尾部→动态指标→完整调用。
+inline asm的pack不是跨lane收集承诺，也不能省略消费者真正需要的拆包成本。原生与scalar asm控制也可能产生不同调度。

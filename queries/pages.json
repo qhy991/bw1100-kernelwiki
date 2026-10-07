@@ -243,6 +243,24 @@
   "summary": ""
  },
  {
+  "id": "doc-packed-bf16-inline-asm",
+  "type": "source-doc",
+  "title": "Packed BF16 conversion needs target admission and real per-thread operands",
+  "path": "sources/docs/doc-packed-bf16-inline-asm.md",
+  "architectures": [],
+  "tags": [
+   "assembly",
+   "bf16",
+   "precision",
+   "triton",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-benchmark-warmup",
   "type": "source-doc",
   "title": "Benchmark warmup, block sizing and timer overhead are separate concerns",
@@ -1545,6 +1563,29 @@
    "lds",
    "vgpr",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-packed-bf16-20261007",
+  "type": "source-experiment",
+  "title": "Packed BF16 instruction works locally but requires real operands and compatible stores",
+  "path": "sources/experiments/exp-packed-bf16-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "assembly",
+   "bf16",
+   "precision",
+   "triton",
+   "correctness",
+   "paired-timing",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],

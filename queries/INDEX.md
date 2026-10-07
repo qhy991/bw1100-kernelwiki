@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-138 pages. Machine-readable form: [pages.json](pages.json).
+140 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (42)
+## source-doc (43)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -21,6 +21,7 @@
 - `doc-llvm-occupancy-tool` — [LLVM occupancy calculator boundary](../sources/docs/doc-llvm-occupancy-tool.md)
 - `doc-llvm-pointer-alignment` — [Pointer alignment attributes are caller facts, not memory repair](../sources/docs/doc-llvm-pointer-alignment.md)
 - `doc-llvm-workitem-address-abi` — [LLVM work-item register ABI for reading emitted addresses](../sources/docs/doc-llvm-workitem-address-abi.md)
+- `doc-packed-bf16-inline-asm` — [Packed BF16 conversion needs target admission and real per-thread operands](../sources/docs/doc-packed-bf16-inline-asm.md)
 - `doc-pytorch-benchmark-warmup` — [Benchmark warmup, block sizing and timer overhead are separate concerns](../sources/docs/doc-pytorch-benchmark-warmup.md)
 - `doc-pytorch-class-index-cross-entropy` — [Class-index cross entropy can consume log-softmax without exposing its full output](../sources/docs/doc-pytorch-class-index-cross-entropy.md)
 - `doc-pytorch-clone-format` — [Clone memory format and explicit packing](../sources/docs/doc-pytorch-clone-format.md)
@@ -49,7 +50,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (58)
+## source-experiment (59)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -92,6 +93,7 @@
 - `exp-metric-definitions-20261007` — [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md)
 - `exp-night-exclusions` — [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md)
 - `exp-output-layout-20261007` — [Removing a core layout conversion does not pay for output compaction](../sources/experiments/exp-output-layout-20261007.md)
+- `exp-packed-bf16-20261007` — [Packed BF16 instruction works locally but requires real operands and compatible stores](../sources/experiments/exp-packed-bf16-20261007.md)
 - `exp-platform-contract` — [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md)
 - `exp-profiler-skill` — [已安装 DCU rocprof 技能的收集与解析边界](../sources/experiments/exp-profiler-skill.md)
 - `exp-rectangular-compact-20261006` — [Rectangular transpose and compact LDS reduction follow-up](../sources/experiments/exp-rectangular-compact-20261006.md)

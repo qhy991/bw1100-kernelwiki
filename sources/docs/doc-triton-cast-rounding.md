@@ -22,3 +22,7 @@ exp-bf16-cast-20261007记录vendor Triton3.6.0/gfx938实际转换及RTZ低payloa
 
 exp-rounded-consumer-20261007把显式RTNE用于可见BF16复制，验证正确内部转发需先窄化再加宽。
 cast API表达舍入操作，不授权消费者绕过它；仅输出BF16位模式正确不足以接受整个融合图。
+
+
+exp-packed-bf16-20261007另行资格化本机packed asm转换，复用有限RTNE边界并检查Inf/NaN和奇数尾部。
+该路径能编译和数值通过，不表示比原生更快，也不扩大本页已有特殊值政策。
