@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-packed-tail-20261007
 - doc-packed-bf16-inline-asm
 - exp-packed-bf16-20261007
 - exp-denorm-policy-20261007
@@ -157,3 +158,7 @@ exp-packed-bf16-20261007发现tile256/四wave的pack2调用第二个FP32输入�
 
 检查顺序是target编译与实际发射→寄存器实际持有量→asm参数/结果打包→数值及尾部→动态指标→完整调用。
 inline asm的pack不是跨lane收集承诺，也不能省略消费者真正需要的拆包成本。原生与scalar asm控制也可能产生不同调度。
+
+
+exp-packed-tail-20261007用交叉对照进一步分开尾部处理和opcode选择：恢复完整块宽访存有大shape收益，
+同一路径内packed没有稳定额外收益。不要把同时改mask与asm的前后差异全部归给更醒目的指令替换。

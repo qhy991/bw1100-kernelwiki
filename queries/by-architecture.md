@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (97 pages)
+## gfx938 (98 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -50,6 +50,7 @@
 - [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md) `[source-experiment]` arch:gfx938
 - [Removing a core layout conversion does not pay for output compaction](../sources/experiments/exp-output-layout-20261007.md) `[source-experiment]` arch:gfx938
 - [Packed BF16 instruction works locally but requires real operands and compatible stores](../sources/experiments/exp-packed-bf16-20261007.md) `[source-experiment]` arch:gfx938
+- [Crossed controls attribute BF16 conversion gains to bulk-tail handling rather than packed opcode choice](../sources/experiments/exp-packed-tail-20261007.md) `[source-experiment]` arch:gfx938
 - [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md) `[source-experiment]` arch:gfx938
 - [已安装 DCU rocprof 技能的收集与解析边界](../sources/experiments/exp-profiler-skill.md) `[source-experiment]` arch:gfx938
 - [Rectangular transpose and compact LDS reduction follow-up](../sources/experiments/exp-rectangular-compact-20261006.md) `[source-experiment]` arch:gfx938

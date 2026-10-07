@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-packed-tail-20261007
 - doc-packed-bf16-inline-asm
 - exp-packed-bf16-20261007
 - exp-rounded-consumer-20261007
@@ -388,3 +389,10 @@ exp-packed-bf16-20261007先保留tile256的undef输入反例，再以tile1024资
 391680有限舍入边界和特殊值/奇数尾部通过，12完整输出文件CPU复核；两批108计时和30目标profile无稳定收益。
 奇数store拆包抵消转换指令节省，整除长度每wave VALU12→8仍未证明完整收益。
 新增doc-packed-bf16-inline-asm，累计43份来源；编译支持、数值资格、指令减少与性能接受分开记录。
+
+
+## 第四十四轮：交叉对照分开尾部收益和packed收益
+
+exp-packed-tail-20261007保留masked基线并交叉两因素，CPU过滤整除长度重复代码；36资格检查和16输出文件复核通过。
+两批72数值复验、324样本、36目标profile通过；大shape两种转换的split各约2.77倍，同路径packed无稳定额外收益。
+更多VALU减少不自动加速，候选选择与噪声边界保留。复用已有mask与inline-asm来源，累计仍43份资料。

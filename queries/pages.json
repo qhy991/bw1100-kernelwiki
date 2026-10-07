@@ -1593,6 +1593,29 @@
   "summary": ""
  },
  {
+  "id": "exp-packed-tail-20261007",
+  "type": "source-experiment",
+  "title": "Crossed controls attribute BF16 conversion gains to bulk-tail handling rather than packed opcode choice",
+  "path": "sources/experiments/exp-packed-tail-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "assembly",
+   "bf16",
+   "precision",
+   "tiling",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-platform-contract",
   "type": "source-experiment",
   "title": "gfx938 \u76ee\u6807\u4e0e\u5b9e\u9645 DTK \u6267\u884c\u8fb9\u754c",

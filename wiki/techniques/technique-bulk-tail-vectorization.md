@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [triton, tiling, copy, correctness, paired-timing, profiling]
 confidence: experimental
 sources:
+- exp-packed-tail-20261007
 - doc-triton-vector-mask-limits
 - doc-triton-alignment-hints
 - exp-tail-vectorization-20261007
@@ -42,3 +43,11 @@ exp-tail-vectorization-20261007显示producer VGPR分配增加仍可改善大数
 保留相同输入parent、oracle和输出ABI，计时所有必要消费者；不能把producer指令数减少
 当作整图同倍加速。先过滤整除控制等相同机器视图，再做ABA/BAB、反序确认和profile。
 现有证据适用于所测连续复制与两级归约图，未建立自动pass或通用尺寸阈值。
+
+
+## 组合改写要分开归因
+
+BF16后继exp-packed-tail-20261007交叉mask/split与native/packed转换。
+大odd长度两种转换各自的split改写都约2.77倍，packed在相同边界处理下没有稳定额外收益。
+因此组合方案的收益不能记作packed opcode收益；packed进一步减少VALU也不足以单独决定完整时间。
+整除长度相同机器视图在CPU过滤，小长度负结果与A/A保留，不建立无条件拆分规则。
