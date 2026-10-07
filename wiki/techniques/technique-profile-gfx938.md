@@ -105,3 +105,14 @@ exp-cache-policy-20261007的cg-ab在大形状zero位置使FETCH_SIZE约增至4.9
 L2 hit fraction从87.295%降到58.520%，独立计时用时增加约18.5%。
 这比只观察地址曲线多了实际load-flag干预，但profile与计时边界仍不同，
 不能按流量比例推断速度或把这次干预认定为唯一cache-level解释。
+
+## 预热kernel不等于预初始化timer
+
+exp-event-lifecycle-20261007用同kernel、同storage改变event生命周期，
+新进程首对event预初始化后，512首点wall从约17.2–17.4降至14.3μs，
+而计时外初始化约99μs/对。这是计时边界变化，不是kernel加速。
+首点device仍高于稳定阶段，历史偶发大离群也没有被解释；不能把全部噪声归给event。
+
+若目标是steady-state，显式定义timer setup并保留其成本；若目标是完整caller/首次调用，
+成本必须留在该边界内。重复fresh-lazy event在本次稳定阶段没有比reuse明显更慢，
+不要从“资源惰性初始化”直接推出通用event pool收益。诊断时间戳也有开销，不能回填旧基准。

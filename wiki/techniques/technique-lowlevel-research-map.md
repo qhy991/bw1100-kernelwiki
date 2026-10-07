@@ -147,3 +147,9 @@ exp-cache-policy-20261007编译六种policy，过滤与default相同的.ca及同
 对四个policy进行两批反序复验，并给default/cg-ab各做两组profile。
 .cg在本轮大形状退化，.cv插入逐load等待的事实可供agent提前过滤混合机制对照。
 新增doc-triton-cache-modifier-lowering，累计25份官方来源与十轮设备机制观察。
+
+## 第十一轮：计时器生命周期诊断
+
+exp-event-lifecycle-20261007先做分段计时先导，再以lazy/eager/eager/lazy四个新进程
+控制首对event初始化；共970个完整样本检查，保留初始化成本及未解释的首点device残差。
+这是测量边界补证，不是新kernel速度收益；25份来源不变，计时经验回到既有profile机制页。
