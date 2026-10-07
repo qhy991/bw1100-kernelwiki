@@ -12,6 +12,7 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-reduction-precision-stage-20261007
 - doc-triton-cast-rounding
 - exp-bf16-cast-20261007
 - exp-bf16-numerical-20261007
@@ -75,3 +76,11 @@ widen还观察到126个BF16 NaN只改变quiet bit，分类相同但payload不逐
 exp-atomic-numerical-20261007提供另一反例：staged归约48次输出bits一致，
 仍可在大数抵消输入上严重偏离FP64/解析参考。重复性、单次正确性与误差分布不是同一证据，
 也不能把原子顺序变化解释为唯一舍入来源。
+
+## 精度必须放在首次丢失之前
+
+exp-reduction-precision-stage-20261007保存了完整partial：N65537抵消用例256/257个FP32 partial
+已偏离局部FP64参考，最大差61。仅final用FP64仍输出6657，整体参考21845；两层FP64在本轮恢复参考舍入结果。
+
+只加宽最后一层不能恢复已丢信息，还可能去掉先前偶然抵消误差的舍入，使某个输入最终误差更大。
+把partial算术、存储dtype、final算术和输出舍入分别列入合同；小kernel总时间相近不证明FP64免费。

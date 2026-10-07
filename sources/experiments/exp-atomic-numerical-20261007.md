@@ -106,3 +106,8 @@ No promotion。把“精确域速度”“同输入重复性”“相对referenc
 两阶段去掉共享输出CAS，可改变重复性，却不自动提供高精度sum。
 需要一般FP32精度合同的优化，必须按原Task要求评估更高精度累加、补偿或其他归约树，
 而不是因为某策略快且输出稳定就接受它。本轮未实现这些额外算法，也不推断它们的成本。
+
+## Partial-precision successor
+
+exp-reduction-precision-stage-20261007保存partial并比较逐阶段dtype，证明本抵消用例的信息
+已在FP32 partial丢失。全FP64的有界数值改善和未解决的host计时漂移由后继独立记录。

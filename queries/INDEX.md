@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-102 pages. Machine-readable form: [pages.json](pages.json).
+103 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (31)
@@ -38,7 +38,7 @@
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (37)
+## source-experiment (38)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -72,6 +72,7 @@
 - `exp-platform-contract` — [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md)
 - `exp-profiler-skill` — [已安装 DCU rocprof 技能的收集与解析边界](../sources/experiments/exp-profiler-skill.md)
 - `exp-rectangular-compact-20261006` — [Rectangular transpose and compact LDS reduction follow-up](../sources/experiments/exp-rectangular-compact-20261006.md)
+- `exp-reduction-precision-stage-20261007` — [Widening the final reduction cannot recover lost FP32 partials](../sources/experiments/exp-reduction-precision-stage-20261007.md)
 - `exp-register-values` — [寄存器 broadcast、predicate 与 resident scan 的有界设备组件](../sources/experiments/exp-register-values.md)
 - `exp-rms-confirmation` — [RMSNorm 原算法与显式 broadcast 表示的独立确认](../sources/experiments/exp-rms-confirmation.md)
 - `exp-route-precision-20261007` — [Numerical distributions distinguish MMAC grouping from vector-dot lowering](../sources/experiments/exp-route-precision-20261007.md)

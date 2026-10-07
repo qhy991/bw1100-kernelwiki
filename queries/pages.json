@@ -1148,6 +1148,28 @@
   "summary": ""
  },
  {
+  "id": "exp-reduction-precision-stage-20261007",
+  "type": "source-experiment",
+  "title": "Widening the final reduction cannot recover lost FP32 partials",
+  "path": "sources/experiments/exp-reduction-precision-stage-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp32",
+   "paired-timing",
+   "profiling",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-register-values",
   "type": "source-experiment",
   "title": "\u5bc4\u5b58\u5668 broadcast\u3001predicate \u4e0e resident scan \u7684\u6709\u754c\u8bbe\u5907\u7ec4\u4ef6",

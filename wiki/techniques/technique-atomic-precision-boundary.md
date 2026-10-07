@@ -45,3 +45,7 @@ exp-atomic-numerical-20261007在同一冻结策略上补抵消/随机/特殊值�
 
 本机quiet-NaN/+Inf/混合Inf分类保持，CAS回环以整数bits比较返回值，所有调用有界结束。
 这不建立NaN payload或任意非有限值并发资格；精确dyadic域的性能结论也不自动覆盖新分布。
+
+exp-reduction-precision-stage-20261007进一步定位到FP32 partial中的损失：仅扩大最后一层不足以修复，
+两层FP64在18个固定输入上匹配reference舍入值。其动态指令工作量增加，host计时有明显漂移，
+因此数值改善与精度成本必须分开，不从去atomic或结果稳定直接推断接受。

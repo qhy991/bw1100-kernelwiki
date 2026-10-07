@@ -214,3 +214,9 @@ exp-atomic-reduction-20261007在精确dyadic域比较elements、block后CAS和pa
 exp-atomic-numerical-20261007复用三条原策略，在18输入单元重复两批2592次观察，
 精确dyadic继续通过；CAS随机/抵消输出会变，staged固定结果仍可能严重偏离解析参考。
 特殊值分类与CAS整数bits比较单独留证据，复用现有31份上游资料条目。
+
+## 第二十二轮：局部与最终累加精度
+
+exp-reduction-precision-stage-20261007复用18个数值输入并保留partial，比较两层FP32、仅finalFP64、两层FP64。
+仅final加宽无法恢复早期损失，全FP64在受测输入匹配reference舍入；384计时样本保留跨批漂移，
+216目标profile显示额外动态工作量。复用既有31份上游资料，不宣称FP64免费或新增Compiler能力。
