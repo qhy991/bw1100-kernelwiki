@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (42 pages)
+## lds (44 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -14,6 +14,7 @@
 - [Triton execution-group count must use the target lane width](../sources/docs/doc-triton-config-execution-groups.md) `[source-doc]` arch:
 - [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md) `[source-doc]` arch:
 - [Triton reduction separates thread, wave and cross-wave stages](../sources/docs/doc-triton-reduction-hierarchy.md) `[source-doc]` arch:
+- [Prefix scans retain ordered carries and exchange communication against per-thread work](../sources/docs/doc-triton-row-scan.md) `[source-doc]` arch:
 - [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md) `[source-doc]` arch:
 - [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md) `[source-doc]` arch:
 - [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md) `[source-experiment]` arch:gfx938
@@ -30,6 +31,7 @@
 - [Widening the final reduction cannot recover lost FP32 partials](../sources/experiments/exp-reduction-precision-stage-20261007.md) `[source-experiment]` arch:gfx938
 - [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md) `[source-experiment]` arch:gfx938
+- [Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains](../sources/experiments/exp-scan-wave-20261007.md) `[source-experiment]` arch:gfx938
 - [Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking](../sources/experiments/exp-scatter-order-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938
 - [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md) `[source-experiment]` arch:gfx938

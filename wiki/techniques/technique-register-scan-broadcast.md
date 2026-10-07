@@ -12,8 +12,10 @@ tags:
 - precision
 confidence: experimental
 sources:
+- doc-triton-row-scan
+- exp-scan-wave-20261007
 - exp-register-values
-date: '2026-10-05'
+date: '2026-10-07'
 description: 寄存器scan与broadcast可以复用局部数据，避免构造或读回额外global tensor。
 techniques:
 - masking
@@ -37,3 +39,12 @@ broadcast沿声明dimensions扩展局部值；inclusive scan以固定方向累�
 
 ## 本机范围
 已有有界bitwise组件与masked tail检查，尚不推为全局稳定sort或任意rank的速度结论。来源页给出实测长度、类型和负边界。
+
+
+## wave数改变carry通信，也改变每线程工作
+
+exp-scan-wave-20261007对独立行INT32模2^32前缀进行全量oracle和graph资格检查，比较1/4/8wave。
+单wave消除长度65/129/1024的跨wave暂存和barrier，但增加寄存器与ds_bpermute；LDS容量为零仍可有LDSInsts。
+原始总VALU减少与每wave工作增加可同时成立，不能把归一指标误作整个调用的工作量。
+大批量八wave退化，单wave多数收益很小；小batch噪声保留，不建立固定wave规则。
+该后继覆盖逐行global输入/输出及八次resident重放，仍不覆盖跨block carry或任意结合算子。

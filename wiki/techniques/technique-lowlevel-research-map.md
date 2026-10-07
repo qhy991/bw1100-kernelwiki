@@ -469,3 +469,11 @@ exp-rect-graph-20261007固定18个机器kernel，1296动态dispatch、108刷新�
 两批216刷新检查、36首次重放、864计时样本通过并释放；大N129/16×64在graph配对约1.039倍，eager未确认。
 N128虽少约32%读请求、写请求相同，图事件区间反而略慢；计数与time boundary继续分别判断。
 复用graph来源，累计仍46份资料，不建立默认tile或任意caller图缓存规则。
+
+
+## 第五十三轮：scan的carry通信、shuffle与wave数
+
+exp-scan-wave-20261007用独立int64/低32位oracle及15372标量前缀复核，固定逐行INT32 scan，对比1/4/8wave。
+1728动态dispatch、144刷新输入、24首次重放先资格化；两批288刷新检查、48首次重放和1152样本通过并释放。
+单wave移除跨waveLDS/barrier却增加寄存器/shuffle，完整收益远小于总VALU降幅；八wave在大批量稳定退化。
+新增doc-triton-row-scan，累计47份上游资料，区分LDS容量、DS指令、归一指标及完整时间，不推广全局scan资格。

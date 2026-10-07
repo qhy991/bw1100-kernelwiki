@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-153 pages. Machine-readable form: [pages.json](pages.json).
+155 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (46)
+## source-doc (47)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -46,6 +46,7 @@
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-reduction-hierarchy` — [Triton reduction separates thread, wave and cross-wave stages](../sources/docs/doc-triton-reduction-hierarchy.md)
+- `doc-triton-row-scan` — [Prefix scans retain ordered carries and exchange communication against per-thread work](../sources/docs/doc-triton-row-scan.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 - `doc-triton-tensor-gather` — [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md)
 - `doc-triton-thread-layout` — [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md)
@@ -53,7 +54,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (68)
+## source-experiment (69)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -112,6 +113,7 @@
 - `exp-row-mapping-20261007` — [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md)
 - `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)
 - `exp-runtime-divider-20261007` — [Shared runtime integer descriptors remove reciprocal instructions without a clear transpose win](../sources/experiments/exp-runtime-divider-20261007.md)
+- `exp-scan-wave-20261007` — [Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains](../sources/experiments/exp-scan-wave-20261007.md)
 - `exp-scatter-order-20261007` — [Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking](../sources/experiments/exp-scatter-order-20261007.md)
 - `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
 - `exp-store-policy-20261007` — [Store cache hints on a complete copy and immediate reduction graph](../sources/experiments/exp-store-policy-20261007.md)
