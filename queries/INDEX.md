@@ -1,15 +1,16 @@
 # Page Manifest
 
 
-171 pages. Machine-readable form: [pages.json](pages.json).
+173 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (50)
+## source-doc (51)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-argmax-tie-contract` — [Argmax owns both value ordering and the tie-breaking index contract](../sources/docs/doc-argmax-tie-contract.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
+- `doc-float-order-key-policy` — [Floating-order transforms do not choose NaN policy or preserve a canonicalized payload](../sources/docs/doc-float-order-key-policy.md)
 - `doc-fma-rounding-contract` — [FMA and separate multiply-add have different rounding contracts](../sources/docs/doc-fma-rounding-contract.md)
 - `doc-hip-extensions` — [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md)
 - `doc-hip-graph-replay` — [HIP graph replay separates construction, submission and fixed-address data](../sources/docs/doc-hip-graph-replay.md)
@@ -57,11 +58,12 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (80)
+## source-experiment (81)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
 - `exp-aligned-grouped-gemm-20261006` — [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md)
+- `exp-argmax-fp-key-20261008` — [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md)
 - `exp-argmax-key-20261008` — [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md)
 - `exp-atomic-numerical-20261007` — [Reduction repeatability and reference accuracy diverge under cancellation](../sources/experiments/exp-atomic-numerical-20261007.md)
 - `exp-atomic-reduction-20261007` — [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md)

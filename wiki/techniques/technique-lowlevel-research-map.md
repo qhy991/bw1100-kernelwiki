@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-float-order-key-policy
+- exp-argmax-fp-key-20261008
 - doc-argmax-tie-contract
 - exp-argmax-key-20261008
 - exp-compaction-granularity-20261008
@@ -570,3 +572,11 @@ exp-argmax-key-20261008对比signed-int32值/索引二字段归约与uint64顺�
 指令/请求各576目标dispatch、每pass48刷新/8首次重放通过；两批96刷新、16首次重放、864计时样本通过，四任务释放。
 编码减少VGPR/VALU并把DS换为DPP/readlane路径，公开I/O相同；N129大batch graph小幅改善，N1024 wall与eager离群如实保留。
 新增argmax合同来源及顺序键机制页，累计50份上游资料，不将整数编码推广到浮点/任意索引，不按资源比例宣称速度。
+
+
+## 第六十五轮：FP32排序等价类与原始payload输出
+
+exp-argmax-fp-key-20261008明确首次NaN/数值最大值及原bits合同，16输入33280行、27672标量复核和排序/FTZ/反解负对照通过。
+指令/请求各1056目标dispatch、每pass96刷新/12首次重放通过；两批192刷新、24首次重放、3456样本通过，四任务释放。
+三臂区分携带原bits、pair回读和顺序键回读；大N129直接graph约1.17–1.20倍、N1024约1.09–1.10倍，原值回读及A/A成本保留。
+新增浮点排序policy来源，累计51份上游资料；不把归一键当成输出payload，不继承sort或框架默认NaN语义，不默认库替换。

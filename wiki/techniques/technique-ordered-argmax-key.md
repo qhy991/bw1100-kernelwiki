@@ -3,11 +3,11 @@ id: technique-ordered-argmax-key
 title: Argmax 顺序键：值域、并列索引与 padding 一起编码
 type: wiki-technique
 architectures: [gfx938]
-tags: [reduction, int32, correctness, vgpr]
+tags: [reduction, int32, fp32, correctness, vgpr]
 confidence: experimental
-sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008]
+sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008]
 date: '2026-10-08'
-description: 将整数最大值与最小并列索引映射到无符号64位顺序键，同时检查有符号次序、尾部中性元和实际通信指令。
+description: 将值与并列索引映射到顺序键；整数符号、FP32 NaN/零等价类、原始位模式输出和padding分别验证。
 kernel_types: [reduction]
 related: [technique-register-scan-broadcast, technique-gfx938-instruction-audit]
 ---
@@ -31,3 +31,13 @@ exp-argmax-key-20261008验证随机全范围、跨lane tie及extreme行，两种
 packed在当前vendor后端减少VGPR与VALU、去掉DS指令，但仍用成对DPP移动和readlane；一个键不是一次32位通信。
 两臂公开I/O与TCC写请求相同。大N129 graph约1.05–1.07倍，eager无对应收益；N1024 event改善而wall受明显离群影响。
 检查真实caller、噪声和更强库基线，不能按资源下降比例预言速度或直接推广默认策略。
+
+
+## FP32排序键归一之后仍需返回原始位模式
+
+exp-argmax-fp-key-20261008另外声明首次NaN优先、否则首次数值最大值，+0/−0相等，输出保留所选NaN payload与zero sign。
+常规浮点位变换只建立数值排序，不能自动提供上述NaN policy；将NaN和零合并为排序等价类后，不能再由键反解原value。
+本机packed用获胜index回读原bits，pair/reload控制测出这次额外依赖load的成本，所有回读都计入完整路径。
+CPU反例分别暴露错误次序、FTZ改变索引和反解丢失payload；设备检查包含quiet/signaling NaN和subnormal原bits。
+大batch N129 graph对直接pair约1.17–1.20倍，N1024约1.09–1.10倍，回读增加部分请求仍可更快。
+保留A/A、eager和小batch边界；这是明确本地合同的资格，不是默认库argmax、任意NaN策略或浮点异常行为的资格。

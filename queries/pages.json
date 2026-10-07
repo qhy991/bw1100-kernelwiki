@@ -67,6 +67,22 @@
   "summary": ""
  },
  {
+  "id": "doc-float-order-key-policy",
+  "type": "source-doc",
+  "title": "Floating-order transforms do not choose NaN policy or preserve a canonicalized payload",
+  "path": "sources/docs/doc-float-order-key-policy.md",
+  "architectures": [],
+  "tags": [
+   "fp32",
+   "correctness",
+   "reduction"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-fma-rounding-contract",
   "type": "source-doc",
   "title": "FMA and separate multiply-add have different rounding contracts",
@@ -873,6 +889,28 @@
    "paired-timing",
    "profiling",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-argmax-fp-key-20261008",
+  "type": "source-experiment",
+  "title": "FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery",
+  "path": "sources/experiments/exp-argmax-fp-key-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "reduction",
+   "fp32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "vgpr"
   ],
   "kernel_types": [],
   "languages": [],
@@ -3269,6 +3307,7 @@
   "tags": [
    "reduction",
    "int32",
+   "fp32",
    "correctness",
    "vgpr"
   ],
@@ -3277,7 +3316,7 @@
   ],
   "languages": [],
   "confidence": "experimental",
-  "summary": "\u5c06\u6574\u6570\u6700\u5927\u503c\u4e0e\u6700\u5c0f\u5e76\u5217\u7d22\u5f15\u6620\u5c04\u5230\u65e0\u7b26\u53f764\u4f4d\u987a\u5e8f\u952e\uff0c\u540c\u65f6\u68c0\u67e5\u6709\u7b26\u53f7\u6b21\u5e8f\u3001\u5c3e\u90e8\u4e2d\u6027\u5143\u548c\u5b9e\u9645\u901a\u4fe1\u6307\u4ee4\u3002"
+  "summary": "\u5c06\u503c\u4e0e\u5e76\u5217\u7d22\u5f15\u6620\u5c04\u5230\u987a\u5e8f\u952e\uff1b\u6574\u6570\u7b26\u53f7\u3001FP32 NaN/\u96f6\u7b49\u4ef7\u7c7b\u3001\u539f\u59cb\u4f4d\u6a21\u5f0f\u8f93\u51fa\u548cpadding\u5206\u522b\u9a8c\u8bc1\u3002"
  },
  {
   "id": "technique-profile-gfx938",
