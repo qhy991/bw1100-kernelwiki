@@ -163,6 +163,23 @@
   "summary": ""
  },
  {
+  "id": "doc-index-constant-lowering",
+  "type": "source-doc",
+  "title": "Integer index specialization requires a preserved arithmetic domain",
+  "path": "sources/docs/doc-index-constant-lowering.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "assembly",
+   "tiling",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-llvm-amdgpu-waits",
   "type": "source-doc",
   "title": "LLVM AMDGPU waits and code object metadata",
@@ -1397,6 +1414,28 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "parent86cacc54\u4e0esuccessorf2c3d89c\u7684\u4e09\u4e2akernel AST\u76f8\u540c\uff0c\u5904\u7406\u662fhost wrapper\u3002"
+ },
+ {
+  "id": "exp-index-specialization-20261007",
+  "type": "source-experiment",
+  "title": "Constant index divisors reduce instructions with only bounded full-transpose gains",
+  "path": "sources/experiments/exp-index-specialization-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "assembly",
+   "triton",
+   "tiling",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-initial-warmup-20261007",
@@ -2655,6 +2694,26 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u77edGPU\u8c03\u7528\u7684\u6210\u672c\u4e0d\u4ec5\u5728kernel\u5185\u90e8\uff0c\u5206\u914d\u3001metadata\u68c0\u67e5\u548cdispatch\u4e5f\u53ef\u80fd\u5360\u660e\u663e\u6bd4\u4f8b\u3002"
+ },
+ {
+  "id": "technique-index-specialization",
+  "type": "wiki-technique",
+  "title": "\u7d22\u5f15\u5e38\u91cf\u4e13\u95e8\u5316\uff1a\u4fdd\u7559\u6574\u6570\u8bed\u4e49\uff0c\u518d\u5224\u65ad\u5b8c\u6574\u8c03\u7528\u6536\u76ca",
+  "path": "wiki/techniques/technique-index-specialization.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "triton",
+   "assembly",
+   "tiling",
+   "correctness",
+   "paired-timing"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "technique-lowlevel-research-map",

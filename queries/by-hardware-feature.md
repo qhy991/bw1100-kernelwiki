@@ -60,7 +60,7 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
-## vgpr (27 pages)
+## vgpr (28 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md) `[source-doc]` arch:
@@ -88,6 +88,7 @@
 - [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md) `[wiki-technique]` arch:gfx938
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md) `[wiki-technique]` arch:gfx938
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
+- [索引常量专门化：保留整数语义，再判断完整调用收益](../wiki/techniques/technique-index-specialization.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
 ## wave64 (10 pages)

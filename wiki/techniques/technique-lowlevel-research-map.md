@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-index-constant-lowering
+- exp-index-specialization-20261007
 - exp-packed-tail-20261007
 - doc-packed-bf16-inline-asm
 - exp-packed-bf16-20261007
@@ -396,3 +398,11 @@ exp-packed-bf16-20261007先保留tile256的undef输入反例，再以tile1024资
 exp-packed-tail-20261007保留masked基线并交叉两因素，CPU过滤整除长度重复代码；36资格检查和16输出文件复核通过。
 两批72数值复验、324样本、36目标profile通过；大shape两种转换的split各约2.77倍，同路径packed无稳定额外收益。
 更多VALU减少不自动加速，候选选择与噪声边界保留。复用已有mask与inline-asm来源，累计仍43份资料。
+
+
+## 第四十五轮：常量索引除数与完整转置成本
+
+exp-index-specialization-20261007在同一映射中对比运行时uint32除数与常量127/128/129。
+两批144全量位模式观察、216样本、72目标profile通过；常量降低VALU/寄存器，只有部分大shape约1.6–3.2%小幅收益。
+reciprocal出现在编译器整数算法中不授权手写近似，LLVM中仍有udiv也不代表最终通用除法。
+新增doc-index-constant-lowering，累计44份资料，机制由technique-index-specialization维护，不推广跨shape或缓存成本结论。

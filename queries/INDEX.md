@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-141 pages. Machine-readable form: [pages.json](pages.json).
+144 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (43)
+## source-doc (44)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -16,6 +16,7 @@
 - `doc-hip-occupancy-api` — [HIP occupancy API and its estimation boundary](../sources/docs/doc-hip-occupancy-api.md)
 - `doc-hip-reduction` — [HIP hierarchical reduction](../sources/docs/doc-hip-reduction.md)
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
+- `doc-index-constant-lowering` — [Integer index specialization requires a preserved arithmetic domain](../sources/docs/doc-index-constant-lowering.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
 - `doc-llvm-denormal-modes` — [Denormal input and output modes are separate compiler assumptions](../sources/docs/doc-llvm-denormal-modes.md)
 - `doc-llvm-occupancy-tool` — [LLVM occupancy calculator boundary](../sources/docs/doc-llvm-occupancy-tool.md)
@@ -50,7 +51,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (60)
+## source-experiment (61)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -85,6 +86,7 @@
 - `exp-graph-replay-20261007` — [Opaque HIP graph qualification and bounded resident replay savings](../sources/experiments/exp-graph-replay-20261007.md)
 - `exp-grouped-gemm-20261006` — [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md)
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
+- `exp-index-specialization-20261007` — [Constant index divisors reduce instructions with only bounded full-transpose gains](../sources/experiments/exp-index-specialization-20261007.md)
 - `exp-initial-warmup-20261007` — [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md)
 - `exp-log-softmax-20261007` — [Stable log-softmax avoids zero probabilities and amplified FP32 materialization error](../sources/experiments/exp-log-softmax-20261007.md)
 - `exp-loop-unroll-20261007` — [Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers](../sources/experiments/exp-loop-unroll-20261007.md)
@@ -150,7 +152,7 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (16)
+## wiki-technique (17)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
@@ -161,6 +163,7 @@
 - `technique-global-lds-transpose` — [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md)
 - `technique-grouped-program-order` — [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md)
 - `technique-host-entry` — [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
+- `technique-index-specialization` — [索引常量专门化：保留整数语义，再判断完整调用收益](../wiki/techniques/technique-index-specialization.md)
 - `technique-lowlevel-research-map` — [BW1100 底层优化入口：来源、探针与适用边界](../wiki/techniques/technique-lowlevel-research-map.md)
 - `technique-profile-gfx938` — [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md)
 - `technique-register-scan-broadcast` — [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)

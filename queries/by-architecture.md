@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (98 pages)
+## gfx938 (100 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -41,6 +41,7 @@
 - [Opaque HIP graph qualification and bounded resident replay savings](../sources/experiments/exp-graph-replay-20261007.md) `[source-experiment]` arch:gfx938
 - [Fixed-binary GEMM grouping, shape-dependent reuse and DTK counter scale](../sources/experiments/exp-grouped-gemm-20261006.md) `[source-experiment]` arch:gfx938
 - [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md) `[source-experiment]` arch:gfx938
+- [Constant index divisors reduce instructions with only bounded full-transpose gains](../sources/experiments/exp-index-specialization-20261007.md) `[source-experiment]` arch:gfx938
 - [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md) `[source-experiment]` arch:gfx938
 - [Stable log-softmax avoids zero probabilities and amplified FP32 materialization error](../sources/experiments/exp-log-softmax-20261007.md) `[source-experiment]` arch:gfx938
 - [Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers](../sources/experiments/exp-loop-unroll-20261007.md) `[source-experiment]` arch:gfx938
@@ -99,6 +100,7 @@
 - [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md) `[wiki-technique]` arch:gfx938
 - [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md) `[wiki-technique]` arch:gfx938
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md) `[wiki-technique]` arch:gfx938
+- [索引常量专门化：保留整数语义，再判断完整调用收益](../wiki/techniques/technique-index-specialization.md) `[wiki-technique]` arch:gfx938
 - [BW1100 底层优化入口：来源、探针与适用边界](../wiki/techniques/technique-lowlevel-research-map.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md) `[wiki-technique]` arch:gfx938
