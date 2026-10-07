@@ -126,3 +126,10 @@ exp-initial-warmup-20261007在event已初始化时比较5/50/500次初始kernel�
 使用doc-pytorch-benchmark-warmup区分timer开销摊销、预热调用数和总活动时长。
 本轮没有同步频率证据，不能把敏感性曲线自动解释成DVFS；约1%的小形状残差也仍在。
 保留全部样本和setup成本，改变测量前状态时创建新合同证据，不回写旧成绩。
+
+## 执行组变化时重查归一化分母
+
+exp-execution-groups-20261007同时采原始SQ计数与VALUInsts/LDSInsts，在每条dispatch上验证
+公式。4→8个wave/workgroup使总wave数翻倍，归一化VALU指标797→528，原始计数却增加32.5%。
+因此跨launch配置比较先核对wave/线程/CTA口径，不能把平均值当总量；同样不能将原始指令数
+直接解释为FLOP数或按比例预测时间。

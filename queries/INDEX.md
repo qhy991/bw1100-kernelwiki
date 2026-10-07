@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-90 pages. Machine-readable form: [pages.json](pages.json).
+92 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (27)
+## source-doc (28)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -29,12 +29,13 @@
 - `doc-rocprof-runtime-metrics` — [ROCProfiler runtime metric enumeration and expression definitions](../sources/docs/doc-rocprof-runtime-metrics.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
 - `doc-triton-cache-modifier-lowering` — [Triton load cache modifiers require backend inspection](../sources/docs/doc-triton-cache-modifier-lowering.md)
+- `doc-triton-config-execution-groups` — [Triton execution-group count must use the target lane width](../sources/docs/doc-triton-config-execution-groups.md)
 - `doc-triton-dot-precision` — [Triton dot input types and precision controls](../sources/docs/doc-triton-dot-precision.md)
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (29)
+## source-experiment (30)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -42,6 +43,7 @@
 - `exp-cache-policy-20261007` — [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md)
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
 - `exp-event-lifecycle-20261007` — [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md)
+- `exp-execution-groups-20261007` — [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md)
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
 - `exp-gemm-alignment-stages-20261006` — [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md)

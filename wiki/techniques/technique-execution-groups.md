@@ -11,11 +11,13 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-triton-config-execution-groups
+- exp-execution-groups-20261007
 - exp-lowlevel-probe-20261006
 - doc-llvm-occupancy-tool
 - exp-width-qualification
 - exp-fp32-staging
-date: '2026-10-05'
+date: '2026-10-07'
 description: 执行组数量是在同一逻辑计算与不同物理线程分摊之间作选择。
 techniques:
 - launch-configuration
@@ -46,3 +48,15 @@ width2在一个GateUp域中数值正确但scratch较大、完整调用较慢；w
 
 底层检查见 technique-gfx938-instruction-audit：本轮 source metadata 的 VGPR/LDS 与
 profiler allocation 存在粒度差异；只改线程分组或 partial 数量不能保证 allocation 下降。
+
+## 固定MMAC的GEMM补证：位置可以反转选择
+
+exp-execution-groups-20261007保持tile64×64×32与MMAC16，比较2/4/8个wave64。
+大形状zero位置2-wave相对4-wave约1.051倍速度，8-wave退化；
+guarded位置8-wave相对4-wave约1.233倍速度。资源最小或shape相同都不足以决定组数。
+8-wave每线程VGPR较少，但线程数更多、LDS翻倍、global load变窄；没有单一机制归因。
+
+profile必须同时查看原始计数和分母。8-wave的VALUInsts从4-wave的797降至528，
+总wave数却翻倍，SQ_INSTS_VALU反而多32.5%；LDS原始计数多69%。
+按wave指标下降不表示全kernel工作量下降，也不能仅用VGPR/线程数推算未经校准的驻留。
+详见doc-triton-config-execution-groups；其32-lane示例不能替代本机实测wave64。

@@ -166,3 +166,9 @@ exp-matrix-instruction-20261007编译auto/16/32，跳过与16相同的auto序列
 并对16/32做两批反序复验与compute profile。32在本vendor路径中降为vector dot2，
 大形状约慢7.59倍；该负例连接TTIR、TTGIR、ISA、资源和设备指标，不制造硬件能力结论。
 新增doc-amd-triton-instruction-shape，累计27份上游来源。
+
+## 第十四轮：执行组与地址位置交互
+
+exp-execution-groups-20261007在保留MMAC16时比较2/4/8-wave，完成两批反序测量和三组profile。
+大形状zero偏好2-wave，guarded位置8-wave更快；实际LDS/vector宽度变化与counter分母分别记录。
+新增doc-triton-config-execution-groups，累计28份上游来源；不新增通用最优参数或dispatcher。

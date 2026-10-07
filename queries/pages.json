@@ -372,6 +372,23 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-config-execution-groups",
+  "type": "source-doc",
+  "title": "Triton execution-group count must use the target lane width",
+  "path": "sources/docs/doc-triton-config-execution-groups.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "occupancy-tuning",
+   "vgpr",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-dot-precision",
   "type": "source-doc",
   "title": "Triton dot input types and precision controls",
@@ -543,6 +560,30 @@
    "host-overhead",
    "paired-timing",
    "correctness",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-execution-groups-20261007",
+  "type": "source-experiment",
+  "title": "GEMM execution groups interact with address placement and counter denominators",
+  "path": "sources/experiments/exp-execution-groups-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "paired-timing",
+   "gemm",
+   "triton",
+   "execution-groups",
+   "vgpr",
+   "lds",
    "profiling"
   ],
   "kernel_types": [],
