@@ -12,6 +12,7 @@ tags:
 - precision
 confidence: experimental
 sources:
+- exp-scan-convert-20261008
 - exp-scan-register-tile-20261008
 - exp-scan-layout-20261008
 - exp-scan-group-20261008
@@ -77,3 +78,11 @@ exp-scan-register-tile-20261008保持一wave一行和同一Gluon函数，对比S
 S16降低shuffle/VALU却更慢：N1024与S4有相同静态向量store数，写请求却为4倍。
 S1在整齐长度1024更慢，在相邻奇数行长更快，证明不能只按寄存器通信或vector宽度选方案。
 每条指令覆盖的lane地址集合也必须检查；独立计数pass不拼成同dispatch因果账本，不建立未测N的默认选择。
+
+
+## 分离访存和计算布局要支付双向转换成本
+
+exp-scan-convert-20261008沿用上一轮较快的固定shape I/O布局，转S16做scan再转回，完整路径一起计时。
+读写请求接近基线，但当前vendor将转换落到16/32KiB LDS，即便逻辑上仍一wave一行。
+N1023大batch完整路径约1.30–1.33倍，N1024无净收益、N1025退化；逻辑tile跨过2次幂还会放大临时区。
+保留转换成本、DS宽度与类别、VGPR及完整oracle，不把少shuffle、少DS条数或同wave归属当作免费转换证明。

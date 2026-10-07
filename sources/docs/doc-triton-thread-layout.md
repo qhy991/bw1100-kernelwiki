@@ -43,3 +43,8 @@ exp-rect-transpose-20261007在本机固定面积与wave数，改变长宽比后�
 2026-10-08再读size_per_thread与向量访存部分：每线程连续块会同时改变跨lane地址间距和register覆盖。
 exp-scan-register-tile-20261008在固定row-wave布局下发现，S16的shuffle更少，但同宽向量指令可产生更多请求；
 相邻奇数行长又使S1/S4排序反转。本机结果不继承教程NVIDIA的cache-line或sector常量。
+
+
+2026-10-08重读转换成本段：不同操作可用不同布局，但完整吞吐必须包含转换，减少scan通信未必能支付转换成本。
+exp-scan-convert-20261008在当前gfx938后端观察到逻辑wave归属不变的转换仍使用16/32KiB LDS；
+保留较好I/O后，1023有净收益，1024/1025没有统一收益。这是本机实现观察，不是硬件必须使用LDS的规定。

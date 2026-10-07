@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-158 pages. Machine-readable form: [pages.json](pages.json).
+159 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (47)
@@ -54,7 +54,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (72)
+## source-experiment (73)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -113,6 +113,7 @@
 - `exp-row-mapping-20261007` — [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md)
 - `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)
 - `exp-runtime-divider-20261007` — [Shared runtime integer descriptors remove reciprocal instructions without a clear transpose win](../sources/experiments/exp-runtime-divider-20261007.md)
+- `exp-scan-convert-20261008` — [Separating scan I/O and compute layouts preserves request behavior but pays a vendor LDS conversion cost](../sources/experiments/exp-scan-convert-20261008.md)
 - `exp-scan-group-20261008` — [Grouping independent scans reduces block count but changes automatic carry layout and has a row-length crossover](../sources/experiments/exp-scan-group-20261008.md)
 - `exp-scan-layout-20261008` — [Explicit row-wave Gluon scan needs a frontend control and gives a bounded length-dependent gain](../sources/experiments/exp-scan-layout-20261008.md)
 - `exp-scan-register-tile-20261008` — [Fewer scan shuffles can lose to strided lane requests even with the same vector instruction width](../sources/experiments/exp-scan-register-tile-20261008.md)
