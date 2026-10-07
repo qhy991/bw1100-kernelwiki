@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-146 pages. Machine-readable form: [pages.json](pages.json).
+147 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (45)
@@ -52,7 +52,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (62)
+## source-experiment (63)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -113,6 +113,7 @@
 - `exp-store-policy-20261007` — [Store cache hints on a complete copy and immediate reduction graph](../sources/experiments/exp-store-policy-20261007.md)
 - `exp-tail-vectorization-20261007` — [Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph](../sources/experiments/exp-tail-vectorization-20261007.md)
 - `exp-target-selection-20261007` — [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md)
+- `exp-transpose-access-20261007` — [Gather scatter and tiled transpose differ in latency even with similar read and write volume](../sources/experiments/exp-transpose-access-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
 - `exp-waves-hint-20261007` — [Higher waves-per-EU hints can add spills without improving predicted residency](../sources/experiments/exp-waves-hint-20261007.md)
 - `exp-width-qualification` — [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md)

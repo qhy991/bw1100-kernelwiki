@@ -16,3 +16,7 @@ AMD ROCm Programming Guide 7.2.1，采集于 2026-10-06。
 本轮后继把现有原生探针推广到长宽互换与非整 tile 边界，显式使用输入 cols 与输出 rows
 作为各自 leading dimension。相同元素数并不代表相同访问 stride 或相同速度。
 只验证 contiguous/out-of-place FP32，不包括 in-place 或 arbitrary-strided tensor。
+
+
+exp-transpose-access-20261007另用冻结int32位模式比较gather/scatter与Triton二维分块，
+显式覆盖编译器生成的布局转换。该后继不继承早期FP32方阵的最优选择，且不因LDS出现就认定全局访问已合并。

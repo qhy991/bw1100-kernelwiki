@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-transpose-access-20261007
 - doc-runtime-division-descriptors
 - exp-runtime-divider-20261007
 - doc-index-constant-lowering
@@ -416,3 +417,11 @@ exp-runtime-divider-20261007保留普通全局常量被拒的CPU前驱，以显�
 三个描述参数CPU各2162571项检查通过；设备先验商余数，再复用通用二进制切换N，资格与两批324计时样本通过。
 每wave VALU93→62但完整转置仅亚百分比差异，预计算/缓存费用未计入，不引入默认描述缓存。
 66目标profile通过，新增doc-runtime-division-descriptors，累计45份来源，整数修正与成本边界完整保留。
+
+
+## 第四十七轮：gather/scatter与二维分块的双侧访问
+
+exp-transpose-access-20261007保留冻结gather基线，三路同oracle，两批216按位观察和432样本通过。
+scatter与tiled同有4KiB LDS，但scatter大shape退化，tiled在N127/129约1.31/1.38倍，N128无稳定收益。
+独立读/写各108目标profile通过，总量相近不能解释唯一瓶颈；grid、资源与小shape反例保留。
+复用doc-hip-tiled-transpose，累计仍45份来源，不按LDS存在或聚合字节数自动决定候选。

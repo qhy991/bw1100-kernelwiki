@@ -11,6 +11,7 @@ tags:
 - paired-timing
 confidence: experimental
 sources:
+- exp-transpose-access-20261007
 - doc-hip-tiled-transpose
 - exp-rectangular-compact-20261006
 - doc-hip-memory-performance
@@ -59,3 +60,13 @@ exp-rectangular-compact-20261006 增加64×4096及反向、1023×1025及反向�
 padding/XOR 仍消除所记录的 conflict 读数，但实际速度收益随 shape 改变。
 尾部 LDSInsts 出现小数，因为它是平均值；不能把小数解读为异常指令。
 该后继扩展了 contiguous 矩形范围，仍不覆盖任意 stride、in-place 或矩阵指令 operand。
+
+
+## LDS出现并不保证完整访存方案更快
+
+exp-transpose-access-20261007对比同一冻结转置合同的gather、scatter与32×32 tiled。
+scatter和tiled都出现4KiB LDS转换，但scatter大shape退化，tiled只在两个非二次幂大shape稳定改善。
+必须检查输入、输出两侧实际地址与lane关系，不能把LDS或convert_layout存在当作coalescing已经改善的证明。
+
+独立读写采集的总量接近，scatter写指标并未明显增加却更慢；这些字节指标不能定位内部请求或stall。
+同时记录二维grid增加的program数、资源和完整时间，保留N128与小shape反例；不同counter run不混成同次总流量。
