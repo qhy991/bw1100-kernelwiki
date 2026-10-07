@@ -23,3 +23,7 @@ HIP graph文档将图定义/捕获、实例化与重复launch分开，用于减�
 2026-10-07进一步读取[PyTorch2.11固定地址说明](https://docs.pytorch.org/docs/2.11/notes/cuda.html)，
 其inputcopy/replay语义与本机版本对应，但仍需HIP实测。exp-graph-caller-20261007验证将搬移纳入caller后，
 resident graph提交节省不自动转为净收益；相同copy的eager控制与直接caller基线都需要保留。
+
+
+exp-fusion-graph-20261007将相同kernel的提交路径作为融合对照，先验证混合kernel图的实际dispatch与更新输入。
+节点数仍不能代替工作量，resident重复block与单请求、caller搬移及setup成本继续分开。

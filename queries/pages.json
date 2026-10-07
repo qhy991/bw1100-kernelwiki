@@ -1050,6 +1050,29 @@
   "summary": "\u4fdd\u7559\u7684MoEv33\u6e90\u7ed1\u5b9a_cake_moe_gus_v33_t2048\u53cadown/t2080\u7cfb\u5217\u3002"
  },
  {
+  "id": "exp-fusion-graph-20261007",
+  "type": "source-experiment",
+  "title": "Fusion benefits persist after qualifying fixed-address graph replay",
+  "path": "sources/experiments/exp-fusion-graph-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "fusion",
+   "copy",
+   "reduction",
+   "host-overhead",
+   "profiling",
+   "paired-timing"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-gateup-fusion",
   "type": "source-experiment",
   "title": "\u81ea\u52a8\u63a8\u5bfc tiled dual-GEMM/GELU \u7684\u539f\u4efb\u52a1\u786e\u8ba4",

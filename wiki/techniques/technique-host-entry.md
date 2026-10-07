@@ -10,6 +10,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-fusion-graph-20261007
 - exp-graph-caller-20261007
 - doc-hip-graph-replay
 - exp-graph-replay-20261007
@@ -55,3 +56,12 @@ exp-graph-caller-20261007把每次调用改成一个GEMM，轮换三个caller地
 先区分稳定地址上的内容刷新、caller指针轮换、是否需要copy-back、图中捕获的工作量及setup摊销。
 只比较graph.replay与Python多次launch会漏掉必要搬移；只比较两个workspace路径又会漏掉更便宜的直接路径。
 单GEMM图是一枚type200节点，20-call图曾为两枚；仍需动态dispatch资格，不能从节点数猜内部命令容量。
+
+
+## 用图控制复核融合的收益来源
+
+exp-fusion-graph-20261007固定分离/融合kernel，交叉eager与八次完整调用的graph重放。
+先用实际dispatch和变化输入资格化opaque图，再独立计时。小数组图显著减少提交间隙，
+融合在图内仍有收益；大数组提交大幅减少而完成时间仅小降。不能把两类优化收益简单相加。
+同样两枚type200节点可对应不同kernel数量，图不自动融合算术，也不自动形成纯kernel busy-time测量。
+setup、存储生命周期、输入更新和resident block边界必须与结果一起保留。

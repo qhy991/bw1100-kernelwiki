@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-134 pages. Machine-readable form: [pages.json](pages.json).
+135 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (41)
@@ -48,7 +48,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (55)
+## source-experiment (56)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -68,6 +68,7 @@
 - `exp-exp-route-20261007` — [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md)
 - `exp-fp-contraction-20261007` — [FP contraction changes numerical semantics and only sometimes improves exact-domain timing](../sources/experiments/exp-fp-contraction-20261007.md)
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
+- `exp-fusion-graph-20261007` — [Fusion benefits persist after qualifying fixed-address graph replay](../sources/experiments/exp-fusion-graph-20261007.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
 - `exp-gather-mapping-20261007` — [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md)
 - `exp-gemm-alignment-stages-20261006` — [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md)

@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [fusion, copy, reduction, correctness, profiling, paired-timing]
 confidence: experimental
 sources:
+- exp-fusion-graph-20261007
 - doc-triton-softmax-residency
 - exp-copy-reduce-fusion-20261007
 related:
@@ -42,3 +43,7 @@ exp-copy-reduce-fusion-20261007在冻结的向量化复制加两级sum基线上�
 读取指标下降不证明唯一瓶颈，输出写回保留也不意味着所有写事务完全相同。
 
 这只是连续FP32复制与固定整数域归约图的候选机制，未建立通用Compiler pass、框架资格或最佳库结论。
+
+
+后继exp-fusion-graph-20261007固定相同kernel，在经动态资格验证的图重放中仍观察到融合收益。
+因此不能把原收益全部记为少一次Python提交；但graph仍有设备调度、资源与间隙，不能据此唯一归因于访存。

@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-fusion-graph-20261007
 - exp-copy-reduce-fusion-20261007
 - doc-triton-vector-mask-limits
 - exp-tail-vectorization-20261007
@@ -350,3 +351,11 @@ exp-copy-reduce-fusion-20261007在上轮优化基线上融合copy与partial归�
 两批120数值观察、180样本、150目标profile通过；大长度完整caller约2.48–2.51倍，读取指标约减半。
 融合仍有归约同步，SGPR分配跨档；确认批次时序异常保留，不删样本或只报中位数。
 复用并更新doc-triton-softmax-residency，累计仍41份来源；technique-visible-output-fusion说明输出保留与内部转发边界。
+
+
+## 第四十轮：图重放控制下复核融合收益
+
+exp-fusion-graph-20261007先验证1080目标dispatch与更新输入，再执行两批216个八call block计时样本。
+12个编译产物与旧kernel相同；两枚opaque节点可表示24或16次kernel。图内融合仍约1.26/1.38/2.49倍。
+小数组显著受提交间隙影响，大数组host节省不直接等于完成时间节省；setup与resident边界单列。
+复用doc-hip-graph-replay，累计仍41份上游来源，不将图节点数或event区间当作纯kernel性能证明。
