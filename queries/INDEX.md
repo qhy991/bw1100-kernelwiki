@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-105 pages. Machine-readable form: [pages.json](pages.json).
+107 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (32)
+## source-doc (33)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -34,12 +34,13 @@
 - `doc-triton-cast-rounding` — [Triton downcast rounding modes and special-value boundaries](../sources/docs/doc-triton-cast-rounding.md)
 - `doc-triton-config-execution-groups` — [Triton execution-group count must use the target lane width](../sources/docs/doc-triton-config-execution-groups.md)
 - `doc-triton-dot-precision` — [Triton dot input types and precision controls](../sources/docs/doc-triton-dot-precision.md)
+- `doc-triton-exp-lowering` — [Triton exponential APIs and approximate softmax ingredients](../sources/docs/doc-triton-exp-lowering.md)
 - `doc-triton-grouped-gemm` — [Triton grouped GEMM program ordering](../sources/docs/doc-triton-grouped-gemm.md)
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 
-## source-experiment (39)
+## source-experiment (40)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -53,6 +54,7 @@
 - `exp-compensated-reduction-20261007` — [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md)
 - `exp-event-lifecycle-20261007` — [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md)
 - `exp-execution-groups-20261007` — [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md)
+- `exp-exp-route-20261007` — [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md)
 - `exp-fp32-staging` — [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md)
 - `exp-gateup-fusion` — [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md)
 - `exp-gemm-alignment-stages-20261006` — [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md)

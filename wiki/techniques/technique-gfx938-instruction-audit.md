@@ -11,6 +11,8 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- doc-triton-exp-lowering
+- exp-exp-route-20261007
 - exp-route-precision-20261007
 - doc-amd-triton-instruction-shape
 - exp-matrix-instruction-20261007
@@ -88,3 +90,10 @@ BF16后继exp-bf16-numerical-20261007中，16选项产生MMAC BF16；32选项先
 exp-bf16-cast-20261007中显式RTZ不是转换opcode，而是右移16位；RTNE则为v_cvt_bf16_f32。
 这个差异在低payload NaN分类上有可复现后果。审计不能只看有限随机数或指令更少，
 还要把保留/丢弃的bits与任务非有限值合同对应起来。
+
+## 数学API名称不是独立实现
+
+exp-exp-route-20261007中，tl.exp与手写exp2(x*log2e)生成相同所检查指令序列并得到相同bits，
+无需当作两个速度候选。OCML则增加FMA、范围处理和ldexp，动态VALU更多但本轮总时间差不稳定。
+近似exp在部分应舍入为非零subnormal的输入上给0，OCML也有边界差异；
+不能把其他dtype/opcode的denorm观察外推到数学函数，也不能由库名推断正确舍入。

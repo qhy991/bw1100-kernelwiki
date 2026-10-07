@@ -457,6 +457,22 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-exp-lowering",
+  "type": "source-doc",
+  "title": "Triton exponential APIs and approximate softmax ingredients",
+  "path": "sources/docs/doc-triton-exp-lowering.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "precision",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-grouped-gemm",
   "type": "source-doc",
   "title": "Triton grouped GEMM program ordering",
@@ -761,6 +777,28 @@
    "execution-groups",
    "vgpr",
    "lds",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-exp-route-20261007",
+  "type": "source-experiment",
+  "title": "Exponential aliases, OCML range handling and bounded precision-cost observations",
+  "path": "sources/experiments/exp-exp-route-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp32",
+   "triton",
+   "paired-timing",
    "profiling"
   ],
   "kernel_types": [],

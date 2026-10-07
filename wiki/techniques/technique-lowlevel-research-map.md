@@ -226,3 +226,9 @@ exp-reduction-precision-stage-20261007复用18个数值输入并保留partial，
 exp-compensated-reduction-20261007以TwoSum派生pair树复用既有输入和阶段harness，
 有限精度改善与+Inf负例并存，动态指令/LDS成本高于FP64控制；没有稳定速度接受。
 新增doc-two-sum-compensation，累计32份上游资料条目，论文保证与本并行实现严格区分。
+
+## 第二十四轮：指数数学路线与边界
+
+exp-exp-route-20261007过滤exp/exp2同实现候选，比较OCML范围处理、有限误差与单独吞吐，
+保留subnormal到0及overflow边界差异，并用100位Decimal复核关键点。新增doc-triton-exp-lowering，
+累计33份上游资料条目，不将元素级观察推导成softmax/GELU或SFU峰值资格。
