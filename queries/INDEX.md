@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-150 pages. Machine-readable form: [pages.json](pages.json).
+151 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (46)
@@ -53,7 +53,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (65)
+## source-experiment (66)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -110,6 +110,7 @@
 - `exp-row-mapping-20261007` — [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md)
 - `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)
 - `exp-runtime-divider-20261007` — [Shared runtime integer descriptors remove reciprocal instructions without a clear transpose win](../sources/experiments/exp-runtime-divider-20261007.md)
+- `exp-scatter-order-20261007` — [Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking](../sources/experiments/exp-scatter-order-20261007.md)
 - `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
 - `exp-store-policy-20261007` — [Store cache hints on a complete copy and immediate reduction graph](../sources/experiments/exp-store-policy-20261007.md)
 - `exp-tail-vectorization-20261007` — [Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph](../sources/experiments/exp-tail-vectorization-20261007.md)

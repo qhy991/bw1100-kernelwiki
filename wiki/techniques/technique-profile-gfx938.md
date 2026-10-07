@@ -11,6 +11,7 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- exp-scatter-order-20261007
 - doc-stall-counter-domains
 - exp-transpose-stalls-20261007
 - exp-transpose-requests-20261007
@@ -165,3 +166,8 @@ exp-transpose-stalls-20261007同pass验证WriteUnitStalled=100×第一路EA写st
 本机数据接口事件标为Not Windowed，SE_NUM未独立确认，因此没有填常数反推MemUnitStalled。
 实例sum、最大值、不同原因或不同pass不可相加成wall损失；没有非零覆盖也不能宣布硬件无该类stall。
 逐行公式接受与完整caller瓶颈判断仍是不同证据。
+
+
+exp-scatter-order-20261007提供了实际索引顺序干预，而非只观察相关性：同program集合、同grid下，
+N127的p4更快却有更多写tag冲突，N129的p4在冲突不变时也改善。
+因此先前stall信号仍有诊断价值，但不能直接变成单指标优化目标；同pass记录也不消除多项lowering共同变化的归因限制。

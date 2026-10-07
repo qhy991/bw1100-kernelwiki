@@ -20,3 +20,7 @@ exp-row-mapping-20261007给出wave64下行数、列数、资源和完整调用�
 2026-10-07重读load/store布局示例：不同全局存储方向可要求不同线程布局，转换可能跨线程或wave移动数据，
 跨wave通信会使用共享内存。教程把转换计入完整copy，不据此声称所有转换都昂贵或可安全删除。
 exp-output-layout-20261007在本机区分核心中消失的转换与最终caller回写重新承担的转换。
+
+
+exp-scatter-order-20261007用普通Triton的索引双射干预同program访问集合，发现编译器可消除原布局转换。
+这没有给作者显式lane控制；需要跟踪load/store实际使用的布局，而非只看第一个#blocked别名或逻辑arange次序。

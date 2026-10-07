@@ -11,6 +11,7 @@ tags:
 - paired-timing
 confidence: experimental
 sources:
+- exp-scatter-order-20261007
 - exp-transpose-stalls-20261007
 - exp-transpose-requests-20261007
 - exp-transpose-access-20261007
@@ -82,3 +83,11 @@ scatter和tiled都出现4KiB LDS转换，但scatter大shape退化，tiled只在�
 exp-transpose-stalls-20261007再补充TCP层信号：scatter写tag冲突为正、tiled为0，
 外部写接口派生比例却多为零。调查应绑定具体接口，不能用低WriteUnitStalled否定所有写侧等待，
 也不能把实例聚合周期直接换成原始调用时间。
+
+
+## 同一program集合也可以有不同布局与请求代价
+
+exp-scatter-order-20261007只重排每1024项内部偏移，先证明完整块/尾部双射，保持grid和有效访问集合。
+两种后继都消除4KiB转换与barrier，但读请求和写tag冲突随排列不同而变化。
+N127的p4更快而冲突计数增加，p256接近消除冲突却增加读请求；不能只最小化某一个stall指标。
+收益仅相对原scatter，未形成对tiled的新胜利或默认排列规则。

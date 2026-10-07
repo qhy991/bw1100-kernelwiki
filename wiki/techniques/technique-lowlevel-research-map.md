@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-scatter-order-20261007
 - doc-stall-counter-domains
 - exp-transpose-stalls-20261007
 - exp-transpose-requests-20261007
@@ -444,3 +445,11 @@ exp-transpose-stalls-20261007保持原18个机器视图，独立写接口/TCP组
 WriteUnitStalled多为零或很小，scatter却有明确TCP写tag冲突与更高数据接口stall；两类位置不能混为一谈。
 本机事件Not Windowed、SE_NUM未确认与EA1零覆盖均保留，不把cycle sum换算成wall损失。
 新增doc-stall-counter-domains，累计46份来源；没有新增计时或唯一瓶颈声明。
+
+
+## 第五十轮：同program集合的scatter顺序干预
+
+exp-scatter-order-20261007证明索引双射与尾部集合不变，保持原scatter机器基线；后继均消除LDS转换。
+两批216按位观察、432样本、108同pass profile通过；p4在两大非二次幂shape约1.10/1.09倍，但tag冲突增加或不变。
+p256可几乎/完全消除部分冲突，却增加读请求且未获得最大的对baseline改善，反驳单计数排名。
+复用线程布局来源，累计仍46份资料，不建立默认排列或对tiled的新增胜利。

@@ -1914,6 +1914,28 @@
   "summary": ""
  },
  {
+  "id": "exp-scatter-order-20261007",
+  "type": "source-experiment",
+  "title": "Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking",
+  "path": "sources/experiments/exp-scatter-order-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "layout-transform",
+   "lds",
+   "triton",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-softmax-fusion-20261007",
   "type": "source-experiment",
   "title": "Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract",
