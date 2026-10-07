@@ -11,6 +11,7 @@ tags:
 - paired-timing
 confidence: experimental
 sources:
+- exp-transpose-requests-20261007
 - exp-transpose-access-20261007
 - doc-hip-tiled-transpose
 - exp-rectangular-compact-20261006
@@ -70,3 +71,8 @@ scatter和tiled都出现4KiB LDS转换，但scatter大shape退化，tiled只在�
 
 独立读写采集的总量接近，scatter写指标并未明显增加却更慢；这些字节指标不能定位内部请求或stall。
 同时记录二维grid增加的program数、资源和完整时间，保留N128与小shape反例；不同counter run不混成同次总流量。
+
+
+后继exp-transpose-requests-20261007补充了内部计数：scatter读请求减少、写请求大幅增加，
+即使外部字节指标相近。命中率最高的scatter仍是旧计时最慢者；LDS、字节、请求与时间属于不同证据层，
+需要各自绑定，不能从其中一项直接推导完整性能。

@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-transpose-requests-20261007
 - exp-transpose-access-20261007
 - doc-runtime-division-descriptors
 - exp-runtime-divider-20261007
@@ -425,3 +426,11 @@ exp-transpose-access-20261007保留冻结gather基线，三路同oracle，两批
 scatter与tiled同有4KiB LDS，但scatter大shape退化，tiled在N127/129约1.31/1.38倍，N128无稳定收益。
 独立读/写各108目标profile通过，总量相近不能解释唯一瓶颈；grid、资源与小shape反例保留。
 复用doc-hip-tiled-transpose，累计仍45份来源，不按LDS存在或聚合字节数自动决定候选。
+
+
+## 第四十八轮：转置的请求组成与命中率分母
+
+exp-transpose-requests-20261007保持原18个机器视图，不新增计时；运行时六表达式在七agent一致，列表exit1/零context如实保留。
+两组各108目标profile及完整按位检查通过；N128 scatter WRITE请求为另两路16倍，而旧写字节相同。
+scatter的hit fraction最高却是旧计时最慢路径，绝对工作量与分母必须同时看；独立pass不拼精确会计关系。
+复用并更新已有L2语义来源，累计仍45份资料，未把相关计数提升为唯一stall解释。

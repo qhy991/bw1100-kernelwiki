@@ -17,3 +17,8 @@ AMD 的 L2 hit rate 按 cache-line requests 计算，不按 kernel 源代码的 
 BW1100 采集需保留本机 derived formula 和 actual kernel 行，不能把外部文档常数直接乘回流量。
 比较 group ordering 时固定 kernel、输入、state reset 和 dispatch 顺序；counter 与速度分开采集。
 单次 dispatch 的 profile 不等于多次 replay 的缓存状态，不能直接拼接成精确 roofline。
+
+
+2026-10-07补读[MI300/MI200 counters表](https://rocm.docs.amd.com/en/docs-6.2.2/conceptual/gpu-arch/mi300-mi200-performance-counters.html)：
+TCC_READ/WRITE请求与TCC_EA读写接口事务是不同字段，不能把其中一层计数直接当成另一层字节。
+该表仍非Hygon规格；exp-transpose-requests-20261007以实际DTK定义、运行时枚举和同pass关系补充本机证据。

@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (102 pages)
+## gfx938 (103 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -68,6 +68,7 @@
 - [Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph](../sources/experiments/exp-tail-vectorization-20261007.md) `[source-experiment]` arch:gfx938
 - [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md) `[source-experiment]` arch:gfx938
 - [Gather scatter and tiled transpose differ in latency even with similar read and write volume](../sources/experiments/exp-transpose-access-20261007.md) `[source-experiment]` arch:gfx938
+- [Similar transpose traffic hides different cache request work and hit-rate denominators](../sources/experiments/exp-transpose-requests-20261007.md) `[source-experiment]` arch:gfx938
 - [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md) `[source-experiment]` arch:gfx938
 - [Higher waves-per-EU hints can add spills without improving predicted residency](../sources/experiments/exp-waves-hint-20261007.md) `[source-experiment]` arch:gfx938
 - [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md) `[source-experiment]` arch:gfx938

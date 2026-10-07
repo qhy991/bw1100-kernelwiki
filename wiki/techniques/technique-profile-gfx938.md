@@ -11,6 +11,7 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- exp-transpose-requests-20261007
 - exp-gemm-placement-20261006
 - doc-pytorch-event-initialization
 - exp-gemm-packing-cost-20261006
@@ -140,3 +141,14 @@ exp-graph-replay-20261007的两个vendor type200节点动态重放20次kernel；
 必须保留opaque状态并通过动态记录校验实际工作量。profile的240目标行用于资格化，
 带profiler的首次replay时间不能用于速度；另跑无profiler配对。event span包含launch间隙，
 不能从图的整块event时间直接推导单kernel指令吞吐改善。
+
+
+## 相近外部流量可以隐藏写侧请求负担
+
+exp-transpose-requests-20261007保持18个转置机器视图不变，先核对本机REQ/READ/WRITE定义与运行时表达式，
+再分组采集请求组成和hit fraction。同pass的REQ=READ+WRITE在受测转置中成立，但不是通用事件恒等式。
+N128的scatter内部WRITE为gather/tiled的16倍，旧WRITE_SIZE却相同；不能仅看聚合字节排除内部请求问题。
+
+scatter的hit fraction也最高，而旧完整时间最慢。要同时看绝对hits/misses及其分母，
+不能把更高百分比当作更少工作或更少等待。请求与hits分属不同pass，不建立跨run精确会计关系。
+这些结果支持后续写侧调查，不证明唯一stall来源，也不替代原完整计时。

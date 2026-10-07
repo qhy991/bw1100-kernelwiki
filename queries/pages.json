@@ -2011,6 +2011,26 @@
   "summary": ""
  },
  {
+  "id": "exp-transpose-requests-20261007",
+  "type": "source-experiment",
+  "title": "Similar transpose traffic hides different cache request work and hit-rate denominators",
+  "path": "sources/experiments/exp-transpose-requests-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "profiling",
+   "rocprof",
+   "layout-transform",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-version-pilot",
   "type": "source-experiment",
   "title": "\u4e09\u4efb\u52a1\u4e24Compiler\u540c3\u5c0f\u65f6\u7684\u5de5\u7a0b\u5148\u5bfc\u534f\u8bae",
