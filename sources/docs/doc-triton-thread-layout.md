@@ -14,7 +14,7 @@ Triton的Gluon布局教程解释了blocked布局的三个层级：每线程元�
 因此“program处理更多行”不等价于“让不同wave各自处理一行”。需读取实际编译布局与指令，不能仅数逻辑元素。
 
 教程中的NVIDIA 32-lane、cache sector和GB200性能示例不作为gfx938硬件事实。
-本机实验使用普通Triton，由vendor编译器选择布局；只用TTGIR解释已有编译产物，没有向Cake IR加入布局代数。
+早期行映射实验使用普通Triton，由vendor编译器选择布局；只用TTGIR解释已有编译产物，没有向Cake IR加入布局代数。
 exp-row-mapping-20261007给出wave64下行数、列数、资源和完整调用的有界对应证据。
 
 2026-10-07重读load/store布局示例：不同全局存储方向可要求不同线程布局，转换可能跨线程或wave移动数据，
@@ -33,3 +33,8 @@ exp-rect-transpose-20261007在本机固定面积与wave数，改变长宽比后�
 
 2026-10-08的exp-scan-group-20261008再次区分逻辑行组与物理wave布局：四行/四wave仅在短于一个wave的行上各自分工，
 更长行的自动布局沿列使用多wave，再以register tile覆盖多行。教程的层级乘积用于读取实际产物，不能替代设备资格。
+
+
+2026-10-08的exp-scan-layout-20261008使用当前vendor包实际存在的GluonASTSource和associative_scan，
+在独立native scan中显式指定布局；未改变Cake IR。相同布局的普通Triton/Gluon仍有不同机器指令，
+因此先加入前端控制，再在同一Gluon kernel里对比wave布局；设备资格限于固定镜像及该scan。

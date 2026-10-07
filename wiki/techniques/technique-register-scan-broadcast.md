@@ -12,6 +12,7 @@ tags:
 - precision
 confidence: experimental
 sources:
+- exp-scan-layout-20261008
 - exp-scan-group-20261008
 - doc-triton-row-scan
 - exp-scan-wave-20261007
@@ -58,3 +59,12 @@ exp-scan-group-20261008以已验证的单行/单wave为基线，四行或八行�
 实际布局在N65起重新跨wave传播carry，引入LDS/barrier并增加寄存器，不能把逻辑R=4误读为每wave独立一行。
 四行组可在wave总量近似、总VALU增加时更快，说明block粒度值得检查，但没有隔离纯调度因果。
 将它作为多短行候选；保留尾行/列mask、完整整数前缀oracle和长行反例，不设默认分组。
+
+
+## 显式布局需要同前端控制
+
+exp-scan-layout-20261008在独立Gluon探针中保持四行/四wave/grid，以[4,1]的wave布局去掉跨wave carry。
+同布局Gluon与普通Triton并非相同机器实现，N65控制组还更慢；必须分别测auto/control、control/row、auto/row。
+大N129的直接graph收益两批约1.34倍，N65约1.039倍，N1024仅约1%；不按资源下降幅度推时间。
+当前包没有gl.cumsum，使用associative_scan及实际GluonASTSource入口，并通过完整模整数与动态graph资格。
+该native结果不向Cake IR引入布局代数，也不扩大为所有Gluon算子资格。

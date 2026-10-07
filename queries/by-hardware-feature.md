@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (45 pages)
+## lds (46 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -32,6 +32,7 @@
 - [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md) `[source-experiment]` arch:gfx938
 - [Grouping independent scans reduces block count but changes automatic carry layout and has a row-length crossover](../sources/experiments/exp-scan-group-20261008.md) `[source-experiment]` arch:gfx938
+- [Explicit row-wave Gluon scan needs a frontend control and gives a bounded length-dependent gain](../sources/experiments/exp-scan-layout-20261008.md) `[source-experiment]` arch:gfx938
 - [Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains](../sources/experiments/exp-scan-wave-20261007.md) `[source-experiment]` arch:gfx938
 - [Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking](../sources/experiments/exp-scatter-order-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938

@@ -1998,6 +1998,30 @@
   "summary": ""
  },
  {
+  "id": "exp-scan-layout-20261008",
+  "type": "source-experiment",
+  "title": "Explicit row-wave Gluon scan needs a frontend control and gives a bounded length-dependent gain",
+  "path": "sources/experiments/exp-scan-layout-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "triton",
+   "execution-groups",
+   "lds",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-scan-wave-20261007",
   "type": "source-experiment",
   "title": "Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains",
