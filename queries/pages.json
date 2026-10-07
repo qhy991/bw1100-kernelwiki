@@ -475,6 +475,22 @@
   "summary": ""
  },
  {
+  "id": "doc-selection-contract",
+  "type": "source-doc",
+  "title": "Selection contracts distinguish output count, capacity and relative order",
+  "path": "sources/docs/doc-selection-contract.md",
+  "architectures": [],
+  "tags": [
+   "scan",
+   "masking",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-stall-counter-domains",
   "type": "source-doc",
   "title": "Stall counters have interface, aggregation and normalization domains",
@@ -956,6 +972,29 @@
   "languages": [],
   "confidence": "source-reported",
   "summary": "bench77a2848\u7684\u5341\u4e2a\u793e\u533a\u6761\u76ee\u90fd\u6709\u539f\u59cb16workloads\u00d710=160/160\u8d44\u683c\uff1b\u8fd9\u4e0d\u4ee3\u8868\u6bcf\u6761\u5168\u5c40\u6700\u5feb\u3002"
+ },
+ {
+  "id": "exp-compaction-20261008",
+  "type": "source-experiment",
+  "title": "Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization",
+  "path": "sources/experiments/exp-compaction-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "fusion",
+   "int32",
+   "masking",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-compensated-reduction-20261007",
@@ -3135,6 +3174,25 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u878d\u5408private rounded tile\u7684\u76ee\u6807\u662f\u7701\u53bbproducer\u5230consumer\u4e4b\u95f4\u7684global\u5199\u56de\u548c\u91cd\u65b0\u8bfb\u53d6\u3002"
+ },
+ {
+  "id": "technique-stable-compaction",
+  "type": "wiki-technique",
+  "title": "\u7a33\u5b9a\u7b5b\u9009\u4e0e\u7d27\u51d1\u5199\u51fa\uff1a\u6709\u6548\u957f\u5ea6\u4e0e\u672a\u4f7f\u7528\u5c3e\u90e8",
+  "path": "wiki/techniques/technique-stable-compaction.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "scan",
+   "fusion",
+   "masking",
+   "int32"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": "\u9010\u884c\u4fdd\u5e8f\u7b5b\u9009\u8fd4\u56de\u56fa\u5b9a\u5bb9\u91cf\u4e0eCount\uff1b\u878d\u5408\u6392\u540d\u548c\u5199\u51fa\u53ef\u6d88\u9664\u79c1\u6709\u4e2d\u95f4\u4f53\uff0c\u4f46\u5fc5\u987b\u9a8c\u8bc1\u987a\u5e8f\u3001Count\u548c\u5c3e\u90e8\u3002"
  },
  {
   "id": "technique-view-admission",

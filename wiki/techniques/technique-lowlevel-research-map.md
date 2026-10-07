@@ -517,3 +517,11 @@ exp-scan-tail-20261008保持1025完整prefix合同，CPU核对12480行carry/末�
 指令/请求各576目标dispatch通过；两批96刷新检查、16首次重放、576样本通过并释放。
 分段转换将LDS32KiB降16KiB，对较强整块直接scan的大batch graph约1.276–1.283倍，小batch/eager边界保留。
 复用scan来源，累计仍47份资料，不忽略DPP/readlane成本，不推广任意尾长或跨CTA协议。
+
+
+## 第五十九轮：稳定压缩的顺序、Count与稀疏中间体
+
+exp-compaction-20261008定义逐行正数稳定筛选及固定容量/Count/未用尾部合同，比较masked rank物化与融合。
+读写各1056目标dispatch及每pass64刷新/8首次重放通过，两批128刷新、16首次重放和1152样本通过并释放。
+融合提高部分VGPR却减少中间流量；大N1024 graph约1.59–2.84倍，稀疏rank访问不按5.88%命中比例节省读取。
+新增doc-selection-contract及稳定压缩机制页，累计48份上游资料，不推为全局select、动态分配或库最优实现。

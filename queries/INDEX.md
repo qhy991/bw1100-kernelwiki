@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-160 pages. Machine-readable form: [pages.json](pages.json).
+163 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (47)
+## source-doc (48)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -35,6 +35,7 @@
 - `doc-rocprof-lds-metrics` — [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md)
 - `doc-rocprof-runtime-metrics` — [ROCProfiler runtime metric enumeration and expression definitions](../sources/docs/doc-rocprof-runtime-metrics.md)
 - `doc-runtime-division-descriptors` — [Runtime integer division can use precomputed reciprocal descriptors](../sources/docs/doc-runtime-division-descriptors.md)
+- `doc-selection-contract` — [Selection contracts distinguish output count, capacity and relative order](../sources/docs/doc-selection-contract.md)
 - `doc-stall-counter-domains` — [Stall counters have interface, aggregation and normalization domains](../sources/docs/doc-stall-counter-domains.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
 - `doc-triton-atomic-reduction` — [Atomic reduction changes require order, scope and returned-value contracts](../sources/docs/doc-triton-atomic-reduction.md)
@@ -54,7 +55,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (74)
+## source-experiment (75)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -65,6 +66,7 @@
 - `exp-bf16-numerical-20261007` — [BF16 raw-bit inputs preserve tested subnormals on two gfx938 GEMM routes](../sources/experiments/exp-bf16-numerical-20261007.md)
 - `exp-cache-policy-20261007` — [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md)
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
+- `exp-compaction-20261008` — [Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization](../sources/experiments/exp-compaction-20261008.md)
 - `exp-compensated-reduction-20261007` — [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md)
 - `exp-copy-reduce-fusion-20261007` — [Retain visible copy output while fusing its partial reduction consumer](../sources/experiments/exp-copy-reduce-fusion-20261007.md)
 - `exp-cross-entropy-20261007` — [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md)
@@ -168,7 +170,7 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (17)
+## wiki-technique (18)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
@@ -184,6 +186,7 @@
 - `technique-profile-gfx938` — [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md)
 - `technique-register-scan-broadcast` — [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 - `technique-rounded-tiled-fusion` — [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
+- `technique-stable-compaction` — [稳定筛选与紧凑写出：有效长度与未使用尾部](../wiki/techniques/technique-stable-compaction.md)
 - `technique-view-admission` — [Tensor view admission：连续、对齐和storage效果分别检查](../wiki/techniques/technique-view-admission.md)
 - `technique-visible-output-fusion` — [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md)
 - `technique-wave-reduction` — [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md)
