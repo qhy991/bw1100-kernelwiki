@@ -913,6 +913,27 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-allocation-20261008",
+  "type": "source-experiment",
+  "title": "Fresh-result allocation can reverse a qualified native argmax kernel win",
+  "path": "sources/experiments/exp-argmax-allocation-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "fp32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "host-overhead"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-fp-key-20261008",
   "type": "source-experiment",
   "title": "FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery",

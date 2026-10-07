@@ -32,3 +32,7 @@ exp-fusion-graph-20261007将相同kernel的提交路径作为融合对照，先�
 2026-10-07重读HIP构建/实例化与PyTorch2.11固定地址刷新条款，应用于exp-rect-graph-20261007。
 保持18个矩形transpose机器视图，先动态资格再计时；局部tile收益只在resident八call图合同成立，
 读请求更少仍可能事件区间更长。图减少提交开销，不提供无需实测的tile排序。
+
+exp-argmax-allocation-20261008要求上一批输出存活时，新调用仍返回不重叠的结果存储。
+PyTorch2.11说明replay仍读写固定地址，capture分配来自保留的图私有pool；仅replay不提供这份新输出生命周期。
+本轮因此使用eager比较，并明确预分配out与默认分配是不同存储合同；若另用graph加clone，clone必须进入完整路径。

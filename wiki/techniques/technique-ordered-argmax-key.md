@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [reduction, int32, fp32, correctness, vgpr]
 confidence: experimental
-sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008]
+sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008, exp-argmax-allocation-20261008]
 date: '2026-10-08'
 description: 将值与并列索引映射到顺序键；整数符号、FP32 NaN/零等价类、原始位模式输出和padding分别验证。
 kernel_types: [reduction]
@@ -50,3 +50,8 @@ CPU和GPU的value bits与index均匹配，固定地址graph刷新输入也通过
 大batch graph相对实际Torch约1.42–1.46(N129)、1.68–1.70(N1024)，小batch普通eager收益显著小于graph。
 框架kernel名字中的unsigned int用于其offset模板，不能据此把返回index也写成int32；实际输出类型另有owner。
 波数、资源和请求同时变化，不把整个框架差异归给顺序键一个机制，也不将out路径收益迁移到默认分配或autograd。
+
+
+exp-argmax-allocation-20261008进一步测真正返回新FP32/int64结果的路径，八对输出和仍存活旧结果全部验收。
+相同native kernel加上Python分配/view包装后，M63与大N129反而慢于默认Torch；大N1024只保留约1.31–1.33倍。
+这个caller反例不否定既有out收益，但禁止把out或graph比值直接当作默认分配函数的收益；完整生命周期经验由technique-host-entry汇总。

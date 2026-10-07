@@ -10,6 +10,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-argmax-allocation-20261008
 - exp-rect-graph-20261007
 - exp-fusion-graph-20261007
 - exp-graph-caller-20261007
@@ -74,3 +75,12 @@ exp-rect-graph-20261007保持18个transpose机器视图，以1296条实际dispat
 较低host提交开销下，大N129的16×64出现两批约1.039倍有界重放收益，eager仍不能确认；N128少读请求却略慢。
 说明时间边界会改变可观察差异，也说明图不自动把请求计数变成性能预测器。
 保留A/A、首次replay、setup、固定地址及八call重复边界；不回填旧eager胜利，不推广任意caller缓存。
+
+
+## 新返回结果的生命周期会反转kernel收益
+
+exp-argmax-allocation-20261008保持kernel机器视图，比较Torch/native各自out和分配路径，每block保留八对输出并验证旧结果未被覆盖。
+默认Torch返回新结果，原生Python包装包含两次empty、位视图和结果构造；这份完整caller在三个shape比Torch慢，尽管out kernel更快。
+大N1024默认分配仍约1.31–1.33倍，但不能沿用预分配对照的较大加速比。分配路径差异包含Python/metadata成本，不是单独hipMalloc成本。
+图replay复用固定地址，不能在旧结果存活时冒充fresh output；若clone是消费者必需，clone要进入计时。
+所有八对新结果、存储非重叠和旧值都应验证，不能通过覆盖旧输出或只检查最后一对来取得名义收益。

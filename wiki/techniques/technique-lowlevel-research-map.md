@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-allocation-20261008
 - doc-torch-max-output-contract
 - exp-argmax-torch-20261008
 - doc-float-order-key-policy
@@ -590,3 +591,11 @@ exp-argmax-torch-20261008记录当前Torch2.11.0身份/安装头文件和16组CP
 指令/请求各704目标dispatch、每pass64刷新/8首次重放通过；两批128刷新、16首次重放、1152计时样本通过，四任务释放。
 大batch graph对实际Torch out路径N129约1.42–1.46倍、N1024约1.68–1.70倍；小batch eager、A/A及更多wave/请求反例保留。
 新增Torch max输出合同来源，累计52份上游资料；区分offset与返回索引dtype，不宣称默认分配、autograd或一般框架替换资格。
+
+
+## 第六十七轮：默认分配与仍存活结果的生命周期
+
+exp-argmax-allocation-20261008保持四个native机器视图，四臂比较out/default allocation，八对新结果与旧结果非覆盖分别验收。
+768目标dispatch、64刷新block/512对结果通过；两批128刷新block/1024对结果和2304计时block/18432对新结果通过，三任务释放。
+同kernel指令计数相同，Python分配/view/包装令三个shape默认caller反转为更慢，大N1024仅保留约1.31–1.33倍。
+复用52份来源，区分warm allocator与driver malloc、event提交空隙与纯kernel时间；fresh-output合同不由固定地址graph替代。
