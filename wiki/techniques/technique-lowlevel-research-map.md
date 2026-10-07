@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-llvm-denormal-modes
+- exp-denorm-policy-20261007
 - doc-fma-rounding-contract
 - exp-fp-contraction-20261007
 - exp-loop-unroll-20261007
@@ -314,3 +316,9 @@ exp-loop-unroll-20261007固定MMAC/stage/wave，过滤auto/u1同代码，比较u
 exp-fp-contraction-20261007分开隐式收缩、显式FMA与分步乘加，8359诊断项分别匹配各自参考，4674项跨合同不同。
 共同精确域144样本中只有大数组64步约1.44倍收益，30目标profile验证动态VALU减少。
 新增doc-fma-rounding-contract，累计39份上游资料；不以FP32 dtype相同替代中间舍入许可。
+
+## 第三十六轮：输入/输出极小值模式与MAD选择
+
+exp-denorm-policy-20261007保留两份CPU前驱后，9898诊断唯一匹配预定义模式；on在本机对应双向清零并保留符号。
+正常数长链中separate因MAC/MAD路线约1.442倍，FMA路径无明显收益；80观察、288样本、40目标profile通过。
+新增doc-llvm-denormal-modes，累计40份上游资料，区分编译许可、运行模式和数据语义。

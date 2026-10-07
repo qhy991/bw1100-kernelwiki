@@ -179,6 +179,23 @@
   "summary": ""
  },
  {
+  "id": "doc-llvm-denormal-modes",
+  "type": "source-doc",
+  "title": "Denormal input and output modes are separate compiler assumptions",
+  "path": "sources/docs/doc-llvm-denormal-modes.md",
+  "architectures": [],
+  "tags": [
+   "precision",
+   "fp32",
+   "triton",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-llvm-occupancy-tool",
   "type": "source-doc",
   "title": "LLVM occupancy calculator boundary",
@@ -860,6 +877,28 @@
    "paired-timing",
    "profiling",
    "precision"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-denorm-policy-20261007",
+  "type": "source-experiment",
+  "title": "Denormal permission changes both floating-point mode and nonfused MAD selection",
+  "path": "sources/experiments/exp-denorm-policy-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp32",
+   "triton",
+   "paired-timing",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],

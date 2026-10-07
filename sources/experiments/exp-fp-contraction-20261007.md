@@ -160,3 +160,6 @@ profiler时间未用于速度，也未据此唯一归因内存带宽、发射或
 No promotion to Compiler/Target。将implicit contraction、显式FMA和分步舍入作为不同合同事实交给agent。
 当前代码没有修改Cake默认选项，也没有将native诊断称作现有Compiler缺陷。
 需要优化实际Task时，先确认其允许的中间舍入，再在合法域测量；输出dtype都是FP32不构成许可。
+
+后继exp-denorm-policy-20261007在相同算术核上分开输入/输出清零与舍入控制，
+发现允许denormal清零还可启用非FMA的MAC/MAD路线。本页allow_flush_denorm=False的观察范围不变。

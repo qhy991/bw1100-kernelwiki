@@ -12,6 +12,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-llvm-denormal-modes
+- exp-denorm-policy-20261007
 - doc-fma-rounding-contract
 - exp-fp-contraction-20261007
 - doc-two-sum-compensation
@@ -43,6 +45,12 @@ exp-fp-contraction-20261007说明即使所有dtype都是FP32，FMA单舍入与�
 抵消、乘积溢出和极小值边界均在本机复现；两路各自符合自己的参考，不应把一方事后改判成另一方合同。
 关闭enable_fp_fusion只控制本例隐式收缩，显式tl.fma仍生成融合指令。
 性能只在共同精确域比较；FMA更接近实数表达式或在长链更快，不自动授权改变reference的中间舍入。
+
+exp-denorm-policy-20261007进一步把输入/输出denormal分开：本机allow_flush_denorm开启后，
+当前程序符合双向清零并保留符号的模型。极小输入本来可放大为正常结果，清零后仍会丢失；
+清掉相减的极小加数也可能使结果从subnormal变为normal，不只是最后结果变零。
+新出现的MAC/MAD在受测舍入控制上仍匹配分步参考，不能按opcode名字当作FMA。
+模式变化需由Task授权；共同正常域快约1.44倍不授权丢弃实际Task的极小值。
 
 strictFP32 MoE候选即使160输出通过，BF16 MMA仍违背Task。Ragged vision score与probability舍入也不能略去。
 GateUp有两projection BF16边界，RMS variance用FP32，backward十个输出及norm reduction保留。

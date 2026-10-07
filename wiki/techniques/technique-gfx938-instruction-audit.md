@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-denorm-policy-20261007
 - exp-fp-contraction-20261007
 - exp-loop-unroll-20261007
 - exp-waves-hint-20261007
@@ -80,6 +81,10 @@ exp-loop-unroll-20261007中，Triton IR展开、流水化后的TTGIR和最终ISA
 exp-fp-contraction-20261007中，enable_fp_fusion=False的普通表达式发出mul+add，显式tl.fma却仍发出FMA。
 检查源码是否显式指定操作、编译flag及最终ISA三者；仅凭flag不能判断程序不存在融合乘加。
 数值参考也必须区分一次/两次舍入，不能把指令收缩当成默认语义等价变换。
+
+exp-denorm-policy-20261007中allow_flush_denorm同时改变旧式LLVM f32属性和HSA denorm字段；
+FMA指令体不变，普通乘加则变成MAC/MAD。检查编译选项、函数假设、code object字段和实际运行四层，
+不能只凭指令体相同就认定数值相同，也不能只凭MAC/MAD名称认定单次舍入。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。
