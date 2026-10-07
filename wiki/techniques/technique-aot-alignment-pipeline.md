@@ -18,6 +18,7 @@ sources:
 - exp-gemm-operand-alignment-20261006
 - exp-gemm-view-precision-20261006
 related:
+- technique-bulk-tail-vectorization
 - technique-gfx938-instruction-audit
 - technique-grouped-program-order
 - technique-execution-groups

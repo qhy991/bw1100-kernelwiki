@@ -623,6 +623,22 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-vector-mask-limits",
+  "type": "source-doc",
+  "title": "AMD load and store vector width is bounded by mask alignment",
+  "path": "sources/docs/doc-triton-vector-mask-limits.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "tiling",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-two-sum-compensation",
   "type": "source-doc",
   "title": "TwoSum error terms do not automatically qualify an arbitrary reduction tree",
@@ -1676,6 +1692,28 @@
   "summary": ""
  },
  {
+  "id": "exp-tail-vectorization-20261007",
+  "type": "source-experiment",
+  "title": "Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph",
+  "path": "sources/experiments/exp-tail-vectorization-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "reduction",
+   "copy"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-target-selection-20261007",
   "type": "source-experiment",
   "title": "On-chip target selection can cost more than a second global load",
@@ -2303,6 +2341,29 @@
    "correctness"
   ],
   "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "technique-bulk-tail-vectorization",
+  "type": "wiki-technique",
+  "title": "\u5b8c\u6574\u5757\u4e0e\u5c3e\u5757\u5206\u79bb\uff0c\u907f\u514d\u5c3e\u90e8\u63a9\u7801\u9650\u5236\u6574\u4f53\u5411\u91cf\u5316",
+  "path": "wiki/techniques/technique-bulk-tail-vectorization.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "triton",
+   "tiling",
+   "copy",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [
+   "reduction"
+  ],
   "languages": [],
   "confidence": "experimental",
   "summary": ""

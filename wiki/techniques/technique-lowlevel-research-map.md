@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-triton-vector-mask-limits
+- exp-tail-vectorization-20261007
 - exp-store-policy-20261007
 - doc-llvm-denormal-modes
 - exp-denorm-policy-20261007
@@ -331,3 +333,11 @@ exp-store-policy-20261007把完整复制输出和两级sum纳入合同，先过�
 .wt仅新增末尾wait；两批72完整数值观察、108计时样本和108目标profile通过，无稳定收益。
 更新已有doc-triton-cache-modifier-lowering的store映射，累计仍为40份上游资料。
 负结果保留缓存名字、实际flags/等待和完整caller边界，不建立通用.wt优化规则。
+
+
+## 第三十八轮：完整块与尾块分离恢复向量访存
+
+exp-tail-vectorization-20261007仅改producer控制流，完整块无mask、尾块保留mask，整除控制相同代码。
+三个大长度完整调用约1.58–1.59倍，小数组无稳定收益；108数值观察、144样本、162目标profile通过。
+producer读写指令事件各65552→16400，VGPR分配8→12；消费者计数不变，不声称HBM字节减少。
+新增doc-triton-vector-mask-limits，累计41份上游资料；机制入口technique-bulk-tail-vectorization保留前提和代价。

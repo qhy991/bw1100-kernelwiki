@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-129 pages. Machine-readable form: [pages.json](pages.json).
+132 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (40)
+## source-doc (41)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -44,10 +44,11 @@
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 - `doc-triton-tensor-gather` — [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md)
 - `doc-triton-thread-layout` — [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md)
+- `doc-triton-vector-mask-limits` — [AMD load and store vector width is bounded by mask alignment](../sources/docs/doc-triton-vector-mask-limits.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (53)
+## source-experiment (54)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -98,6 +99,7 @@
 - `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)
 - `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
 - `exp-store-policy-20261007` — [Store cache hints on a complete copy and immediate reduction graph](../sources/experiments/exp-store-policy-20261007.md)
+- `exp-tail-vectorization-20261007` — [Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph](../sources/experiments/exp-tail-vectorization-20261007.md)
 - `exp-target-selection-20261007` — [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
 - `exp-waves-hint-20261007` — [Higher waves-per-EU hints can add spills without improving predicted residency](../sources/experiments/exp-waves-hint-20261007.md)
@@ -140,10 +142,11 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (14)
+## wiki-technique (15)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
+- `technique-bulk-tail-vectorization` — [完整块与尾块分离，避免尾部掩码限制整体向量化](../wiki/techniques/technique-bulk-tail-vectorization.md)
 - `technique-execution-groups` — [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md)
 - `technique-existing-layout-maps` — [先用现有 access maps 表达有界 memory permutation](../wiki/techniques/technique-existing-layout-maps.md)
 - `technique-gfx938-instruction-audit` — [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md)
