@@ -372,6 +372,23 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-atomic-reduction",
+  "type": "source-doc",
+  "title": "Atomic reduction changes require order, scope and returned-value contracts",
+  "path": "sources/docs/doc-triton-atomic-reduction.md",
+  "architectures": [],
+  "tags": [
+   "precision",
+   "correctness",
+   "triton",
+   "host-overhead"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-cache-modifier-lowering",
   "type": "source-doc",
   "title": "Triton load cache modifiers require backend inspection",
@@ -536,6 +553,29 @@
    "paired-timing",
    "profiling",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-atomic-reduction-20261007",
+  "type": "source-experiment",
+  "title": "Contended FP32 CAS reduction versus block aggregation and staged reduction",
+  "path": "sources/experiments/exp-atomic-reduction-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "fp32",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "host-overhead"
   ],
   "kernel_types": [],
   "languages": [],
@@ -1673,7 +1713,7 @@
   ],
   "kernel_types": [],
   "languages": [],
-  "confidence": "inferred",
+  "confidence": "experimental",
   "summary": ""
  },
  {

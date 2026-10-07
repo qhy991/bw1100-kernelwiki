@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-99 pages. Machine-readable form: [pages.json](pages.json).
+101 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (30)
+## source-doc (31)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -29,6 +29,7 @@
 - `doc-rocprof-lds-metrics` — [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md)
 - `doc-rocprof-runtime-metrics` — [ROCProfiler runtime metric enumeration and expression definitions](../sources/docs/doc-rocprof-runtime-metrics.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
+- `doc-triton-atomic-reduction` — [Atomic reduction changes require order, scope and returned-value contracts](../sources/docs/doc-triton-atomic-reduction.md)
 - `doc-triton-cache-modifier-lowering` — [Triton load cache modifiers require backend inspection](../sources/docs/doc-triton-cache-modifier-lowering.md)
 - `doc-triton-cast-rounding` — [Triton downcast rounding modes and special-value boundaries](../sources/docs/doc-triton-cast-rounding.md)
 - `doc-triton-config-execution-groups` — [Triton execution-group count must use the target lane width](../sources/docs/doc-triton-config-execution-groups.md)
@@ -37,11 +38,12 @@
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (35)
+## source-experiment (36)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
 - `exp-aligned-grouped-gemm-20261006` — [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md)
+- `exp-atomic-reduction-20261007` — [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md)
 - `exp-bf16-cast-20261007` — [BF16 exhaustive casts and an RTZ low-payload NaN counterexample](../sources/experiments/exp-bf16-cast-20261007.md)
 - `exp-bf16-numerical-20261007` — [BF16 raw-bit inputs preserve tested subnormals on two gfx938 GEMM routes](../sources/experiments/exp-bf16-numerical-20261007.md)
 - `exp-cache-policy-20261007` — [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md)

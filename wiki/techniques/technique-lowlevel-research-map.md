@@ -60,7 +60,7 @@ LDS padding/XOR、分层 shuffle 归约。资料的采集日为 2026-10-06；dev
 | 归约 barrier 多 | technique-wave-reduction | 本机 ISA+正确性；width32/64 没有通用赢家 |
 | tile 变大后反而慢 | technique-gfx938-instruction-audit、technique-execution-groups | metadata 与实际分配分别读取 |
 | GEMM panel 重复加载 | technique-grouped-program-order | 已有固定binary实测；收益和退化都依赖shape |
-| FP32 atomic 想走 fast path | technique-atomic-precision-boundary | 仅上游；保留精度与并发合同 |
+| FP32 atomic 想走 fast path | technique-atomic-precision-boundary | 原生CAS与分级归约对照；保留精度与并发合同 |
 | rocprof 空数据或数值难解释 | technique-profile-gfx938 | 先接受真实 kernel/columns，再读本机公式 |
 
 代码 owner：open-cake-ir task/dcu-lowlevel-knowledge-20261006，提交 4ce5d2ce，
@@ -202,3 +202,9 @@ exp-bf16-numerical-20261007在三个shape/十一分布上比较BF16 MMAC与转�
 exp-bf16-cast-20261007覆盖全部BF16模式及391680个有限FP32边界，
 RTNE/RTZ有限检查通过，但RTZ低payload NaN变Inf，widen另有quiet-bit变化。
 新增doc-triton-cast-rounding，累计30份上游资料条目；没有替换当前Cake默认cast或放宽特殊值合同。
+
+## 第二十轮：单输出原子归约
+
+exp-atomic-reduction-20261007在精确dyadic域比较elements、block后CAS和partial/final策略，
+两批完整计时与72条目标profile补齐冲突/规模边界。实际CAS与自动地址处理不等于源码atomic数量，
+需保留输出清零和额外launch成本。新增doc-triton-atomic-reduction，累计31份上游资料条目。
