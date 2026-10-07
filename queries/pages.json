@@ -1224,6 +1224,30 @@
   "summary": "24\u4e2a\u591c\u95f4queued Run\u5b8c\u6210\u53ca\u91ca\u653e\u7684\u8bb0\u5f55\u4e0d\u7b49\u4e8e\u6240\u6709kernel\u53ef\u664b\u5347\u3002"
  },
  {
+  "id": "exp-output-layout-20261007",
+  "type": "source-experiment",
+  "title": "Removing a core layout conversion does not pay for output compaction",
+  "path": "sources/experiments/exp-output-layout-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "lds",
+   "vgpr",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-platform-contract",
   "type": "source-experiment",
   "title": "gfx938 \u76ee\u6807\u4e0e\u5b9e\u9645 DTK \u6267\u884c\u8fb9\u754c",

@@ -147,3 +147,6 @@ N129/S256读取指标反而增加约11.6%，完整调用仍改善约1.26倍。
 No promotion to Compiler/Target。经验写入kernel-bw-softmax和technique-gfx938-instruction-audit：
 分别建模逻辑域、物理stride和计算tile，沿真实load/compute/convert/store类型检查每个布局，保留数值与caller边界。
 输出stride是否也可协调、转换是否值得消除，需要新的完整调用合同，不能直接把额外padding成本移给caller。
+
+后继exp-output-layout-20261007已验证该问题：padded输出核心去掉转换，但回写连续输出的完整策略退化。
+原stride实验的预排布输入组件结论保留，不能把后继回写结果改写成旧任务已经计入caller成本。

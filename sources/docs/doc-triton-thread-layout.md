@@ -16,3 +16,7 @@ Triton的Gluon布局教程解释了blocked布局的三个层级：每线程元�
 教程中的NVIDIA 32-lane、cache sector和GB200性能示例不作为gfx938硬件事实。
 本机实验使用普通Triton，由vendor编译器选择布局；只用TTGIR解释已有编译产物，没有向Cake IR加入布局代数。
 exp-row-mapping-20261007给出wave64下行数、列数、资源和完整调用的有界对应证据。
+
+2026-10-07重读load/store布局示例：不同全局存储方向可要求不同线程布局，转换可能跨线程或wave移动数据，
+跨wave通信会使用共享内存。教程把转换计入完整copy，不据此声称所有转换都昂贵或可安全删除。
+exp-output-layout-20261007在本机区分核心中消失的转换与最终caller回写重新承担的转换。

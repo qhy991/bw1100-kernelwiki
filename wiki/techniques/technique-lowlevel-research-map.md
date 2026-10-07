@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-output-layout-20261007
 - exp-row-stride-20261007
 - doc-triton-thread-layout
 - exp-row-mapping-20261007
@@ -260,3 +261,9 @@ exp-row-mapping-20261007保持稳定log-softmax公式，比较1/2/4/8行与单wa
 exp-row-stride-20261007保持逻辑输入与parent基址，交叉比较N127的S127/256和C128/256，并补N129。
 计算padding独立造成延迟差异；S256还引发load/store布局转换，LDS更大但barrier更少，读量增加仍可能更快。
 两批96数值观察、192样本、48目标profile留证据；预排布输入不包含caller重排成本。复用并重读已有35份来源。
+
+## 第二十九轮：输出布局回到完整caller
+
+exp-output-layout-20261007固定S256输入，padded输出消除核心layout转换，但连续输出回写重新引入转换与额外dispatch。
+两批96数值观察、192样本、64目标profile通过，完整策略反而慢1.5–1.76倍；不同输出ABI的核心不参与速度接受。
+复用35份上游资料，将“核心资源减少”和“相同输出合同获益”分开记录，保留该负例。

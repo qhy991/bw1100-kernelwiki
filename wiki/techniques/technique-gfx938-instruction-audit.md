@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-output-layout-20261007
 - exp-row-stride-20261007
 - doc-triton-exp-lowering
 - exp-exp-route-20261007
@@ -47,6 +48,10 @@ code object metadata 与真实 dispatch profile。单独的 --cuda-device-only -
 load与归约使用#blocked1，store前还有convert_layout。逐个追踪tt.load、tt.reduce、转换和tt.store的类型，
 不要用布局别名顺序代表整个kernel。该例load每线程持有2/4列，但ISA仍是标量global_load_dword；
 更大的LDS用于布局交换，静态barrier处数反而下降。源码tile、IR布局、ISA和动态资源各回答不同问题。
+
+exp-output-layout-20261007是另一个边界：核心已无convert_layout/LDS/barrier，恢复连续输出的copy却重新出现转换。
+审计必须沿完整调用链追到最终输出，分别记录每kernel资源并聚合所需dispatch；不能只凭核心资源下降接受优化，
+也不能把顺序执行的不同kernel LDS相加当成同时驻留需求。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。
