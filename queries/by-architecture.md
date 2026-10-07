@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (85 pages)
+## gfx938 (86 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -38,6 +38,7 @@
 - [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md) `[source-experiment]` arch:gfx938
 - [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md) `[source-experiment]` arch:gfx938
 - [Stable log-softmax avoids zero probabilities and amplified FP32 materialization error](../sources/experiments/exp-log-softmax-20261007.md) `[source-experiment]` arch:gfx938
+- [Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers](../sources/experiments/exp-loop-unroll-20261007.md) `[source-experiment]` arch:gfx938
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md) `[source-experiment]` arch:gfx938
 - [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md) `[source-experiment]` arch:gfx938

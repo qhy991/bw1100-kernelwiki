@@ -1243,6 +1243,30 @@
   "summary": ""
  },
  {
+  "id": "exp-loop-unroll-20261007",
+  "type": "source-experiment",
+  "title": "Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers",
+  "path": "sources/experiments/exp-loop-unroll-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "gemm",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "vgpr",
+   "lds",
+   "occupancy-tuning"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-lowlevel-probe-20261006",
   "type": "source-experiment",
   "title": "BW1100-1 native transpose and reduction mechanism probes",

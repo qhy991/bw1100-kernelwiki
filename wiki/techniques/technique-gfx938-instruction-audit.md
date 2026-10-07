@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-loop-unroll-20261007
 - exp-waves-hint-20261007
 - exp-gather-mapping-20261007
 - exp-target-selection-20261007
@@ -71,6 +72,9 @@ ds_bpermute仍使每wave LDSInsts为4。counter中的DS指令、LDS存储分配�
 exp-waves-hint-20261007中waves_per_eu已进入LLVM属性，但MMAC路线无机器码/资源变化；
 高压vector-dot提示8则产生private spill。先定位最早保留阶段差异，再决定是否值得占卡。
 机器指令/分支/descriptor视图比较只用于过滤重复候选，不冒充HSACO字节身份或形式等价证明。
+
+exp-loop-unroll-20261007中，Triton IR展开、流水化后的TTGIR和最终ISA具有不同的静态dot/MMAC出现次数。
+按阶段记录循环、local_alloc和静态指令，结合动态counter解释，不能将静态MMAC数直接当完整kernel的运算量。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。

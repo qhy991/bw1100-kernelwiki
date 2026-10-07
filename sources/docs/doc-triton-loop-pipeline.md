@@ -13,6 +13,10 @@ Triton main tl.range API文档，2026-10-06读取。
 loop num_stages尝试重叠循环中的loads，与kernel num_stages重点处理喂给dot的loads存在区别。
 文档还区分unroll、accumulator multi-buffer与warp specialization；不能把这些开关统称同一机制。
 
-本轮先改变kernel num_stages，未使用loop属性或warp specialization。
+早期exp-gemm-alignment-stages-20261006先改变kernel num_stages，未使用loop属性或warp specialization。
 对gfx938应查看本机vendor lowering：请求stage数不证明实际流水深度；无效果、拒绝和
 更高资源代价都应保留。此来源没有给出Hygon最优stage数，也不能授予上游其他target专属能力。
+
+2026-10-07重读：loop_unroll_factor作用于Triton IR层循环展开，小于2意味着该层不展开；
+这不是对后续LLVM或最终机器循环形态的保证。exp-loop-unroll-20261007发现u1与auto机器视图相同，
+u2/u4在num_stages固定时增加A/B缓冲和LDS，并产生随shape反转的完整调用结果。

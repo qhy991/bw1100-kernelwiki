@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-loop-unroll-20261007
 - doc-waves-per-eu-hint
 - exp-waves-hint-20261007
 - exp-gather-mapping-20261007
@@ -299,3 +300,9 @@ exp-gather-mapping-20261007交叉r4w4/r1w1与reload/gather，1024列单wave relo
 exp-waves-hint-20261007离线过滤MMAC相同代码与m32 hint2，设备只测m32 hint1/4/8。
 hint8降低VGPR却引入spill，HIP预测未增加，两个shape约74%/45%退化；72精确矩阵检查、96样本、36目标profile保留。
 新增doc-waves-per-eu-hint，累计38份上游资料，将编译提示、资源、预测与观测分开解释。
+
+## 第三十四轮：循环展开与流水资源
+
+exp-loop-unroll-20261007固定MMAC/stage/wave，过滤auto/u1同代码，比较u2/u4。
+展开增加A/B local_alloc和LDS；小shape约4–7%收益，大shape约6.5%/37.5%退化。
+72精确矩阵检查、96样本、36目标profile通过；重读已有38份来源中的tl.range语义，不混淆IR展开与最终代码。

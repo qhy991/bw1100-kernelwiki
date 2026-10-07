@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-123 pages. Machine-readable form: [pages.json](pages.json).
+124 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (38)
@@ -45,7 +45,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (49)
+## source-experiment (50)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -77,6 +77,7 @@
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-initial-warmup-20261007` — [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md)
 - `exp-log-softmax-20261007` — [Stable log-softmax avoids zero probabilities and amplified FP32 materialization error](../sources/experiments/exp-log-softmax-20261007.md)
+- `exp-loop-unroll-20261007` — [Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers](../sources/experiments/exp-loop-unroll-20261007.md)
 - `exp-lowlevel-probe-20261006` — [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md)
 - `exp-matrix-instruction-20261007` — [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md)
 - `exp-metric-definitions-20261007` — [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md)

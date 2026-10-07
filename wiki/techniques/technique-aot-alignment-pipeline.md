@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [triton, gemm, correctness, lds, vgpr, paired-timing]
 confidence: experimental
 sources:
+- exp-loop-unroll-20261007
 - doc-triton-cache-modifier-lowering
 - exp-cache-policy-20261007
 - doc-triton-alignment-hints
@@ -88,3 +89,11 @@ exp-cache-policy-20261007在同GEMM上先检查ISA，再选择可归因的设备
 exp-matrix-instruction-20261007进一步表明，matrix_instr_nonkdim也可能改变整个计算/搬运路径。
 本机32选项没有选出“更大的MMAC”，而是走dot2，声明与分配VGPR、LDS和动态指标均大幅变化。
 保持原源码仍不足以把速度差异归给某一个opcode；先把实际lowering作为候选身份的一部分。
+
+## 固定stage仍可能因展开而扩大LDS
+
+exp-loop-unroll-20261007在MMAC16、num_stages2固定时改变loop_unroll_factor。
+默认与u1机器视图相同；u2/u4使TTGIR的A/B local_alloc从一对变两对/四对，LDS8→16→32KiB。
+小shape有小幅收益，大shape却退化，动态VALU更少也没保证更快。
+不要用API层“因子1不展开”判断最终机器循环，也不要用stage配置代替实际缓冲数量。
+该结论有完整数值、反序计时和profile边界，资源预测仍与实际驻留区分。
