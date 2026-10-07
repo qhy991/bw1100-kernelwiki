@@ -1722,6 +1722,28 @@
   "summary": "DTK\u5de5\u5177\u8def\u5f84/opt/dtk/rocprofiler/bin/rocprof\uff1bsource env\u5e76\u4e0d\u81ea\u52a8\u52a0\u8be5bin\u3002"
  },
  {
+  "id": "exp-rect-transpose-20261007",
+  "type": "source-experiment",
+  "title": "Equal-area transpose tiles trade read requests against writes and boundary work without a stable whole-call win",
+  "path": "sources/experiments/exp-rect-transpose-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "layout-transform",
+   "lds",
+   "triton",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-rectangular-compact-20261006",
   "type": "source-experiment",
   "title": "Rectangular transpose and compact LDS reduction follow-up",

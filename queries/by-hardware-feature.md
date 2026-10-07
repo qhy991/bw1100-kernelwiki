@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (41 pages)
+## lds (42 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -25,6 +25,7 @@
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md) `[source-experiment]` arch:gfx938
 - [Removing a core layout conversion does not pay for output compaction](../sources/experiments/exp-output-layout-20261007.md) `[source-experiment]` arch:gfx938
+- [Equal-area transpose tiles trade read requests against writes and boundary work without a stable whole-call win](../sources/experiments/exp-rect-transpose-20261007.md) `[source-experiment]` arch:gfx938
 - [Rectangular transpose and compact LDS reduction follow-up](../sources/experiments/exp-rectangular-compact-20261006.md) `[source-experiment]` arch:gfx938
 - [Widening the final reduction cannot recover lost FP32 partials](../sources/experiments/exp-reduction-precision-stage-20261007.md) `[source-experiment]` arch:gfx938
 - [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md) `[source-experiment]` arch:gfx938

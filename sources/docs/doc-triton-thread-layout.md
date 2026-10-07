@@ -24,3 +24,8 @@ exp-output-layout-20261007在本机区分核心中消失的转换与最终caller
 
 exp-scatter-order-20261007用普通Triton的索引双射干预同program访问集合，发现编译器可消除原布局转换。
 这没有给作者显式lane控制；需要跟踪load/store实际使用的布局，而非只看第一个#blocked别名或逻辑arange次序。
+
+
+2026-10-07再次核对转置示例：输入与输出的连续方向不同，tile形状需要同时服务两侧合并访问。
+exp-rect-transpose-20261007在本机固定面积与wave数，改变长宽比后观察到读请求和写请求反向交换；
+普通Triton实际布局及grid共同变化，完整eager调用未确认胜利，不能直接继承教程的硬件或性能数值。
