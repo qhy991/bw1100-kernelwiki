@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (106 pages)
+## gfx938 (107 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -54,6 +54,7 @@
 - [Crossed controls attribute BF16 conversion gains to bulk-tail handling rather than packed opcode choice](../sources/experiments/exp-packed-tail-20261007.md) `[source-experiment]` arch:gfx938
 - [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md) `[source-experiment]` arch:gfx938
 - [已安装 DCU rocprof 技能的收集与解析边界](../sources/experiments/exp-profiler-skill.md) `[source-experiment]` arch:gfx938
+- [Qualified graph replay exposes a bounded transpose tile effect while lower read requests still fail to predict a win](../sources/experiments/exp-rect-graph-20261007.md) `[source-experiment]` arch:gfx938
 - [Equal-area transpose tiles trade read requests against writes and boundary work without a stable whole-call win](../sources/experiments/exp-rect-transpose-20261007.md) `[source-experiment]` arch:gfx938
 - [Rectangular transpose and compact LDS reduction follow-up](../sources/experiments/exp-rectangular-compact-20261006.md) `[source-experiment]` arch:gfx938
 - [Widening the final reduction cannot recover lost FP32 partials](../sources/experiments/exp-reduction-precision-stage-20261007.md) `[source-experiment]` arch:gfx938

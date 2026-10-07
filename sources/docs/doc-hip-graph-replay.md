@@ -27,3 +27,8 @@ resident graph提交节省不自动转为净收益；相同copy的eager控制与
 
 exp-fusion-graph-20261007将相同kernel的提交路径作为融合对照，先验证混合kernel图的实际dispatch与更新输入。
 节点数仍不能代替工作量，resident重复block与单请求、caller搬移及setup成本继续分开。
+
+
+2026-10-07重读HIP构建/实例化与PyTorch2.11固定地址刷新条款，应用于exp-rect-graph-20261007。
+保持18个矩形transpose机器视图，先动态资格再计时；局部tile收益只在resident八call图合同成立，
+读请求更少仍可能事件区间更长。图减少提交开销，不提供无需实测的tile排序。

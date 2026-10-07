@@ -10,6 +10,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-rect-graph-20261007
 - exp-fusion-graph-20261007
 - exp-graph-caller-20261007
 - doc-hip-graph-replay
@@ -65,3 +66,11 @@ exp-fusion-graph-20261007固定分离/融合kernel，交叉eager与八次完整�
 融合在图内仍有收益；大数组提交大幅减少而完成时间仅小降。不能把两类优化收益简单相加。
 同样两枚type200节点可对应不同kernel数量，图不自动融合算术，也不自动形成纯kernel busy-time测量。
 setup、存储生命周期、输入更新和resident block边界必须与结果一起保留。
+
+
+## 图内的候选比较仍需完整证据
+
+exp-rect-graph-20261007保持18个transpose机器视图，以1296条实际dispatch和刷新输入资格化后再计时。
+较低host提交开销下，大N129的16×64出现两批约1.039倍有界重放收益，eager仍不能确认；N128少读请求却略慢。
+说明时间边界会改变可观察差异，也说明图不自动把请求计数变成性能预测器。
+保留A/A、首次replay、setup、固定地址及八call重复边界；不回填旧eager胜利，不推广任意caller缓存。
