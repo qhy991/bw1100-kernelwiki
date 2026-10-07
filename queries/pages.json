@@ -388,6 +388,24 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-cast-rounding",
+  "type": "source-doc",
+  "title": "Triton downcast rounding modes and special-value boundaries",
+  "path": "sources/docs/doc-triton-cast-rounding.md",
+  "architectures": [],
+  "tags": [
+   "precision",
+   "bf16",
+   "fp32",
+   "correctness",
+   "triton"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-config-execution-groups",
   "type": "source-doc",
   "title": "Triton execution-group count must use the target lane width",
@@ -517,6 +535,28 @@
    "tiling",
    "paired-timing",
    "profiling",
+   "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-bf16-cast-20261007",
+  "type": "source-experiment",
+  "title": "BF16 exhaustive casts and an RTZ low-payload NaN counterexample",
+  "path": "sources/experiments/exp-bf16-cast-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "precision",
+   "bf16",
+   "fp32",
+   "triton",
    "negative-result"
   ],
   "kernel_types": [],

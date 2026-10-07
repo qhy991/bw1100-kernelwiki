@@ -84,3 +84,7 @@ exp-matrix-instruction-20261007在相同GEMM上设置matrix_instr_nonkdim=0/16/3
 BF16后继exp-bf16-numerical-20261007中，16选项产生MMAC BF16；32选项先BF16→FP32，
 再用v_fmac_f32，而非FP16时的v_dot2_f32_f16。同一个选项在不同dtype上的替代路线也需要重新检查。
 极小值结论由输入bits与外部FP64 oracle的实测支撑，不只凭denorm metadata字段下结论。
+
+exp-bf16-cast-20261007中显式RTZ不是转换opcode，而是右移16位；RTNE则为v_cvt_bf16_f32。
+这个差异在低payload NaN分类上有可复现后果。审计不能只看有限随机数或指令更少，
+还要把保留/丢弃的bits与任务非有限值合同对应起来。

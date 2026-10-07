@@ -196,3 +196,9 @@ exp-graph-caller-20261007比较直接调用与两种workspace路径，单GEMM/�
 exp-bf16-numerical-20261007在三个shape/十一分布上比较BF16 MMAC与转换后FMAC，
 直接解码bits到FP64作oracle。两次反序运行的66输出文件逐位一致，指定subnormal输入和输出保留，
 随机误差优劣随分布变化。复用既有29份来源，不把数值观察写成全局FTZ或舍入规则。
+
+## 第十九轮：GPU BF16转换位边界
+
+exp-bf16-cast-20261007覆盖全部BF16模式及391680个有限FP32边界，
+RTNE/RTZ有限检查通过，但RTZ低payload NaN变Inf，widen另有quiet-bit变化。
+新增doc-triton-cast-rounding，累计30份上游资料条目；没有替换当前Cake默认cast或放宽特殊值合同。

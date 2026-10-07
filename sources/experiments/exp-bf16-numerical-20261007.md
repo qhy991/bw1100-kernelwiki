@@ -131,3 +131,9 @@ No promotion。补充BF16输入构造、真实lowering、极小值与有限分�
 不因任一路线误差差异直接判定Compiler缺陷，不改Target声明或通用FTZ规则。
 agent应同时保留dtype原始bits、oracle解码路线、accumulator与output类型、opcode、形状及输入分布。
 CPU量化、GPU转换和矩阵累加是不同边界，只有本轮实际测过的边界才可报告为观察结果。
+
+## GPU cast successor
+
+exp-bf16-cast-20261007单独验证GPU转换，有限BF16往返和分层FP32边界通过，
+同时发现原生RTZ低payload NaN分类变化。该后继补齐独立cast问题，不把本页CPU ties量化
+重新标为曾经测试了GPU舍入。

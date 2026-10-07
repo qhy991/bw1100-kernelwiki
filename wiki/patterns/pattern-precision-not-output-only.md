@@ -12,6 +12,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-triton-cast-rounding
+- exp-bf16-cast-20261007
 - exp-bf16-numerical-20261007
 - exp-gemm-view-precision-20261006
 - doc-pytorch-numerical-accuracy
@@ -59,3 +61,13 @@ exp-bf16-numerical-20261007用原始uint16 BF16输入、直接FP64解码referenc
 正负ties用例测试CPU输入量化，不应写成GPU cast RNE已验证；2^40与2^-40互补尺度结果
 则是防止误用FP16窄化的一条实际对照。随机分布最大误差的优劣随分布反转，
 不能以accumulator写FP32、或某一路线更慢来推断它必然更准确。
+
+## 转换模式必须单列特殊值
+
+exp-bf16-cast-20261007把GPU cast独立出来：全部有限BF16往返、391680个有限FP32舍入边界
+分别通过RTNE/RTZ精确检查。但本机RTZ的16位右移把低payload FP32 NaN0x7f800001变成BF16+Inf，
+负号同样复现；RTNE保留NaN分类。有限输入全过不足以接受有NaN要求的通用路径。
+
+widen还观察到126个BF16 NaN只改变quiet bit，分类相同但payload不逐位相同。
+需要分别声明舍入、signed zero、NaN分类/payload和覆盖空间；不能将更简单的bit截断当作无条件优化。
+当前Cake cast未显式选择RTZ，本条不宣称它已触发原生探针的特殊值问题。
