@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [triton, gemm, correctness, lds, vgpr, paired-timing]
 confidence: experimental
 sources:
+- exp-store-policy-20261007
 - exp-loop-unroll-20261007
 - doc-triton-cache-modifier-lowering
 - exp-cache-policy-20261007
@@ -97,3 +98,14 @@ exp-loop-unroll-20261007在MMAC16、num_stages2固定时改变loop_unroll_factor
 小shape有小幅收益，大shape却退化，动态VALU更少也没保证更快。
 不要用API层“因子1不展开”判断最终机器循环，也不要用stage配置代替实际缓冲数量。
 该结论有完整数值、反序计时和profile边界，资源预测仍与实际驻留区分。
+
+
+## Store策略要覆盖立即消费者
+
+exp-store-policy-20261007在可见完整copy加两级reduce合同中比较写出策略。
+本机.wb/.cg/.cs与default机器视图相同，.wt只新增末尾wait，没有新增store缓存flags。
+完整调用无稳定收益，consumer读流量指标也未改变；这不能提升为所有缓存状态相同的结论。
+
+Agent先固定输出ABI与后续依赖，再比较编译出的指令、资源及等待。只有生成不同代码的代表进入设备。
+数值检查覆盖完整输出和消费者结果；性能覆盖完成合同所需的全部kernel。
+按stage聚合profile可定位变化，但单图profile与重复图计时仍是不同cache历程，不能直接互作证明。

@@ -1,6 +1,6 @@
 ---
 id: doc-triton-cache-modifier-lowering
-title: Triton load cache modifiers require backend inspection
+title: Triton load and store cache modifiers require backend inspection
 type: source-doc
 architectures: []
 tags: [triton, profiling, tiling]
@@ -19,3 +19,10 @@ Triton v3.6.0 AMD Utility.cpp的getCacheModifierFlagsForLoadStore把load的CA映
 
 本机应检查实际TTIR/ISA及资源，尤其volatile是否插入等待或改变调度。
 如果cache modifier同时改变等待、向量宽度或LDS路径，就不能将全部计时差异归给缓存策略。
+
+
+Store同样需要检查：上游该函数将.wb/default和.cg映射为(false,false)，.cs为(false,true)，
+.wt为(true,true)，pair依次是volatile/nontemporal。注意同名.cg在load和store的映射不同。
+[tl.store API](https://triton-lang.org/main/python-api/generated/triton.language.store.html)
+的缓存解释也明确面向NVIDIA PTX；这不是gfx938的写穿、绕过或写分配保证。
+本机exp-store-policy-20261007先过滤相同代码，再观察.wt的额外末尾等待与完整consumer链。

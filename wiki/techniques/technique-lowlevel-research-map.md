@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-store-policy-20261007
 - doc-llvm-denormal-modes
 - exp-denorm-policy-20261007
 - doc-fma-rounding-contract
@@ -322,3 +323,11 @@ exp-fp-contraction-20261007分开隐式收缩、显式FMA与分步乘加，8359�
 exp-denorm-policy-20261007保留两份CPU前驱后，9898诊断唯一匹配预定义模式；on在本机对应双向清零并保留符号。
 正常数长链中separate因MAC/MAD路线约1.442倍，FMA路径无明显收益；80观察、288样本、40目标profile通过。
 新增doc-llvm-denormal-modes，累计40份上游资料，区分编译许可、运行模式和数据语义。
+
+
+## 第三十七轮：store cache policy与立即消费者
+
+exp-store-policy-20261007把完整复制输出和两级sum纳入合同，先过滤.wb/.cg/.cs相同机器视图。
+.wt仅新增末尾wait；两批72完整数值观察、108计时样本和108目标profile通过，无稳定收益。
+更新已有doc-triton-cache-modifier-lowering的store映射，累计仍为40份上游资料。
+负结果保留缓存名字、实际flags/等待和完整caller边界，不建立通用.wt优化规则。

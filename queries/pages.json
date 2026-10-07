@@ -458,7 +458,7 @@
  {
   "id": "doc-triton-cache-modifier-lowering",
   "type": "source-doc",
-  "title": "Triton load cache modifiers require backend inspection",
+  "title": "Triton load and store cache modifiers require backend inspection",
   "path": "sources/docs/doc-triton-cache-modifier-lowering.md",
   "architectures": [],
   "tags": [
@@ -1648,6 +1648,27 @@
    "profiling",
    "lds",
    "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-store-policy-20261007",
+  "type": "source-experiment",
+  "title": "Store cache hints on a complete copy and immediate reduction graph",
+  "path": "sources/experiments/exp-store-policy-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "reduction"
   ],
   "kernel_types": [],
   "languages": [],
