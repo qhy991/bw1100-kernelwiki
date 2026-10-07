@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [scan, fusion, masking, int32]
 confidence: experimental
-sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008, exp-compaction-row-guard-20261008, doc-hip-uniform-control-flow, exp-compaction-uniform-20261008]
+sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008, exp-compaction-row-guard-20261008, doc-hip-uniform-control-flow, exp-compaction-uniform-20261008, exp-compaction-granularity-20261008]
 date: '2026-10-08'
 description: 逐行保序筛选返回固定容量与Count；融合排名和写出可消除私有中间体，但必须验证顺序、Count和尾部。
 related: [technique-register-scan-broadcast, technique-host-entry, kernel-bw-expert-sort]
@@ -63,3 +63,12 @@ exp-compaction-uniform-20261008在原融合kernel内计算当前Count；四行�
 N1024全选路径生成向量store，TCC写请求约降至四分之一，对已融合基线大batch graph约2.38倍，空/满行排列约1.85–2.05倍。
 随机稀疏、半数与混合program没有同等净收益，短行与eager边界另列；相同密度不能描述快速路径覆盖。
 收益同时包含省scan和改变store的效果，尚未分离唯一因果，不据此建立默认dispatcher或推广所有uniform分支。
+
+
+## 分类粒度必须与program分组分别对照
+
+exp-compaction-granularity-20261008使用四臂：四行/单行的普通融合和各自快速路径。
+单行分类消除了跨wave LDS/barrier，让mixed输入的空/满行单独跳过scan；N1024大batch对四行快速路径约1.32–1.34倍。
+但program数接近四倍、wave总数接近不变，N129大batch反而明显更慢；无barrier与少指令不能单独预测完整吞吐。
+N1024随机half的单行改善在普通融合baseline中已出现，分类本身没有额外收益；不要把分组与分类合成一个归因。
+保留同粒度baseline及跨粒度直接配对，不能以退化后的单行baseline放大对先前实现的改进。

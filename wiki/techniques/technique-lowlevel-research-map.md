@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-compaction-granularity-20261008
 - doc-hip-uniform-control-flow
 - exp-compaction-uniform-20261008
 - exp-scatter-order-20261007
@@ -551,3 +552,11 @@ exp-compaction-uniform-20261008保留CPU超时前驱，修复NPZ成员重复加�
 指令/请求各1088目标dispatch及每pass112刷新/8首次重放通过；两批224刷新、16首次重放、2016计时样本通过，四作业释放。
 原融合基线之上，大N1024全选graph约2.38倍，空/满行结构约1.85–2.05倍；稀疏/混合回退成本、短行和eager反例保留。
 增加16B LDS、两处barrier，快速路径少scan且可向量写，收益不是免费分支或VGPR下降；新增HIP控制流来源，累计49份上游资料。
+
+
+## 第六十三轮：分类粒度与program分组的独立控制
+
+exp-compaction-granularity-20261008固定四臂与28组原oracle，继承八个旧机器视图，单行与四行分别保留普通融合baseline。
+指令/请求各2176目标dispatch、每pass224刷新/16首次重放通过；两批448刷新、32首次重放、8064计时样本通过，四任务释放。
+单行去LDS/barrier且N1024 mixed覆盖更多快速分支，graph对四行快速路径约1.32–1.34倍；N129大batch却明显退化。
+half的分组收益已在普通融合控制出现，不能算成分类收益；复用49份上游资料，不按无barrier/总wave或较弱分母建立默认策略。

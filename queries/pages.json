@@ -1036,6 +1036,29 @@
   "summary": ""
  },
  {
+  "id": "exp-compaction-granularity-20261008",
+  "type": "source-experiment",
+  "title": "Row-local classification removes barriers but program grouping can reverse the benefit",
+  "path": "sources/experiments/exp-compaction-granularity-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "masking",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "execution-groups"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-compaction-row-guard-20261008",
   "type": "source-experiment",
   "title": "Reusing row counts removes empty-rank traffic but its benefit depends on row structure",

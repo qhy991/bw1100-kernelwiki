@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-167 pages. Machine-readable form: [pages.json](pages.json).
+168 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (49)
@@ -56,7 +56,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (78)
+## source-experiment (79)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -69,6 +69,7 @@
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
 - `exp-compaction-20261008` — [Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization](../sources/experiments/exp-compaction-20261008.md)
 - `exp-compaction-encoding-20261008` — [Dense rank encoding enables vector stores but reverses its value at zero selection density](../sources/experiments/exp-compaction-encoding-20261008.md)
+- `exp-compaction-granularity-20261008` — [Row-local classification removes barriers but program grouping can reverse the benefit](../sources/experiments/exp-compaction-granularity-20261008.md)
 - `exp-compaction-row-guard-20261008` — [Reusing row counts removes empty-rank traffic but its benefit depends on row structure](../sources/experiments/exp-compaction-row-guard-20261008.md)
 - `exp-compaction-uniform-20261008` — [A uniform compaction fast path skips rank scans but classification penalizes partial rows](../sources/experiments/exp-compaction-uniform-20261008.md)
 - `exp-compensated-reduction-20261007` — [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md)

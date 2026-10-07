@@ -19,3 +19,8 @@ url: https://rocm.docs.amd.com/projects/HIP/en/latest/how-to/performance_guideli
 
 本机exp-compaction-uniform-20261008由设备数据先算每行Count，再对四行是否含部分命中作program级归约。
 对齐后的统一分支仍可能付出跨wave通信与barrier；所有实际资源、计数器和收益由该实验来源拥有。
+
+
+exp-compaction-granularity-20261008进一步区分一wave内部分类与四wave汇总。
+单wave产物消除了LDS/barrier，却同时改变program数量、标量地址形成与部分寄存器分配。
+因此即使wave总数接近，也不能只凭无barrier认定完整路径更快；本机四臂配对记录各自分母。
