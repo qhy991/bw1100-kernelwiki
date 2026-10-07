@@ -525,6 +525,29 @@
   "summary": ""
  },
  {
+  "id": "exp-bf16-numerical-20261007",
+  "type": "source-experiment",
+  "title": "BF16 raw-bit inputs preserve tested subnormals on two gfx938 GEMM routes",
+  "path": "sources/experiments/exp-bf16-numerical-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "precision",
+   "bf16",
+   "fp32",
+   "correctness",
+   "gemm",
+   "mmac",
+   "triton"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-cache-policy-20261007",
   "type": "source-experiment",
   "title": "Per-operand cache hints change flags, traffic and waiting on gfx938",

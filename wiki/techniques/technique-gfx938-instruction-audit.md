@@ -80,3 +80,7 @@ exp-matrix-instruction-20261007在相同GEMM上设置matrix_instr_nonkdim=0/16/3
 其normal/dynamic-range结果也不同于MMAC；三种MMAC执行组在当前输入上相等。
 比较实际路线时保留分布与reference误差；最大误差变大不表示每个元素都更差，
 较慢也不意味着更精确。浮点差异是否可接受由Task合同决定，不从opcode名字裁定。
+
+BF16后继exp-bf16-numerical-20261007中，16选项产生MMAC BF16；32选项先BF16→FP32，
+再用v_fmac_f32，而非FP16时的v_dot2_f32_f16。同一个选项在不同dtype上的替代路线也需要重新检查。
+极小值结论由输入bits与外部FP64 oracle的实测支撑，不只凭denorm metadata字段下结论。

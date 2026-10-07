@@ -12,12 +12,13 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-bf16-numerical-20261007
 - exp-gemm-view-precision-20261006
 - doc-pytorch-numerical-accuracy
 - doc-triton-dot-precision
 - exp-community-baselines
 - exp-night-exclusions
-date: '2026-10-05'
+date: '2026-10-07'
 description: 最早问reference哪个stage要求FP32、在哪里有BF16/整数舍入，而不是先看输出分数。
 symptoms:
 - precision-contract-failure
@@ -47,3 +48,14 @@ exp-gemm-view-precision-20261006从dyadic扩到随机、抵消、小幅值和特
 
 本路径保留了所测FP16 subnormal，反驳把其他AMD型号的FTZ说明无条件转给Hygon。
 数值能力要绑定dtype、opcode、数据分布和runtime；本轮不是所有denorm或NaN payload的资格。
+
+## BF16还需要防止oracle提前丢失输入
+
+exp-bf16-numerical-20261007用原始uint16 BF16输入、直接FP64解码reference，
+避免中间FP32转换先改变subnormal问题。MMAC BF16与BF16→FP32 FMAC两条路线均保留
+本轮最小BF16 subnormal的rescued结果，以及FP32 subnormal输出；这不是所有denorm路径的资格。
+32选项BF16替代路线也不同于FP16的dot2，不能跨dtype推断指令或精度。
+
+正负ties用例测试CPU输入量化，不应写成GPU cast RNE已验证；2^40与2^-40互补尺度结果
+则是防止误用FP16窄化的一条实际对照。随机分布最大误差的优劣随分布反转，
+不能以accumulator写FP32、或某一路线更慢来推断它必然更准确。

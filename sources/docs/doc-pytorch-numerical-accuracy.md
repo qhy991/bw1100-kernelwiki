@@ -15,3 +15,7 @@ PyTorch2.14数值说明，2026-10-06读取。浮点运算顺序会影响结果�
 文档另有MI200特定FP16/BF16指令denormal行为及相关库路径说明。该结论有明确设备、
 指令和库范围，不能因gfx名字相近而套给Hygon MMAC。本机subnormal探针应单独留证据。
 原Task仍拥有dtype、中间舍入、容差与特殊值规则；此页不授予修改这些规则的权限。
+
+2026-10-07复查该说明与[rocBLAS6.2的MI200范围说明](https://rocm.docs.amd.com/projects/rocBLAS/en/docs-6.2.0/how-to/what-is-rocblas.html)。
+本机后继exp-bf16-numerical-20261007验证两个gfx938 BF16路径的指定subnormal输入与输出保留，
+仍将上游设备特定声明与本机有限观察分开；没有改写成全面FTZ或cast舍入保证。

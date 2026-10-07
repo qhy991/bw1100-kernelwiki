@@ -190,3 +190,9 @@ exp-graph-replay-20261007从标准节点假设失败出发，识别type200 opaqu
 exp-graph-caller-20261007比较直接调用与两种workspace路径，单GEMM/轮换caller/必要复制与回写计时。
 先用42条动态目标dispatch资格化一枚type200节点，再做两次反序计时；workspace graph无净收益。
 29份上游来源不变，机制回到host入口：固定地址resident收益不能替代caller完整策略接受。
+
+## 第十八轮：BF16位输入与极小值
+
+exp-bf16-numerical-20261007在三个shape/十一分布上比较BF16 MMAC与转换后FMAC，
+直接解码bits到FP64作oracle。两次反序运行的66输出文件逐位一致，指定subnormal输入和输出保留，
+随机误差优劣随分布变化。复用既有29份来源，不把数值观察写成全局FTZ或舍入规则。
