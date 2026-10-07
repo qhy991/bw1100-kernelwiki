@@ -2069,6 +2069,30 @@
   "summary": ""
  },
  {
+  "id": "exp-scan-tail-20261008",
+  "type": "source-experiment",
+  "title": "An exact carried tail avoids the converted scan padding cliff while preserving every prefix output",
+  "path": "sources/experiments/exp-scan-tail-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "masking",
+   "layout-transform",
+   "lds",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-scan-wave-20261007",
   "type": "source-experiment",
   "title": "Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains",

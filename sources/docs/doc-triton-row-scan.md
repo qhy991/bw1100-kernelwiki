@@ -23,3 +23,9 @@ Triton cumsum沿指定axis计算前缀，支持reverse与显式dtype；指定dty
 不要把Triton num_warps=1直接等同于rocPRIM的reduce_then_scan算法，也不要把AMD的wave或存储常量继承给gfx938。
 本机exp-scan-wave-20261007使用vendor Triton实际产物核对通信指令、LDS和完整调用，覆盖独立行内scan；
 不覆盖跨block全局carry、任意结合算子、非交换算子或FP32数值重排。
+
+
+2026-10-08读取同一rocPRIM block_scan源码的prefix_callback说明：前置carry与局部scan结果有不同职责，
+不能在处理下一段时静默重新从零开始。本机exp-scan-tail-20261008只采用这个分段语义，
+在同program内为四个独立行分别传递carry，没有使用rocPRIM block-wide callback或实现跨CTA协议。
+六组既有模整数oracle及每行边界关系接受1024+1拆法，不推广任意尾长或非交换算子。

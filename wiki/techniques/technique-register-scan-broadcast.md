@@ -12,6 +12,7 @@ tags:
 - precision
 confidence: experimental
 sources:
+- exp-scan-tail-20261008
 - exp-scan-convert-20261008
 - exp-scan-register-tile-20261008
 - exp-scan-layout-20261008
@@ -86,3 +87,11 @@ exp-scan-convert-20261008沿用上一轮较快的固定shape I/O布局，转S16�
 读写请求接近基线，但当前vendor将转换落到16/32KiB LDS，即便逻辑上仍一wave一行。
 N1023大batch完整路径约1.30–1.33倍，N1024无净收益、N1025退化；逻辑tile跨过2次幂还会放大临时区。
 保留转换成本、DS宽度与类别、VGPR及完整oracle，不把少shuffle、少DS条数或同wave归属当作免费转换证明。
+
+
+## 拆尾必须保留前段carry和完整成本
+
+exp-scan-tail-20261008针对1025长度，将1024项的最后prefix正确传给尾项，使用四个组合分开观察分段与转换。
+转换临时区由32KiB降为16KiB，大batch相对较强整块直接scan的graph配对约1.276–1.283倍，eager也保留收益。
+纯分段收益较小且小batch会退化；carry提取的DPP/readlane不能因DS条数下降而忽略。
+只覆盖同program的1024+1精确模整数合同，不把这条局部结果变成任意尾长或跨block carry规则。
