@@ -6,6 +6,7 @@ architectures: [gfx938]
 tags: [fusion, copy, reduction, correctness, profiling, paired-timing]
 confidence: experimental
 sources:
+- exp-rounded-consumer-20261007
 - exp-fusion-graph-20261007
 - doc-triton-softmax-residency
 - exp-copy-reduce-fusion-20261007
@@ -47,3 +48,8 @@ exp-copy-reduce-fusion-20261007在冻结的向量化复制加两级sum基线上�
 
 后继exp-fusion-graph-20261007固定相同kernel，在经动态资格验证的图重放中仍观察到融合收益。
 因此不能把原收益全部记为少一次Python提交；但graph仍有设备调度、资源与间隙，不能据此唯一归因于访存。
+
+
+BF16后继exp-rounded-consumer-20261007验证了转换边界：Y全量位模式正确并不保证内部sum正确。
+内部转发保留FP32→BF16 RTNE→FP32链，才能与原consumer读取Y的语义相同；错误raw转发在中点输入上被拒绝。
+显式转换在本机LLVM/ISA中保留，正确融合仍获益，不能把去掉必要舍入当作融合的性能前提。

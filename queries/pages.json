@@ -1663,6 +1663,30 @@
   "summary": "clean35abf4f1\u91cd\u65b0emit9\u4e2a\u539fSchedule\uff0c\u539fwrapper\u4e0evLLM/AITER baseline\u4fdd\u6301\u3002"
  },
  {
+  "id": "exp-rounded-consumer-20261007",
+  "type": "source-experiment",
+  "title": "A bit-correct BF16 output can still feed a wrong fused sum",
+  "path": "sources/experiments/exp-rounded-consumer-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "bf16",
+   "fp32",
+   "precision",
+   "fusion",
+   "reduction",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-route-precision-20261007",
   "type": "source-experiment",
   "title": "Numerical distributions distinguish MMAC grouping from vector-dot lowering",

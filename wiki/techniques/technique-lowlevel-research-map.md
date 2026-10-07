@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-rounded-consumer-20261007
 - doc-triton-reduction-hierarchy
 - exp-fusion-wave-20261007
 - exp-fusion-graph-20261007
@@ -369,3 +370,11 @@ exp-fusion-wave-20261007固定融合tile与final，仅改首阶段四wave为一w
 LDS/barrier消失，odd VGPR分配12→40；每wave VALU升、总VALU降，final计数不变。
 两批216样本未显示普遍稳定收益，中长度graph有小信号但异常保留，大长度基本持平略慢。
 新增doc-triton-reduction-hierarchy，累计42份上游资料，机制归入执行组选择而非自动参数规则。
+
+
+## 第四十二轮：保留可见输出还要保留消费者所见舍入
+
+exp-rounded-consumer-20261007建立BF16 RTNE复制及其FP32 sum新合同：Y逐位正确仍会漏掉raw转发错误。
+21个独立标量舍入检查与12组解析sum审计后，96有效候选观察通过；48诊断中36个舍入敏感观察违背合同。
+正确融合两批108样本约1.31/1.32/1.93倍，168目标profile保留有效与诊断标记；错误路线从未计时。
+复用doc-triton-cast-rounding，累计仍42份来源，不把有限域或旧FP32输出成绩迁移成新dtype全域资格。

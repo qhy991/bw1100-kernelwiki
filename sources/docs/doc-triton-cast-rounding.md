@@ -18,3 +18,7 @@ RTNE的有限数ties-to-even与RTZ的截断是不同数值合同，不能因某�
 NaN、Inf、signed zero、溢出与subnormal需要分开检查，尤其基于bit截断的实现。
 exp-bf16-cast-20261007记录vendor Triton3.6.0/gfx938实际转换及RTZ低payload NaN分类变化。
 该实验不替上游API定义未声明的NaN payload或异常标志政策。
+
+
+exp-rounded-consumer-20261007把显式RTNE用于可见BF16复制，验证正确内部转发需先窄化再加宽。
+cast API表达舍入操作，不授权消费者绕过它；仅输出BF16位模式正确不足以接受整个融合图。

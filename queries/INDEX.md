@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-137 pages. Machine-readable form: [pages.json](pages.json).
+138 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (42)
@@ -49,7 +49,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (57)
+## source-experiment (58)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -98,6 +98,7 @@
 - `exp-reduction-precision-stage-20261007` — [Widening the final reduction cannot recover lost FP32 partials](../sources/experiments/exp-reduction-precision-stage-20261007.md)
 - `exp-register-values` — [寄存器 broadcast、predicate 与 resident scan 的有界设备组件](../sources/experiments/exp-register-values.md)
 - `exp-rms-confirmation` — [RMSNorm 原算法与显式 broadcast 表示的独立确认](../sources/experiments/exp-rms-confirmation.md)
+- `exp-rounded-consumer-20261007` — [A bit-correct BF16 output can still feed a wrong fused sum](../sources/experiments/exp-rounded-consumer-20261007.md)
 - `exp-route-precision-20261007` — [Numerical distributions distinguish MMAC grouping from vector-dot lowering](../sources/experiments/exp-route-precision-20261007.md)
 - `exp-row-mapping-20261007` — [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md)
 - `exp-row-stride-20261007` — [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md)

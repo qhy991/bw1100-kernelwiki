@@ -12,6 +12,7 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-rounded-consumer-20261007
 - doc-llvm-denormal-modes
 - exp-denorm-policy-20261007
 - doc-fma-rounding-contract
@@ -118,3 +119,11 @@ exp-softmax-fusion-20261007中，三策略都满足预设绝对误差/行和界�
 exp-log-softmax-20261007进一步验证该下游风险：log会把概率0变成-Inf，也会放大FP32 subnormal
 概率量化误差。更精确的log不能重建已经写回损失的信息，稳定公式避免该中间表示。
 数值接受必须跟到真正消费的结果，不能停在softmax单步的行和指标。
+
+
+## 可见输出正确，内部消费者仍可错误
+
+exp-rounded-consumer-20261007给出明确反例：三路BF16 Y均逐位正确，直接转发原FP32 v的融合sum却违背合同。
+正确融合应使用q=RTNE_BF16(v)再widen_FP32(q)，与consumer从存储读到的值一致，无需真的重读global。
+成对中点输入与精确整数sum域把舍入丢失和归约顺序误差分开；仅可表示整数控制会漏掉这个错误。
+诊断路径只用于找错，不计时或速度排名；参考规定的materialization语义不能因原值“更精确”而被替换。
