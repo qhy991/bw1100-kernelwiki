@@ -225,6 +225,23 @@
   "summary": ""
  },
  {
+  "id": "doc-pytorch-class-index-cross-entropy",
+  "type": "source-doc",
+  "title": "Class-index cross entropy can consume log-softmax without exposing its full output",
+  "path": "sources/docs/doc-pytorch-class-index-cross-entropy.md",
+  "architectures": [],
+  "tags": [
+   "reduction",
+   "fusion",
+   "correctness",
+   "precision"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-clone-format",
   "type": "source-doc",
   "title": "Clone memory format and explicit packing",
@@ -767,6 +784,29 @@
    "paired-timing",
    "profiling",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-cross-entropy-20261007",
+  "type": "source-experiment",
+  "title": "Fused class-index cross entropy removes the full log-probability write",
+  "path": "sources/experiments/exp-cross-entropy-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "triton",
+   "fusion",
+   "paired-timing",
+   "profiling",
+   "precision"
   ],
   "kernel_types": [],
   "languages": [],
@@ -1559,6 +1599,32 @@
   ],
   "confidence": "experimental",
   "summary": "ConvNeXtV2/GRN\u7684\u4f18\u5316\u7a7a\u95f4\u6765\u81ea\u5377\u79ef\u3001\u5f52\u7ea6\u4e0e\u7f29\u653e\u4e4b\u95f4\u7684\u4e2d\u95f4\u6570\u636e\u548c\u8c03\u7528\u8fb9\u754c\u3002"
+ },
+ {
+  "id": "kernel-bw-cross-entropy",
+  "type": "wiki-kernel",
+  "title": "Class-index cross entropy\uff1a\u6309\u6d88\u8d39\u8005\u5408\u540c\u6d88\u9664\u6574\u5f20log\u6982\u7387",
+  "path": "wiki/kernels/kernel-bw-cross-entropy.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "triton",
+   "reduction",
+   "fusion",
+   "precision",
+   "profiling"
+  ],
+  "kernel_types": [
+   "reduction",
+   "custom-fusion"
+  ],
+  "languages": [
+   "triton-rocm",
+   "python"
+  ],
+  "confidence": "experimental",
+  "summary": "\u5408\u6cd5\u7c7b\u522b\u7d22\u5f15\u7684\u9010\u884closs\u53ef\u878d\u5408\u5f52\u7ea6\u4e0egather\uff0c\u4f46\u5199\u91cf\u4e0b\u964d\u4e0d\u7b49\u4e8e\u540c\u6bd4\u4f8b\u901f\u5ea6\u6536\u76ca\u3002"
  },
  {
   "id": "kernel-bw-expert-sort",

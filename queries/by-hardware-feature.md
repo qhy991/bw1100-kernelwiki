@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (32 pages)
+## lds (33 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -26,6 +26,7 @@
 - [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938
 - [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md) `[wiki-hardware]` arch:gfx938
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) `[wiki-kernel]` arch:gfx938
 - [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md) `[wiki-kernel]` arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) `[wiki-kernel]` arch:gfx938
 - [FP32 dot 很慢或 native LDS0：先核对实际 lowering](../wiki/patterns/pattern-fp32-staging.md) `[wiki-pattern]` arch:gfx938
@@ -53,7 +54,7 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
-## vgpr (19 pages)
+## vgpr (20 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md) `[source-doc]` arch:
@@ -68,6 +69,7 @@
 - [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Separate row stride from reduction padding and inspect both load and store layouts](../sources/experiments/exp-row-stride-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) `[wiki-kernel]` arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) `[wiki-kernel]` arch:gfx938
 - [FP32 dot 很慢或 native LDS0：先核对实际 lowering](../wiki/patterns/pattern-fp32-staging.md) `[wiki-pattern]` arch:gfx938
 - [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md) `[wiki-technique]` arch:gfx938
@@ -75,13 +77,14 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
-## wave64 (9 pages)
+## wave64 (10 pages)
 
 - [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md) `[source-doc]` arch:
 - [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md) `[source-doc]` arch:
 - [HIP hierarchical reduction](../sources/docs/doc-hip-reduction.md) `[source-doc]` arch:
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
 - [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md) `[wiki-hardware]` arch:gfx938
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) `[wiki-kernel]` arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) `[wiki-kernel]` arch:gfx938
 - [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938

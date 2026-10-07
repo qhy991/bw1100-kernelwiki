@@ -17,8 +17,9 @@
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) conf:experimental arch:gfx938
 - [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md) conf:experimental arch:gfx938
 
-## custom-fusion (1 pages)
+## custom-fusion (2 pages)
 
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) conf:experimental arch:gfx938
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) conf:experimental arch:gfx938
 
 ## embedding (1 pages)
@@ -59,9 +60,10 @@
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) conf:experimental arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
 
-## reduction (7 pages)
+## reduction (8 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) conf:experimental arch:gfx938
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) conf:experimental arch:gfx938
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md) conf:experimental arch:gfx938
 - [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md) conf:experimental arch:gfx938
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md) conf:experimental arch:gfx938

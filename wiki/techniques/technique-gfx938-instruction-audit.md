@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-cross-entropy-20261007
 - exp-output-layout-20261007
 - exp-row-stride-20261007
 - doc-triton-exp-lowering
@@ -52,6 +53,10 @@ load与归约使用#blocked1，store前还有convert_layout。逐个追踪tt.loa
 exp-output-layout-20261007是另一个边界：核心已无convert_layout/LDS/barrier，恢复连续输出的copy却重新出现转换。
 审计必须沿完整调用链追到最终输出，分别记录每kernel资源并聚合所需dispatch；不能只凭核心资源下降接受优化，
 也不能把顺序执行的不同kernel LDS相加当成同时驻留需求。
+
+exp-cross-entropy-20261007还显示只搜global_load/store会漏证据：loss写出走buffer_store_dword，
+类别索引等访问出现buffer_load_dwordx2，scalar load还可能服务kernel参数。
+同时检查global/buffer/flat/scalar访问及对应IR数据流；静态拼写计数不是实际访存事务或写量。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。

@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (80 pages)
+## gfx938 (82 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -18,6 +18,7 @@
 - [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md) `[source-experiment]` arch:gfx938
 - [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md) `[source-experiment]` arch:gfx938
 - [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md) `[source-experiment]` arch:gfx938
+- [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md) `[source-experiment]` arch:gfx938
 - [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md) `[source-experiment]` arch:gfx938
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938
 - [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md) `[source-experiment]` arch:gfx938
@@ -56,6 +57,7 @@
 - [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md) `[wiki-hardware]` arch:gfx938
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) `[wiki-kernel]` arch:gfx938
 - [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md) `[wiki-kernel]` arch:gfx938
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) `[wiki-kernel]` arch:gfx938
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md) `[wiki-kernel]` arch:gfx938
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) `[wiki-kernel]` arch:gfx938
 - [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md) `[wiki-kernel]` arch:gfx938

@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-pytorch-class-index-cross-entropy
+- exp-cross-entropy-20261007
 - exp-output-layout-20261007
 - exp-row-stride-20261007
 - doc-triton-thread-layout
@@ -267,3 +269,10 @@ exp-row-stride-20261007保持逻辑输入与parent基址，交叉比较N127的S1
 exp-output-layout-20261007固定S256输入，padded输出消除核心layout转换，但连续输出回写重新引入转换与额外dispatch。
 两批96数值观察、192样本、64目标profile通过，完整策略反而慢1.5–1.76倍；不同输出ABI的核心不参与速度接受。
 复用35份上游资料，将“核心资源减少”和“相同输出合同获益”分开记录，保留该负例。
+
+## 第三十轮：交叉熵消费者融合
+
+exp-cross-entropy-20261007新建合法类别索引逐行loss合同，复用冻结logits，避免整张log概率中间写出。
+96数值观察、216配对样本、72目标profile通过；写入指标大幅下降，但4097×129仅小幅差异。
+新增doc-pytorch-class-index-cross-entropy，累计36份上游资料；kernel-bw-cross-entropy单独维护消费者语义，
+不把少输出实现当成原softmax任务的优化。

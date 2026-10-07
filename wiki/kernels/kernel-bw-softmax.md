@@ -23,6 +23,7 @@ languages: [triton-rocm, python]
 techniques: [kernel-fusion, masking, occupancy-tuning]
 hardware_features: [wave64, lds, vgpr]
 related:
+- kernel-bw-cross-entropy
 - technique-gfx938-instruction-audit
 - technique-profile-gfx938
 - pattern-precision-not-output-only
@@ -75,3 +76,6 @@ LDS从几十字节增到2–4KiB，静态barrier却从5处减到1处。
 exp-output-layout-20261007进一步固定S256输入，把输出也改成stride256，确实消除了核心convert_layout、LDS和barrier。
 但恢复连续输出的copy kernel重新带来转换，完整策略在四shape约慢1.5–1.76倍，核心也无稳定收益。
 不同输出ABI的组件时间不能替代相同caller合同；若下游可直接消费strided输出，需要在那个实际调用图重新验证。
+
+若下游只消费每行目标类别的负log概率，则见kernel-bw-cross-entropy与exp-cross-entropy-20261007：
+这是另一个明确的消费者合同，可以避免整张log概率写出，不能作为本页完整softmax输出任务的少输出替代。

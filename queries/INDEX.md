@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-115 pages. Machine-readable form: [pages.json](pages.json).
+118 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (35)
+## source-doc (36)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -20,6 +20,7 @@
 - `doc-llvm-pointer-alignment` — [Pointer alignment attributes are caller facts, not memory repair](../sources/docs/doc-llvm-pointer-alignment.md)
 - `doc-llvm-workitem-address-abi` — [LLVM work-item register ABI for reading emitted addresses](../sources/docs/doc-llvm-workitem-address-abi.md)
 - `doc-pytorch-benchmark-warmup` — [Benchmark warmup, block sizing and timer overhead are separate concerns](../sources/docs/doc-pytorch-benchmark-warmup.md)
+- `doc-pytorch-class-index-cross-entropy` — [Class-index cross entropy can consume log-softmax without exposing its full output](../sources/docs/doc-pytorch-class-index-cross-entropy.md)
 - `doc-pytorch-clone-format` — [Clone memory format and explicit packing](../sources/docs/doc-pytorch-clone-format.md)
 - `doc-pytorch-complete-call-timing` — [Asynchronous device work, stream lifetime and complete-call timing](../sources/docs/doc-pytorch-complete-call-timing.md)
 - `doc-pytorch-event-initialization` — [Event creation and first-record host overhead](../sources/docs/doc-pytorch-event-initialization.md)
@@ -42,7 +43,7 @@
 - `doc-triton-thread-layout` — [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 
-## source-experiment (45)
+## source-experiment (46)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -54,6 +55,7 @@
 - `exp-cache-policy-20261007` — [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md)
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
 - `exp-compensated-reduction-20261007` — [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md)
+- `exp-cross-entropy-20261007` — [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md)
 - `exp-event-lifecycle-20261007` — [Event first-use diagnosis with fresh-process initialization controls](../sources/experiments/exp-event-lifecycle-20261007.md)
 - `exp-execution-groups-20261007` — [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md)
 - `exp-exp-route-20261007` — [Exponential aliases, OCML range handling and bounded precision-cost observations](../sources/experiments/exp-exp-route-20261007.md)
@@ -94,10 +96,11 @@
 
 - `hw-bw1100-gfx938` — [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md)
 
-## wiki-kernel (11)
+## wiki-kernel (12)
 
 - `kernel-bw-baseline-catalog` — [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md)
 - `kernel-bw-convnext-grn` — [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md)
+- `kernel-bw-cross-entropy` — [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md)
 - `kernel-bw-expert-sort` — [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md)
 - `kernel-bw-gateup` — [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - `kernel-bw-linear-attention` — [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md)

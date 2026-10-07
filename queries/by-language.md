@@ -5,10 +5,11 @@
 
 - [DTK、HCU Triton 与已有 vLLM 镜像怎样使用](../wiki/languages/lang-dtk-triton.md)
 
-## python (12 pages)
+## python (13 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md)
 - [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md)
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md)
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md)
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md)
@@ -20,10 +21,11 @@
 - [Ragged vision attention：不要抹掉两次 BF16 舍入](../wiki/kernels/kernel-bw-vision-attention.md)
 - [DTK、HCU Triton 与已有 vLLM 镜像怎样使用](../wiki/languages/lang-dtk-triton.md)
 
-## triton-rocm (12 pages)
+## triton-rocm (13 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md)
 - [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md)
+- [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md)
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md)
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md)
