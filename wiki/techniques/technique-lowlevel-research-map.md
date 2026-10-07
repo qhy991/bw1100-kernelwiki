@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-hip-uniform-control-flow
+- exp-compaction-uniform-20261008
 - exp-scatter-order-20261007
 - doc-stall-counter-domains
 - exp-transpose-stalls-20261007
@@ -541,3 +543,11 @@ exp-compaction-row-guard-20261008继承16组输入并新增8组交替/成片空�
 3360目标dispatch、192刷新/16首次重放先资格化，两批384刷新、32首次重放、5184样本通过并释放。
 大N1024零命中对encoded约1.70倍、对更强masked约1.23倍；有空行时改善，无空行/短行成本与同密度结构差异保留。
 复用mask和selection来源，累计仍48份资料，不把mask向量化、全局density或空program数当作速度规则。
+
+
+## 第六十二轮：整行分类与统一控制流的收益及回退成本
+
+exp-compaction-uniform-20261008保留CPU超时前驱，修复NPZ成员重复加载后冻结3f3deb52；kernel与全部oracle条件不变。
+指令/请求各1088目标dispatch及每pass112刷新/8首次重放通过；两批224刷新、16首次重放、2016计时样本通过，四作业释放。
+原融合基线之上，大N1024全选graph约2.38倍，空/满行结构约1.85–2.05倍；稀疏/混合回退成本、短行和eager反例保留。
+增加16B LDS、两处barrier，快速路径少scan且可向量写，收益不是免费分支或VGPR下降；新增HIP控制流来源，累计49份上游资料。

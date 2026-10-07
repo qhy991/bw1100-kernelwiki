@@ -163,6 +163,22 @@
   "summary": ""
  },
  {
+  "id": "doc-hip-uniform-control-flow",
+  "type": "source-doc",
+  "title": "Uniform control flow needs a real execution-group condition and includes classification cost",
+  "path": "sources/docs/doc-hip-uniform-control-flow.md",
+  "architectures": [],
+  "tags": [
+   "correctness",
+   "profiling",
+   "masking"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-index-constant-lowering",
   "type": "source-doc",
   "title": "Integer index specialization requires a preserved arithmetic domain",
@@ -1024,6 +1040,28 @@
   "type": "source-experiment",
   "title": "Reusing row counts removes empty-rank traffic but its benefit depends on row structure",
   "path": "sources/experiments/exp-compaction-row-guard-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "masking",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-compaction-uniform-20261008",
+  "type": "source-experiment",
+  "title": "A uniform compaction fast path skips rank scans but classification penalizes partial rows",
+  "path": "sources/experiments/exp-compaction-uniform-20261008.md",
   "architectures": [
    "gfx938"
   ],

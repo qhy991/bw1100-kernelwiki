@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-165 pages. Machine-readable form: [pages.json](pages.json).
+167 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (48)
+## source-doc (49)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -16,6 +16,7 @@
 - `doc-hip-occupancy-api` — [HIP occupancy API and its estimation boundary](../sources/docs/doc-hip-occupancy-api.md)
 - `doc-hip-reduction` — [HIP hierarchical reduction](../sources/docs/doc-hip-reduction.md)
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
+- `doc-hip-uniform-control-flow` — [Uniform control flow needs a real execution-group condition and includes classification cost](../sources/docs/doc-hip-uniform-control-flow.md)
 - `doc-index-constant-lowering` — [Integer index specialization requires a preserved arithmetic domain](../sources/docs/doc-index-constant-lowering.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
 - `doc-llvm-denormal-modes` — [Denormal input and output modes are separate compiler assumptions](../sources/docs/doc-llvm-denormal-modes.md)
@@ -55,7 +56,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (77)
+## source-experiment (78)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -69,6 +70,7 @@
 - `exp-compaction-20261008` — [Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization](../sources/experiments/exp-compaction-20261008.md)
 - `exp-compaction-encoding-20261008` — [Dense rank encoding enables vector stores but reverses its value at zero selection density](../sources/experiments/exp-compaction-encoding-20261008.md)
 - `exp-compaction-row-guard-20261008` — [Reusing row counts removes empty-rank traffic but its benefit depends on row structure](../sources/experiments/exp-compaction-row-guard-20261008.md)
+- `exp-compaction-uniform-20261008` — [A uniform compaction fast path skips rank scans but classification penalizes partial rows](../sources/experiments/exp-compaction-uniform-20261008.md)
 - `exp-compensated-reduction-20261007` — [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md)
 - `exp-copy-reduce-fusion-20261007` — [Retain visible copy output while fusing its partial reduction consumer](../sources/experiments/exp-copy-reduce-fusion-20261007.md)
 - `exp-cross-entropy-20261007` — [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md)

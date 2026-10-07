@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [scan, fusion, masking, int32]
 confidence: experimental
-sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008, exp-compaction-row-guard-20261008]
+sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008, exp-compaction-row-guard-20261008, doc-hip-uniform-control-flow, exp-compaction-uniform-20261008]
 date: '2026-10-08'
 description: 逐行保序筛选返回固定容量与Count；融合排名和写出可消除私有中间体，但必须验证顺序、Count和尾部。
 related: [technique-register-scan-broadcast, technique-host-entry, kernel-bw-expert-sort]
@@ -53,3 +53,13 @@ exp-compaction-row-guard-20261008仅为非空行物化P，consumer先读Count再
 大N1024空行场景改善，无空行时未见同等收益，短行还可退化。随机半数与整行为空的半数分布不能混为一谈。
 两种同密度空行排列的绝对时间也不同，不能只按全空program数预测或归因调度。
 空行仍需输出Count0，P未定义区域必须在读取前排除；不把新guard当作默认策略。
+
+
+## 先分类整行，再决定是否需要rank
+
+exp-compaction-uniform-20261008在原融合kernel内计算当前Count；四行均为空或全选时，空行只写Count0，全选行直接复制原索引。
+出现任意部分命中行则整个program回退完整scan。分类不能由capture时的数据或CPU oracle替代，每次输入都必须重新判断。
+跨四wave汇总引入16B声明LDS、实际512B分配和两处barrier；动态fallback指令反增，统一控制流不等于免费控制流。
+N1024全选路径生成向量store，TCC写请求约降至四分之一，对已融合基线大batch graph约2.38倍，空/满行排列约1.85–2.05倍。
+随机稀疏、半数与混合program没有同等净收益，短行与eager边界另列；相同密度不能描述快速路径覆盖。
+收益同时包含省scan和改变store的效果，尚未分离唯一因果，不据此建立默认dispatcher或推广所有uniform分支。
