@@ -60,7 +60,7 @@
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) conf:experimental arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
 
-## reduction (10 pages)
+## reduction (11 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) conf:experimental arch:gfx938
 - [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) conf:experimental arch:gfx938
@@ -69,6 +69,7 @@
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md) conf:experimental arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) conf:experimental arch:gfx938
 - [完整块与尾块分离，避免尾部掩码限制整体向量化](../wiki/techniques/technique-bulk-tail-vectorization.md) conf:experimental arch:gfx938
+- [Argmax 顺序键：值域、并列索引与 padding 一起编码](../wiki/techniques/technique-ordered-argmax-key.md) conf:experimental arch:gfx938
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md) conf:experimental arch:gfx938
 - [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md) conf:experimental arch:gfx938
 - [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md) conf:experimental arch:gfx938

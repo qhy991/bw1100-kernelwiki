@@ -4,12 +4,13 @@
 
 ## 从哪里开始
 
-- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：49 份上游资料、六十三轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
+- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：50 份上游资料、六十四轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
 
 - [硬件身份与边界](wiki/hardware/hw-bw1100-gfx938.md)：Hygon、gfx938、MMAC、wave64、DTK。
 - [双 GEMM＋GELU 融合](wiki/kernels/kernel-bw-gateup.md)：输入tile复用、中间materialization、舍入与register生命周期。
 - [严格 FP32 MoE](wiki/kernels/kernel-bw-moe-fp32.md)：路由布局、专家GEMM/epilogue、combine及padding。
 - [行 Softmax / log-softmax](wiki/kernels/kernel-bw-softmax.md)：完整融合、masked尾部、指数路线与小概率保留。
+- [Argmax 顺序键](wiki/techniques/technique-ordered-argmax-key.md)：有符号值、首次索引、padding与64位比较。
 - [稳定筛选与紧凑写出](wiki/techniques/technique-stable-compaction.md)：顺序、Count、容量与命中密度。
 - [类别索引交叉熵](wiki/kernels/kernel-bw-cross-entropy.md)：按消费者合同消除完整log概率中间写出。
 - [RMSNorm](wiki/kernels/kernel-bw-rmsnorm.md)：整行复用、归约、broadcast与host入口。

@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-argmax-tie-contract
+- exp-argmax-key-20261008
 - exp-compaction-granularity-20261008
 - doc-hip-uniform-control-flow
 - exp-compaction-uniform-20261008
@@ -560,3 +562,11 @@ exp-compaction-granularity-20261008固定四臂与28组原oracle，继承八个�
 指令/请求各2176目标dispatch、每pass224刷新/16首次重放通过；两批448刷新、32首次重放、8064计时样本通过，四任务释放。
 单行去LDS/barrier且N1024 mixed覆盖更多快速分支，graph对四行快速路径约1.32–1.34倍；N129大batch却明显退化。
 half的分组收益已在普通融合控制出现，不能算成分类收益；复用49份上游资料，不按无barrier/总wave或较弱分母建立默认策略。
+
+
+## 第六十四轮：argmax顺序键与完整tie合同
+
+exp-argmax-key-20261008对比signed-int32值/索引二字段归约与uint64顺序键，12输入24960行、20754标量比较及符号/tie负对照通过。
+指令/请求各576目标dispatch、每pass48刷新/8首次重放通过；两批96刷新、16首次重放、864计时样本通过，四任务释放。
+编码减少VGPR/VALU并把DS换为DPP/readlane路径，公开I/O相同；N129大batch graph小幅改善，N1024 wall与eager离群如实保留。
+新增argmax合同来源及顺序键机制页，累计50份上游资料，不将整数编码推广到浮点/任意索引，不按资源比例宣称速度。

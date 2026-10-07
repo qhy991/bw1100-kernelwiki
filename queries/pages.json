@@ -33,6 +33,23 @@
   "summary": ""
  },
  {
+  "id": "doc-argmax-tie-contract",
+  "type": "source-doc",
+  "title": "Argmax owns both value ordering and the tie-breaking index contract",
+  "path": "sources/docs/doc-argmax-tie-contract.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "reduction",
+   "int32",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-ck-lds-phases",
   "type": "source-doc",
   "title": "CK LDS banks and instruction phases",
@@ -856,6 +873,28 @@
    "paired-timing",
    "profiling",
    "negative-result"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-argmax-key-20261008",
+  "type": "source-experiment",
+  "title": "Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path",
+  "path": "sources/experiments/exp-argmax-key-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "reduction",
+   "int32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "vgpr"
   ],
   "kernel_types": [],
   "languages": [],
@@ -3218,6 +3257,27 @@
   "languages": [],
   "confidence": "experimental",
   "summary": ""
+ },
+ {
+  "id": "technique-ordered-argmax-key",
+  "type": "wiki-technique",
+  "title": "Argmax \u987a\u5e8f\u952e\uff1a\u503c\u57df\u3001\u5e76\u5217\u7d22\u5f15\u4e0e padding \u4e00\u8d77\u7f16\u7801",
+  "path": "wiki/techniques/technique-ordered-argmax-key.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "reduction",
+   "int32",
+   "correctness",
+   "vgpr"
+  ],
+  "kernel_types": [
+   "reduction"
+  ],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": "\u5c06\u6574\u6570\u6700\u5927\u503c\u4e0e\u6700\u5c0f\u5e76\u5217\u7d22\u5f15\u6620\u5c04\u5230\u65e0\u7b26\u53f764\u4f4d\u987a\u5e8f\u952e\uff0c\u540c\u65f6\u68c0\u67e5\u6709\u7b26\u53f7\u6b21\u5e8f\u3001\u5c3e\u90e8\u4e2d\u6027\u5143\u548c\u5b9e\u9645\u901a\u4fe1\u6307\u4ee4\u3002"
  },
  {
   "id": "technique-profile-gfx938",

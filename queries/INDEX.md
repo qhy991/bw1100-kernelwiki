@@ -1,13 +1,14 @@
 # Page Manifest
 
 
-168 pages. Machine-readable form: [pages.json](pages.json).
+171 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (49)
+## source-doc (50)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
+- `doc-argmax-tie-contract` — [Argmax owns both value ordering and the tie-breaking index contract](../sources/docs/doc-argmax-tie-contract.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
 - `doc-fma-rounding-contract` — [FMA and separate multiply-add have different rounding contracts](../sources/docs/doc-fma-rounding-contract.md)
 - `doc-hip-extensions` — [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md)
@@ -56,11 +57,12 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (79)
+## source-experiment (80)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
 - `exp-aligned-grouped-gemm-20261006` — [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md)
+- `exp-argmax-key-20261008` — [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md)
 - `exp-atomic-numerical-20261007` — [Reduction repeatability and reference accuracy diverge under cancellation](../sources/experiments/exp-atomic-numerical-20261007.md)
 - `exp-atomic-reduction-20261007` — [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md)
 - `exp-bf16-cast-20261007` — [BF16 exhaustive casts and an RTZ low-payload NaN counterexample](../sources/experiments/exp-bf16-cast-20261007.md)
@@ -175,7 +177,7 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (18)
+## wiki-technique (19)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
@@ -188,6 +190,7 @@
 - `technique-host-entry` — [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
 - `technique-index-specialization` — [索引常量专门化：保留整数语义，再判断完整调用收益](../wiki/techniques/technique-index-specialization.md)
 - `technique-lowlevel-research-map` — [BW1100 底层优化入口：来源、探针与适用边界](../wiki/techniques/technique-lowlevel-research-map.md)
+- `technique-ordered-argmax-key` — [Argmax 顺序键：值域、并列索引与 padding 一起编码](../wiki/techniques/technique-ordered-argmax-key.md)
 - `technique-profile-gfx938` — [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md)
 - `technique-register-scan-broadcast` — [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 - `technique-rounded-tiled-fusion` — [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
