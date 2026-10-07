@@ -38,3 +38,8 @@ exp-rect-transpose-20261007在本机固定面积与wave数，改变长宽比后�
 2026-10-08的exp-scan-layout-20261008使用当前vendor包实际存在的GluonASTSource和associative_scan，
 在独立native scan中显式指定布局；未改变Cake IR。相同布局的普通Triton/Gluon仍有不同机器指令，
 因此先加入前端控制，再在同一Gluon kernel里对比wave布局；设备资格限于固定镜像及该scan。
+
+
+2026-10-08再读size_per_thread与向量访存部分：每线程连续块会同时改变跨lane地址间距和register覆盖。
+exp-scan-register-tile-20261008在固定row-wave布局下发现，S16的shuffle更少，但同宽向量指令可产生更多请求；
+相邻奇数行长又使S1/S4排序反转。本机结果不继承教程NVIDIA的cache-line或sector常量。

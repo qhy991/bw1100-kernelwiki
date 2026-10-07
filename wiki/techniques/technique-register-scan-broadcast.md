@@ -12,6 +12,7 @@ tags:
 - precision
 confidence: experimental
 sources:
+- exp-scan-register-tile-20261008
 - exp-scan-layout-20261008
 - exp-scan-group-20261008
 - doc-triton-row-scan
@@ -68,3 +69,11 @@ exp-scan-layout-20261008在独立Gluon探针中保持四行/四wave/grid，以[4
 大N129的直接graph收益两批约1.34倍，N65约1.039倍，N1024仅约1%；不按资源下降幅度推时间。
 当前包没有gl.cumsum，使用associative_scan及实际GluonASTSource入口，并通过完整模整数与动态graph资格。
 该native结果不向Cake IR引入布局代数，也不扩大为所有Gluon算子资格。
+
+
+## 寄存器连续块与跨lane访存需要一起评估
+
+exp-scan-register-tile-20261008保持一wave一行和同一Gluon函数，对比S1/S4/S16及1023/1024/1025行长。
+S16降低shuffle/VALU却更慢：N1024与S4有相同静态向量store数，写请求却为4倍。
+S1在整齐长度1024更慢，在相邻奇数行长更快，证明不能只按寄存器通信或vector宽度选方案。
+每条指令覆盖的lane地址集合也必须检查；独立计数pass不拼成同dispatch因果账本，不建立未测N的默认选择。

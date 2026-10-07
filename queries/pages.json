@@ -2022,6 +2022,29 @@
   "summary": ""
  },
  {
+  "id": "exp-scan-register-tile-20261008",
+  "type": "source-experiment",
+  "title": "Fewer scan shuffles can lose to strided lane requests even with the same vector instruction width",
+  "path": "sources/experiments/exp-scan-register-tile-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "int32",
+   "triton",
+   "execution-groups",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-scan-wave-20261007",
   "type": "source-experiment",
   "title": "Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains",

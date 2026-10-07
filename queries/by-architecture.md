@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (110 pages)
+## gfx938 (111 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -67,6 +67,7 @@
 - [Shared runtime integer descriptors remove reciprocal instructions without a clear transpose win](../sources/experiments/exp-runtime-divider-20261007.md) `[source-experiment]` arch:gfx938
 - [Grouping independent scans reduces block count but changes automatic carry layout and has a row-length crossover](../sources/experiments/exp-scan-group-20261008.md) `[source-experiment]` arch:gfx938
 - [Explicit row-wave Gluon scan needs a frontend control and gives a bounded length-dependent gain](../sources/experiments/exp-scan-layout-20261008.md) `[source-experiment]` arch:gfx938
+- [Fewer scan shuffles can lose to strided lane requests even with the same vector instruction width](../sources/experiments/exp-scan-register-tile-20261008.md) `[source-experiment]` arch:gfx938
 - [Row prefix scans exchange cross-wave LDS for registers and shuffles without proportional whole-call gains](../sources/experiments/exp-scan-wave-20261007.md) `[source-experiment]` arch:gfx938
 - [Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking](../sources/experiments/exp-scatter-order-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938
