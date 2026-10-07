@@ -11,6 +11,8 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- doc-stall-counter-domains
+- exp-transpose-stalls-20261007
 - exp-transpose-requests-20261007
 - exp-gemm-placement-20261006
 - doc-pytorch-event-initialization
@@ -152,3 +154,14 @@ N128的scatter内部WRITE为gather/tiled的16倍，旧WRITE_SIZE却相同；不�
 scatter的hit fraction也最高，而旧完整时间最慢。要同时看绝对hits/misses及其分母，
 不能把更高百分比当作更少工作或更少等待。请求与hits分属不同pass，不建立跨run精确会计关系。
 这些结果支持后续写侧调查，不证明唯一stall来源，也不替代原完整计时。
+
+
+## Stall名字不能替代接口、窗口和分母
+
+exp-transpose-stalls-20261007同pass验证WriteUnitStalled=100×第一路EA写stall最大值/GRBM active，
+并另记第二路；当前多为零或很小，却不能排除内部TCP等待。
+原始TCP采集显示scatter写tag冲突和数据接口stall明显高于tiled，说明需要在正确层级读信号。
+
+本机数据接口事件标为Not Windowed，SE_NUM未独立确认，因此没有填常数反推MemUnitStalled。
+实例sum、最大值、不同原因或不同pass不可相加成wall损失；没有非零覆盖也不能宣布硬件无该类stall。
+逐行公式接受与完整caller瓶颈判断仍是不同证据。

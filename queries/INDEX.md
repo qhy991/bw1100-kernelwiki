@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-148 pages. Machine-readable form: [pages.json](pages.json).
+150 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (45)
+## source-doc (46)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -35,6 +35,7 @@
 - `doc-rocprof-lds-metrics` — [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md)
 - `doc-rocprof-runtime-metrics` — [ROCProfiler runtime metric enumeration and expression definitions](../sources/docs/doc-rocprof-runtime-metrics.md)
 - `doc-runtime-division-descriptors` — [Runtime integer division can use precomputed reciprocal descriptors](../sources/docs/doc-runtime-division-descriptors.md)
+- `doc-stall-counter-domains` — [Stall counters have interface, aggregation and normalization domains](../sources/docs/doc-stall-counter-domains.md)
 - `doc-triton-alignment-hints` — [Triton alignment and contiguity are compiler promises](../sources/docs/doc-triton-alignment-hints.md)
 - `doc-triton-atomic-reduction` — [Atomic reduction changes require order, scope and returned-value contracts](../sources/docs/doc-triton-atomic-reduction.md)
 - `doc-triton-cache-modifier-lowering` — [Triton load and store cache modifiers require backend inspection](../sources/docs/doc-triton-cache-modifier-lowering.md)
@@ -52,7 +53,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (64)
+## source-experiment (65)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -115,6 +116,7 @@
 - `exp-target-selection-20261007` — [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md)
 - `exp-transpose-access-20261007` — [Gather scatter and tiled transpose differ in latency even with similar read and write volume](../sources/experiments/exp-transpose-access-20261007.md)
 - `exp-transpose-requests-20261007` — [Similar transpose traffic hides different cache request work and hit-rate denominators](../sources/experiments/exp-transpose-requests-20261007.md)
+- `exp-transpose-stalls-20261007` — [Transpose stall signals appear at TCP while external write-stall ratios stay small](../sources/experiments/exp-transpose-stalls-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
 - `exp-waves-hint-20261007` — [Higher waves-per-EU hints can add spills without improving predicted residency](../sources/experiments/exp-waves-hint-20261007.md)
 - `exp-width-qualification` — [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md)

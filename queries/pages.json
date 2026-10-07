@@ -475,6 +475,22 @@
   "summary": ""
  },
  {
+  "id": "doc-stall-counter-domains",
+  "type": "source-doc",
+  "title": "Stall counters have interface, aggregation and normalization domains",
+  "path": "sources/docs/doc-stall-counter-domains.md",
+  "architectures": [],
+  "tags": [
+   "profiling",
+   "rocprof",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-alignment-hints",
   "type": "source-doc",
   "title": "Triton alignment and contiguity are compiler promises",
@@ -2015,6 +2031,26 @@
   "type": "source-experiment",
   "title": "Similar transpose traffic hides different cache request work and hit-rate denominators",
   "path": "sources/experiments/exp-transpose-requests-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "profiling",
+   "rocprof",
+   "layout-transform",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-transpose-stalls-20261007",
+  "type": "source-experiment",
+  "title": "Transpose stall signals appear at TCP while external write-stall ratios stay small",
+  "path": "sources/experiments/exp-transpose-stalls-20261007.md",
   "architectures": [
    "gfx938"
   ],

@@ -11,6 +11,7 @@ tags:
 - paired-timing
 confidence: experimental
 sources:
+- exp-transpose-stalls-20261007
 - exp-transpose-requests-20261007
 - exp-transpose-access-20261007
 - doc-hip-tiled-transpose
@@ -76,3 +77,8 @@ scatter和tiled都出现4KiB LDS转换，但scatter大shape退化，tiled只在�
 后继exp-transpose-requests-20261007补充了内部计数：scatter读请求减少、写请求大幅增加，
 即使外部字节指标相近。命中率最高的scatter仍是旧计时最慢者；LDS、字节、请求与时间属于不同证据层，
 需要各自绑定，不能从其中一项直接推导完整性能。
+
+
+exp-transpose-stalls-20261007再补充TCP层信号：scatter写tag冲突为正、tiled为0，
+外部写接口派生比例却多为零。调查应绑定具体接口，不能用低WriteUnitStalled否定所有写侧等待，
+也不能把实例聚合周期直接换成原始调用时间。
