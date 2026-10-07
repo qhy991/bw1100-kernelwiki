@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (77 pages)
+## gfx938 (78 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -47,6 +47,7 @@
 - [寄存器 broadcast、predicate 与 resident scan 的有界设备组件](../sources/experiments/exp-register-values.md) `[source-experiment]` arch:gfx938
 - [RMSNorm 原算法与显式 broadcast 表示的独立确认](../sources/experiments/exp-rms-confirmation.md) `[source-experiment]` arch:gfx938
 - [Numerical distributions distinguish MMAC grouping from vector-dot lowering](../sources/experiments/exp-route-precision-20261007.md) `[source-experiment]` arch:gfx938
+- [Row packing changes workgroup count and register work, not just wave count](../sources/experiments/exp-row-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938
 - [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md) `[source-experiment]` arch:gfx938
 - [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md) `[source-experiment]` arch:gfx938

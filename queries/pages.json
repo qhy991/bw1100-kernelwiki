@@ -537,6 +537,23 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-thread-layout",
+  "type": "source-doc",
+  "title": "Triton tensor layout separates register, lane and wave tiling",
+  "path": "sources/docs/doc-triton-thread-layout.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "execution-groups",
+   "vgpr",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-two-sum-compensation",
   "type": "source-doc",
   "title": "TwoSum error terms do not automatically qualify an arbitrary reduction tree",
@@ -1334,6 +1351,30 @@
    "gemm",
    "triton",
    "mmac"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-row-mapping-20261007",
+  "type": "source-experiment",
+  "title": "Row packing changes workgroup count and register work, not just wave count",
+  "path": "sources/experiments/exp-row-mapping-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "triton",
+   "execution-groups",
+   "paired-timing",
+   "profiling",
+   "vgpr",
+   "lds"
   ],
   "kernel_types": [],
   "languages": [],

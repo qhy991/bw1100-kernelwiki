@@ -11,6 +11,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-triton-thread-layout
+- exp-row-mapping-20261007
 - exp-route-precision-20261007
 - doc-triton-config-execution-groups
 - exp-execution-groups-20261007
@@ -68,3 +70,12 @@ exp-route-precision-20261007补测normal、抵消、极小值、跨尺度随机�
 本轮g2/g4/g8 MMAC路线在24个输入单元上结果相同；m32 vector-dot在normal/dynamic-range不同，
 即便前轮精确dyadic全部通过。不要把“同一数学kernel”或输出FP32当作任意lowering逐bit相等的证明。
 本补证没有新增容差或框架接受规则。
+
+## 行归约还要同时看program粒度
+
+exp-row-mapping-20261007固定log-softmax公式，区分每program行数和wave数。
+多行并非总分给不同wave：vendor TTGIR在127列用[2,2] wave划分，到129列则用[1,4]。
+增加行数可能增加每线程值和跨wave归约数据；source LDS改变也可能仍落在相同512B实际分配粒度。
+4097×127多行的完整调用收益与减少program数相容，单wave虽无LDS且VALU更少仍较慢；
+4097×1024单wave却优于本轮多行配置。不能独立用wave数量、VALU总数或LDS为零决定调度策略。
+原实验保留小行数A/A噪声、数值末位变化和未隔离的访存/驻留原因，不建立默认参数或通用occupancy模型。

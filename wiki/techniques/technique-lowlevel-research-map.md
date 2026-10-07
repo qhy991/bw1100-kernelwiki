@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-triton-thread-layout
+- exp-row-mapping-20261007
 - exp-gemm-placement-20261006
 - doc-pytorch-event-initialization
 - exp-gemm-operand-alignment-20261006
@@ -244,3 +246,10 @@ exp-softmax-fusion-20261007比较四-pass、近似融合与OCML融合，两个ta
 exp-log-softmax-20261007复用softmax输入，稳定公式避免-Inf和概率量化放大；
 两步OCML仍不能挽回materialization误差。合格normal/offset域上完整调用约1.43–1.49倍，
 144目标profile按策略聚合。新增doc-pytorch-log-softmax-stability，累计34份上游资料条目。
+
+## 第二十七轮：行program粒度与wave映射
+
+exp-row-mapping-20261007保持稳定log-softmax公式，比较1/2/4/8行与单wave控制。
+实际TTGIR在127/129列改变wave方向；多行减少program，也增加线程持有值和归约成本。
+4097×127多行约1.55倍，4097×1024单wave约1.16倍；240数值观察、432计时样本和120目标profile保留。
+新增doc-triton-thread-layout，累计35份上游资料；指令少不保证完整调用更快，不推广为固定配置。
