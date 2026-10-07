@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (94 pages)
+## gfx938 (95 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -27,6 +27,7 @@
 - [FP contraction changes numerical semantics and only sometimes improves exact-domain timing](../sources/experiments/exp-fp-contraction-20261007.md) `[source-experiment]` arch:gfx938
 - [严格 FP32 MoE 矩阵指令和 dynamic LDS 的资源核对](../sources/experiments/exp-fp32-staging.md) `[source-experiment]` arch:gfx938
 - [Fusion benefits persist after qualifying fixed-address graph replay](../sources/experiments/exp-fusion-graph-20261007.md) `[source-experiment]` arch:gfx938
+- [One-wave reduction removes LDS synchronization while changing register and instruction costs](../sources/experiments/exp-fusion-wave-20261007.md) `[source-experiment]` arch:gfx938
 - [自动推导 tiled dual-GEMM/GELU 的原任务确认](../sources/experiments/exp-gateup-fusion.md) `[source-experiment]` arch:gfx938
 - [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md) `[source-experiment]` arch:gfx938

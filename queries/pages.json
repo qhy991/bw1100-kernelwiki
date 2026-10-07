@@ -572,6 +572,23 @@
   "summary": ""
  },
  {
+  "id": "doc-triton-reduction-hierarchy",
+  "type": "source-doc",
+  "title": "Triton reduction separates thread, wave and cross-wave stages",
+  "path": "sources/docs/doc-triton-reduction-hierarchy.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "reduction",
+   "lds",
+   "execution-groups"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-triton-softmax-residency",
   "type": "source-doc",
   "title": "Triton fused row reduction and residency",
@@ -1066,6 +1083,29 @@
    "host-overhead",
    "profiling",
    "paired-timing"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-fusion-wave-20261007",
+  "type": "source-experiment",
+  "title": "One-wave reduction removes LDS synchronization while changing register and instruction costs",
+  "path": "sources/experiments/exp-fusion-wave-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "reduction",
+   "execution-groups",
+   "lds",
+   "vgpr",
+   "paired-timing",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],

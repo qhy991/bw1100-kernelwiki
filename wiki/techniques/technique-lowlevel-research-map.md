@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-triton-reduction-hierarchy
+- exp-fusion-wave-20261007
 - exp-fusion-graph-20261007
 - exp-copy-reduce-fusion-20261007
 - doc-triton-vector-mask-limits
@@ -359,3 +361,11 @@ exp-fusion-graph-20261007先验证1080目标dispatch与更新输入，再执行�
 12个编译产物与旧kernel相同；两枚opaque节点可表示24或16次kernel。图内融合仍约1.26/1.38/2.49倍。
 小数组显著受提交间隙影响，大数组host节省不直接等于完成时间节省；setup与resident边界单列。
 复用doc-hip-graph-replay，累计仍41份上游来源，不将图节点数或event区间当作纯kernel性能证明。
+
+
+## 第四十一轮：省掉跨wave同步不保证完整调用更快
+
+exp-fusion-wave-20261007固定融合tile与final，仅改首阶段四wave为一wave；先资格化864条目标dispatch。
+LDS/barrier消失，odd VGPR分配12→40；每wave VALU升、总VALU降，final计数不变。
+两批216样本未显示普遍稳定收益，中长度graph有小信号但异常保留，大长度基本持平略慢。
+新增doc-triton-reduction-hierarchy，累计42份上游资料，机制归入执行组选择而非自动参数规则。

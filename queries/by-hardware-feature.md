@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (37 pages)
+## lds (39 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -13,10 +13,12 @@
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 - [Triton execution-group count must use the target lane width](../sources/docs/doc-triton-config-execution-groups.md) `[source-doc]` arch:
 - [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md) `[source-doc]` arch:
+- [Triton reduction separates thread, wave and cross-wave stages](../sources/docs/doc-triton-reduction-hierarchy.md) `[source-doc]` arch:
 - [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md) `[source-doc]` arch:
 - [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md) `[source-doc]` arch:
 - [Contended FP32 CAS reduction versus block aggregation and staged reduction](../sources/experiments/exp-atomic-reduction-20261007.md) `[source-experiment]` arch:gfx938
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938
+- [One-wave reduction removes LDS synchronization while changing register and instruction costs](../sources/experiments/exp-fusion-wave-20261007.md) `[source-experiment]` arch:gfx938
 - [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md) `[source-experiment]` arch:gfx938
 - [Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers](../sources/experiments/exp-loop-unroll-20261007.md) `[source-experiment]` arch:gfx938
@@ -58,7 +60,7 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
-## vgpr (26 pages)
+## vgpr (27 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md) `[source-doc]` arch:
@@ -69,6 +71,7 @@
 - [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md) `[source-doc]` arch:
 - [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md) `[source-doc]` arch:
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938
+- [One-wave reduction removes LDS synchronization while changing register and instruction costs](../sources/experiments/exp-fusion-wave-20261007.md) `[source-experiment]` arch:gfx938
 - [Single-wave mapping changes gather cost but does not make it universally LDS-free](../sources/experiments/exp-gather-mapping-20261007.md) `[source-experiment]` arch:gfx938
 - [Truthful AOT alignment unlocks vectorization; deeper stages lose residency](../sources/experiments/exp-gemm-alignment-stages-20261006.md) `[source-experiment]` arch:gfx938
 - [Explicit loop unrolling trades fewer barriers for larger GEMM storage and registers](../sources/experiments/exp-loop-unroll-20261007.md) `[source-experiment]` arch:gfx938

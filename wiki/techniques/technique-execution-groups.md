@@ -11,6 +11,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-triton-reduction-hierarchy
+- exp-fusion-wave-20261007
 - doc-waves-per-eu-hint
 - exp-waves-hint-20261007
 - exp-gather-mapping-20261007
@@ -94,3 +96,17 @@ exp-waves-hint-20261007的MMAC路线在1/2/4/8下机器指令/描述相同，先
 高寄存器vector-dot路线的hint8虽把VGPR150降至96，却引入92B private segment和运行时23 spills，
 HIP按真实launch LDS的预测仍为4 blocks/CU，完整调用明显变慢。
 不要将提示值、资源下降、预测驻留和性能接受合并成一项结论，也不要从该点反推gfx938寄存器池常数。
+
+
+## 单wave归约的资源交换要看完整调用
+
+exp-fusion-wave-20261007固定每program1024项与final归约，只将融合首阶段从四wave改成一wave。
+本机shared分配和barrier消失，odd长度VGPR分配却从12增至40；实际wave内路径为DPP及readlane，没有ds指令。
+sizePerThread仍为4，但单wave线程跨重复tile总共持有16项，不能只读一个layout字段估计live values。
+
+profile的每wave VALU略升，总wave数降至四分之一，总VALU反而显著减少；final计数保持。
+这类指标变化必须与完整caller、同一提交方式的配对结果一起读，不能把删除同步或减少总指令当作接受条件。
+上游分层机制见doc-triton-reduction-hierarchy，具体DPP、分配粒度和测量范围仍由本机证据拥有。
+
+完整调用中没有普遍稳定收益：中长度图内有小幅中位信号但异常与A/A较大，大长度基本持平或略慢。
+因此本轮保留四wave基线，未建立单wave默认规则或shape阈值。
