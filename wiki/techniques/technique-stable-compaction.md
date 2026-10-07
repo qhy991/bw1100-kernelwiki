@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [scan, fusion, masking, int32]
 confidence: experimental
-sources: [doc-selection-contract, exp-compaction-20261008]
+sources: [doc-selection-contract, exp-compaction-20261008, exp-compaction-encoding-20261008]
 date: '2026-10-08'
 description: 逐行保序筛选返回固定容量与Count；融合排名和写出可消除私有中间体，但必须验证顺序、Count和尾部。
 related: [technique-register-scan-broadcast, technique-host-entry, kernel-bw-expert-sort]
@@ -35,3 +35,12 @@ exp-compaction-20261008覆盖int32正数选择、none/周期稀疏/随机半数/
 融合在eager和graph下均有有界收益；大N1024的graph配对约1.59–2.84倍，依命中密度变化。
 基线已经只物化和读取必要rank，稀疏读取仍接近全命中；记录collector范围，不反推未确认的硬件cache粒度。
 这不是最优库实现、device-wide select、完整MoE routing或任意predicate的资格。
+
+
+## 编码选择状态可以改变store，而不改变公开输出
+
+exp-compaction-encoding-20261008将未选P位置显式写0，consumer以P>0选择后才读X；必须配套改变生产/消费协议。
+正workspace poison防止隐含预清零，Count从raw prefix提取，不能用encoded末项替代。
+N1024的dense rank可向量化写出，中高密度两批约1.31倍，零命中却退化；N129没有同等改善。
+融合仍更快，但半数/全命中相对更强encoded基线约2.17/1.84倍，不应继续只报旧masked分母。
+保持按shape/density测量，不能把更少逻辑写入或更宽store当作通用胜利。

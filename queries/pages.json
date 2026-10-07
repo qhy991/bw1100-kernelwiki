@@ -997,6 +997,29 @@
   "summary": ""
  },
  {
+  "id": "exp-compaction-encoding-20261008",
+  "type": "source-experiment",
+  "title": "Dense rank encoding enables vector stores but reverses its value at zero selection density",
+  "path": "sources/experiments/exp-compaction-encoding-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "scan",
+   "fusion",
+   "int32",
+   "masking",
+   "correctness",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-compensated-reduction-20261007",
   "type": "source-experiment",
   "title": "FP32 pair compensation restores tested finite sums but costs work and loses positive infinity",

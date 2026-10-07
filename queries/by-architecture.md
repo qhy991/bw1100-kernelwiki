@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (115 pages)
+## gfx938 (116 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -18,6 +18,7 @@
 - [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md) `[source-experiment]` arch:gfx938
 - [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md) `[source-experiment]` arch:gfx938
 - [Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization](../sources/experiments/exp-compaction-20261008.md) `[source-experiment]` arch:gfx938
+- [Dense rank encoding enables vector stores but reverses its value at zero selection density](../sources/experiments/exp-compaction-encoding-20261008.md) `[source-experiment]` arch:gfx938
 - [FP32 pair compensation restores tested finite sums but costs work and loses positive infinity](../sources/experiments/exp-compensated-reduction-20261007.md) `[source-experiment]` arch:gfx938
 - [Retain visible copy output while fusing its partial reduction consumer](../sources/experiments/exp-copy-reduce-fusion-20261007.md) `[source-experiment]` arch:gfx938
 - [Fused class-index cross entropy removes the full log-probability write](../sources/experiments/exp-cross-entropy-20261007.md) `[source-experiment]` arch:gfx938

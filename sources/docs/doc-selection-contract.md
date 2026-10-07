@@ -20,3 +20,8 @@ partition还输出被拒元素，因此不能无条件替代“只写被选前�
 本机exp-compaction-20261008独立定义逐行稳定正数筛选：固定容量N、每行Count、原顺序有效前缀和不变的未使用尾部。
 这是自己的有界native合同，不声称rocPRIM select或partition承诺相同尾部行为，也不是device-wide库性能比较。
 固定容量与设备Count能用于静态地址重放；若caller要求按Count动态分配或压紧整个矩阵，还需另验其完整成本。
+
+
+后继exp-compaction-encoding-20261008区分private中间表示：未选位置未定义的masked rank，
+与未选位置必须为0的encoded rank不是可互换协议。Count仍来自raw prefix，不能读取编码后的最后一项代替。
+本机使用正workspace poison验证完整覆盖，没有将必要清零移出计时路径。

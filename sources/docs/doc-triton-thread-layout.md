@@ -48,3 +48,8 @@ exp-scan-register-tile-20261008在固定row-wave布局下发现，S16的shuffle�
 2026-10-08重读转换成本段：不同操作可用不同布局，但完整吞吐必须包含转换，减少scan通信未必能支付转换成本。
 exp-scan-convert-20261008在当前gfx938后端观察到逻辑wave归属不变的转换仍使用16/32KiB LDS；
 保留较好I/O后，1023有净收益，1024/1025没有统一收益。这是本机实现观察，不是硬件必须使用LDS的规定。
+
+
+2026-10-08的exp-compaction-encoding-20261008保持layout，改为向P完整写入rank或0，使store mask只依赖shape。
+当前N1024后端从16条标量排名store变为4条向量store；低密度更多写入与中高密度较少请求并存。
+这是当前产物与测量的结论，不把向量化条件或收益推广到任意mask、stride和架构。

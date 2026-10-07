@@ -525,3 +525,11 @@ exp-compaction-20261008定义逐行正数稳定筛选及固定容量/Count/未�
 读写各1056目标dispatch及每pass64刷新/8首次重放通过，两批128刷新、16首次重放和1152样本通过并释放。
 融合提高部分VGPR却减少中间流量；大N1024 graph约1.59–2.84倍，稀疏rank访问不按5.88%命中比例节省读取。
 新增doc-selection-contract及稳定压缩机制页，累计48份上游资料，不推为全局select、动态分配或库最优实现。
+
+
+## 第六十轮：中间排名编码与更强分步控制
+
+exp-compaction-encoding-20261008保留旧masked/fused机器实现与16组oracle，正workspace poison验证dense rank零编码和Count分离。
+1760目标dispatch、96刷新/12首次重放先资格化，两批192刷新、24首次重放、3456样本通过并释放。
+N1024中高密度dense store约1.31倍，零命中退化；融合对更强encoded的半数/全命中比约2.17/1.84，独立分母保留。
+复用布局与selection来源，累计仍48份资料，不以逻辑写量或向量宽度代替完整结果，不默认中间表示。
