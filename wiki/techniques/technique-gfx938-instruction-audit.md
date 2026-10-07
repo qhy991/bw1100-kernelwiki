@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-waves-hint-20261007
 - exp-gather-mapping-20261007
 - exp-target-selection-20261007
 - exp-cross-entropy-20261007
@@ -66,6 +67,10 @@ exp-target-selection-20261007中，tt.gather标有efficient_layout，但前面�
 
 exp-gather-mapping-20261007观察到单wave gather无s_barrier仍有LDS读写；N127 allocation为0时，
 ds_bpermute仍使每wave LDSInsts为4。counter中的DS指令、LDS存储分配和物理bank事务是不同事实，不能互相替代。
+
+exp-waves-hint-20261007中waves_per_eu已进入LLVM属性，但MMAC路线无机器码/资源变化；
+高压vector-dot提示8则产生private spill。先定位最早保留阶段差异，再决定是否值得占卡。
+机器指令/分支/descriptor视图比较只用于过滤重复候选，不冒充HSACO字节身份或形式等价证明。
 
 - partials 少了但 shared 数组未缩小：检查 group segment 是否真的下降。
 - source metadata 有 9 VGPR：profiler 可能报告分配 12，预算不能忽略分配粒度。

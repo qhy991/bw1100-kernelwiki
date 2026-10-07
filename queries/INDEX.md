@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-121 pages. Machine-readable form: [pages.json](pages.json).
+123 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (37)
+## source-doc (38)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -43,8 +43,9 @@
 - `doc-triton-tensor-gather` — [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md)
 - `doc-triton-thread-layout` — [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md)
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
+- `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (48)
+## source-experiment (49)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -93,6 +94,7 @@
 - `exp-softmax-fusion-20261007` — [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md)
 - `exp-target-selection-20261007` — [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md)
 - `exp-version-pilot` — [三任务两Compiler同3小时的工程先导协议](../sources/experiments/exp-version-pilot.md)
+- `exp-waves-hint-20261007` — [Higher waves-per-EU hints can add spills without improving predicted residency](../sources/experiments/exp-waves-hint-20261007.md)
 - `exp-width-qualification` — [执行组选择的数值资格与负映射结果](../sources/experiments/exp-width-qualification.md)
 
 ## wiki-hardware (1)

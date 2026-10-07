@@ -605,6 +605,24 @@
   "summary": ""
  },
  {
+  "id": "doc-waves-per-eu-hint",
+  "type": "source-doc",
+  "title": "Waves-per-EU is a compiler resource hint, not observed residency",
+  "path": "sources/docs/doc-waves-per-eu-hint.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "occupancy-tuning",
+   "vgpr",
+   "register-spilling",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "exp-admission",
   "type": "source-experiment",
   "title": "Standalone HCU gateway\u3001\u8d85\u65f6\u4e0e\u771f\u5b9e\u91ca\u653e",
@@ -1574,6 +1592,30 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u56fa\u5b9abase76a937be\u4e0enew9187a3b0\uff0cClaude/humanize Ralph\uff0cglm-5.3:high\uff1b\u4e09Task\u00d7\u4e24\u7248\u672c\u54043h\u3002"
+ },
+ {
+  "id": "exp-waves-hint-20261007",
+  "type": "source-experiment",
+  "title": "Higher waves-per-EU hints can add spills without improving predicted residency",
+  "path": "sources/experiments/exp-waves-hint-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "gemm",
+   "triton",
+   "paired-timing",
+   "profiling",
+   "vgpr",
+   "register-spilling",
+   "occupancy-tuning"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-width-qualification",

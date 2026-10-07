@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- doc-waves-per-eu-hint
+- exp-waves-hint-20261007
 - exp-gather-mapping-20261007
 - doc-triton-tensor-gather
 - exp-target-selection-20261007
@@ -291,3 +293,9 @@ gather前全tensor布局转换带来16KiB LDS；144数值观察、288样本、72
 exp-gather-mapping-20261007交叉r4w4/r1w1与reload/gather，1024列单wave reload约1.26倍、127列反转。
 单wave gather仍可用LDS，allocation0与LDSInsts非零也同时出现。192数值观察、360样本、96目标profile通过。
 复用37份上游资料，区分映射收益、selection收益、wave数与program数，不推广固定默认。
+
+## 第三十三轮：waves_per_eu提示、spill与实际调用
+
+exp-waves-hint-20261007离线过滤MMAC相同代码与m32 hint2，设备只测m32 hint1/4/8。
+hint8降低VGPR却引入spill，HIP预测未增加，两个shape约74%/45%退化；72精确矩阵检查、96样本、36目标profile保留。
+新增doc-waves-per-eu-hint，累计38份上游资料，将编译提示、资源、预测与观测分开解释。

@@ -11,6 +11,8 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- doc-waves-per-eu-hint
+- exp-waves-hint-20261007
 - exp-gather-mapping-20261007
 - doc-triton-thread-layout
 - exp-row-mapping-20261007
@@ -84,3 +86,11 @@ exp-row-mapping-20261007固定log-softmax公式，区分每program行数和wave�
 exp-gather-mapping-20261007的loss交叉对照中，r1w1相比r4w4在4097×1024获益、4097×127退化。
 两者总wave数4100/4097接近，program数却是1025/4097；不能只对齐wave总数就视作等价调度。
 单wave去掉workgroup barrier仍可能保留wave内LDS转换；应分别检查LDS allocation、ds指令和s_waitcnt。
+
+## waves_per_eu是另一层编译提示
+
+num_warps决定本例合作线程数；waves_per_eu通过LLVM提示资源优化，不是实测驻留wave数。
+exp-waves-hint-20261007的MMAC路线在1/2/4/8下机器指令/描述相同，先过滤重复配置。
+高寄存器vector-dot路线的hint8虽把VGPR150降至96，却引入92B private segment和运行时23 spills，
+HIP按真实launch LDS的预测仍为4 blocks/CU，完整调用明显变慢。
+不要将提示值、资源下降、预测驻留和性能接受合并成一项结论，也不要从该点反推gfx938寄存器池常数。

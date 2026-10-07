@@ -42,6 +42,9 @@ status: completed
 
 ## One option, shared owners
 
+后继exp-waves-hint-20261007复用本轮m16/m32路线研究编译资源提示；它在同parent相位0上做新的配对，
+不把新hint内部比较混入本页跨路线历史样本。
+
 matrix_instruction_probe.py直接导入原grouped kernel与placement harness，
 唯一改变的编译选项是matrix_instr_nonkdim=0/16/32；不复制kernel或另写oracle/计时循环。
 三个base pointer仍声明真实16-byte alignment，所有实际view仍满足该合同。
