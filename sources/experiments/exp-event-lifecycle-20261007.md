@@ -114,3 +114,9 @@ No promotion to Compiler or existing benchmark. 新短kernel计时若定义为st
 阶段预初始化计时器，并保留setup成本；若定义包含首次调用/完整caller，则必须计入这些成本。
 内核预热和计时器初始化是不同操作，二者都不能保证消除全部首点和系统噪声。
 历史证据保持原样；下一项活问题是首点device残差及其他偶发host开销，而不是继续归咎于同一event解释。
+
+## 后继预热对照
+
+exp-initial-warmup-20261007保持首对event已初始化，只改变初始kernel预热量。
+500次使512首点更接近后续水平，但大形状没有同样收益，且setup成本增加；
+这是状态敏感性证据，未建立唯一DVFS或cache机制归因。

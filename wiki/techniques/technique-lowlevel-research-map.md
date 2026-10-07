@@ -153,3 +153,9 @@ exp-cache-policy-20261007编译六种policy，过滤与default相同的.ca及同
 exp-event-lifecycle-20261007先做分段计时先导，再以lazy/eager/eager/lazy四个新进程
 控制首对event初始化；共970个完整样本检查，保留初始化成本及未解释的首点device残差。
 这是测量边界补证，不是新kernel速度收益；25份来源不变，计时经验回到既有profile机制页。
+
+## 第十二轮：初始kernel预热敏感性
+
+exp-initial-warmup-20261007在六个新进程中比较5/50/500次初始预热，
+1164个完整样本检查通过；小形状与大形状出现不同边界，记录setup成本而不改默认次数。
+新增doc-pytorch-benchmark-warmup，累计26份上游来源。

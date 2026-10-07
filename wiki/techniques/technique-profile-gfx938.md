@@ -116,3 +116,13 @@ exp-event-lifecycle-20261007用同kernel、同storage改变event生命周期，
 若目标是steady-state，显式定义timer setup并保留其成本；若目标是完整caller/首次调用，
 成本必须留在该边界内。重复fresh-lazy event在本次稳定阶段没有比reuse明显更慢，
 不要从“资源惰性初始化”直接推出通用event pool收益。诊断时间戳也有开销，不能回填旧基准。
+
+## 预热次数必须带上成本和形状范围
+
+exp-initial-warmup-20261007在event已初始化时比较5/50/500次初始kernel预热。
+512首点仅在500次后接近后续值，50次没有降低首点；大形状没有对应收益，
+500次的setup却约203ms。因此“增加warmup使结果更稳定”不能成为无条件默认策略。
+
+使用doc-pytorch-benchmark-warmup区分timer开销摊销、预热调用数和总活动时长。
+本轮没有同步频率证据，不能把敏感性曲线自动解释成DVFS；约1%的小形状残差也仍在。
+保留全部样本和setup成本，改变测量前状态时创建新合同证据，不回写旧成绩。

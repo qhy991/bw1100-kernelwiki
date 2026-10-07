@@ -176,6 +176,22 @@
   "summary": ""
  },
  {
+  "id": "doc-pytorch-benchmark-warmup",
+  "type": "source-doc",
+  "title": "Benchmark warmup, block sizing and timer overhead are separate concerns",
+  "path": "sources/docs/doc-pytorch-benchmark-warmup.md",
+  "architectures": [],
+  "tags": [
+   "host-overhead",
+   "paired-timing",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-pytorch-clone-format",
   "type": "source-doc",
   "title": "Clone memory format and explicit packing",
@@ -733,6 +749,26 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "parent86cacc54\u4e0esuccessorf2c3d89c\u7684\u4e09\u4e2akernel AST\u76f8\u540c\uff0c\u5904\u7406\u662fhost wrapper\u3002"
+ },
+ {
+  "id": "exp-initial-warmup-20261007",
+  "type": "source-experiment",
+  "title": "Initial warmup sensitivity after event initialization",
+  "path": "sources/experiments/exp-initial-warmup-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "host-overhead",
+   "paired-timing",
+   "correctness",
+   "profiling"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "exp-lowlevel-probe-20261006",
