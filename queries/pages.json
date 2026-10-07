@@ -1,5 +1,22 @@
 [
  {
+  "id": "doc-amd-triton-instruction-shape",
+  "type": "source-doc",
+  "title": "AMD matrix instruction tuning requires actual lowering evidence",
+  "path": "sources/docs/doc-amd-triton-instruction-shape.md",
+  "architectures": [],
+  "tags": [
+   "triton",
+   "gemm",
+   "vgpr",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-amd-wave-builtins",
   "type": "source-doc",
   "title": "AMD wave builtin strategies and DPP",
@@ -785,6 +802,30 @@
    "lds",
    "wave64",
    "reduction"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-matrix-instruction-20261007",
+  "type": "source-experiment",
+  "title": "Accepted non-K instruction size can select a vector-dot path on gfx938",
+  "path": "sources/experiments/exp-matrix-instruction-20261007.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "paired-timing",
+   "gemm",
+   "triton",
+   "assembly",
+   "vgpr",
+   "lds",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],

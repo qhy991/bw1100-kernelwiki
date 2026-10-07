@@ -11,6 +11,8 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- doc-amd-triton-instruction-shape
+- exp-matrix-instruction-20261007
 - exp-gemm-alignment-stages-20261006
 - doc-hip-occupancy-api
 - exp-rectangular-compact-20261006
@@ -62,3 +64,13 @@ exp-rectangular-compact-20261006 中，同 width 归约的 metadata/HIP attribut
 后继exp-gemm-alignment-stages-20261006证明另一个查询陷阱：HSACO static group segment为0，
 但Triton launch使用8/16/24KiB dynamic LDS。遗漏dynamic LDS会把HIP occupancy统一估成8，
 而完整launch参数给出8/4/2。详见technique-aot-alignment-pipeline。
+
+## 参数被接受，不等于矩阵指令出现
+
+exp-matrix-instruction-20261007在相同GEMM上设置matrix_instr_nonkdim=0/16/32。
+0与16所检查指令序列相同；32虽正常编译且本轮正确性通过，却在TTGIR保持blocked路径，
+最终使用vector dot2和permute，未出现MMAC。大形状复验约慢7.59倍，VGPR分配60→152、LDS8→16KiB。
+
+定位时先比较TTIR是否相同，再看矩阵encoding与实际opcode，而不是从metadata选项值推断。
+更慢路径可能掩盖地址敏感性，不能据此宣称修复了原瓶颈。这个结果不证明硬件缺少32形状能力，
+也不授权把一次vendor lowering观察写成Target通用禁止规则。

@@ -1,11 +1,12 @@
 # Page Manifest
 
 
-88 pages. Machine-readable form: [pages.json](pages.json).
+90 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (26)
+## source-doc (27)
 
+- `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
 - `doc-hip-extensions` — [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md)
@@ -33,7 +34,7 @@
 - `doc-triton-loop-pipeline` — [Triton loop pipeline attributes and actual lowering](../sources/docs/doc-triton-loop-pipeline.md)
 - `doc-triton-softmax-residency` — [Triton fused row reduction and residency](../sources/docs/doc-triton-softmax-residency.md)
 
-## source-experiment (28)
+## source-experiment (29)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -54,6 +55,7 @@
 - `exp-host-entry` — [同一 kernel 的 host 入口组件对照](../sources/experiments/exp-host-entry.md)
 - `exp-initial-warmup-20261007` — [Initial warmup sensitivity after event initialization](../sources/experiments/exp-initial-warmup-20261007.md)
 - `exp-lowlevel-probe-20261006` — [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md)
+- `exp-matrix-instruction-20261007` — [Accepted non-K instruction size can select a vector-dot path on gfx938](../sources/experiments/exp-matrix-instruction-20261007.md)
 - `exp-metric-definitions-20261007` — [Runtime DCU metric definitions and same-dispatch fetch composition](../sources/experiments/exp-metric-definitions-20261007.md)
 - `exp-night-exclusions` — [夜间结果的 source-specific 排除与搜索证据边界](../sources/experiments/exp-night-exclusions.md)
 - `exp-platform-contract` — [gfx938 目标与实际 DTK 执行边界](../sources/experiments/exp-platform-contract.md)

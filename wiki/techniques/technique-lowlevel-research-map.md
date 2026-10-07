@@ -159,3 +159,10 @@ exp-event-lifecycle-20261007先做分段计时先导，再以lazy/eager/eager/la
 exp-initial-warmup-20261007在六个新进程中比较5/50/500次初始预热，
 1164个完整样本检查通过；小形状与大形状出现不同边界，记录setup成本而不改默认次数。
 新增doc-pytorch-benchmark-warmup，累计26份上游来源。
+
+## 第十三轮：矩阵指令形状与实际路线
+
+exp-matrix-instruction-20261007编译auto/16/32，跳过与16相同的auto序列重复测速，
+并对16/32做两批反序复验与compute profile。32在本vendor路径中降为vector dot2，
+大形状约慢7.59倍；该负例连接TTIR、TTGIR、ISA、资源和设备指标，不制造硬件能力结论。
+新增doc-amd-triton-instruction-shape，累计27份上游来源。
