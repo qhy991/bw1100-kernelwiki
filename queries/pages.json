@@ -1032,6 +1032,28 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-bf16-layout-20261008",
+  "type": "source-experiment",
+  "title": "Contiguous per-thread grouping changes BF16 load width without reducing long-row register allocation",
+  "path": "sources/experiments/exp-argmax-bf16-layout-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "bf16",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "tiling",
+   "vgpr"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-compact-binding-20261008",
   "type": "source-experiment",
   "title": "A checked single-view argmax binder reduces caller cost without caching input storage",

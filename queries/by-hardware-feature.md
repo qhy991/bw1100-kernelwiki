@@ -69,7 +69,7 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 
-## vgpr (31 pages)
+## vgpr (32 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md) `[source-doc]` arch:
@@ -79,6 +79,7 @@
 - [Tensor gather specifies selected values, not a free register lookup](../sources/docs/doc-triton-tensor-gather.md) `[source-doc]` arch:
 - [Triton tensor layout separates register, lane and wave tiling](../sources/docs/doc-triton-thread-layout.md) `[source-doc]` arch:
 - [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md) `[source-doc]` arch:
+- [Contiguous per-thread grouping changes BF16 load width without reducing long-row register allocation](../sources/experiments/exp-argmax-bf16-layout-20261008.md) `[source-experiment]` arch:gfx938
 - [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md) `[source-experiment]` arch:gfx938
 - [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md) `[source-experiment]` arch:gfx938
 - [GEMM execution groups interact with address placement and counter denominators](../sources/experiments/exp-execution-groups-20261007.md) `[source-experiment]` arch:gfx938

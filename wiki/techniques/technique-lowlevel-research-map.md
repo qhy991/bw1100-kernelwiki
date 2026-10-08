@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-bf16-layout-20261008
 - exp-argmax-bf16-bitgather-20261008
 - exp-argmax-bf16-key-20261008
 - exp-argmax-compact-binding-20261008
@@ -666,3 +667,10 @@ Torch GPU特殊值不满足原bits合同，profile门失败后未启动计时；
 exp-argmax-bf16-bitgather-20261008保留普通gather CPU失败前驱，使用同宽整数位视图建立实际框架组合。
 1408目标dispatch、96刷新与12首次graph replay先通过，两批配对包含两阶段调用全成本；32位键收益和小shape/eager反例均保留。
 基线身份明确为argmax加bit-gather，不覆盖旧torch.max失败，也不推广默认分配或任意shape。No promotion。
+
+
+## 第七十五轮：32位BF16键的每线程连续分组
+
+exp-argmax-bf16-layout-20261008比较S1/S2/S4/S8，保持前轮各shape的同汇编基线。
+两类profile各1408dispatch、128刷新和16首次重放通过；两批完整配对保留N129显著退化与N1024微小差异。
+更多连续元素不减少长行总值数，wide load也不保证更少TCC请求；No promotion。

@@ -112,3 +112,11 @@ exp-argmax-bf16-bitgather-20261008保留同一BF16合同，实际执行BF16 argm
 普通BF16 gather的CPU路径另有5544行NaN bits变化，位视图后继在CPU、GPU和graph均通过；不把该组合改名成torch.max。
 32位键相对64位键在大N1024完整调用约1.09–1.10倍；实际VGPR32→56仍可更快，N129只在graph观察收益，eager无统一改善。
 成本判断联合读取指令、分配与完整配对，不只按键宽或VGPR排序；标准化指标分stage解释，不跨kernel直接相加。
+
+
+## 连续分组大小不等于每线程总值数
+
+exp-argmax-bf16-layout-20261008保持32位BF16顺序键，仅变S1/S2/S4/S8；N1024各lane仍持有16个逻辑值，实际VGPR均56。
+S增大使load站点变宽，但S8的TCC读请求高于S4，约1%的微小配对差异受A/A约束；不能按宽load或请求数单独排序。
+N129更大S增加工作和资源，S8 graph接近基线两倍耗时；新增ds_swizzle而LDS分配仍0。
+冻结基线、独立counter pass和所有退化均保留，不建立默认布局。

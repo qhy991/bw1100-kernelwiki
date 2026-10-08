@@ -11,6 +11,7 @@ tags:
 - occupancy-tuning
 confidence: experimental
 sources:
+- exp-argmax-bf16-layout-20261008
 - exp-packed-tail-20261007
 - doc-packed-bf16-inline-asm
 - exp-packed-bf16-20261007
@@ -162,3 +163,11 @@ inline asm的pack不是跨lane收集承诺，也不能省略消费者真正需�
 
 exp-packed-tail-20261007用交叉对照进一步分开尾部处理和opcode选择：恢复完整块宽访存有大shape收益，
 同一路径内packed没有稳定额外收益。不要把同时改mask与asm的前后差异全部归给更醒目的指令替换。
+
+
+## 连续分组大小不等于每线程总值数
+
+exp-argmax-bf16-layout-20261008保持32位BF16顺序键，仅变S1/S2/S4/S8；N1024各lane仍持有16个逻辑值，实际VGPR均56。
+S增大使load站点变宽，但S8的TCC读请求高于S4，约1%的微小配对差异受A/A约束；不能按宽load或请求数单独排序。
+N129更大S增加工作和资源，S8 graph接近基线两倍耗时；新增ds_swizzle而LDS分配仍0。
+冻结基线、独立counter pass和所有退化均保留，不建立默认布局。

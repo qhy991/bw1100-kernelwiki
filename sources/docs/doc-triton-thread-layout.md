@@ -53,3 +53,8 @@ exp-scan-convert-20261008在当前gfx938后端观察到逻辑wave归属不变的
 2026-10-08的exp-compaction-encoding-20261008保持layout，改为向P完整写入rank或0，使store mask只依赖shape。
 当前N1024后端从16条标量排名store变为4条向量store；低密度更多写入与中高密度较少请求并存。
 这是当前产物与测量的结论，不把向量化条件或收益推广到任意mask、stride和架构。
+
+
+[Gluon BlockedLayout](https://triton-lang.org/main/gluon/api/generated/triton.experimental.gluon.language.BlockedLayout.html)按线程、warp与CTA分配tensor元素，size_per_thread描述连续子块。
+[布局教程](https://triton-lang.org/main/getting-started/tutorials/gluon/layouts.html)说明这种层次平铺；不能把单个子块大小直接当成完整tensor下每lane的总值数。
+exp-argmax-bf16-layout-20261008以本机wave64做实际编译、资源、请求和配对验证，不沿用教程NVIDIA示例的32线程宽度。
