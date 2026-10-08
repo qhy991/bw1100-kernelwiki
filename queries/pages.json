@@ -991,6 +991,27 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-bf16-bitgather-20261008",
+  "type": "source-experiment",
+  "title": "BF16 key-width timing against a bit-preserving Torch argmax and INT16 gather composition",
+  "path": "sources/experiments/exp-argmax-bf16-bitgather-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "bf16",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "reduction"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-bf16-key-20261008",
   "type": "source-experiment",
   "title": "BF16 keys fit one word but installed Torch GPU max does not preserve every selected NaN payload",

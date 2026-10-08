@@ -26,3 +26,9 @@ exp-argmax-torch-20261008记录实际安装版本、git/hip字段、安装头文
 同一v2.11.0 Reduce.cuh的input_vectorized_thread_reduce_impl分别处理未对齐head、向量化主体和tail，并修正逻辑索引。
 exp-argmax-peel-20261008借鉴这个分区思路，在本机uint64顺序键归约中合并三部分结果；没有逐字移植CUDA实现或继承其warp常量。
 首尾值不能丢弃，尤其是首次NaN或并列最大值落在边界时；本机另以原始oracle和完整caller验收。
+
+
+[PyTorch2.11 argmax](https://docs.pytorch.org/docs/2.11/generated/torch.argmax.html)与
+[gather](https://docs.pytorch.org/docs/2.11/generated/torch.gather.html)可以组合为索引选择加原值读取。
+[上游ScatterGatherKernel](https://github.com/pytorch/pytorch/blob/v2.11.0/aten/src/ATen/native/cuda/ScatterGatherKernel.cu)的赋值路线使用同宽opaque元素；本机具体路由仍须trace确认。
+exp-argmax-bf16-bitgather-20261008分别检验BF16与INT16位视图gather，保留CPU失败，后继双阶段完整计时；它是另一个基线，不是max的改名。

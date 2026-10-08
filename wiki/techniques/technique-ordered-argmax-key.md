@@ -104,3 +104,11 @@ exp-argmax-bf16-key-20261008为独立BF16合同构造16位值序加16位反向�
 32位键减少DPP站点，但N1024编译VGPR反而增加；不从键宽直接推断资源或性能。
 当前Torch CPU符合原bits oracle，GPU却有3674行NaN bits变成0x7fc0而索引全部正确；两个原生键在全部16组诊断中保持原bits。
 实际头文件提供float转换线索，唯一二进制路径尚未定位。比较在性能计时前停止，未删除特殊值或放宽合同；不推广为Torch通用错误。
+
+
+## 取回原bits的框架组合与键宽实测
+
+exp-argmax-bf16-bitgather-20261008保留同一BF16合同，实际执行BF16 argmax加INT16位视图gather；两阶段均进入计时。
+普通BF16 gather的CPU路径另有5544行NaN bits变化，位视图后继在CPU、GPU和graph均通过；不把该组合改名成torch.max。
+32位键相对64位键在大N1024完整调用约1.09–1.10倍；实际VGPR32→56仍可更快，N129只在graph观察收益，eager无统一改善。
+成本判断联合读取指令、分配与完整配对，不只按键宽或VGPR排序；标准化指标分stage解释，不跨kernel直接相加。

@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-bf16-bitgather-20261008
 - exp-argmax-bf16-key-20261008
 - exp-argmax-compact-binding-20261008
 - exp-argmax-rebind-20261008
@@ -658,3 +659,10 @@ exp-argmax-compact-binding-20261008以等价检查的single-view binder替代两
 exp-argmax-bf16-key-20261008完成全位型CPU证明、实际编译和独立设备诊断。
 Torch GPU特殊值不满足原bits合同，profile门失败后未启动计时；48组后继快照将差异定位为NaN bits而非索引。
 保留静态资源反例和安装头文件线索；本轮是诊断记录，没有已确认性能收益。No promotion。
+
+
+## 第七十四轮：保留BF16原bits的框架基线与完整键宽比较
+
+exp-argmax-bf16-bitgather-20261008保留普通gather CPU失败前驱，使用同宽整数位视图建立实际框架组合。
+1408目标dispatch、96刷新与12首次graph replay先通过，两批配对包含两阶段调用全成本；32位键收益和小shape/eager反例均保留。
+基线身份明确为argmax加bit-gather，不覆盖旧torch.max失败，也不推广默认分配或任意shape。No promotion。

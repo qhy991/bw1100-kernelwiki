@@ -129,3 +129,6 @@ No promotion and no speed claim. The exact original-bit contract remains unchang
 Torch is not a qualified comparator for this stronger BF16 contract across the declared special inputs, despite the CPU match.
 This does not establish a general Torch correctness bug: the experiment demands original NaN sign/payload preservation, which ordinary NaN-class equivalence does not require.
 A follow-up may continue the same-contract native key-width comparison or investigate the conversion path; it must retain the failed library comparison and declare its own evidence boundary.
+
+
+Successor exp-argmax-bf16-bitgather-20261008 qualifies a separate Torch argmax plus integer-bit-view gather composition and completes native key-width timing. It preserves this original torch.max failure and the bit-preserving contract.
