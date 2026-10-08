@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [reduction, int32, fp32, correctness, vgpr]
 confidence: experimental
-sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008, exp-argmax-allocation-20261008, exp-argmax-template-20261008, exp-argmax-alignment-caller-20261008]
+sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008, exp-argmax-allocation-20261008, exp-argmax-template-20261008, exp-argmax-alignment-caller-20261008, exp-argmax-peel-20261008]
 date: '2026-10-08'
 description: 将值与并列索引映射到顺序键；整数符号、FP32 NaN/零等价类、原始位模式输出和padding分别验证。
 kernel_types: [reduction]
@@ -68,3 +68,12 @@ exp-argmax-alignment-caller-20261008对相同逻辑数据偏移一个FP32元素�
 诚实a4特化使N1024核心VMEM读计数20485→69649，clone可恢复a16核心，但必须加上copy的读写和分配。
 仅大N1024偏移case的clone相对native direct约1.14倍，仍慢于对应默认Torch；其他case clone退化。
 不能以is_contiguous替代指针对齐，不能从恢复向量load跳到默认复制策略；scope marker把真正copy与验证helper分开。
+
+
+## 无复制的前缀、向量主体与尾部
+
+exp-argmax-peel-20261008用同一输入storage的对齐内部anchor，逐行划分最多3项prefix/tail及4项倍数的主体，再按原index合并顺序键。
+CPU证明覆盖和倍数事实，padding行也纳入；合法hint仍须检查是否留在最终IR，当前vendor的一个减零表达式曾丢掉起点标注。
+大N1024偏移场景无需clone，动态VMEM读69649→36873，完整caller对直接原生约2.18倍、对clone约1.91倍、对默认Torch约1.50倍。
+N129的边界和S4布局反增工作，小batch也未超过Torch；不将向量load本身作为默认选择。
+anchor是输入数据alias，不能像仅含metadata的模板一样跨新input storage复用；当前计时只覆盖固定绑定。

@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-peel-20261008
 - exp-argmax-alignment-caller-20261008
 - doc-pytorch-metadata-allocation
 - exp-argmax-template-20261008
@@ -618,3 +619,11 @@ exp-argmax-alignment-caller-20261008比较offset0/1连续视图，a16/a4诚实�
 指令/VMEM各1152主dispatch、144scope、384copy及96刷新block通过；两批192刷新block/1536对输出、3456计时block/27648对新输出通过，四任务释放。
 大N1024偏移核心VMEM读从20485增69649；clone恢复核心但加32776读/写，仅对该native cell约1.14倍，仍慢于Torch。
 复用53份来源并补PyTorch2.11说明，不默认clone、不伪造alignment，不将分离offset的绝对时间或跨pass计数冒充单一因果。
+
+
+## 第七十轮：无复制对齐分区与hint实际留存
+
+exp-argmax-peel-20261008保留两个仅CPU前驱，证明16640有效行/16656执行行分区和4倍数事实；避开减零身份表达式后两offset的bulk均实际向量化。
+指令/VMEM各1536主dispatch、192scope、128刷新block通过；两批256刷新block/2048对结果、4608计时block/36864对新结果通过，四任务释放。
+大N1024偏移读取69649→36873且不复制，直接原生/clone/Torch配对约2.18/1.91/1.50；N129及小batch反例保留。
+复用53份来源，不伪造alignment，不把源码hint当作已生效指令，也不把输入anchor当成可跨storage复用的metadata。

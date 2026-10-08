@@ -22,3 +22,7 @@ exp-argmax-torch-20261008记录实际安装版本、git/hip字段、安装头文
 [v2.11.0 Reduce.cuh](https://raw.githubusercontent.com/pytorch/pytorch/v2.11.0/aten/src/ATen/native/cuda/Reduce.cuh)
 将ReduceOp自己的index_t用于InputCalculator/OutputCalculator，arg_t则从ops_t::reduce推导。
 因此kernel名字中的unsigned int不能直接解释为返回argmax索引只有32位；返回字段还要读MaxOps的类型和实际输出dtype。
+
+同一v2.11.0 Reduce.cuh的input_vectorized_thread_reduce_impl分别处理未对齐head、向量化主体和tail，并修正逻辑索引。
+exp-argmax-peel-20261008借鉴这个分区思路，在本机uint64顺序键归约中合并三部分结果；没有逐字移植CUDA实现或继承其warp常量。
+首尾值不能丢弃，尤其是首次NaN或并列最大值落在边界时；本机另以原始oracle和完整caller验收。
