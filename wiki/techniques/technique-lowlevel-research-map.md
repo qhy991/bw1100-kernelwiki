@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-alignment-caller-20261008
 - doc-pytorch-metadata-allocation
 - exp-argmax-template-20261008
 - exp-argmax-allocation-20261008
@@ -609,3 +610,11 @@ exp-argmax-template-20261008继承fresh-result合同，empty_like复用metadata�
 768目标dispatch、64刷新block/512对输出通过；两批128刷新block/1024对输出和2304计时block/18432对新输出通过，三任务释放。
 两步降低submit约4.4–4.8μs及2.3–2.5μs；大N1024对Torch约1.54–1.57倍，小shape/大N129仍慢，A/A和长kernel小wall收益保留。
 新增metadata分配来源，累计53份资料；不复用结果storage、不把view当GPU复制，不以慢包装分母代替真实框架对照。
+
+
+## 第六十九轮：连续offset视图、真实对齐与完整clone成本
+
+exp-argmax-alignment-caller-20261008比较offset0/1连续视图，a16/a4诚实编译；contiguous别名、新clone对齐与原bits分别验收。
+指令/VMEM各1152主dispatch、144scope、384copy及96刷新block通过；两批192刷新block/1536对输出、3456计时block/27648对新输出通过，四任务释放。
+大N1024偏移核心VMEM读从20485增69649；clone恢复核心但加32776读/写，仅对该native cell约1.14倍，仍慢于Torch。
+复用53份来源并补PyTorch2.11说明，不默认clone、不伪造alignment，不将分离offset的绝对时间或跨pass计数冒充单一因果。

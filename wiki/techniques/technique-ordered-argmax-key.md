@@ -5,7 +5,7 @@ type: wiki-technique
 architectures: [gfx938]
 tags: [reduction, int32, fp32, correctness, vgpr]
 confidence: experimental
-sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008, exp-argmax-allocation-20261008, exp-argmax-template-20261008]
+sources: [doc-argmax-tie-contract, doc-triton-reduction-hierarchy, exp-argmax-key-20261008, doc-float-order-key-policy, exp-argmax-fp-key-20261008, doc-torch-max-output-contract, exp-argmax-torch-20261008, exp-argmax-allocation-20261008, exp-argmax-template-20261008, exp-argmax-alignment-caller-20261008]
 date: '2026-10-08'
 description: 将值与并列索引映射到顺序键；整数符号、FP32 NaN/零等价类、原始位模式输出和padding分别验证。
 kernel_types: [reduction]
@@ -60,3 +60,11 @@ exp-argmax-allocation-20261008进一步测真正返回新FP32/int64结果的路�
 exp-argmax-template-20261008保持fresh输出，复用metadata并将位指针适配移到相同机器代码的typed入口。
 它减少Python包装开销，但只在大N1024稳定保留对Torch约1.54–1.57倍的直接优势；其他shape仍落后。
 归约body继续只有一个owner，数值转换、指针重解释与Tensor view对象构造分别看待；详细caller机制见technique-host-entry。
+
+
+## 连续输入仍可能不满足wide-load对齐
+
+exp-argmax-alignment-caller-20261008对相同逻辑数据偏移一个FP32元素；两视图都连续，contiguous仍别名，输入实际只有4B对齐。
+诚实a4特化使N1024核心VMEM读计数20485→69649，clone可恢复a16核心，但必须加上copy的读写和分配。
+仅大N1024偏移case的clone相对native direct约1.14倍，仍慢于对应默认Torch；其他case clone退化。
+不能以is_contiguous替代指针对齐，不能从恢复向量load跳到默认复制策略；scope marker把真正copy与验证helper分开。

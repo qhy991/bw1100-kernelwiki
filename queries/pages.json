@@ -929,6 +929,28 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-alignment-caller-20261008",
+  "type": "source-experiment",
+  "title": "Contiguous offset views can lose vector loads and clone realignment must pay its complete copy cost",
+  "path": "sources/experiments/exp-argmax-alignment-caller-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "fp32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "copy",
+   "runtime-guard"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-allocation-20261008",
   "type": "source-experiment",
   "title": "Fresh-result allocation can reverse a qualified native argmax kernel win",

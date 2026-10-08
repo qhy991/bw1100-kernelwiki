@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-178 pages. Machine-readable form: [pages.json](pages.json).
+179 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (53)
@@ -60,11 +60,12 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (84)
+## source-experiment (85)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
 - `exp-aligned-grouped-gemm-20261006` — [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md)
+- `exp-argmax-alignment-caller-20261008` — [Contiguous offset views can lose vector loads and clone realignment must pay its complete copy cost](../sources/experiments/exp-argmax-alignment-caller-20261008.md)
 - `exp-argmax-allocation-20261008` — [Fresh-result allocation can reverse a qualified native argmax kernel win](../sources/experiments/exp-argmax-allocation-20261008.md)
 - `exp-argmax-fp-key-20261008` — [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md)
 - `exp-argmax-key-20261008` — [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md)
