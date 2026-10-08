@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (135 pages)
+## gfx938 (136 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -31,6 +31,7 @@
 - [BF16 raw-bit inputs preserve tested subnormals on two gfx938 GEMM routes](../sources/experiments/exp-bf16-numerical-20261007.md) `[source-experiment]` arch:gfx938
 - [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md) `[source-experiment]` arch:gfx938
 - [Read-only HCU telemetry observes reported states but its query interval exceeds the diagnostic compute blocks](../sources/experiments/exp-clock-observation-20261008.md) `[source-experiment]` arch:gfx938
+- [Sampler on/off cohort is not qualified after termination and container device-access failures](../sources/experiments/exp-clock-sampler-effect-20261008.md) `[source-experiment]` arch:gfx938
 - [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md) `[source-experiment]` arch:gfx938
 - [Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization](../sources/experiments/exp-compaction-20261008.md) `[source-experiment]` arch:gfx938
 - [Dense rank encoding enables vector stores but reverses its value at zero selection density](../sources/experiments/exp-compaction-encoding-20261008.md) `[source-experiment]` arch:gfx938

@@ -11,6 +11,7 @@ tags:
 - wave64
 confidence: experimental
 sources:
+- exp-clock-sampler-effect-20261008
 - exp-clock-observation-20261008
 - doc-telemetry-sampling-scope
 - exp-scatter-order-20261007
@@ -181,3 +182,8 @@ exp-clock-observation-20261008在既有HCU准入外侧做只读hy-smi采样，�
 96次查询完整，但组合CLI耗时140–298ms，24个约119ms的A/A块没有任何完整查询落在块内；时间窗口重叠不是逐kernel状态归因。
 报告时钟档保持相同，功耗/利用率变化可见；这不能证明有效频率逐周期不变，更不能回填第76轮未采集的时钟。
 采样器开销没有off对照，A/A长块与原八调用边界不同；保留未知项，不自动改频率或默认benchmark。
+
+
+exp-clock-sampler-effect-20261008预声明off/on/on/off四个新进程，尝试隔离采样器扰动；仅第一个off完成，其余终止或设备入口失败。
+完整比较未验收，采样开销仍unknown。成功查询次数与可用计时块分别统计，不用前一轮的on数据补配，也不把缺失样本记为零开销。
+恢复环境后使用新归档和计划，保留原四次终态；该失败不会自动授权修改benchmark的采样默认值。

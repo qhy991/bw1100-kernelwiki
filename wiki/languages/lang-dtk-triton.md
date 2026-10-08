@@ -11,6 +11,7 @@ tags:
 - hygon
 confidence: experimental
 sources:
+- exp-clock-sampler-effect-20261008
 - exp-argmax-bf16-inline-20261008
 - doc-dtk-code-layers
 - exp-platform-contract
@@ -48,3 +49,10 @@ HSACO是装载用的ELF代码对象，不是语言。LLVM IR保留SSA、目标in
 
 exp-argmax-bf16-inline-20261008直接读取安装版triton.backends.hcu.compiler.HIPBackend.add_stages：Triton走ttir→ttgir，Gluon从ttgir接入，随后llir→amdgcn→hsaco。
 本机标准阶段定义没有独立PTX阶段；目标仍为Hygon gfx938。该轮还验证了纯uint32 max内联模板，并保留其失去融合与退化的反例。
+
+
+## 零active drivers先检查设备入口的最早偏差
+
+exp-clock-sampler-effect-20261008的相同镜像已完成离线编译及一个设备worker，后续两个容器却在get_current_target前出现creator查找失败和无有效DCU。
+CPU后端可用、宿主机管理查询成功与容器设备授权是不同边界；不能把这个末尾异常直接归因于Triton未安装或gfx938编译能力缺失。
+保留失败的入口/终态证据，等待运行时身份恢复，在新实验中验证；不通过伪造USER或修改共享权限使旧检查变绿。

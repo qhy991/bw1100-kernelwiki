@@ -1386,6 +1386,25 @@
   "summary": ""
  },
  {
+  "id": "exp-clock-sampler-effect-20261008",
+  "type": "source-experiment",
+  "title": "Sampler on/off cohort is not qualified after termination and container device-access failures",
+  "path": "sources/experiments/exp-clock-sampler-effect-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "profiling",
+   "host-overhead",
+   "correctness"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-community-baselines",
   "type": "source-experiment",
   "title": "\u5341\u9898\u539f\u59cb\u5de5\u4f5c\u91cf\u7684\u793e\u533a\u57fa\u7ebf\u8d44\u683c\u6e05\u5355",

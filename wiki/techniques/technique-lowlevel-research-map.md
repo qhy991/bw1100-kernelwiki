@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-clock-sampler-effect-20261008
 - exp-clock-observation-20261008
 - doc-telemetry-sampling-scope
 - exp-argmax-bf16-inline-20261008
@@ -692,3 +693,10 @@ exp-argmax-bf16-inline-20261008保留函数值constexpr的CPU失败前驱；后�
 exp-clock-observation-20261008用同一冻结kernel完成12组A/A，配套96次hy-smi查询与CPU时间对齐。
 完整query长于计时块，只能提供粗粒度上下文；当前时钟报告不解释旧批次的绝对时间变化。
 没有优化成绩或设置变更，采样器无扰动性仍未隔离。No promotion。
+
+
+## 第七十八轮：采样器对照未通过完整验收
+
+exp-clock-sampler-effect-20261008冻结off/on/on/off四次尝试，CPU准备全部通过；仅off-a完成24块，另三次无有效worker计时。
+on-a退出143且原因unknown，on-b/off-b在运行时身份与设备入口处失败；四个作业均释放。
+本轮是部分运行时诊断，不是采样开销结论；不替换失败成员，不与第77轮拼配。No promotion。

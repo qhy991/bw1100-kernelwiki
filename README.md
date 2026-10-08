@@ -6,11 +6,11 @@
 
 [HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。第 70 轮总结快照：180 个索引页面，包括 41 篇综合知识、53 篇上游资料和 86 篇实验记录，覆盖 70 轮底层研究。
 
-最新补充：[只读状态采样与时间覆盖边界](sources/experiments/exp-clock-observation-20261008.md)。当前索引为 190 页，累计 77 轮研究、55 篇上游资料；上方 HTML 保留第 70 轮总结快照。
+最新补充：[采样器对照与运行时入口失败记录](sources/experiments/exp-clock-sampler-effect-20261008.md)。当前索引为 191 页，累计 78 轮研究、55 篇上游资料；上方 HTML 保留第 70 轮总结快照。
 
 ## 从哪里开始
 
-- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：55 份上游资料、七十七轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
+- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：55 份上游资料、七十八轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
 
 - [硬件身份与边界](wiki/hardware/hw-bw1100-gfx938.md)：Hygon、gfx938、MMAC、wave64、DTK。
 - [双 GEMM＋GELU 融合](wiki/kernels/kernel-bw-gateup.md)：输入tile复用、中间materialization、舍入与register生命周期。

@@ -11,6 +11,7 @@ tags:
 - dtk
 confidence: experimental
 sources:
+- exp-clock-sampler-effect-20261008
 - exp-admission
 date: '2026-10-05'
 description: Docker权限不是一项全有/全无能力：查询、CPU runc、admitted GPU启动、exec/stop可能走不同hook。
@@ -31,3 +32,11 @@ Docker权限不是一项全有/全无能力：查询、CPU runc、admitted GPU�
 unknown状态继续同handle读，不复制job；设备release也不等于数值/性能已接受。
 
 维持独立prepare/device/host-report阶段，缓存清理只针对终态、匹配owner和receipt的目录。
+
+
+## SSH、宿主机查询与容器设备授权分别验收
+
+exp-clock-sampler-effect-20261008中四份CPU准备和全部宿主机hy-smi查询通过，两个容器仍先报creator身份查找失败，再报无有效DCU及Triton零active drivers。
+因此先按日志顺序定位最早偏差，不能只凭末尾异常重装Triton、换架构或修改身份绕过授权。SSH恢复也不等于设备入口恢复。
+该轮另一个作业exit143但明显早于已声明timeout，发送者与原因unknown；退出码不能替代终止事件证据。
+四次释放都通过，只有一次worker完成；释放、安全结束和完整比较资格分别记录。

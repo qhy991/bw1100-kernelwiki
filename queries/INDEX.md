@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-190 pages. Machine-readable form: [pages.json](pages.json).
+191 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (55)
@@ -62,7 +62,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (94)
+## source-experiment (95)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -87,6 +87,7 @@
 - `exp-bf16-numerical-20261007` — [BF16 raw-bit inputs preserve tested subnormals on two gfx938 GEMM routes](../sources/experiments/exp-bf16-numerical-20261007.md)
 - `exp-cache-policy-20261007` — [Per-operand cache hints change flags, traffic and waiting on gfx938](../sources/experiments/exp-cache-policy-20261007.md)
 - `exp-clock-observation-20261008` — [Read-only HCU telemetry observes reported states but its query interval exceeds the diagnostic compute blocks](../sources/experiments/exp-clock-observation-20261008.md)
+- `exp-clock-sampler-effect-20261008` — [Sampler on/off cohort is not qualified after termination and container device-access failures](../sources/experiments/exp-clock-sampler-effect-20261008.md)
 - `exp-community-baselines` — [十题原始工作量的社区基线资格清单](../sources/experiments/exp-community-baselines.md)
 - `exp-compaction-20261008` — [Fusing stable row compaction preserves counts and tails while avoiding sparse rank materialization](../sources/experiments/exp-compaction-20261008.md)
 - `exp-compaction-encoding-20261008` — [Dense rank encoding enables vector stores but reverses its value at zero selection density](../sources/experiments/exp-compaction-encoding-20261008.md)
