@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-clock-observation-20261008
+- doc-telemetry-sampling-scope
 - exp-argmax-bf16-inline-20261008
 - doc-dtk-code-layers
 - exp-argmax-bf16-layout-20261008
@@ -683,3 +685,10 @@ exp-argmax-bf16-layout-20261008比较S1/S2/S4/S8，保持前轮各shape的同汇
 exp-argmax-bf16-inline-20261008保留函数值constexpr的CPU失败前驱；后继显式编译期选择通过12实例编译与原冻结控制。
 1056目标dispatch、96刷新和12首次graph资格通过，两批完整配对观察内联VALU增加和大case退化。
 同kernel跨批绝对时间改变，分别保留而不归因于未观测时钟状态；doc-dtk-code-layers与语言页补齐LLIR/amdgcn/HSACO的层级。No promotion。
+
+
+## 第七十七轮：只读状态观测的时间分辨率
+
+exp-clock-observation-20261008用同一冻结kernel完成12组A/A，配套96次hy-smi查询与CPU时间对齐。
+完整query长于计时块，只能提供粗粒度上下文；当前时钟报告不解释旧批次的绝对时间变化。
+没有优化成绩或设置变更，采样器无扰动性仍未隔离。No promotion。

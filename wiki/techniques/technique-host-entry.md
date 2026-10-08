@@ -10,6 +10,8 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-clock-observation-20261008
+- doc-telemetry-sampling-scope
 - exp-argmax-compact-binding-20261008
 - exp-argmax-rebind-20261008
 - doc-pytorch-metadata-allocation
@@ -113,3 +115,11 @@ exp-argmax-compact-binding-20261008把view加slice合为一次合法as_strided�
 每次从当前storage重建，无跨调用数据缓存；CPU等价/拒绝、实际GPU输出与旧结果检查保持。
 组合改写减少约4.7–5.6μs提交成本，原生完整调用约1.14–1.18倍改善；大N1024偏移域对Torch确认约1.32–1.34倍，小shape仍慢。
 两项host改动的独立贡献未拆分；计时与A/A、错误比较臂前驱均保留，不把有效trace或输出正确当作预期候选已运行的充分证据。
+
+
+## 状态采样先看查询窗口与传感器范围
+
+exp-clock-observation-20261008在既有HCU准入外侧做只读hy-smi采样，保留查询起止时间、原文、解析字段和缺失语义。
+96次查询完整，但组合CLI耗时140–298ms，24个约119ms的A/A块没有任何完整查询落在块内；时间窗口重叠不是逐kernel状态归因。
+报告时钟档保持相同，功耗/利用率变化可见；这不能证明有效频率逐周期不变，更不能回填第76轮未采集的时钟。
+采样器开销没有off对照，A/A长块与原八调用边界不同；保留未知项，不自动改频率或默认benchmark。

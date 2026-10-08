@@ -587,6 +587,21 @@
   "summary": ""
  },
  {
+  "id": "doc-telemetry-sampling-scope",
+  "type": "source-doc",
+  "title": "Telemetry scope, update delay and sampling intervals must precede short-kernel attribution",
+  "path": "sources/docs/doc-telemetry-sampling-scope.md",
+  "architectures": [],
+  "tags": [
+   "profiling",
+   "local-evidence"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-torch-max-output-contract",
   "type": "source-doc",
   "title": "Torch row max returns both values and first indices and exposes an out-buffer contract",
@@ -1345,6 +1360,25 @@
    "triton",
    "profiling",
    "rocprof"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-clock-observation-20261008",
+  "type": "source-experiment",
+  "title": "Read-only HCU telemetry observes reported states but its query interval exceeds the diagnostic compute blocks",
+  "path": "sources/experiments/exp-clock-observation-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "profiling",
+   "host-overhead",
+   "correctness"
   ],
   "kernel_types": [],
   "languages": [],
