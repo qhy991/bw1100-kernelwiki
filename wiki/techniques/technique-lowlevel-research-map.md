@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-anchor-cpu-20261008
 - exp-argmax-peel-20261008
 - exp-argmax-alignment-caller-20261008
 - doc-pytorch-metadata-allocation
@@ -627,3 +628,9 @@ exp-argmax-peel-20261008保留两个仅CPU前驱，证明16640有效行/16656执
 指令/VMEM各1536主dispatch、192scope、128刷新block通过；两批256刷新block/2048对结果、4608计时block/36864对新结果通过，四任务释放。
 大N1024偏移读取69649→36873且不复制，直接原生/clone/Torch配对约2.18/1.91/1.50；N129及小batch反例保留。
 复用53份来源，不伪造alignment，不把源码hint当作已生效指令，也不把输入anchor当成可跨storage复用的metadata。
+
+
+## 第七十轮之后：输入重绑定的 CPU 前置证据
+
+exp-argmax-anchor-cpu-20261008验证32组当前输入地址/位模式与24组旧anchor反例，另保留32组错误storage_offset控制。
+这是CPU调用边界证据；下一轮GPU完整调用与profile尚待执行，不增加已完成设备研究轮次。

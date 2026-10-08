@@ -972,6 +972,25 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-anchor-cpu-20261008",
+  "type": "source-experiment",
+  "title": "CPU preflight shows why an argmax data anchor must follow current input storage",
+  "path": "sources/experiments/exp-argmax-anchor-cpu-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "correctness",
+   "runtime-guard",
+   "fp32"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-fp-key-20261008",
   "type": "source-experiment",
   "title": "FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery",

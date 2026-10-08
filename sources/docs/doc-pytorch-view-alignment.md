@@ -21,3 +21,8 @@ contiguous只保证所选memory format；已经连续时返回self，不保证�
 2026-10-08按实际runtime重读[PyTorch2.11 contiguous](https://docs.pytorch.org/docs/2.11/generated/torch.Tensor.contiguous.html)。
 exp-argmax-alignment-caller-20261008在offset0/1的连续FP32视图逐一验证别名与data_ptr余数；
 contiguous不复制，clone产生新对齐存储。恢复对齐后的kernel仍需和真实复制成本一起测量，不能仅以wide load恢复宣称完整收益。
+
+
+2026-10-08读取[PyTorch2.11 set_](https://docs.pytorch.org/docs/2.11/generated/torch.Tensor.set_.html)与
+[as_strided](https://docs.pytorch.org/docs/2.11/generated/torch.as_strided.html)：set_可以改变同一Tensor的storage；
+显式storage_offset相对底层storage，不相对当前view。exp-argmax-anchor-cpu-20261008以本机安装版本完成CPU反例，尚未验证GPU重绑定成本。

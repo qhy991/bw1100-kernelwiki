@@ -4,7 +4,9 @@
 
 ## 内容总览
 
-[HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。截至 2026-10-08：180 个索引页面，包括 41 篇综合知识、53 篇上游资料和 86 篇实验记录，覆盖 70 轮底层研究。
+[HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。第 70 轮总结快照：180 个索引页面，包括 41 篇综合知识、53 篇上游资料和 86 篇实验记录，覆盖 70 轮底层研究。
+
+最新补充：[输入 anchor 重绑定的 CPU 前置证据](sources/experiments/exp-argmax-anchor-cpu-20261008.md)。当前索引为 181 页；该补充尚未取得 GPU 正确性或性能资格。
 
 ## 从哪里开始
 

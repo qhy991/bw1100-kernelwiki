@@ -77,3 +77,10 @@ CPU证明覆盖和倍数事实，padding行也纳入；合法hint仍须检查是
 大N1024偏移场景无需clone，动态VMEM读69649→36873，完整caller对直接原生约2.18倍、对clone约1.91倍、对默认Torch约1.50倍。
 N129的边界和S4布局反增工作，小batch也未超过Torch；不将向量load本身作为默认选择。
 anchor是输入数据alias，不能像仅含metadata的模板一样跨新input storage复用；当前计时只覆盖固定绑定。
+
+
+## 数据 anchor 的 CPU 重绑定边界
+
+exp-argmax-anchor-cpu-20261008在目标机现有Torch的CPU路径上验证：同一Tensor换storage后，旧anchor仍持有旧storage。
+每次从当前view重新构造anchor可读回当前全部bits；显式as_strided偏移必须相对storage计算。
+32组输入和两类错误控制保留，未运行GPU或测量调用成本；不把此检查当作第七十轮固定绑定收益的新资格。

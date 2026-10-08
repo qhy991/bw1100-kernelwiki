@@ -6,13 +6,14 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (127 pages)
+## gfx938 (128 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
 - [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md) `[source-experiment]` arch:gfx938
 - [Contiguous offset views can lose vector loads and clone realignment must pay its complete copy cost](../sources/experiments/exp-argmax-alignment-caller-20261008.md) `[source-experiment]` arch:gfx938
 - [Fresh-result allocation can reverse a qualified native argmax kernel win](../sources/experiments/exp-argmax-allocation-20261008.md) `[source-experiment]` arch:gfx938
+- [CPU preflight shows why an argmax data anchor must follow current input storage](../sources/experiments/exp-argmax-anchor-cpu-20261008.md) `[source-experiment]` arch:gfx938
 - [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md) `[source-experiment]` arch:gfx938
 - [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md) `[source-experiment]` arch:gfx938
 - [No-copy aligned bulk argmax repairs a misaligned long row while preserving prefix and tail winners](../sources/experiments/exp-argmax-peel-20261008.md) `[source-experiment]` arch:gfx938
