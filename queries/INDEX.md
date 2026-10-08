@@ -1,15 +1,16 @@
 # Page Manifest
 
 
-186 pages. Machine-readable form: [pages.json](pages.json).
+188 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (53)
+## source-doc (54)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
 - `doc-argmax-tie-contract` — [Argmax owns both value ordering and the tie-breaking index contract](../sources/docs/doc-argmax-tie-contract.md)
 - `doc-ck-lds-phases` — [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md)
+- `doc-dtk-code-layers` — [PTX, LLVM IR, target assembly and code objects describe different compiler layers](../sources/docs/doc-dtk-code-layers.md)
 - `doc-float-order-key-policy` — [Floating-order transforms do not choose NaN policy or preserve a canonicalized payload](../sources/docs/doc-float-order-key-policy.md)
 - `doc-fma-rounding-contract` — [FMA and separate multiply-add have different rounding contracts](../sources/docs/doc-fma-rounding-contract.md)
 - `doc-hip-extensions` — [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md)
@@ -60,7 +61,7 @@
 - `doc-two-sum-compensation` — [TwoSum error terms do not automatically qualify an arbitrary reduction tree](../sources/docs/doc-two-sum-compensation.md)
 - `doc-waves-per-eu-hint` — [Waves-per-EU is a compiler resource hint, not observed residency](../sources/docs/doc-waves-per-eu-hint.md)
 
-## source-experiment (92)
+## source-experiment (93)
 
 - `exp-admission` — [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md)
 - `exp-aiter-audit` — [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md)
@@ -69,6 +70,7 @@
 - `exp-argmax-allocation-20261008` — [Fresh-result allocation can reverse a qualified native argmax kernel win](../sources/experiments/exp-argmax-allocation-20261008.md)
 - `exp-argmax-anchor-cpu-20261008` — [CPU preflight shows why an argmax data anchor must follow current input storage](../sources/experiments/exp-argmax-anchor-cpu-20261008.md)
 - `exp-argmax-bf16-bitgather-20261008` — [BF16 key-width timing against a bit-preserving Torch argmax and INT16 gather composition](../sources/experiments/exp-argmax-bf16-bitgather-20261008.md)
+- `exp-argmax-bf16-inline-20261008` — [A pure gfx938 inline max loses recognized reduction fusions without reducing register allocation](../sources/experiments/exp-argmax-bf16-inline-20261008.md)
 - `exp-argmax-bf16-key-20261008` — [BF16 keys fit one word but installed Torch GPU max does not preserve every selected NaN payload](../sources/experiments/exp-argmax-bf16-key-20261008.md)
 - `exp-argmax-bf16-layout-20261008` — [Contiguous per-thread grouping changes BF16 load width without reducing long-row register allocation](../sources/experiments/exp-argmax-bf16-layout-20261008.md)
 - `exp-argmax-compact-binding-20261008` — [A checked single-view argmax binder reduces caller cost without caching input storage](../sources/experiments/exp-argmax-compact-binding-20261008.md)

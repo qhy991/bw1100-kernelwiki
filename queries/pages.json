@@ -67,6 +67,21 @@
   "summary": ""
  },
  {
+  "id": "doc-dtk-code-layers",
+  "type": "source-doc",
+  "title": "PTX, LLVM IR, target assembly and code objects describe different compiler layers",
+  "path": "sources/docs/doc-dtk-code-layers.md",
+  "architectures": [],
+  "tags": [
+   "assembly",
+   "triton"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-float-order-key-policy",
   "type": "source-doc",
   "title": "Floating-order transforms do not choose NaN policy or preserve a canonicalized payload",
@@ -1005,6 +1020,27 @@
    "paired-timing",
    "profiling",
    "reduction"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "exp-argmax-bf16-inline-20261008",
+  "type": "source-experiment",
+  "title": "A pure gfx938 inline max loses recognized reduction fusions without reducing register allocation",
+  "path": "sources/experiments/exp-argmax-bf16-inline-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "assembly",
+   "bf16",
+   "correctness",
+   "paired-timing",
+   "profiling"
   ],
   "kernel_types": [],
   "languages": [],

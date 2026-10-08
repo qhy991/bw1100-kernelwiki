@@ -11,6 +11,8 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-bf16-inline-20261008
+- doc-dtk-code-layers
 - exp-argmax-bf16-layout-20261008
 - exp-argmax-bf16-bitgather-20261008
 - exp-argmax-bf16-key-20261008
@@ -674,3 +676,10 @@ exp-argmax-bf16-bitgather-20261008保留普通gather CPU失败前驱，使用同
 exp-argmax-bf16-layout-20261008比较S1/S2/S4/S8，保持前轮各shape的同汇编基线。
 两类profile各1408dispatch、128刷新和16首次重放通过；两批完整配对保留N129显著退化与N1024微小差异。
 更多连续元素不减少长行总值数，wide load也不保证更少TCC请求；No promotion。
+
+
+## 第七十六轮：内建max与gfx938内联ISA
+
+exp-argmax-bf16-inline-20261008保留函数值constexpr的CPU失败前驱；后继显式编译期选择通过12实例编译与原冻结控制。
+1056目标dispatch、96刷新和12首次graph资格通过，两批完整配对观察内联VALU增加和大case退化。
+同kernel跨批绝对时间改变，分别保留而不归因于未观测时钟状态；doc-dtk-code-layers与语言页补齐LLIR/amdgcn/HSACO的层级。No promotion。

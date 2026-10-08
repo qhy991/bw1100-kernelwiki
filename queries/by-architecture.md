@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (133 pages)
+## gfx938 (134 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -15,6 +15,7 @@
 - [Fresh-result allocation can reverse a qualified native argmax kernel win](../sources/experiments/exp-argmax-allocation-20261008.md) `[source-experiment]` arch:gfx938
 - [CPU preflight shows why an argmax data anchor must follow current input storage](../sources/experiments/exp-argmax-anchor-cpu-20261008.md) `[source-experiment]` arch:gfx938
 - [BF16 key-width timing against a bit-preserving Torch argmax and INT16 gather composition](../sources/experiments/exp-argmax-bf16-bitgather-20261008.md) `[source-experiment]` arch:gfx938
+- [A pure gfx938 inline max loses recognized reduction fusions without reducing register allocation](../sources/experiments/exp-argmax-bf16-inline-20261008.md) `[source-experiment]` arch:gfx938
 - [BF16 keys fit one word but installed Torch GPU max does not preserve every selected NaN payload](../sources/experiments/exp-argmax-bf16-key-20261008.md) `[source-experiment]` arch:gfx938
 - [Contiguous per-thread grouping changes BF16 load width without reducing long-row register allocation](../sources/experiments/exp-argmax-bf16-layout-20261008.md) `[source-experiment]` arch:gfx938
 - [A checked single-view argmax binder reduces caller cost without caching input storage](../sources/experiments/exp-argmax-compact-binding-20261008.md) `[source-experiment]` arch:gfx938

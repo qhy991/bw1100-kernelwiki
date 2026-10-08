@@ -11,6 +11,8 @@ tags:
 - hygon
 confidence: experimental
 sources:
+- exp-argmax-bf16-inline-20261008
+- doc-dtk-code-layers
 - exp-platform-contract
 - exp-admission
 - exp-aiter-audit
@@ -34,3 +36,15 @@ Dockerhook socket权限管容器设备管理，不是数学算法的依赖；原
 
 离线缺bitcode时只在已记录环境下试`HIP_DEVICE_LIB_PATH=/opt/dtk/amdgcn/bitcode`，不盲目改GPU架构。
 命令来自具体source receipt，不把旧镜像的包版本写成当前默认环境。
+
+
+## LLVM IR、ISA与代码对象的层级
+
+不要把PTX、LLVM IR和最终汇编混为一层。PTX是NVIDIA虚拟ISA；gfx938的目标汇编在工具产物里常标为amdgcn，层级更接近SASS。
+HSACO是装载用的ELF代码对象，不是语言。LLVM IR保留SSA、目标intrinsic与属性，后端再选择指令、分配寄存器。
+内联汇编可以使用目标指令模板和register class约束，物理寄存器仍由编译器分配；其副作用声明并不等于算术语义对优化器可见。
+层级及上游接口来源见doc-dtk-code-layers，本机具体lowering与性能由相应实验独立验证。
+
+
+exp-argmax-bf16-inline-20261008直接读取安装版triton.backends.hcu.compiler.HIPBackend.add_stages：Triton走ttir→ttgir，Gluon从ttgir接入，随后llir→amdgcn→hsaco。
+本机标准阶段定义没有独立PTX阶段；目标仍为Hygon gfx938。该轮还验证了纯uint32 max内联模板，并保留其失去融合与退化的反例。
