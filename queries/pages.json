@@ -991,6 +991,28 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-compact-binding-20261008",
+  "type": "source-experiment",
+  "title": "A checked single-view argmax binder reduces caller cost without caching input storage",
+  "path": "sources/experiments/exp-argmax-compact-binding-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "host-overhead",
+   "fp32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "runtime-guard"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-fp-key-20261008",
   "type": "source-experiment",
   "title": "FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery",

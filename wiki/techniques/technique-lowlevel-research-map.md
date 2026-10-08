@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-compact-binding-20261008
 - exp-argmax-rebind-20261008
 - exp-argmax-anchor-cpu-20261008
 - exp-argmax-peel-20261008
@@ -642,3 +643,10 @@ exp-argmax-anchor-cpu-20261008验证32组当前输入地址/位模式与24组旧
 exp-argmax-rebind-20261008保持八个冻结机器实现，验证换storage及新输出生命周期；独立profile与两批配对完成。
 没有额外device kernel，但host验证/view构造明显增加提交成本；强Torch基线下大偏移行仍有有限收益，其他域保留退化。
 CPU前置记录保持独立，完整数字与限制见新source。No promotion。
+
+
+## 第七十二轮：减少每次绑定的view与pointer查询
+
+exp-argmax-compact-binding-20261008以等价检查的single-view binder替代两view构造，冻结kernel和输出生命周期。
+错误比较臂前驱仅profile且标为invalid-comparison；后继重新CPU/profile资格并完成两批配对，记录约5μs host提交节省和仍慢于Torch的域。
+不引入输入storage缓存，不改Compiler；No promotion。

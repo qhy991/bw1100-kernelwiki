@@ -26,3 +26,7 @@ contiguous不复制，clone产生新对齐存储。恢复对齐后的kernel仍�
 2026-10-08读取[PyTorch2.11 set_](https://docs.pytorch.org/docs/2.11/generated/torch.Tensor.set_.html)与
 [as_strided](https://docs.pytorch.org/docs/2.11/generated/torch.as_strided.html)：set_可以改变同一Tensor的storage；
 显式storage_offset相对底层storage，不相对当前view。exp-argmax-anchor-cpu-20261008以本机安装版本完成CPU反例，尚未验证GPU重绑定成本。
+
+
+exp-argmax-compact-binding-20261008把当前storage_offset加shift交给一次as_strided，保留完整输入域与地址检查。
+CPU/设备证据属于该固定连续FP32域；不据API存在推广任意stride或backend。

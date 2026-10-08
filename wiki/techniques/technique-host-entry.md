@@ -10,6 +10,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-argmax-compact-binding-20261008
 - exp-argmax-rebind-20261008
 - doc-pytorch-metadata-allocation
 - exp-argmax-template-20261008
@@ -104,3 +105,11 @@ exp-argmax-rebind-20261008复用第七十轮kernel，验证同一Tensor换storag
 三条直接配对分别比较Torch、计时外绑定及每call绑定；32组native已测指令相同，标记区间没有额外copy。
 每call验证和view重建增加约13μs提交成本，大N1024偏移场景对Torch由固定绑定约1.50倍缩至约1.16倍。
 小batch与N129仍落后；保留A/A波动，不把CPU元数据正确性或固定绑定收益当作通用adapter资格。
+
+
+## 先减少当前调用的metadata工作
+
+exp-argmax-compact-binding-20261008把view加slice合为一次合法as_strided，并复用本次读取的pointer值；仍检查dtype、shape、连续性及anchor地址关系。
+每次从当前storage重建，无跨调用数据缓存；CPU等价/拒绝、实际GPU输出与旧结果检查保持。
+组合改写减少约4.7–5.6μs提交成本，原生完整调用约1.14–1.18倍改善；大N1024偏移域对Torch确认约1.32–1.34倍，小shape仍慢。
+两项host改动的独立贡献未拆分；计时与A/A、错误比较臂前驱均保留，不把有效trace或输出正确当作预期候选已运行的充分证据。

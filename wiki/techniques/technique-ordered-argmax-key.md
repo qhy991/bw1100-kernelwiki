@@ -92,3 +92,7 @@ exp-argmax-rebind-20261008复用第七十轮kernel，验证同一Tensor换storag
 三条直接配对分别比较Torch、计时外绑定及每call绑定；32组native已测指令相同，标记区间没有额外copy。
 每call验证和view重建增加约13μs提交成本，大N1024偏移场景对Torch由固定绑定约1.50倍缩至约1.16倍。
 小batch与N129仍落后；保留A/A波动，不把CPU元数据正确性或固定绑定收益当作通用adapter资格。
+
+
+exp-argmax-compact-binding-20261008进一步简化每call绑定的view构造与重复pointer读取，保持所有输入检查。
+完整调用收益和失败对照归档见source；这是host路径改写，不是新的归约算法或设备指令优化。
