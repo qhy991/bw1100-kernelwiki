@@ -6,11 +6,11 @@
 
 [HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。第 70 轮总结快照：180 个索引页面，包括 41 篇综合知识、53 篇上游资料和 86 篇实验记录，覆盖 70 轮底层研究。
 
-最新补充：[单次view绑定的成本与等价性验证](sources/experiments/exp-argmax-compact-binding-20261008.md)。当前索引为 183 页，完成 72 轮设备研究；上方 HTML 保留第 70 轮总结快照。
+最新补充：[BF16键宽与NaN位模式诊断](sources/experiments/exp-argmax-bf16-key-20261008.md)。当前索引为 184 页，累计 73 轮研究；第 73 轮没有性能结论。上方 HTML 保留第 70 轮总结快照。
 
 ## 从哪里开始
 
-- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：53 份上游资料、七十二轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
+- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：53 份上游资料、七十三轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
 
 - [硬件身份与边界](wiki/hardware/hw-bw1100-gfx938.md)：Hygon、gfx938、MMAC、wave64、DTK。
 - [双 GEMM＋GELU 融合](wiki/kernels/kernel-bw-gateup.md)：输入tile复用、中间materialization、舍入与register生命周期。

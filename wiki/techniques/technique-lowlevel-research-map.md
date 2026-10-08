@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-bf16-key-20261008
 - exp-argmax-compact-binding-20261008
 - exp-argmax-rebind-20261008
 - exp-argmax-anchor-cpu-20261008
@@ -650,3 +651,10 @@ CPU前置记录保持独立，完整数字与限制见新source。No promotion�
 exp-argmax-compact-binding-20261008以等价检查的single-view binder替代两view构造，冻结kernel和输出生命周期。
 错误比较臂前驱仅profile且标为invalid-comparison；后继重新CPU/profile资格并完成两批配对，记录约5μs host提交节省和仍慢于Torch的域。
 不引入输入storage缓存，不改Compiler；No promotion。
+
+
+## 第七十三轮：BF16键宽候选与框架位模式边界
+
+exp-argmax-bf16-key-20261008完成全位型CPU证明、实际编译和独立设备诊断。
+Torch GPU特殊值不满足原bits合同，profile门失败后未启动计时；48组后继快照将差异定位为NaN bits而非索引。
+保留静态资源反例和安装头文件线索；本轮是诊断记录，没有已确认性能收益。No promotion。

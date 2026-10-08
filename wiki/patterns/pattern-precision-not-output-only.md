@@ -12,6 +12,7 @@ tags:
 - negative-result
 confidence: experimental
 sources:
+- exp-argmax-bf16-key-20261008
 - exp-rounded-consumer-20261007
 - doc-llvm-denormal-modes
 - exp-denorm-policy-20261007
@@ -127,3 +128,11 @@ exp-rounded-consumer-20261007给出明确反例：三路BF16 Y均逐位正确，
 正确融合应使用q=RTNE_BF16(v)再widen_FP32(q)，与consumer从存储读到的值一致，无需真的重读global。
 成对中点输入与精确整数sum域把舍入丢失和归约顺序误差分开；仅可表示整数控制会漏掉这个错误。
 诊断路径只用于找错，不计时或速度排名；参考规定的materialization语义不能因原值“更精确”而被替换。
+
+
+## BF16顺序键与NaN原bits是不同的责任
+
+exp-argmax-bf16-key-20261008为独立BF16合同构造16位值序加16位反向索引，CPU覆盖全部位型和字段边界。
+32位键减少DPP站点，但N1024编译VGPR反而增加；不从键宽直接推断资源或性能。
+当前Torch CPU符合原bits oracle，GPU却有3674行NaN bits变成0x7fc0而索引全部正确；两个原生键在全部16组诊断中保持原bits。
+实际头文件提供float转换线索，唯一二进制路径尚未定位。比较在性能计时前停止，未删除特殊值或放宽合同；不推广为Torch通用错误。

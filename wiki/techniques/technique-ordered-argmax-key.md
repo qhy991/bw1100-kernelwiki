@@ -96,3 +96,11 @@ exp-argmax-rebind-20261008复用第七十轮kernel，验证同一Tensor换storag
 
 exp-argmax-compact-binding-20261008进一步简化每call绑定的view构造与重复pointer读取，保持所有输入检查。
 完整调用收益和失败对照归档见source；这是host路径改写，不是新的归约算法或设备指令优化。
+
+
+## BF16顺序键与NaN原bits是不同的责任
+
+exp-argmax-bf16-key-20261008为独立BF16合同构造16位值序加16位反向索引，CPU覆盖全部位型和字段边界。
+32位键减少DPP站点，但N1024编译VGPR反而增加；不从键宽直接推断资源或性能。
+当前Torch CPU符合原bits oracle，GPU却有3674行NaN bits变成0x7fc0而索引全部正确；两个原生键在全部16组诊断中保持原bits。
+实际头文件提供float转换线索，唯一二进制路径尚未定位。比较在性能计时前停止，未删除特殊值或放宽合同；不推广为Torch通用错误。
