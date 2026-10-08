@@ -1057,6 +1057,27 @@
   "summary": ""
  },
  {
+  "id": "exp-argmax-rebind-20261008",
+  "type": "source-experiment",
+  "title": "Per-call current-storage anchor binding preserves argmax correctness but consumes most of the caller gain",
+  "path": "sources/experiments/exp-argmax-rebind-20261008.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "fp32",
+   "correctness",
+   "paired-timing",
+   "profiling",
+   "runtime-guard"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-argmax-template-20261008",
   "type": "source-experiment",
   "title": "Metadata templates and a typed entry reduce fresh-result wrapper cost without changing device instructions",

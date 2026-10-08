@@ -67,3 +67,6 @@ It must check changed input storage, both pointer remainders, all original argma
 Profile must establish whether the wrapper adds any device work. Only then can a new speed claim be assessed.
 
 No promotion. This record supports a caller-boundary lesson; it does not qualify a new GPU adapter or modify the Compiler.
+
+
+Device successor: exp-argmax-rebind-20261008 completed the frozen-kernel profile, storage/output checks and paired caller measurements. This CPU record retains its original scope.

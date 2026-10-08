@@ -11,6 +11,7 @@ tags:
 - local-evidence
 confidence: experimental
 sources:
+- exp-argmax-rebind-20261008
 - exp-argmax-anchor-cpu-20261008
 - exp-argmax-peel-20261008
 - exp-argmax-alignment-caller-20261008
@@ -634,3 +635,10 @@ exp-argmax-peel-20261008保留两个仅CPU前驱，证明16640有效行/16656执
 
 exp-argmax-anchor-cpu-20261008验证32组当前输入地址/位模式与24组旧anchor反例，另保留32组错误storage_offset控制。
 这是CPU调用边界证据；下一轮GPU完整调用与profile尚待执行，不增加已完成设备研究轮次。
+
+
+## 第七十一轮：每次调用重新绑定数据 anchor
+
+exp-argmax-rebind-20261008保持八个冻结机器实现，验证换storage及新输出生命周期；独立profile与两批配对完成。
+没有额外device kernel，但host验证/view构造明显增加提交成本；强Torch基线下大偏移行仍有有限收益，其他域保留退化。
+CPU前置记录保持独立，完整数字与限制见新source。No promotion。

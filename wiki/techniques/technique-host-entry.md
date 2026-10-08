@@ -10,6 +10,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-argmax-rebind-20261008
 - doc-pytorch-metadata-allocation
 - exp-argmax-template-20261008
 - exp-argmax-allocation-20261008
@@ -95,3 +96,11 @@ exp-argmax-template-20261008把两次带shape/device/dtype的empty改为empty_li
 typed入口在设备侧重解释指针并调用同一个归约body，规范化入口名后机器视图一致，动态指令与资源也相同。
 metadata和typed两步降低完整submit约4.4–4.8μs与2.3–2.5μs，但长kernel的wall不同比下降；不能把省view误说成省GPU复制。
 大N1024对默认Torch约1.54–1.57倍，小shape和大N129仍慢，保留强基线与A/A；模板缓存只对已验证的metadata成立。
+
+
+## 重绑定成本必须进入完整调用
+
+exp-argmax-rebind-20261008复用第七十轮kernel，验证同一Tensor换storage后的全部输出和旧结果。
+三条直接配对分别比较Torch、计时外绑定及每call绑定；32组native已测指令相同，标记区间没有额外copy。
+每call验证和view重建增加约13μs提交成本，大N1024偏移场景对Torch由固定绑定约1.50倍缩至约1.16倍。
+小batch与N129仍落后；保留A/A波动，不把CPU元数据正确性或固定绑定收益当作通用adapter资格。

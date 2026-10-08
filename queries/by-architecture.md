@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (128 pages)
+## gfx938 (129 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -17,6 +17,7 @@
 - [FP32 argmax keys need explicit NaN and zero policy plus original-payload recovery](../sources/experiments/exp-argmax-fp-key-20261008.md) `[source-experiment]` arch:gfx938
 - [Signed first-argmax through a uint64 order key preserves ties and changes the reduction instruction path](../sources/experiments/exp-argmax-key-20261008.md) `[source-experiment]` arch:gfx938
 - [No-copy aligned bulk argmax repairs a misaligned long row while preserving prefix and tail winners](../sources/experiments/exp-argmax-peel-20261008.md) `[source-experiment]` arch:gfx938
+- [Per-call current-storage anchor binding preserves argmax correctness but consumes most of the caller gain](../sources/experiments/exp-argmax-rebind-20261008.md) `[source-experiment]` arch:gfx938
 - [Metadata templates and a typed entry reduce fresh-result wrapper cost without changing device instructions](../sources/experiments/exp-argmax-template-20261008.md) `[source-experiment]` arch:gfx938
 - [Installed Torch max out matches FP32 special-value cases and provides a same-ABI framework baseline](../sources/experiments/exp-argmax-torch-20261008.md) `[source-experiment]` arch:gfx938
 - [Reduction repeatability and reference accuracy diverge under cancellation](../sources/experiments/exp-atomic-numerical-20261007.md) `[source-experiment]` arch:gfx938

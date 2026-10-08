@@ -11,6 +11,7 @@ tags:
 - cache-invalidation
 confidence: experimental
 sources:
+- exp-argmax-rebind-20261008
 - exp-argmax-anchor-cpu-20261008
 - exp-night-exclusions
 - exp-width-qualification
@@ -40,3 +41,11 @@ source-specific排除保留旧160/timing，后继修复用新source重新资格�
 exp-argmax-anchor-cpu-20261008在目标机现有Torch的CPU路径上验证：同一Tensor换storage后，旧anchor仍持有旧storage。
 每次从当前view重新构造anchor可读回当前全部bits；显式as_strided偏移必须相对storage计算。
 32组输入和两类错误控制保留，未运行GPU或测量调用成本；不把此检查当作第七十轮固定绑定收益的新资格。
+
+
+## 重绑定成本必须进入完整调用
+
+exp-argmax-rebind-20261008复用第七十轮kernel，验证同一Tensor换storage后的全部输出和旧结果。
+三条直接配对分别比较Torch、计时外绑定及每call绑定；32组native已测指令相同，标记区间没有额外copy。
+每call验证和view重建增加约13μs提交成本，大N1024偏移场景对Torch由固定绑定约1.50倍缩至约1.16倍。
+小batch与N129仍落后；保留A/A波动，不把CPU元数据正确性或固定绑定收益当作通用adapter资格。

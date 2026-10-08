@@ -6,11 +6,11 @@
 
 [HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。第 70 轮总结快照：180 个索引页面，包括 41 篇综合知识、53 篇上游资料和 86 篇实验记录，覆盖 70 轮底层研究。
 
-最新补充：[输入 anchor 重绑定的 CPU 前置证据](sources/experiments/exp-argmax-anchor-cpu-20261008.md)。当前索引为 181 页；该补充尚未取得 GPU 正确性或性能资格。
+最新补充：[每次调用重新绑定 anchor 的设备与完整计时证据](sources/experiments/exp-argmax-rebind-20261008.md)。当前索引为 182 页，完成 71 轮设备研究；上方 HTML 保留第 70 轮总结快照。
 
 ## 从哪里开始
 
-- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：53 份上游资料、七十轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
+- [底层优化资料与实测入口](wiki/techniques/technique-lowlevel-research-map.md)：53 份上游资料、七十一轮访存/LDS/归约/GEMM 与 caller 设备观察、指令与资源检查。
 
 - [硬件身份与边界](wiki/hardware/hw-bw1100-gfx938.md)：Hygon、gfx938、MMAC、wave64、DTK。
 - [双 GEMM＋GELU 融合](wiki/kernels/kernel-bw-gateup.md)：输入tile复用、中间materialization、舍入与register生命周期。
