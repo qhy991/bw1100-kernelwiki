@@ -430,21 +430,21 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 <button class="am-btn" type="button" data-am="copy" data-done="已复制 ✓">复制源稿</button>
 </div>
 <main class="am-doc">
-<header class="am-head"><h1>BW1100 KernelWiki · 内容总览</h1><p class="am-sub">从上游资料到 gfx938 实测，再到 agent 可复用的底层知识</p><div class="am-head-meta"><span><b>date</b>2026-10-08</span><span><b>scope</b>截至第 70 轮研究</span></div></header>
+<header class="am-head"><h1>BW1100 KernelWiki · 内容总览</h1><p class="am-sub">从上游资料到 gfx938 实测，再到 agent 可复用的底层知识</p><div class="am-head-meta"><span><b>date</b>2026-10-08</span><span><b>scope</b>截至第 78 轮研究</span></div></header>
 <div class="am-doc-layout">
 <nav class="am-toc" aria-label="目录"><a href="#panel-A">A · 现在积累了多少内容？</a><a href="#panel-B">B · 这些内容如何组织？</a><a href="#panel-C">C · 有哪些底层细节可供 agent 使用？</a><a href="#panel-D">D · 覆盖了哪些算子和工作负载？</a><a href="#panel-E">E · 哪些实测结论最值得记住？</a><a href="#panel-F">F · agent 应如何判断一条优化是否成立？</a><a href="#panel-G">G · agent 从哪里开始查？</a><a href="#panel-H">H · 公开仓库包含什么，下一步还缺什么？</a></nav><div class="am-doc-body">
 <section class="am-panel" id="panel-A">
 <header class="am-panel-head"><span class="am-panel-id">A</span><h2>现在积累了多少内容？</h2></header>
 <div class="am-panel-body"><div class="am-md"><p>知识库覆盖访存、矩阵计算、归约和调用端成本。每条实测结论都保留版本、条件与反例。</p>
 </div>
-<dl class="am-kv" style="--kv-cols: 2"><div class="am-kv-cell"><dt>索引页面</dt><dd>180 页</dd></div><div class="am-kv-cell"><dt>机制与算子知识</dt><dd>41 页</dd></div><div class="am-kv-cell"><dt>上游资料记录</dt><dd>53 页</dd></div><div class="am-kv-cell"><dt>本机实验记录</dt><dd>86 页</dd></div><div class="am-kv-cell"><dt>底层研究进度</dt><dd>70 轮</dd></div><div class="am-kv-cell"><dt>目标</dt><dd>Hygon BW1100 / gfx938</dd></div></dl>
-<div class="am-md"><p>86 篇实验记录还包含平台准入、基线和早期资格记录。它们与 70 轮底层研究不是一一对应关系。</p>
+<dl class="am-kv" style="--kv-cols: 2"><div class="am-kv-cell"><dt>索引页面</dt><dd>191 页</dd></div><div class="am-kv-cell"><dt>机制与算子知识</dt><dd>41 页</dd></div><div class="am-kv-cell"><dt>上游资料记录</dt><dd>55 页</dd></div><div class="am-kv-cell"><dt>本机实验记录</dt><dd>95 页</dd></div><div class="am-kv-cell"><dt>底层研究进度</dt><dd>78 轮</dd></div><div class="am-kv-cell"><dt>目标</dt><dd>Hygon BW1100 / gfx938</dd></div></dl>
+<div class="am-md"><p>95 篇实验记录包含平台准入、基线、失败前驱和诊断。它们与 78 轮研究不是一一对应关系。轮次也不表示成功加速的次数。</p>
 <p><a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/queries/INDEX.md">完整目录</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/techniques/technique-lowlevel-research-map.md">底层研究导航</a></p>
 </div></div>
 </section>
 <section class="am-panel" id="panel-B">
 <header class="am-panel-head"><span class="am-panel-id">B</span><h2>这些内容如何组织？</h2></header>
-<div class="am-panel-body"><div class="am-tree"><div class="am-tree-root am-tree-root--solo"><div class="am-tree-box am-tree-box--root" data-key="BW1100 KernelWiki" data-step="0">BW1100 KernelWiki</div></div><ul class="am-tree-list"><li data-key="wiki · 41 篇综合知识" data-step="1"><span class="am-tree-label">wiki · 41 篇综合知识</span><ul><li data-key="硬件 / 语言 / 迁移 · 各 1 篇" data-step="2"><span class="am-tree-label">硬件 / 语言 / 迁移 · 各 1 篇</span></li><li data-key="算子 · 12 篇" data-step="3"><span class="am-tree-label">算子 · 12 篇</span></li><li data-key="优化机制 · 19 篇" data-step="4"><span class="am-tree-label">优化机制 · 19 篇</span></li><li data-key="诊断模式 · 7 篇" data-step="5"><span class="am-tree-label">诊断模式 · 7 篇</span></li></ul></li><li data-key="sources · 139 篇证据解读" data-step="6"><span class="am-tree-label">sources · 139 篇证据解读</span><ul><li data-key="docs · 53 篇上游资料" data-step="7"><span class="am-tree-label">docs · 53 篇上游资料</span></li><li data-key="experiments · 86 篇本机记录" data-step="8"><span class="am-tree-label">experiments · 86 篇本机记录</span></li></ul></li><li data-key="queries · 自动生成的检索目录" data-step="9"><span class="am-tree-label">queries · 自动生成的检索目录</span></li><li data-key="skill · agent 查询入口" data-step="10"><span class="am-tree-label">skill · agent 查询入口</span></li><li data-key="templates · 来源与机制写作模板" data-step="11"><span class="am-tree-label">templates · 来源与机制写作模板</span></li><li data-key="scripts / tests · 检索、索引与校验" data-step="12"><span class="am-tree-label">scripts / tests · 检索、索引与校验</span></li></ul></div>
+<div class="am-panel-body"><div class="am-tree"><div class="am-tree-root am-tree-root--solo"><div class="am-tree-box am-tree-box--root" data-key="BW1100 KernelWiki" data-step="0">BW1100 KernelWiki</div></div><ul class="am-tree-list"><li data-key="wiki · 41 篇综合知识" data-step="1"><span class="am-tree-label">wiki · 41 篇综合知识</span><ul><li data-key="硬件 / 语言 / 迁移 · 各 1 篇" data-step="2"><span class="am-tree-label">硬件 / 语言 / 迁移 · 各 1 篇</span></li><li data-key="算子 · 12 篇" data-step="3"><span class="am-tree-label">算子 · 12 篇</span></li><li data-key="优化机制 · 19 篇" data-step="4"><span class="am-tree-label">优化机制 · 19 篇</span></li><li data-key="诊断模式 · 7 篇" data-step="5"><span class="am-tree-label">诊断模式 · 7 篇</span></li></ul></li><li data-key="sources · 150 篇证据解读" data-step="6"><span class="am-tree-label">sources · 150 篇证据解读</span><ul><li data-key="docs · 55 篇上游资料" data-step="7"><span class="am-tree-label">docs · 55 篇上游资料</span></li><li data-key="experiments · 95 篇本机记录" data-step="8"><span class="am-tree-label">experiments · 95 篇本机记录</span></li></ul></li><li data-key="queries · 自动生成的检索目录" data-step="9"><span class="am-tree-label">queries · 自动生成的检索目录</span></li><li data-key="skill · agent 查询入口" data-step="10"><span class="am-tree-label">skill · agent 查询入口</span></li><li data-key="templates · 来源与机制写作模板" data-step="11"><span class="am-tree-label">templates · 来源与机制写作模板</span></li><li data-key="scripts / tests · 检索、索引与校验" data-step="12"><span class="am-tree-label">scripts / tests · 检索、索引与校验</span></li></ul></div>
 <div class="am-md"><p>原实验持有原始结果。来源页解释证据范围，机制页综合方法。检索索引由页面生成，不另行维护事实。</p>
 <p>上游资料覆盖 HIP、LLVM、Triton、PyTorch、CK 和 profiler。上游 AMD 资料只提供机制候选。Hygon 硬件事实须由本机证据确认。</p>
 </div></div>
@@ -461,7 +461,7 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 </thead>
 <tbody><tr>
 <td>硬件与工具链</td>
-<td>wave64、HSACO、MMAC、DTK、HCU、Triton</td>
+<td>wave64、LLVM IR、gfx938 ISA、HSACO、DTK</td>
 <td>gfx938 不替换为 gfx942 / gfx950</td>
 </tr>
 <tr>
@@ -491,7 +491,7 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 </tr>
 <tr>
 <td>整数与浮点</td>
-<td>除法专门化、FP32 顺序键、BF16 舍入、FMA、denormal</td>
+<td>除法、FP32/BF16 顺序键、NaN bits、FMA、denormal</td>
 <td>精度合同包括中间步骤</td>
 </tr>
 <tr>
@@ -501,11 +501,16 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 </tr>
 <tr>
 <td>观测与诊断</td>
-<td>IR → ISA → dispatch、counter 定义、配对计时</td>
-<td>静态指令数不是动态访问量</td>
+<td>IR → ISA → dispatch、counter、采样窗口与权限</td>
+<td>成功查询不证明设备授权或无扰动</td>
 </tr>
 </tbody></table></div>
 <p><a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/techniques/technique-gfx938-instruction-audit.md">指令审计</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/techniques/technique-aot-alignment-pipeline.md">对齐与流水</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/patterns/pattern-precision-not-output-only.md">精度边界</a></p>
+<p>本机 HCU backend 的实际编译阶段如下。Gluon 从 TTGIR 接入。</p>
+</div>
+<figure class="am-diagram am-flow"><svg viewBox="0 0 956 63" width="956" height="63" role="img" aria-label="流程图：TTIR、TTGIR、LLVM_IR、gfx938_ISA、HSACO" xmlns="http://www.w3.org/2000/svg"><defs><marker id="am1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="am-arrow" d="M0,0 L10,5 L0,10 z"/></marker></defs><g></g><g><g data-step="0"><path class="am-edge" d="M78,31.5 L107,31.5 Q136.1,31.5 165.1,31.5 L194.2,31.5" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="102" y="22.5" width="68.2" height="18" rx="3"/><text x="136.1" y="31.5" text-anchor="middle" dominant-baseline="central">Triton 路径</text></g></g><g data-step="1"><path class="am-edge" d="M264.1,31.5 L302.6,31.5 Q341.1,31.5 379.7,31.5 L418.2,31.5" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="288.1" y="22.5" width="106.1" height="18" rx="3"/><text x="341.1" y="31.5" text-anchor="middle" dominant-baseline="central">目标相关 lowering</text></g></g><g data-step="2"><path class="am-edge" d="M504.2,31.5 L535.8,31.5 Q567.4,31.5 599.1,31.5 L630.7,31.5" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="528.2" y="22.5" width="78.5" height="18" rx="3"/><text x="567.4" y="31.5" text-anchor="middle" dominant-baseline="central">amdgcn 文本</text></g></g><g data-step="3"><path class="am-edge" d="M728.4,31.5 L763,31.5 Q797.6,31.5 832.3,31.5 L866.9,31.5" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="752.4" y="22.5" width="90.5" height="18" rx="3"/><text x="797.6" y="31.5" text-anchor="middle" dominant-baseline="central">可装载代码对象</text></g></g></g><g><g class="am-node am-node--rect" data-key="TTIR" data-step="0"><rect class="am-node-shape" x="14" y="14" width="64" height="35" rx="3"/><text x="46" y="31.5" text-anchor="middle" dominant-baseline="central">TTIR</text></g><g class="am-node am-node--rect" data-key="TTGIR" data-step="0"><rect class="am-node-shape" x="194.2" y="14" width="69.9" height="35" rx="3"/><text x="229.1" y="31.5" text-anchor="middle" dominant-baseline="central">TTGIR</text></g><g class="am-node am-node--rect" data-key="LLVM_IR" data-step="1"><rect class="am-node-shape" x="418.2" y="14" width="86" height="35" rx="3"/><text x="461.2" y="31.5" text-anchor="middle" dominant-baseline="central">LLVM_IR</text></g><g class="am-node am-node--rect" data-key="gfx938_ISA" data-step="2"><rect class="am-node-shape" x="630.7" y="14" width="97.7" height="35" rx="3"/><text x="679.6" y="31.5" text-anchor="middle" dominant-baseline="central">gfx938_ISA</text></g><g class="am-node am-node--rect" data-key="HSACO" data-step="3"><rect class="am-node-shape" x="866.9" y="14" width="74.5" height="35" rx="3"/><text x="904.2" y="31.5" text-anchor="middle" dominant-baseline="central">HSACO</text></g></g></svg></figure>
+<div class="am-md"><p><strong>DCU 当前路线没有独立对应 PTX 的阶段。</strong> PTX 是 NVIDIA 虚拟 ISA。gfx938 目标汇编更接近 SASS 层级。LLVM IR 是前面的编译器 IR，HSACO 是 ELF 代码对象。</p>
+<p><a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/docs/doc-dtk-code-layers.md">层级与官方接口</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-bf16-inline-20261008.md">本机 backend 与内联 ISA 验证</a></p>
 </div></div>
 </section>
 <section class="am-panel" id="panel-D">
@@ -601,23 +606,69 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 <td>固定 out 的收益不能继承到默认分配接口</td>
 </tr>
 </tbody></table></div>
-<p>Argmax 数据包含新输出分配与完整调用。对齐 anchor 在固定输入 setup 中绑定，不计入每次调用。换 storage 的重新绑定成本尚未资格化。</p>
-<p>最新 argmax 的四类输入配对约为 1.491–1.503×。对应 A/A 最高比值约 1.105–1.123，原记录保留这些波动。物理独占和完整 cache 驱逐均未证明。</p>
+<p>第 70 轮 Argmax 数据包含新输出分配。其对齐 anchor 在 setup 中绑定，不计入每次调用。第 71–72 轮另行验证每次绑定当前 storage 的成本。</p>
+<p>第 70 轮 argmax 的四类输入配对约为 1.491–1.503×。对应 A/A 最高比值约 1.105–1.123，原记录保留这些波动。物理独占和完整 cache 驱逐均未证明。</p>
 <p><a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-peel-20261008.md">Argmax 第 70 轮</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-compaction-uniform-20261008.md">Compaction</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-scan-tail-20261008.md">Scan 尾部</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-allocation-20261008.md">分配反例</a></p>
+<p>第 71–78 轮新增了以下证据。各行的基线和计时边界不同，不跨行合成加速比。</p>
+<div class="am-table-wrap"><table>
+<thead>
+<tr>
+<th>轮次与范围</th>
+<th>实测结论</th>
+<th>保留的边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>71–72：每次调用绑定当前输入</td>
+<td>单 view 与较少指针查询节省约 5 μs 提交成本</td>
+<td>大偏移行对 Torch 确认约 1.32–1.34×；小形状仍慢</td>
+</tr>
+<tr>
+<td>73：BF16 原 bits 与首次索引</td>
+<td>CPU 枚举 65,536 位型；设备 Torch max 出现 3,674 个 NaN bits 差异</td>
+<td>索引正确；原 bits 合同强于一般 NaN 等价</td>
+</tr>
+<tr>
+<td>74：BF16 32 位键</td>
+<td>大 N1024 graph 对 64 位键约 1.09–1.10×</td>
+<td>框架分母是 argmax 加 bit-gather，不能称单次 max</td>
+</tr>
+<tr>
+<td>75：每线程连续分组</td>
+<td>N1024 四布局实际 VGPR 都为 56</td>
+<td>最宽 load 请求更多；N129 的 S8 明显退化</td>
+</tr>
+<tr>
+<td>76：纯内联 v_max_u32</td>
+<td>丢失 max3 / max-DPP 融合，动态 VALU 增加</td>
+<td>大形状两批均慢；跨批绝对时间变化原因未知</td>
+</tr>
+<tr>
+<td>77：只读状态查询</td>
+<td>96 次完整查询耗时约 140–298 ms</td>
+<td>24 个约 119 ms 块均容不下完整查询</td>
+</tr>
+<tr>
+<td>78：采样开关对照</td>
+<td>四次尝试仅一次完成；全部作业释放</td>
+<td>无有效采样开销估计；运行时身份问题待恢复</td>
+</tr>
+</tbody></table></div>
+<p><a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-compact-binding-20261008.md">每次绑定</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-bf16-bitgather-20261008.md">BF16 键宽</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-bf16-layout-20261008.md">连续分组</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-clock-observation-20261008.md">状态查询</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-clock-sampler-effect-20261008.md">未完成的采样对照</a></p>
 </div></div>
 </section>
 <section class="am-panel" id="panel-F">
 <header class="am-panel-head"><span class="am-panel-id">F</span><h2>agent 应如何判断一条优化是否成立？</h2></header>
-<div class="am-panel-body"><figure class="am-diagram am-flow"><svg viewBox="0 0 167 756" width="167" height="756" role="img" aria-label="流程图：合同与来源、CPU 证明、IR 与 ISA、设备正确性、Profile、配对确认、来源记录、机制知识" xmlns="http://www.w3.org/2000/svg"><defs><marker id="am1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="am-arrow" d="M0,0 L10,5 L0,10 z"/></marker></defs><g></g><g><g data-step="0"><path class="am-edge" d="M83.3,49 L83.3,65 Q83.3,81 83.3,97 L83.3,113" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="32.3" y="72" width="102" height="18" rx="3"/><text x="83.3" y="81" text-anchor="middle" dominant-baseline="central">固定语义与有效域</text></g></g><g data-step="1"><path class="am-edge" d="M83.3,148 L83.3,164 Q83.3,180 83.3,196 L83.3,212" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="30.2" y="171" width="106.1" height="18" rx="3"/><text x="83.3" y="180" text-anchor="middle" dominant-baseline="central">检查真实 lowering</text></g></g><g data-step="2"><path class="am-edge" d="M83.3,247 L83.3,263 Q83.3,279 83.3,295 L83.3,311" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="43.8" y="270" width="79" height="18" rx="3"/><text x="83.3" y="279" text-anchor="middle" dominant-baseline="central">校验全部输出</text></g></g><g data-step="3"><path class="am-edge" d="M83.3,346 L83.3,362 Q83.3,378 83.3,394 L83.3,410" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="20.8" y="369" width="125" height="18" rx="3"/><text x="83.3" y="378" text-anchor="middle" dominant-baseline="central">观察实际资源与工作量</text></g></g><g data-step="4"><path class="am-edge" d="M83.3,445 L83.3,461 Q83.3,477 83.3,493 L83.3,509" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="36.7" y="468" width="93" height="18" rx="3"/><text x="83.3" y="477" text-anchor="middle" dominant-baseline="central">完整调用和 A/A</text></g></g><g data-step="5"><path class="am-edge" d="M83.3,544 L83.3,560 Q83.3,576 83.3,592 L83.3,608" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="15" y="567" width="136.5" height="18" rx="3"/><text x="83.3" y="576" text-anchor="middle" dominant-baseline="central">保留收益、退化和未知项</text></g></g><g data-step="6"><path class="am-edge" d="M83.3,643 L83.3,659 Q83.3,675 83.3,691 L83.3,707" marker-end="url(#am1-arrow)"/><g class="am-edge-label"><rect x="38" y="666" width="90.5" height="18" rx="3"/><text x="83.3" y="675" text-anchor="middle" dominant-baseline="central">提炼条件与代价</text></g></g></g><g><g class="am-node am-node--rect" data-key="合同与来源" data-step="0"><rect class="am-node-shape" x="36.8" y="14" width="93" height="35" rx="3"/><text x="83.3" y="31.5" text-anchor="middle" dominant-baseline="central">合同与来源</text></g><g class="am-node am-node--rect" data-key="CPU 证明" data-step="0"><rect class="am-node-shape" x="41" y="113" width="84.4" height="35" rx="3"/><text x="83.3" y="130.5" text-anchor="middle" dominant-baseline="central">CPU 证明</text></g><g class="am-node am-node--rect" data-key="IR 与 ISA" data-step="1"><rect class="am-node-shape" x="41.4" y="212" width="83.6" height="35" rx="3"/><text x="83.3" y="229.5" text-anchor="middle" dominant-baseline="central">IR 与 ISA</text></g><g class="am-node am-node--rect" data-key="设备正确性" data-step="2"><rect class="am-node-shape" x="36.8" y="311" width="93" height="35" rx="3"/><text x="83.3" y="328.5" text-anchor="middle" dominant-baseline="central">设备正确性</text></g><g class="am-node am-node--rect" data-key="Profile" data-step="3"><rect class="am-node-shape" x="49.2" y="410" width="68" height="35" rx="3"/><text x="83.3" y="427.5" text-anchor="middle" dominant-baseline="central">Profile</text></g><g class="am-node am-node--rect" data-key="配对确认" data-step="4"><rect class="am-node-shape" x="43.3" y="509" width="80" height="35" rx="3"/><text x="83.3" y="526.5" text-anchor="middle" dominant-baseline="central">配对确认</text></g><g class="am-node am-node--rect" data-key="来源记录" data-step="5"><rect class="am-node-shape" x="43.3" y="608" width="80" height="35" rx="3"/><text x="83.3" y="625.5" text-anchor="middle" dominant-baseline="central">来源记录</text></g><g class="am-node am-node--rect" data-key="机制知识" data-step="6"><rect class="am-node-shape" x="43.3" y="707" width="80" height="35" rx="3"/><text x="83.3" y="724.5" text-anchor="middle" dominant-baseline="central">机制知识</text></g></g></svg></figure>
+<div class="am-panel-body"><figure class="am-diagram am-flow"><svg viewBox="0 0 167 756" width="167" height="756" role="img" aria-label="流程图：合同与来源、CPU 证明、IR 与 ISA、设备正确性、Profile、配对确认、来源记录、机制知识" xmlns="http://www.w3.org/2000/svg"><defs><marker id="am2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="am-arrow" d="M0,0 L10,5 L0,10 z"/></marker></defs><g></g><g><g data-step="0"><path class="am-edge" d="M83.3,49 L83.3,65 Q83.3,81 83.3,97 L83.3,113" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="32.3" y="72" width="102" height="18" rx="3"/><text x="83.3" y="81" text-anchor="middle" dominant-baseline="central">固定语义与有效域</text></g></g><g data-step="1"><path class="am-edge" d="M83.3,148 L83.3,164 Q83.3,180 83.3,196 L83.3,212" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="30.2" y="171" width="106.1" height="18" rx="3"/><text x="83.3" y="180" text-anchor="middle" dominant-baseline="central">检查真实 lowering</text></g></g><g data-step="2"><path class="am-edge" d="M83.3,247 L83.3,263 Q83.3,279 83.3,295 L83.3,311" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="43.8" y="270" width="79" height="18" rx="3"/><text x="83.3" y="279" text-anchor="middle" dominant-baseline="central">校验全部输出</text></g></g><g data-step="3"><path class="am-edge" d="M83.3,346 L83.3,362 Q83.3,378 83.3,394 L83.3,410" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="20.8" y="369" width="125" height="18" rx="3"/><text x="83.3" y="378" text-anchor="middle" dominant-baseline="central">观察实际资源与工作量</text></g></g><g data-step="4"><path class="am-edge" d="M83.3,445 L83.3,461 Q83.3,477 83.3,493 L83.3,509" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="36.7" y="468" width="93" height="18" rx="3"/><text x="83.3" y="477" text-anchor="middle" dominant-baseline="central">完整调用和 A/A</text></g></g><g data-step="5"><path class="am-edge" d="M83.3,544 L83.3,560 Q83.3,576 83.3,592 L83.3,608" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="15" y="567" width="136.5" height="18" rx="3"/><text x="83.3" y="576" text-anchor="middle" dominant-baseline="central">保留收益、退化和未知项</text></g></g><g data-step="6"><path class="am-edge" d="M83.3,643 L83.3,659 Q83.3,675 83.3,691 L83.3,707" marker-end="url(#am2-arrow)"/><g class="am-edge-label"><rect x="38" y="666" width="90.5" height="18" rx="3"/><text x="83.3" y="675" text-anchor="middle" dominant-baseline="central">提炼条件与代价</text></g></g></g><g><g class="am-node am-node--rect" data-key="合同与来源" data-step="0"><rect class="am-node-shape" x="36.8" y="14" width="93" height="35" rx="3"/><text x="83.3" y="31.5" text-anchor="middle" dominant-baseline="central">合同与来源</text></g><g class="am-node am-node--rect" data-key="CPU 证明" data-step="0"><rect class="am-node-shape" x="41" y="113" width="84.4" height="35" rx="3"/><text x="83.3" y="130.5" text-anchor="middle" dominant-baseline="central">CPU 证明</text></g><g class="am-node am-node--rect" data-key="IR 与 ISA" data-step="1"><rect class="am-node-shape" x="41.4" y="212" width="83.6" height="35" rx="3"/><text x="83.3" y="229.5" text-anchor="middle" dominant-baseline="central">IR 与 ISA</text></g><g class="am-node am-node--rect" data-key="设备正确性" data-step="2"><rect class="am-node-shape" x="36.8" y="311" width="93" height="35" rx="3"/><text x="83.3" y="328.5" text-anchor="middle" dominant-baseline="central">设备正确性</text></g><g class="am-node am-node--rect" data-key="Profile" data-step="3"><rect class="am-node-shape" x="49.2" y="410" width="68" height="35" rx="3"/><text x="83.3" y="427.5" text-anchor="middle" dominant-baseline="central">Profile</text></g><g class="am-node am-node--rect" data-key="配对确认" data-step="4"><rect class="am-node-shape" x="43.3" y="509" width="80" height="35" rx="3"/><text x="83.3" y="526.5" text-anchor="middle" dominant-baseline="central">配对确认</text></g><g class="am-node am-node--rect" data-key="来源记录" data-step="5"><rect class="am-node-shape" x="43.3" y="608" width="80" height="35" rx="3"/><text x="83.3" y="625.5" text-anchor="middle" dominant-baseline="central">来源记录</text></g><g class="am-node am-node--rect" data-key="机制知识" data-step="6"><rect class="am-node-shape" x="43.3" y="707" width="80" height="35" rx="3"/><text x="83.3" y="724.5" text-anchor="middle" dominant-baseline="central">机制知识</text></g></g></svg></figure>
 <div class="am-md"><ul>
 <li>保留外部 oracle、dtype、shape、stride 和中间舍入。</li>
 <li>检查尾部、guards、旧输出、输入 storage 与输出 ABI。</li>
 <li>区分 graph、eager、组件、原任务和端到端模型。</li>
 <li>对照 source、编译产物与实际 dispatch 的同一版本。</li>
 <li>保留失败前驱和更强基线，不覆盖旧结论。</li>
-<li>单独记录 promotion 决定。第 70 轮为 No promotion。</li>
+<li>单独记录 promotion 决定。第 71–78 轮均为 No promotion。</li>
 </ul>
-<p>第 70 轮还保留两个仅 CPU 的前驱。它们的数学分区正确，但对齐属性没有完整保留到最终 IR。修正表达式后才进入设备测试。</p>
+<p>第 72 轮还保留了候选未实际执行的失败前驱。正确输出和有效 trace 没有证明比较对象正确。后继修正实际调用路径，再重新获得资格。</p>
 </div>
 <div class="am-callout am-callout--warn" role="note"><div class="am-callout-title">尚未获得的资格</div><div class="am-callout-body am-md"><p>当前记录不构成任意 shape / stride 的通用性能保证。局部收益不构成完整模型加速。未声明的硬件峰值、occupancy 常数或 cache 因果保持未知。</p>
 </div></div></div>
@@ -630,7 +681,7 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 ./bwiki query --architecture gfx938 --kernel-type moe --type kernel
 ./bwiki query --tag register-spilling --type pattern
 ./bwiki get technique-ordered-argmax-key
-./bwiki get exp-argmax-peel-20261008</code></pre>
+./bwiki get exp-clock-sampler-effect-20261008</code></pre>
 <div class="am-md"><p>检索只依赖 Python 与 PyYAML。它不需要 GPU、Docker 或模型 API。</p>
 <p><a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/skill/bw1100-kernelwiki/SKILL.md">Agent 技能入口</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/queries/by-problem.md">按问题查找</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/MAINTENANCE.md">维护方法</a></p>
 <p>新增知识先写 source，再更新已有机制页。发布前生成索引、严格校验，并运行 focused tests。</p>
@@ -648,6 +699,14 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 </tr>
 </thead>
 <tbody><tr>
+<td>恢复设备验证</td>
+<td>容器运行时身份与真实设备入口成功；SSH 成功不足以证明</td>
+</tr>
+<tr>
+<td>隔离采样器影响</td>
+<td>新的完整 on/off 计划，不补写第 78 轮缺失成员</td>
+</tr>
+<tr>
 <td>扩展输入与调用边界</td>
 <td>新 shape / stride / storage / 特殊值的完整检查</td>
 </tr>
@@ -666,13 +725,13 @@ html[data-theme="shadcn"] .am-kv { border-color: var(--line); border-radius: var
 </tbody></table></div>
 <p>检索工具继承自 ROCm-KernelWiki-Q 的固定提交。原库未附独立许可证声明。本库保留归属，不为继承代码授予未经确认的许可。</p>
 <p><a href="https://github.com/qhy991/bw1100-kernelwiki">仓库主页</a> · <a href="https://github.com/qhy991/bw1100-kernelwiki/blob/main/PROVENANCE.md">来源与许可状态</a></p>
-<p>本页是截至第 70 轮的阅读快照。后续内容以来源页和自动生成索引为准。</p>
+<p>本页是截至第 78 轮的阅读快照。来源页和自动生成索引继续拥有事实。第 78 轮是未通过完整验收的诊断记录，没有采样开销结论。</p>
 </div></div>
 </section>
 </div>
 </div>
 </main>
-<footer class="am-colophon">Generated by Answer me with HTML 0.3.0 · 2026-10-08 08:59</footer>
+<footer class="am-colophon">Generated by Answer me with HTML 0.3.0 · 2026-10-08 21:33</footer>
 <textarea id="am-source" hidden readonly aria-hidden="true">---
 title: BW1100 KernelWiki · 内容总览
 subtitle: 从上游资料到 gfx938 实测，再到 agent 可复用的底层知识
@@ -680,7 +739,7 @@ lang: zh
 template: doc
 theme: blueprint
 date: 2026-10-08
-scope: 截至第 70 轮研究
+scope: 截至第 78 轮研究
 ---
 
 ## A 现在积累了多少内容？
@@ -688,15 +747,15 @@ scope: 截至第 70 轮研究
 知识库覆盖访存、矩阵计算、归约和调用端成本。每条实测结论都保留版本、条件与反例。
 
 ```kv cols=2
-索引页面: 180 页
+索引页面: 191 页
 机制与算子知识: 41 页
-上游资料记录: 53 页
-本机实验记录: 86 页
-底层研究进度: 70 轮
+上游资料记录: 55 页
+本机实验记录: 95 页
+底层研究进度: 78 轮
 目标: Hygon BW1100 / gfx938
 ```
 
-86 篇实验记录还包含平台准入、基线和早期资格记录。它们与 70 轮底层研究不是一一对应关系。
+95 篇实验记录包含平台准入、基线、失败前驱和诊断。它们与 78 轮研究不是一一对应关系。轮次也不表示成功加速的次数。
 
 [完整目录](https://github.com/qhy991/bw1100-kernelwiki/blob/main/queries/INDEX.md) · [底层研究导航](https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/techniques/technique-lowlevel-research-map.md)
 
@@ -709,9 +768,9 @@ BW1100 KernelWiki
     算子 · 12 篇
     优化机制 · 19 篇
     诊断模式 · 7 篇
-  sources · 139 篇证据解读
-    docs · 53 篇上游资料
-    experiments · 86 篇本机记录
+  sources · 150 篇证据解读
+    docs · 55 篇上游资料
+    experiments · 95 篇本机记录
   queries · 自动生成的检索目录
   skill · agent 查询入口
   templates · 来源与机制写作模板
@@ -726,17 +785,30 @@ BW1100 KernelWiki
 
 | 主题 | 已积累的具体内容 | 关键限制 |
 |---|---|---|
-| 硬件与工具链 | wave64、HSACO、MMAC、DTK、HCU、Triton | gfx938 不替换为 gfx942 / gfx950 |
+| 硬件与工具链 | wave64、LLVM IR、gfx938 ISA、HSACO、DTK | gfx938 不替换为 gfx942 / gfx950 |
 | Global / LDS 访存 | 合并访问、转置、padding、XOR、矩形 tile | bank 模型假设须与实际指令分开 |
 | 对齐与向量化 | 指针属性、offset view、mask、bulk/tail 拆分 | 连续布局不保证地址对齐 |
 | 矩阵计算 | grouped GEMM、MMAC、pipeline、packing | stage 更多或 tile 更大未必更快 |
 | 寄存器与执行组 | VGPR / SGPR、scratch、LDS、wave 分工 | 编译估计不能替代实际分配 |
 | 归约与 scan | shuffle、DPP、readlane、跨 wave carry、布局转换 | LDS 容量为零仍可能执行 DS 指令 |
-| 整数与浮点 | 除法专门化、FP32 顺序键、BF16 舍入、FMA、denormal | 精度合同包括中间步骤 |
+| 整数与浮点 | 除法、FP32/BF16 顺序键、NaN bits、FMA、denormal | 精度合同包括中间步骤 |
 | 融合与调用端 | 中间值消除、可见输出、graph、分配、typed entry | kernel 改善须重新验证完整调用 |
-| 观测与诊断 | IR → ISA → dispatch、counter 定义、配对计时 | 静态指令数不是动态访问量 |
+| 观测与诊断 | IR → ISA → dispatch、counter、采样窗口与权限 | 成功查询不证明设备授权或无扰动 |
 
 [指令审计](https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/techniques/technique-gfx938-instruction-audit.md) · [对齐与流水](https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/techniques/technique-aot-alignment-pipeline.md) · [精度边界](https://github.com/qhy991/bw1100-kernelwiki/blob/main/wiki/patterns/pattern-precision-not-output-only.md)
+
+本机 HCU backend 的实际编译阶段如下。Gluon 从 TTGIR 接入。
+
+```flow LR
+TTIR -&gt; TTGIR: Triton 路径
+TTGIR -&gt; LLVM_IR: 目标相关 lowering
+LLVM_IR -&gt; gfx938_ISA: amdgcn 文本
+ gfx938_ISA -&gt; HSACO: 可装载代码对象
+```
+
+**DCU 当前路线没有独立对应 PTX 的阶段。** PTX 是 NVIDIA 虚拟 ISA。gfx938 目标汇编更接近 SASS 层级。LLVM IR 是前面的编译器 IR，HSACO 是 ELF 代码对象。
+
+[层级与官方接口](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/docs/doc-dtk-code-layers.md) · [本机 backend 与内联 ISA 验证](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-bf16-inline-20261008.md)
 
 ## D 覆盖了哪些算子和工作负载？
 
@@ -771,11 +843,25 @@ BW1100 KernelWiki
 | INT32 scan；4097×1025，graph | 拆分 1024+1 carry；两批约 1.28× | 奇数尾部可能改变整行资源成本 |
 | 默认分配 argmax；63×129，finite | Torch 19.88 μs；native 30.91 μs | 固定 out 的收益不能继承到默认分配接口 |
 
-Argmax 数据包含新输出分配与完整调用。对齐 anchor 在固定输入 setup 中绑定，不计入每次调用。换 storage 的重新绑定成本尚未资格化。
+第 70 轮 Argmax 数据包含新输出分配。其对齐 anchor 在 setup 中绑定，不计入每次调用。第 71–72 轮另行验证每次绑定当前 storage 的成本。
 
-最新 argmax 的四类输入配对约为 1.491–1.503×。对应 A/A 最高比值约 1.105–1.123，原记录保留这些波动。物理独占和完整 cache 驱逐均未证明。
+第 70 轮 argmax 的四类输入配对约为 1.491–1.503×。对应 A/A 最高比值约 1.105–1.123，原记录保留这些波动。物理独占和完整 cache 驱逐均未证明。
 
 [Argmax 第 70 轮](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-peel-20261008.md) · [Compaction](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-compaction-uniform-20261008.md) · [Scan 尾部](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-scan-tail-20261008.md) · [分配反例](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-allocation-20261008.md)
+
+第 71–78 轮新增了以下证据。各行的基线和计时边界不同，不跨行合成加速比。
+
+| 轮次与范围 | 实测结论 | 保留的边界 |
+|---|---|---|
+| 71–72：每次调用绑定当前输入 | 单 view 与较少指针查询节省约 5 μs 提交成本 | 大偏移行对 Torch 确认约 1.32–1.34×；小形状仍慢 |
+| 73：BF16 原 bits 与首次索引 | CPU 枚举 65,536 位型；设备 Torch max 出现 3,674 个 NaN bits 差异 | 索引正确；原 bits 合同强于一般 NaN 等价 |
+| 74：BF16 32 位键 | 大 N1024 graph 对 64 位键约 1.09–1.10× | 框架分母是 argmax 加 bit-gather，不能称单次 max |
+| 75：每线程连续分组 | N1024 四布局实际 VGPR 都为 56 | 最宽 load 请求更多；N129 的 S8 明显退化 |
+| 76：纯内联 v_max_u32 | 丢失 max3 / max-DPP 融合，动态 VALU 增加 | 大形状两批均慢；跨批绝对时间变化原因未知 |
+| 77：只读状态查询 | 96 次完整查询耗时约 140–298 ms | 24 个约 119 ms 块均容不下完整查询 |
+| 78：采样开关对照 | 四次尝试仅一次完成；全部作业释放 | 无有效采样开销估计；运行时身份问题待恢复 |
+
+[每次绑定](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-compact-binding-20261008.md) · [BF16 键宽](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-bf16-bitgather-20261008.md) · [连续分组](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-argmax-bf16-layout-20261008.md) · [状态查询](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-clock-observation-20261008.md) · [未完成的采样对照](https://github.com/qhy991/bw1100-kernelwiki/blob/main/sources/experiments/exp-clock-sampler-effect-20261008.md)
 
 ## F agent 应如何判断一条优化是否成立？
 
@@ -794,9 +880,9 @@ Profile -&gt; 配对确认: 完整调用和 A/A
 - 区分 graph、eager、组件、原任务和端到端模型。
 - 对照 source、编译产物与实际 dispatch 的同一版本。
 - 保留失败前驱和更强基线，不覆盖旧结论。
-- 单独记录 promotion 决定。第 70 轮为 No promotion。
+- 单独记录 promotion 决定。第 71–78 轮均为 No promotion。
 
-第 70 轮还保留两个仅 CPU 的前驱。它们的数学分区正确，但对齐属性没有完整保留到最终 IR。修正表达式后才进入设备测试。
+第 72 轮还保留了候选未实际执行的失败前驱。正确输出和有效 trace 没有证明比较对象正确。后继修正实际调用路径，再重新获得资格。
 
 ```callout warn 尚未获得的资格
 当前记录不构成任意 shape / stride 的通用性能保证。局部收益不构成完整模型加速。未声明的硬件峰值、occupancy 常数或 cache 因果保持未知。
@@ -811,7 +897,7 @@ Profile -&gt; 配对确认: 完整调用和 A/A
 ./bwiki query --architecture gfx938 --kernel-type moe --type kernel
 ./bwiki query --tag register-spilling --type pattern
 ./bwiki get technique-ordered-argmax-key
-./bwiki get exp-argmax-peel-20261008
+./bwiki get exp-clock-sampler-effect-20261008
 ```
 
 检索只依赖 Python 与 PyYAML。它不需要 GPU、Docker 或模型 API。
@@ -828,6 +914,8 @@ Profile -&gt; 配对确认: 完整调用和 A/A
 
 | 后续工作 | 所需证据 |
 |---|---|
+| 恢复设备验证 | 容器运行时身份与真实设备入口成功；SSH 成功不足以证明 |
+| 隔离采样器影响 | 新的完整 on/off 计划，不补写第 78 轮缺失成员 |
 | 扩展输入与调用边界 | 新 shape / stride / storage / 特殊值的完整检查 |
 | 接入实际框架或模型 | 全输出验收与真实调用路径计时 |
 | 提升为 Compiler 默认规则 | 前置条件、反例、原任务验证及独立审查 |
@@ -837,7 +925,7 @@ Profile -&gt; 配对确认: 完整调用和 A/A
 
 [仓库主页](https://github.com/qhy991/bw1100-kernelwiki) · [来源与许可状态](https://github.com/qhy991/bw1100-kernelwiki/blob/main/PROVENANCE.md)
 
-本页是截至第 70 轮的阅读快照。后续内容以来源页和自动生成索引为准。
+本页是截至第 78 轮的阅读快照。来源页和自动生成索引继续拥有事实。第 78 轮是未通过完整验收的诊断记录，没有采样开销结论。
 </textarea>
 <script>
 (() => {

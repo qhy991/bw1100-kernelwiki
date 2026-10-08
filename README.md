@@ -4,9 +4,9 @@
 
 ## 内容总览
 
-[HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。第 70 轮总结快照：180 个索引页面，包括 41 篇综合知识、53 篇上游资料和 86 篇实验记录，覆盖 70 轮底层研究。
+[HTML 总结页](docs/overview.html)（下载后用浏览器打开） · [Markdown 版](docs/overview.md)。第 78 轮总结快照：191 个索引页面，包括 41 篇综合知识、55 篇上游资料和 95 篇实验记录，覆盖 78 轮底层研究。研究记录包含失败与诊断，不等于成功加速次数。
 
-最新补充：[采样器对照与运行时入口失败记录](sources/experiments/exp-clock-sampler-effect-20261008.md)。当前索引为 191 页，累计 78 轮研究、55 篇上游资料；上方 HTML 保留第 70 轮总结快照。
+最新补充：[采样器对照与运行时入口失败记录](sources/experiments/exp-clock-sampler-effect-20261008.md)。当前索引为 191 页，累计 78 轮研究、55 篇上游资料；上方 HTML 已更新至第 78 轮。
 
 ## 从哪里开始
 
