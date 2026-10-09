@@ -27,7 +27,7 @@ limitations:
 
 This is a partial runtime-triage record, not an accepted performance comparison.
 Logical archive IDs omit private host and account paths. Raw records remain with their experiment owner.
-The derived disposition files are retained in the local evidence copy; transfer to the remote archive was interrupted before SSH authentication and remains unconfirmed.
+The initial derived-evidence transfer was interrupted before SSH authentication. On2026-10-09, SSH recovered and a create-only transfer archived the disposition files and off-a analysis remotely. The original four terminal outcomes remain unchanged.
 
 ## Frozen comparison and preparation
 
@@ -94,3 +94,33 @@ Further device work requires genuine runtime recovery and an identified successo
 
 No promotion. Sampler overhead and the earlier absolute-time regime change remain unknown.
 No Compiler, Target, benchmark default or device setting was changed.
+
+
+## Separate access check after SSH recovery, 2026-10-09
+
+A new runtime-access-only attempt is retained under archive:wiki-runtime-recovery-20261009; it is not a replacement member of this cohort.
+Its plan.json, probe.log, device-admission.json and device-admission-terminal.json retain the complete command and outcome.
+The existing gateway77a2848, same image locator3ad0ae7192b8 and physical HCU3 are used with a60s outer/40s inner timeout.
+The intended checks are exact gfx938/wave64 selection, a small int64 device sum and gateway release. No timing or bottleneck claim is planned, so no optimization profile is required for this access check.
+
+Job bw-9a14be04be00 exits1. The runtime first reports no valid DCUs, then Triton raises zero active drivers at get_current_target.
+The tensor allocation and sum assertion are not reached. This log does not repeat the earlier creator-lookup warning; its absence does not prove that account/device authorization is now valid or establish the unique cause.
+The terminal receipt confirms after_vram0%, no visible KFD user and no surviving task container.
+SSH, archive transfer and server wiki validation now succeed, while container device access remains unqualified. No user identity, runtime, permissions or target was changed.
+
+The server wiki was fast-forwarded to the published round78 overview and validated191 pages with zero errors and zero warnings.
+This follow-up does not change the cohort's missing samples, restore its qualification, or provide a sampler-overhead estimate.
+
+
+After the operator reported device authorization restored, a separate identical access check ran once in archive:wiki-runtime-recovery-authorized-20261009.
+Job bw-2957f9e8f3f3 also exits1 before tensor allocation, with no valid DCUs and zero active drivers; its release checks pass.
+The original failed attempt is preserved. Neither check is a sampler comparison or a kernel test.
+
+Read-only inspection then finds that the installed docker executable resolves to dcu-docker-hook.
+The gateway requests runtime dtk and passes HIP_VISIBLE_DEVICES for its selected card, but supplies neither DTK_VISIBLE_DEVICES nor DCU_VISIBLE_DEVICES.
+The selected image and inspected host process have no defaults for these visibility variables.
+Installed dtk-ctk reports2.1.3 and dcu-ctk reports2.1.4. Binary strings associate the invalid-DCU message with dcu-container-runtime and include DCU_VISIBLE_DEVICES in the docker hook.
+These observations locate an additional platform layer; embedded strings alone do not establish supported argument semantics or prove that an environment-variable change would fix the failure.
+The installed help forwards ordinary Docker options without explaining the platform-specific selection policy.
+The read-only diagnostic script and selected output are inspect_runtime.py and runtime-inspection.json under the authorized-check archive.
+The platform's supported single-card launch contract remains requested. No hook bypass, creator override, runtime replacement or shared gateway edit was attempted.
