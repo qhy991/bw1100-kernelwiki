@@ -14,7 +14,8 @@ sources:
 - exp-community-baselines
 - exp-rms-confirmation
 - exp-host-entry
-date: '2026-10-05'
+- doc-hygon-lightop-fused-ops
+date: '2026-10-29'
 description: 残差 RMSNorm 的优化重点是减少整行数据的重复读写，并控制归约的线程映射。
 kernel_types:
 - rmsnorm
@@ -48,3 +49,12 @@ related:
 
 ## 本机观察
 显式broadcast表示及原算法都通过原Task确认。两者分别对社区基线计时，没有直接同次配对，因此不据小比值差异判断broadcast带来额外收益。原始数字和版本见sources。
+
+## 上游融合变体对照（源码，非本机实测）
+海光 lightop 库公开了 RMSNorm 的融合族实现（见 doc-hygon-lightop-fused-ops）：
+基础 kernel 与本页机制同构（行内 BlockReduceSum + 向量化两遍读写，按列数
+分档 block/VEC）；在此之上提供 norm→逐 token INT8/FP8 量化、norm→RoPE→
+KV store、norm→残差限幅等组合，均为单 kernel。上游还保留了同一算子的
+两套数值语义（历史 kernel vs SGLang 兼容版，量化观察舍入后输出、scale 下限
+不同）——做数值对照时必须先钉住目标语义。这些是源码级事实，本机无
+lightop kernel 的编译、数值或计时记录。

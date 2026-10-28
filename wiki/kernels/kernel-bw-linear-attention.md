@@ -15,7 +15,8 @@ sources:
 - exp-night-exclusions
 - doc-hygon-aiter-fla-hip-source
 - doc-hygon-vllm-plugin-glm53-patches
-date: '2026-10-28'
+- doc-hygon-flashmla-sparse-mla
+date: '2026-10-29'
 description: Chunk gated delta rule 的优化需要先对齐每个阶段的gate语义，再选择state更新的块大小。
 kernel_types:
 - attention
@@ -58,6 +59,11 @@ chunk结构把序列划分为局部计算和跨chunk状态更新。不同site可
   与 state scatter/gather 全在一个 kernel 内；q/k/v 按 stride 直接读，省去
   上游 `.contiguous()` 的 4-5 个 copy（见 doc-hygon-vllm-plugin-glm53-patches）。
   该收益是源码声明的机制，尚无本机或上游测量数字。
+
+GLM-5.3-Flash 里与 KDA 线性注意力层交替的 DSA 层走 sparse MLA 路径，海光
+社区另有整套 FlashMLA-das 实现（token 级稀疏 prefill/decode、attn_sink 尾部
+融合、topk_length 变长处理、索引 LDS 预取），其源码契约见
+doc-hygon-flashmla-sparse-mla；两者同属"混合注意力模型的注意力层"对照面。
 
 对照含义：本机 FLA Triton 组件链的下一步有界改写，可以按上游已验证的
 方向（BV 分档、公共输入跨 V tile 复用、stride 直读）提出假设，但每个假设

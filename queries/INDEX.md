@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-196 pages. Machine-readable form: [pages.json](pages.json).
+200 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (57)
+## source-doc (60)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -21,6 +21,9 @@
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
 - `doc-hip-uniform-control-flow` — [Uniform control flow needs a real execution-group condition and includes classification cost](../sources/docs/doc-hip-uniform-control-flow.md)
 - `doc-hygon-aiter-fla-hip-source` — [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md)
+- `doc-hygon-deepgemm-tf32-hc-prenorm` — [海光 deepgemm-das tf32_hc_pernorm_gemm：mHC prenorm GEMM+sqr_sum 的源码契约](../sources/community/doc-hygon-deepgemm-tf32-hc-prenorm.md)
+- `doc-hygon-flashmla-sparse-mla` — [海光 FlashMLA-das：sparse MLA prefill/decode（DSA 路径）的源码契约](../sources/community/doc-hygon-flashmla-sparse-mla.md)
+- `doc-hygon-lightop-fused-ops` — [海光 lightop：融合算子库（RMSNorm/量化/attention 融合）的源码契约](../sources/community/doc-hygon-lightop-fused-ops.md)
 - `doc-hygon-vllm-plugin-glm53-patches` — [海光 vllm-plugin-das：GLM5Next KDA patch 与镜像版本差异](../sources/community/doc-hygon-vllm-plugin-glm53-patches.md)
 - `doc-index-constant-lowering` — [Integer index specialization requires a preserved arithmetic domain](../sources/docs/doc-index-constant-lowering.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
@@ -167,7 +170,7 @@
 
 - `hw-bw1100-gfx938` — [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md)
 
-## wiki-kernel (12)
+## wiki-kernel (13)
 
 - `kernel-bw-baseline-catalog` — [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md)
 - `kernel-bw-convnext-grn` — [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md)
@@ -175,6 +178,7 @@
 - `kernel-bw-expert-sort` — [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md)
 - `kernel-bw-gateup` — [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - `kernel-bw-linear-attention` — [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md)
+- `kernel-bw-mhc-prenorm` — [mHC prenorm：GEMM 与行平方和的融合及分片](../wiki/kernels/kernel-bw-mhc-prenorm.md)
 - `kernel-bw-moe-fp32` — [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md)
 - `kernel-bw-rmsnorm` — [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - `kernel-bw-rope` — [RoPE cos/sin：输入频率、社区分母与 dispatch](../wiki/kernels/kernel-bw-rope.md)

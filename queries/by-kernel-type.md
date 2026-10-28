@@ -31,10 +31,11 @@
 
 - [Ragged vision attention：不要抹掉两次 BF16 舍入](../wiki/kernels/kernel-bw-vision-attention.md) conf:experimental arch:gfx938
 
-## gemm (7 pages)
+## gemm (8 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) conf:experimental arch:gfx938
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) conf:experimental arch:gfx938
+- [mHC prenorm：GEMM 与行平方和的融合及分片](../wiki/kernels/kernel-bw-mhc-prenorm.md) conf:source-reported arch:gfx938
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) conf:experimental arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
 - [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md) conf:experimental arch:gfx938
@@ -56,9 +57,10 @@
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md) conf:experimental arch:gfx938
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) conf:experimental arch:gfx938
 
-## normalization (4 pages)
+## normalization (5 pages)
 
 - [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md) conf:experimental arch:gfx938
+- [mHC prenorm：GEMM 与行平方和的融合及分片](../wiki/kernels/kernel-bw-mhc-prenorm.md) conf:source-reported arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) conf:experimental arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
 - [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md) conf:experimental arch:gfx938

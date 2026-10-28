@@ -6,9 +6,12 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (141 pages)
+## gfx938 (145 pages)
 
 - [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md) `[source-doc]` arch:gfx938
+- [海光 deepgemm-das tf32_hc_pernorm_gemm：mHC prenorm GEMM+sqr_sum 的源码契约](../sources/community/doc-hygon-deepgemm-tf32-hc-prenorm.md) `[source-doc]` arch:gfx938
+- [海光 FlashMLA-das：sparse MLA prefill/decode（DSA 路径）的源码契约](../sources/community/doc-hygon-flashmla-sparse-mla.md) `[source-doc]` arch:gfx938
+- [海光 lightop：融合算子库（RMSNorm/量化/attention 融合）的源码契约](../sources/community/doc-hygon-lightop-fused-ops.md) `[source-doc]` arch:gfx938
 - [海光 vllm-plugin-das：GLM5Next KDA patch 与镜像版本差异](../sources/community/doc-hygon-vllm-plugin-glm53-patches.md) `[source-doc]` arch:gfx938
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -113,6 +116,7 @@
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md) `[wiki-kernel]` arch:gfx938
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) `[wiki-kernel]` arch:gfx938
 - [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md) `[wiki-kernel]` arch:gfx938
+- [mHC prenorm：GEMM 与行平方和的融合及分片](../wiki/kernels/kernel-bw-mhc-prenorm.md) `[wiki-kernel]` arch:gfx938
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) `[wiki-kernel]` arch:gfx938
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md) `[wiki-kernel]` arch:gfx938
 - [RoPE cos/sin：输入频率、社区分母与 dispatch](../wiki/kernels/kernel-bw-rope.md) `[wiki-kernel]` arch:gfx938

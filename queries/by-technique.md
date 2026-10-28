@@ -5,10 +5,11 @@
 
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
 
-## kernel-fusion (6 pages)
+## kernel-fusion (7 pages)
 
 - [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md)
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
+- [mHC prenorm：GEMM 与行平方和的融合及分片](../wiki/kernels/kernel-bw-mhc-prenorm.md)
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
@@ -34,8 +35,9 @@
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 
-## occupancy-tuning (3 pages)
+## occupancy-tuning (4 pages)
 
+- [mHC prenorm：GEMM 与行平方和的融合及分片](../wiki/kernels/kernel-bw-mhc-prenorm.md)
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md)
 - [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md)

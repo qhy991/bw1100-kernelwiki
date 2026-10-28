@@ -247,6 +247,65 @@
   "summary": ""
  },
  {
+  "id": "doc-hygon-deepgemm-tf32-hc-prenorm",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 deepgemm-das tf32_hc_pernorm_gemm\uff1amHC prenorm GEMM+sqr_sum \u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-deepgemm-tf32-hc-prenorm.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "gemm",
+   "precision",
+   "runtime-dispatch"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hygon-flashmla-sparse-mla",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 FlashMLA-das\uff1asparse MLA prefill/decode\uff08DSA \u8def\u5f84\uff09\u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-flashmla-sparse-mla.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "attention",
+   "flash-attention",
+   "precision",
+   "runtime-dispatch"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hygon-lightop-fused-ops",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 lightop\uff1a\u878d\u5408\u7b97\u5b50\u5e93\uff08RMSNorm/\u91cf\u5316/attention \u878d\u5408\uff09\u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-lightop-fused-ops.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "rmsnorm",
+   "normalization",
+   "precision",
+   "kernel-fusion"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hygon-vllm-plugin-glm53-patches",
   "type": "source-doc",
   "title": "\u6d77\u5149 vllm-plugin-das\uff1aGLM5Next KDA patch \u4e0e\u955c\u50cf\u7248\u672c\u5dee\u5f02",
@@ -3169,6 +3228,30 @@
   ],
   "confidence": "experimental",
   "summary": "Chunk gated delta rule \u7684\u4f18\u5316\u9700\u8981\u5148\u5bf9\u9f50\u6bcf\u4e2a\u9636\u6bb5\u7684gate\u8bed\u4e49\uff0c\u518d\u9009\u62e9state\u66f4\u65b0\u7684\u5757\u5927\u5c0f\u3002"
+ },
+ {
+  "id": "kernel-bw-mhc-prenorm",
+  "type": "wiki-kernel",
+  "title": "mHC prenorm\uff1aGEMM \u4e0e\u884c\u5e73\u65b9\u548c\u7684\u878d\u5408\u53ca\u5206\u7247",
+  "path": "wiki/kernels/kernel-bw-mhc-prenorm.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "gemm",
+   "normalization",
+   "precision"
+  ],
+  "kernel_types": [
+   "gemm",
+   "normalization"
+  ],
+  "languages": [
+   "hip-cpp",
+   "triton-rocm"
+  ],
+  "confidence": "source-reported",
+  "summary": "mHC pre block \u7684\u4f18\u5316\u91cd\u70b9\u662f\u8ba9 mixes \u6295\u5f71 GEMM \u4e0e RMSNorm \u5206\u6bcd\u7684\u884c\u5e73\u65b9\u548c\u5171\u4eab\u540c\u4e00\u6b21\u6fc0\u6d3b\u8bfb\u53d6\uff0c\u5e76\u7528 K \u5206\u7247\u5728\u5c0f\u6279\u91cf\u4e0b\u586b\u6ee1 SM\u3002"
  },
  {
   "id": "kernel-bw-moe-fp32",
