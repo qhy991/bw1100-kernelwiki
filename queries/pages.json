@@ -2806,6 +2806,33 @@
   "summary": ""
  },
  {
+  "id": "exp-training-native-probes-20261028",
+  "type": "source-experiment",
+  "title": "\u4e09\u8f6e\u8bad\u7ec3\u4e2d\u7684\u624b\u5199 HIP \u673a\u5236\u63a2\u9488\uff1a\u77ed kernel \u65f6\u5ef6\u4e0b\u9650\u3001\u8de8 CTA \u62c6\u5206\u4e0e\u8bbf\u5b58\u5bbd\u5ea6",
+  "path": "sources/experiments/exp-training-native-probes-20261028.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "local-evidence",
+   "hip",
+   "rocprof",
+   "profiling",
+   "negative-result",
+   "correctness",
+   "reduction",
+   "copy",
+   "fp32",
+   "fp16",
+   "wave64",
+   "lds"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
   "id": "exp-transpose-access-20261007",
   "type": "source-experiment",
   "title": "Gather scatter and tiled transpose differ in latency even with similar read and write volume",
@@ -3734,6 +3761,57 @@
   "languages": [],
   "confidence": "experimental",
   "summary": "\u878d\u5408private rounded tile\u7684\u76ee\u6807\u662f\u7701\u53bbproducer\u5230consumer\u4e4b\u95f4\u7684global\u5199\u56de\u548c\u91cd\u65b0\u8bfb\u53d6\u3002"
+ },
+ {
+  "id": "technique-small-kernel-floor",
+  "type": "wiki-technique",
+  "title": "\u77ed kernel \u5148\u91cf\u65f6\u5ef6\u4e0b\u9650\uff0c\u518d\u51b3\u5b9a\u6539\u8bbf\u5b58\u5bbd\u5ea6\u8fd8\u662f\u5e76\u884c\u5ea6",
+  "path": "wiki/techniques/technique-small-kernel-floor.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "launch-configuration",
+   "occupancy-tuning",
+   "copy",
+   "profiling",
+   "rocprof",
+   "hip",
+   "negative-result"
+  ],
+  "kernel_types": [
+   "activation",
+   "reduction"
+  ],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
+ },
+ {
+  "id": "technique-split-reduction-cost",
+  "type": "wiki-technique",
+  "title": "\u628a\u4e00\u884c\u6216\u4e00\u6bb5 K \u62c6\u5230\u591a\u4e2a CTA\uff1a\u989d\u5916 launch\u3001\u6e05\u96f6\u4e0e\u5408\u5e76\u7684\u4ee3\u4ef7",
+  "path": "wiki/techniques/technique-split-reduction-cost.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "reduction",
+   "launch-configuration",
+   "kernel-fusion",
+   "hip",
+   "rocprof",
+   "negative-result",
+   "precision"
+  ],
+  "kernel_types": [
+   "reduction",
+   "normalization",
+   "gemm"
+  ],
+  "languages": [],
+  "confidence": "experimental",
+  "summary": ""
  },
  {
   "id": "technique-stable-compaction",

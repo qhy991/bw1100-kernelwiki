@@ -16,6 +16,7 @@ sources:
 - doc-amd-wave-builtins
 - exp-profiler-skill
 - exp-lowlevel-probe-20261006
+- exp-training-native-probes-20261028
 kernel_types:
 - reduction
 hardware_features:
@@ -56,3 +57,17 @@ exp-rectangular-compact-20261006 只缩小同 width 的 shared 数组，确实�
 shared 降到32/16 bytes，但 profiler 均分配512 bytes，原实现1024 bytes。VGPR、
 barrier、bpermute 和 HIP 驻留估计均未改善；四个形状两轮 matched timing 没有稳定收益。
 原“减少 partials 不一定减少分配”之后，还需检查“分配减少是否跨过实际性能阈值”。
+
+## 后继：训练任务中的小形状归约(exp-training-native-probes-20261028)
+
+- fib_rmsnorm_h128：用 __shfl_xor butterfly 替代 LDS 归约，设备时长 8.32 μs 对 LDS 写法 5.12 μs；
+  每 wave VALU 235 对 80、SALU 80 对 12。lane 运算与交换指令比一次 LDS 往返更贵。
+- softmax：单遍 online-rescale(省掉第二次归约)8.16 μs 对两遍 5.28 μs；每元素多出的重标定链更贵。
+- aka_histogram(E=1024，16 bin)：LDS 私有计数加 atomic 合并 4.96 μs，逐 bin map 6.08 μs，
+  寄存器私有再全局 atomic 9.76 μs；最佳仍是不用 atomic 的 4.32 μs 写法。私有化放在 LDS 比放在寄存器好。
+- rmsnorm c=1024：把一行拆给 4 个 warp、warp 内 partial 后经 LDS 合并更慢(hipEvent 14.88 μs 对 4.64 μs)。
+- DTK 26.04 下 width=32 的 __shfl_down/__shfl_xor 在一个 task 中没有按 32-lane 分组，另一个 task 通过；
+  使用逻辑子组宽度时必须用原 oracle 的全部 case 验证。
+
+这些是单形状、不同 admission 的观察，只说明小行宽下"减少归约遍数/改用 shuffle"不是默认收益。
+

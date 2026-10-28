@@ -14,11 +14,13 @@
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
 - [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md)
 
-## launch-configuration (3 pages)
+## launch-configuration (5 pages)
 
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md)
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md)
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md)
+- [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md)
+- [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md)
 
 ## layout-transform (2 pages)
 
@@ -32,10 +34,11 @@
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md)
 
-## occupancy-tuning (2 pages)
+## occupancy-tuning (3 pages)
 
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md)
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md)
+- [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md)
 
 ## regression-test (2 pages)
 
@@ -51,6 +54,7 @@
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
 
-## tiling (1 pages)
+## tiling (2 pages)
 
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
+- [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md)

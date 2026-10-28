@@ -1,9 +1,10 @@
 # Index: By Kernel Type
 
 
-## activation (1 pages)
+## activation (2 pages)
 
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) conf:experimental arch:gfx938
+- [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md) conf:experimental arch:gfx938
 
 ## attention (4 pages)
 
@@ -30,7 +31,7 @@
 
 - [Ragged vision attention：不要抹掉两次 BF16 舍入](../wiki/kernels/kernel-bw-vision-attention.md) conf:experimental arch:gfx938
 
-## gemm (6 pages)
+## gemm (7 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) conf:experimental arch:gfx938
 - [双 GEMM＋GELU：保留投影舍入的 tiled fusion](../wiki/kernels/kernel-bw-gateup.md) conf:experimental arch:gfx938
@@ -38,6 +39,7 @@
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
 - [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md) conf:experimental arch:gfx938
 - [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md) conf:experimental arch:gfx938
+- [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md) conf:experimental arch:gfx938
 
 ## grouped-gemm (1 pages)
 
@@ -54,13 +56,14 @@
 - [稳定专家分桶：整数精确性与 prefix-sum 范围](../wiki/kernels/kernel-bw-expert-sort.md) conf:experimental arch:gfx938
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) conf:experimental arch:gfx938
 
-## normalization (3 pages)
+## normalization (4 pages)
 
 - [ConvNeXtV2 / GRN：绑定权重与 read-only image cache](../wiki/kernels/kernel-bw-convnext-grn.md) conf:experimental arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) conf:experimental arch:gfx938
 - [GQA / decoder backward：训练原语与多输出合同](../wiki/kernels/kernel-bw-training-backward.md) conf:experimental arch:gfx938
+- [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md) conf:experimental arch:gfx938
 
-## reduction (11 pages)
+## reduction (13 pages)
 
 - [十题社区强基线与原始语义导航](../wiki/kernels/kernel-bw-baseline-catalog.md) conf:experimental arch:gfx938
 - [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) conf:experimental arch:gfx938
@@ -71,6 +74,8 @@
 - [完整块与尾块分离，避免尾部掩码限制整体向量化](../wiki/techniques/technique-bulk-tail-vectorization.md) conf:experimental arch:gfx938
 - [Argmax 顺序键：值域、并列索引与 padding 一起编码](../wiki/techniques/technique-ordered-argmax-key.md) conf:experimental arch:gfx938
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md) conf:experimental arch:gfx938
+- [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md) conf:experimental arch:gfx938
+- [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md) conf:experimental arch:gfx938
 - [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md) conf:experimental arch:gfx938
 - [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md) conf:experimental arch:gfx938
 

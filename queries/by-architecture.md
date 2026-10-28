@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (136 pages)
+## gfx938 (139 pages)
 
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
@@ -97,6 +97,7 @@
 - [Store cache hints on a complete copy and immediate reduction graph](../sources/experiments/exp-store-policy-20261007.md) `[source-experiment]` arch:gfx938
 - [Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph](../sources/experiments/exp-tail-vectorization-20261007.md) `[source-experiment]` arch:gfx938
 - [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md) `[source-experiment]` arch:gfx938
+- [三轮训练中的手写 HIP 机制探针：短 kernel 时延下限、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md) `[source-experiment]` arch:gfx938
 - [Gather scatter and tiled transpose differ in latency even with similar read and write volume](../sources/experiments/exp-transpose-access-20261007.md) `[source-experiment]` arch:gfx938
 - [Similar transpose traffic hides different cache request work and hit-rate denominators](../sources/experiments/exp-transpose-requests-20261007.md) `[source-experiment]` arch:gfx938
 - [Transpose stall signals appear at TCP while external write-stall ratios stay small](../sources/experiments/exp-transpose-stalls-20261007.md) `[source-experiment]` arch:gfx938
@@ -140,6 +141,8 @@
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 - [INT32 resident scan、broadcast 与有效域中和](../wiki/techniques/technique-register-scan-broadcast.md) `[wiki-technique]` arch:gfx938
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md) `[wiki-technique]` arch:gfx938
+- [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md) `[wiki-technique]` arch:gfx938
+- [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md) `[wiki-technique]` arch:gfx938
 - [稳定筛选与紧凑写出：有效长度与未使用尾部](../wiki/techniques/technique-stable-compaction.md) `[wiki-technique]` arch:gfx938
 - [Tensor view admission：连续、对齐和storage效果分别检查](../wiki/techniques/technique-view-admission.md) `[wiki-technique]` arch:gfx938
 - [保留外部可见输出，融合内部消费者以省去重读](../wiki/techniques/technique-visible-output-fusion.md) `[wiki-technique]` arch:gfx938
