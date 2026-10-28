@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-194 pages. Machine-readable form: [pages.json](pages.json).
+196 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (55)
+## source-doc (57)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -20,6 +20,8 @@
 - `doc-hip-reduction` — [HIP hierarchical reduction](../sources/docs/doc-hip-reduction.md)
 - `doc-hip-tiled-transpose` — [HIP tiled transpose and coalescing](../sources/docs/doc-hip-tiled-transpose.md)
 - `doc-hip-uniform-control-flow` — [Uniform control flow needs a real execution-group condition and includes classification cost](../sources/docs/doc-hip-uniform-control-flow.md)
+- `doc-hygon-aiter-fla-hip-source` — [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md)
+- `doc-hygon-vllm-plugin-glm53-patches` — [海光 vllm-plugin-das：GLM5Next KDA patch 与镜像版本差异](../sources/community/doc-hygon-vllm-plugin-glm53-patches.md)
 - `doc-index-constant-lowering` — [Integer index specialization requires a preserved arithmetic domain](../sources/docs/doc-index-constant-lowering.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)
 - `doc-llvm-denormal-modes` — [Denormal input and output modes are separate compiler assumptions](../sources/docs/doc-llvm-denormal-modes.md)

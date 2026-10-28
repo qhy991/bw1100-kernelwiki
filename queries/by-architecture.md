@@ -6,8 +6,10 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (139 pages)
+## gfx938 (141 pages)
 
+- [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md) `[source-doc]` arch:gfx938
+- [海光 vllm-plugin-das：GLM5Next KDA patch 与镜像版本差异](../sources/community/doc-hygon-vllm-plugin-glm53-patches.md) `[source-doc]` arch:gfx938
 - [Standalone HCU gateway、超时与真实释放](../sources/experiments/exp-admission.md) `[source-experiment]` arch:gfx938
 - [AITER 厂商适配与上游 leaf 离线迁移审计](../sources/experiments/exp-aiter-audit.md) `[source-experiment]` arch:gfx938
 - [Group-order choices after aligned vectorized lowering](../sources/experiments/exp-aligned-grouped-gemm-20261006.md) `[source-experiment]` arch:gfx938

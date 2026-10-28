@@ -1,8 +1,9 @@
 # Index: By Language
 
 
-## hip-cpp (1 pages)
+## hip-cpp (2 pages)
 
+- [Chunk gated delta rule：混合 gate 与 FLA component](../wiki/kernels/kernel-bw-linear-attention.md)
 - [DTK、HCU Triton 与已有 vLLM 镜像怎样使用](../wiki/languages/lang-dtk-triton.md)
 
 ## python (13 pages)

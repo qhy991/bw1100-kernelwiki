@@ -227,6 +227,45 @@
   "summary": ""
  },
  {
+  "id": "doc-hygon-aiter-fla-hip-source",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 AITER FLA HIP \u5b9e\u73b0\uff1achunk/decode gated delta rule \u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-aiter-fla-hip-source.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "aiter",
+   "fla",
+   "attention",
+   "precision"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hygon-vllm-plugin-glm53-patches",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 vllm-plugin-das\uff1aGLM5Next KDA patch \u4e0e\u955c\u50cf\u7248\u672c\u5dee\u5f02",
+  "path": "sources/community/doc-hygon-vllm-plugin-glm53-patches.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "fla",
+   "attention",
+   "runtime-dispatch"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-index-constant-lowering",
   "type": "source-doc",
   "title": "Integer index specialization requires a preserved arithmetic domain",
@@ -3125,7 +3164,8 @@
   ],
   "languages": [
    "triton-rocm",
-   "python"
+   "python",
+   "hip-cpp"
   ],
   "confidence": "experimental",
   "summary": "Chunk gated delta rule \u7684\u4f18\u5316\u9700\u8981\u5148\u5bf9\u9f50\u6bcf\u4e2a\u9636\u6bb5\u7684gate\u8bed\u4e49\uff0c\u518d\u9009\u62e9state\u66f4\u65b0\u7684\u5757\u5927\u5c0f\u3002"
