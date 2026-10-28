@@ -16,6 +16,7 @@ sources:
 - doc-amd-wave-builtins
 - exp-profiler-skill
 - exp-lowlevel-probe-20261006
+- exp-training-native-probes-20261028
 kernel_types:
 - reduction
 hardware_features:
@@ -56,3 +57,19 @@ exp-rectangular-compact-20261006 只缩小同 width 的 shared 数组，确实�
 shared 降到32/16 bytes，但 profiler 均分配512 bytes，原实现1024 bytes。VGPR、
 barrier、bpermute 和 HIP 驻留估计均未改善；四个形状两轮 matched timing 没有稳定收益。
 原“减少 partials 不一定减少分配”之后，还需检查“分配减少是否跨过实际性能阈值”。
+
+## 后继：训练任务中的小形状归约(exp-training-native-probes-20261028)
+
+- fib_rmsnorm_h128：用 __shfl_xor butterfly 替代 LDS 归约，设备时长 8.32 μs 对 LDS 写法 5.12 μs；
+  每 wave VALU 235 对 80、SALU 80 对 12。在该形状上观察到 lane 运算与交换指令比一次 LDS 往返更贵。
+- softmax：单遍 online-rescale(省掉第二次归约)8.16 μs 对两遍 5.28 μs；在该形状上观察到每元素多出的
+  重标定链比省下的归约更贵。
+- aka_histogram(E=1024，16 bin)：LDS 私有计数加 atomic 合并 4.96 μs，逐 bin map 6.08 μs，
+  寄存器私有再全局 atomic 9.76 μs；最佳仍是不用 atomic 的 4.32 μs 写法。在该形状上观察到 LDS 私有化
+  优于寄存器私有化。
+- rmsnorm c=1024：把一行拆给 4 个 warp、warp 内 partial 后经 LDS 合并更慢(hipEvent 14.88 μs 对 4.64 μs)。
+- 使用带 width 的 shuffle 时，offset 必须小于 width：一个 split-K 探针以 width=32 从 offset=32 开始，
+  源 lane 落在段外时返回自身值，结果恰为 2 倍。这是代码错误而非工具链缺陷，原 oracle 的全部 case 捕获了它。
+
+这些是单形状、不同 admission 的观察，只说明小行宽下"减少归约遍数/改用 shuffle"不是默认收益。
+
