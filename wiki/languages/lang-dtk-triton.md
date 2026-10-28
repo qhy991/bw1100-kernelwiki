@@ -17,7 +17,8 @@ sources:
 - exp-platform-contract
 - exp-admission
 - exp-aiter-audit
-date: '2026-10-05'
+- doc-hygon-triton-hcu-backend
+date: '2026-10-30'
 description: DTK是ROCm下游工具链；已有vLLM DTK镜像可以作为kernel环境，但serving程序与kernel任务是不同负载。
 languages:
 - triton-rocm
@@ -56,3 +57,17 @@ exp-argmax-bf16-inline-20261008直接读取安装版triton.backends.hcu.compiler
 exp-clock-sampler-effect-20261008的相同镜像已完成离线编译及一个设备worker，后续两个容器却在get_current_target前出现creator查找失败和无有效DCU。
 CPU后端可用、宿主机管理查询成功与容器设备授权是不同边界；不能把这个末尾异常直接归因于Triton未安装或gfx938编译能力缺失。
 保留失败的入口/终态证据，等待运行时身份恢复，在新实验中验证；不通过伪造USER或修改共享权限使旧检查变绿。
+
+## HCU Triton 的社区上游（源码侧）
+
+HYGON-AI 的 `triton-das`（Triton release/3.6.x + `third_party/hcu/`）是
+HCU Triton 的社区演进线，暴露四个 HCU 专属机制：MLS
+（`tl.matrix_load`：MMAC 消费布局直落 LDS 的三段降级 + modulo 软件流水）、
+WASP（warp 特化，分区元组拓扑，WDRA 下每分区必须 4 wave，运行时测试仅
+gfx946）、BufferLds（bank 冲突感知的共享编码选择，lane 相位表来自
+gfx936/gfx938 pair-collision 探针实测，b4 相位顺序尚缺模型）、Scale
+Buffer（dot_scaled 的 8KiB 专属片上 scale 存储，E8M0 每 32 元素一个）。
+gfx936/938 走 `-mllvm=-support-768-vgprs=true`。该仓库与 hand-written
+intrinsic 路线（deepgemm/FlashMLA/lightop）共享的底层是同一组
+`__builtin_hcu_*` intrinsic（与 hytlass 原语层重合），是编译器侧协同
+的参考实现；细节与证据限制见 doc-hygon-triton-hcu-backend。

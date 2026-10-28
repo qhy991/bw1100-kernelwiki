@@ -286,6 +286,25 @@
   "summary": ""
  },
  {
+  "id": "doc-hygon-hytlass-templates",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 HYTLASS\uff1aCUTLASS/hute \u6a21\u677f\u5e93\u4e0e gfx938 \u6307\u4ee4\u539f\u8bed\u5c42\u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-hytlass-templates.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "gemm",
+   "hip",
+   "migration"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hygon-lightop-fused-ops",
   "type": "source-doc",
   "title": "\u6d77\u5149 lightop\uff1a\u878d\u5408\u7b97\u5b50\u5e93\uff08RMSNorm/\u91cf\u5316/attention \u878d\u5408\uff09\u7684\u6e90\u7801\u5951\u7ea6",
@@ -299,6 +318,46 @@
    "normalization",
    "precision",
    "kernel-fusion"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hygon-tilekernels-tilelang",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 TileKernels-das\uff1aTileLang \u7b97\u5b50\u5e93\uff08mHC/Sinkhorn/MoE/\u91cf\u5316\uff09\u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-tilekernels-tilelang.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "normalization",
+   "moe",
+   "precision",
+   "runtime-dispatch"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hygon-triton-hcu-backend",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 triton-das\uff1aTriton release/3.6.x \u7684 HCU \u540e\u7aef\uff08MLS/WASP/BufferLds/ScaleBuffer\uff09",
+  "path": "sources/community/doc-hygon-triton-hcu-backend.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "triton",
+   "gemm",
+   "compiler-coevolution",
+   "precision"
   ],
   "kernel_types": [],
   "languages": [],

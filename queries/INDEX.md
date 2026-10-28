@@ -1,10 +1,10 @@
 # Page Manifest
 
 
-200 pages. Machine-readable form: [pages.json](pages.json).
+203 pages. Machine-readable form: [pages.json](pages.json).
 
 
-## source-doc (60)
+## source-doc (63)
 
 - `doc-amd-triton-instruction-shape` — [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md)
 - `doc-amd-wave-builtins` — [AMD wave builtin strategies and DPP](../sources/docs/doc-amd-wave-builtins.md)
@@ -23,7 +23,10 @@
 - `doc-hygon-aiter-fla-hip-source` — [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md)
 - `doc-hygon-deepgemm-tf32-hc-prenorm` — [海光 deepgemm-das tf32_hc_pernorm_gemm：mHC prenorm GEMM+sqr_sum 的源码契约](../sources/community/doc-hygon-deepgemm-tf32-hc-prenorm.md)
 - `doc-hygon-flashmla-sparse-mla` — [海光 FlashMLA-das：sparse MLA prefill/decode（DSA 路径）的源码契约](../sources/community/doc-hygon-flashmla-sparse-mla.md)
+- `doc-hygon-hytlass-templates` — [海光 HYTLASS：CUTLASS/hute 模板库与 gfx938 指令原语层的源码契约](../sources/community/doc-hygon-hytlass-templates.md)
 - `doc-hygon-lightop-fused-ops` — [海光 lightop：融合算子库（RMSNorm/量化/attention 融合）的源码契约](../sources/community/doc-hygon-lightop-fused-ops.md)
+- `doc-hygon-tilekernels-tilelang` — [海光 TileKernels-das：TileLang 算子库（mHC/Sinkhorn/MoE/量化）的源码契约](../sources/community/doc-hygon-tilekernels-tilelang.md)
+- `doc-hygon-triton-hcu-backend` — [海光 triton-das：Triton release/3.6.x 的 HCU 后端（MLS/WASP/BufferLds/ScaleBuffer）](../sources/community/doc-hygon-triton-hcu-backend.md)
 - `doc-hygon-vllm-plugin-glm53-patches` — [海光 vllm-plugin-das：GLM5Next KDA patch 与镜像版本差异](../sources/community/doc-hygon-vllm-plugin-glm53-patches.md)
 - `doc-index-constant-lowering` — [Integer index specialization requires a preserved arithmetic domain](../sources/docs/doc-index-constant-lowering.md)
 - `doc-llvm-amdgpu-waits` — [LLVM AMDGPU waits and code object metadata](../sources/docs/doc-llvm-amdgpu-waits.md)

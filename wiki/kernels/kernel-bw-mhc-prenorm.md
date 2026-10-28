@@ -12,7 +12,8 @@ confidence: source-reported
 sources:
 - doc-hygon-deepgemm-tf32-hc-prenorm
 - doc-hygon-lightop-fused-ops
-date: '2026-10-29'
+- doc-hygon-tilekernels-tilelang
+date: '2026-10-30'
 description: mHC pre block 的优化重点是让 mixes 投影 GEMM 与 RMSNorm 分母的行平方和共享同一次激活读取，并用 K 分片在小批量下填满 SM。
 kernel_types:
 - gemm
@@ -69,3 +70,11 @@ mHC pre block（hyperconnection）每个 token 做：`mixes = RMSNorm(x) @ fn.T`
 相关 kernel 的编译、数值或计时记录。上游 kernel 自身标注了未完成项
 （输出标量写回），说明该路径仍有优化空间，可作为本机选题时的候选假设，
 但每个假设仍需在本机原 Task 上配对验证。
+
+值得注意：TileKernels-das 提供了同一算子族的 TileLang 完整实现
+（split-K stage0/stage1 + `use_tf32=True` GEMM + HCU 专属 smem
+swizzle + 手写两级预取链，且带训练反向与 TF32 对齐的 torch 参考），
+比 vllm-plugin 内联快照更新；做本机对照实验时应以它为社区基线
+（见 doc-hygon-tilekernels-tilelang）。它与 deepgemm
+tf32_hc_pernorm_gemm 的共同设计是 sqr_sum 不过 MMA、走纯向量路径
+共享 A-tile 读取。
