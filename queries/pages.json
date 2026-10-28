@@ -2808,7 +2808,7 @@
  {
   "id": "exp-training-native-probes-20261028",
   "type": "source-experiment",
-  "title": "\u4e09\u8f6e\u8bad\u7ec3\u4e2d\u7684\u624b\u5199 HIP \u673a\u5236\u63a2\u9488\uff1a\u77ed kernel \u65f6\u5ef6\u4e0b\u9650\u3001\u8de8 CTA \u62c6\u5206\u4e0e\u8bbf\u5b58\u5bbd\u5ea6",
+  "title": "\u4e09\u8f6e\u8bad\u7ec3\u4e2d\u7684\u624b\u5199 HIP \u673a\u5236\u63a2\u9488\uff1a\u77ed kernel \u7684\u56fa\u5b9a\u5f00\u9500\u3001\u8de8 CTA \u62c6\u5206\u4e0e\u8bbf\u5b58\u5bbd\u5ea6",
   "path": "sources/experiments/exp-training-native-probes-20261028.md",
   "architectures": [
    "gfx938"

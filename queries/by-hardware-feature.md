@@ -39,7 +39,7 @@
 - [Same-footprint scatter reordering changes layout conversion and breaks a simple stall-count ranking](../sources/experiments/exp-scatter-order-20261007.md) `[source-experiment]` arch:gfx938
 - [Full row-softmax fusion reduces measured fetch while tiny probabilities remain a separate contract](../sources/experiments/exp-softmax-fusion-20261007.md) `[source-experiment]` arch:gfx938
 - [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md) `[source-experiment]` arch:gfx938
-- [三轮训练中的手写 HIP 机制探针：短 kernel 时延下限、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md) `[source-experiment]` arch:gfx938
+- [三轮训练中的手写 HIP 机制探针：短 kernel 的固定开销、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md) `[source-experiment]` arch:gfx938
 - [Gather scatter and tiled transpose differ in latency even with similar read and write volume](../sources/experiments/exp-transpose-access-20261007.md) `[source-experiment]` arch:gfx938
 - [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md) `[wiki-hardware]` arch:gfx938
 - [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) `[wiki-kernel]` arch:gfx938
@@ -112,7 +112,7 @@
 - [HIP shuffle width and atomic semantics](../sources/docs/doc-hip-extensions.md) `[source-doc]` arch:
 - [HIP hierarchical reduction](../sources/docs/doc-hip-reduction.md) `[source-doc]` arch:
 - [BW1100-1 native transpose and reduction mechanism probes](../sources/experiments/exp-lowlevel-probe-20261006.md) `[source-experiment]` arch:gfx938
-- [三轮训练中的手写 HIP 机制探针：短 kernel 时延下限、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md) `[source-experiment]` arch:gfx938
+- [三轮训练中的手写 HIP 机制探针：短 kernel 的固定开销、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md) `[source-experiment]` arch:gfx938
 - [BW1100 / BW1101 / gfx938：身份与声明边界](../wiki/hardware/hw-bw1100-gfx938.md) `[wiki-hardware]` arch:gfx938
 - [Class-index cross entropy：按消费者合同消除整张log概率](../wiki/kernels/kernel-bw-cross-entropy.md) `[wiki-kernel]` arch:gfx938
 - [行 Softmax / log-softmax：融合收益与概率尾部合同](../wiki/kernels/kernel-bw-softmax.md) `[wiki-kernel]` arch:gfx938

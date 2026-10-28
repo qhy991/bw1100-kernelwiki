@@ -1,6 +1,6 @@
 ---
 id: exp-training-native-probes-20261028
-title: 三轮训练中的手写 HIP 机制探针：短 kernel 时延下限、跨 CTA 拆分与访存宽度
+title: 三轮训练中的手写 HIP 机制探针：短 kernel 的固定开销、跨 CTA 拆分与访存宽度
 type: source-experiment
 architectures: [gfx938]
 tags: [local-evidence, hip, rocprof, profiling, negative-result, correctness, reduction, copy, fp32, fp16, wave64, lds]
@@ -42,7 +42,7 @@ status: completed
 
 | task / shape | 探针机制 | 手写 HIP | 同 task 最佳生成 kernel |
 |---|---|---:|---:|
-| aka_affine_nchw | 空拷贝下限 / 常数除法 / 查表 | 3.52 / 3.68 / 4.00 | 3.68 |
+| aka_affine_nchw | 纯拷贝参考 / 常数除法 / 查表 | 3.52 / 3.68 / 4.00 | 3.68 |
 | aka_hard_sigmoid_gradient N=257 | 标量 lane | 3.52 | 3.36 |
 | aka_padded_copy 65 CTA×256 | 16B 宽拷贝 | 4.48 | 4.16 |
 | aka_row_gather | 行 gather | 4.32 | 4.00 |

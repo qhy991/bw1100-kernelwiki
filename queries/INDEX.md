@@ -153,7 +153,7 @@
 - `exp-store-policy-20261007` — [Store cache hints on a complete copy and immediate reduction graph](../sources/experiments/exp-store-policy-20261007.md)
 - `exp-tail-vectorization-20261007` — [Uniform bulk-tail splitting restores vectorized copies within the complete consumer graph](../sources/experiments/exp-tail-vectorization-20261007.md)
 - `exp-target-selection-20261007` — [On-chip target selection can cost more than a second global load](../sources/experiments/exp-target-selection-20261007.md)
-- `exp-training-native-probes-20261028` — [三轮训练中的手写 HIP 机制探针：短 kernel 时延下限、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md)
+- `exp-training-native-probes-20261028` — [三轮训练中的手写 HIP 机制探针：短 kernel 的固定开销、跨 CTA 拆分与访存宽度](../sources/experiments/exp-training-native-probes-20261028.md)
 - `exp-transpose-access-20261007` — [Gather scatter and tiled transpose differ in latency even with similar read and write volume](../sources/experiments/exp-transpose-access-20261007.md)
 - `exp-transpose-requests-20261007` — [Similar transpose traffic hides different cache request work and hit-rate denominators](../sources/experiments/exp-transpose-requests-20261007.md)
 - `exp-transpose-stalls-20261007` — [Transpose stall signals appear at TCP while external write-stall ratios stay small](../sources/experiments/exp-transpose-stalls-20261007.md)
