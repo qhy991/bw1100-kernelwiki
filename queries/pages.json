@@ -363,6 +363,25 @@
   "summary": ""
  },
  {
+  "id": "doc-hygon-pytorch-int4mm-and-llvm-intrinsics",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 pytorch-das int4mm \u4e0e LLVM IntrinsicsHCU.td\uff1a\u6846\u67b6\u5c42\u6d88\u8d39\u8005\u4e0e intrinsic \u6e90\u5934",
+  "path": "sources/community/doc-hygon-pytorch-int4mm-and-llvm-intrinsics.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "gemm",
+   "precision",
+   "compiler-coevolution"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hygon-tilekernels-tilelang",
   "type": "source-doc",
   "title": "\u6d77\u5149 TileKernels-das\uff1aTileLang \u7b97\u5b50\u5e93\uff08mHC/Sinkhorn/MoE/\u91cf\u5316\uff09\u7684\u6e90\u7801\u5951\u7ea6",
