@@ -6,13 +6,15 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (148 pages)
+## gfx938 (150 pages)
 
 - [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md) `[source-doc]` arch:gfx938
+- [海光 composable_kernel-das：CK/ck_tile 的 HCU 适配层（MLS atom、WASP pipeline、abarrier）](../sources/community/doc-hygon-ck-templates.md) `[source-doc]` arch:gfx938
 - [海光 deepgemm-das tf32_hc_pernorm_gemm：mHC prenorm GEMM+sqr_sum 的源码契约](../sources/community/doc-hygon-deepgemm-tf32-hc-prenorm.md) `[source-doc]` arch:gfx938
 - [海光 FlashMLA-das：sparse MLA prefill/decode（DSA 路径）的源码契约](../sources/community/doc-hygon-flashmla-sparse-mla.md) `[source-doc]` arch:gfx938
 - [海光 HYTLASS：CUTLASS/hute 模板库与 gfx938 指令原语层的源码契约](../sources/community/doc-hygon-hytlass-templates.md) `[source-doc]` arch:gfx938
 - [海光 lightop：融合算子库（RMSNorm/量化/attention 融合）的源码契约](../sources/community/doc-hygon-lightop-fused-ops.md) `[source-doc]` arch:gfx938
+- [海光 Moe（moe_c）：MoE GEMM 手写 intrinsic 后端的源码契约](../sources/community/doc-hygon-moe-aiter-backend.md) `[source-doc]` arch:gfx938
 - [海光 TileKernels-das：TileLang 算子库（mHC/Sinkhorn/MoE/量化）的源码契约](../sources/community/doc-hygon-tilekernels-tilelang.md) `[source-doc]` arch:gfx938
 - [海光 triton-das：Triton release/3.6.x 的 HCU 后端（MLS/WASP/BufferLds/ScaleBuffer）](../sources/community/doc-hygon-triton-hcu-backend.md) `[source-doc]` arch:gfx938
 - [海光 vllm-plugin-das：GLM5Next KDA patch 与镜像版本差异](../sources/community/doc-hygon-vllm-plugin-glm53-patches.md) `[source-doc]` arch:gfx938

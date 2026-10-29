@@ -16,7 +16,9 @@ sources:
 - exp-fp32-staging
 - exp-width-qualification
 - exp-night-exclusions
-date: '2026-10-05'
+- doc-hygon-moe-aiter-backend
+- doc-hygon-ck-templates
+date: '2026-10-30'
 description: 稀疏 MoE 的优化要同时处理路由布局、专家矩阵计算和combine的内存路径。
 kernel_types:
 - moe
@@ -51,3 +53,17 @@ token经top-k路由后形成不同长度的expert段。逐expert调用会产生�
 
 ## 本机观察
 FP32 matrix ISA和dynamic LDS都已有证据；资源较大并不说明缺少dot primitive。源码、dtype和profile细节集中在sources，后续假设是同精度下调整映射能否改善完整调用。
+
+## 社区对照（源码，非本机实测）
+
+量化的 MoE GEMM 在社区有成熟手写实现可对照：HYGON-AI 的 `Moe`
+（moe_c，aiter 的 `3rdparty/moe_c` submodule）提供
+W4A8/W8A8-INT8/W8A8-FP8/W4A16/W8A16/WFP4A8/WFP4A16/W16A16 全家族
+kernel（gfx936/938 双架构），tile 词汇 BLOCK 16×128×128 /
+WARP 16×32×64 / MMA 16×16×32，tuned config 按
+`E/N/K/topk/cu` 从 JSON 选 MODE；`composable_kernel-das` 的
+ck_tile 另有 fused_moe（moe-sorting + group-GEMM 融合、自称比
+vllm 方案 1.5~2x，source-reported）与 fused_moe_2stage。本页的
+FP32 严格链与社区的 quant 路径精度前提不同，引用其 tile/dispatch
+设计时需注意精度分层（见 doc-hygon-moe-aiter-backend 与
+doc-hygon-ck-templates）。

@@ -247,6 +247,25 @@
   "summary": ""
  },
  {
+  "id": "doc-hygon-ck-templates",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 composable_kernel-das\uff1aCK/ck_tile \u7684 HCU \u9002\u914d\u5c42\uff08MLS atom\u3001WASP pipeline\u3001abarrier\uff09",
+  "path": "sources/community/doc-hygon-ck-templates.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "gemm",
+   "attention",
+   "moe"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
   "id": "doc-hygon-deepgemm-tf32-hc-prenorm",
   "type": "source-doc",
   "title": "\u6d77\u5149 deepgemm-das tf32_hc_pernorm_gemm\uff1amHC prenorm GEMM+sqr_sum \u7684\u6e90\u7801\u5951\u7ea6",
@@ -318,6 +337,25 @@
    "normalization",
    "precision",
    "kernel-fusion"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": ""
+ },
+ {
+  "id": "doc-hygon-moe-aiter-backend",
+  "type": "source-doc",
+  "title": "\u6d77\u5149 Moe\uff08moe_c\uff09\uff1aMoE GEMM \u624b\u5199 intrinsic \u540e\u7aef\u7684\u6e90\u7801\u5951\u7ea6",
+  "path": "sources/community/doc-hygon-moe-aiter-backend.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "hygon",
+   "moe",
+   "precision",
+   "runtime-dispatch"
   ],
   "kernel_types": [],
   "languages": [],
