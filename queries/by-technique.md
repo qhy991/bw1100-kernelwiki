@@ -23,10 +23,11 @@
 - [短 kernel 先量时延下限，再决定改访存宽度还是并行度](../wiki/techniques/technique-small-kernel-floor.md)
 - [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md)
 
-## layout-transform (2 pages)
+## layout-transform (3 pages)
 
 - [RoPE cos/sin：输入频率、社区分母与 dispatch](../wiki/kernels/kernel-bw-rope.md)
 - [先用现有 access maps 表达有界 memory permutation](../wiki/techniques/technique-existing-layout-maps.md)
+- [HCU 布局契约：跨仓库收拢的 swizzle、重排与 tile 词汇](../wiki/techniques/technique-hcu-layout-contracts.md)
 
 ## masking (4 pages)
 
@@ -56,7 +57,8 @@
 - [残差 RMSNorm：AITER baseline、broadcast 与 host 开销](../wiki/kernels/kernel-bw-rmsnorm.md)
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
 
-## tiling (2 pages)
+## tiling (3 pages)
 
+- [HCU 布局契约：跨仓库收拢的 swizzle、重排与 tile 词汇](../wiki/techniques/technique-hcu-layout-contracts.md)
 - [私有 rounded tile 的 Program 融合条件](../wiki/techniques/technique-rounded-tiled-fusion.md)
 - [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md)

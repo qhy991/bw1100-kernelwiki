@@ -3861,6 +3861,25 @@
   "summary": ""
  },
  {
+  "id": "technique-hcu-layout-contracts",
+  "type": "wiki-technique",
+  "title": "HCU \u5e03\u5c40\u5951\u7ea6\uff1a\u8de8\u4ed3\u5e93\u6536\u62e2\u7684 swizzle\u3001\u91cd\u6392\u4e0e tile \u8bcd\u6c47",
+  "path": "wiki/techniques/technique-hcu-layout-contracts.md",
+  "architectures": [
+   "gfx938"
+  ],
+  "tags": [
+   "lds",
+   "layout-transform",
+   "gemm",
+   "precision"
+  ],
+  "kernel_types": [],
+  "languages": [],
+  "confidence": "source-reported",
+  "summary": "\u793e\u533a\u5b9e\u73b0\u5171\u4eab\u7684\u5e03\u5c40\u786c\u7ea6\u5b9a\uff1aLDS major \u7ef4 16-Dword wrap\u3001C-tile plain\u2194lit \u91cd\u6392\u3001SRD swizzle \u4e0e tile \u8bcd\u6c47\u8868\u3002"
+ },
+ {
   "id": "technique-host-entry",
   "type": "wiki-technique",
   "title": "host \u5165\u53e3\u6210\u672c\uff1a\u56fa\u5b9a kernel \u624d\u80fd\u5f52\u56e0",

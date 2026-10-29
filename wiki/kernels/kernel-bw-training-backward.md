@@ -12,7 +12,8 @@ tags:
 confidence: experimental
 sources:
 - exp-community-baselines
-date: '2026-10-05'
+- doc-hygon-pytorch-int4mm-and-llvm-intrinsics
+date: '2026-10-31'
 description: 训练backward的优化可以复用native梯度原语，并融合elementwise尾部，但必须保留所有梯度输出。
 kernel_types:
 - attention
@@ -36,3 +37,12 @@ ATen的softmax、dropout、SiLU backward处理常见梯度链，vendor GEMM负�
 
 ## 本机范围
 社区primitive composition有完整原Task资格。进一步融合的收益仍需全输出与完整程序计时，不从一个梯度kernel或标量loss推断。
+
+## 社区对照（源码，非本机实测）
+社区仓库以**推理侧**为主：训练框架（Megatron/DeepSpeed/
+TransformerEngine/apex/verl/slime）经 grep 证实为纯 HIP 兼容编译、
+零 HCU 专属 kernel（收尾扫描见
+doc-hygon-pytorch-int4mm-and-llvm-intrinsics）。训练 backward 的
+梯度链没有社区手写对标物；可借用的只有通用机制层（MMAC/LDS
+契约、torch 原生 int4mm 的 arch 分派写法）。本题的优化对象与
+推理题不同类，不能把推理 kernel 的 tile/split 经验直接搬来。

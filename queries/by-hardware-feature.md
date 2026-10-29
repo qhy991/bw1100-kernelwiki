@@ -1,7 +1,7 @@
 # Index: By Hardware Feature
 
 
-## lds (50 pages)
+## lds (51 pages)
 
 - [AMD matrix instruction tuning requires actual lowering evidence](../sources/docs/doc-amd-triton-instruction-shape.md) `[source-doc]` arch:
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
@@ -50,11 +50,12 @@
 - [执行组选择：工具可复用，参数需要测量](../wiki/techniques/technique-execution-groups.md) `[wiki-technique]` arch:gfx938
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md) `[wiki-technique]` arch:gfx938
+- [HCU 布局契约：跨仓库收拢的 swizzle、重排与 tile 词汇](../wiki/techniques/technique-hcu-layout-contracts.md) `[wiki-technique]` arch:gfx938
 - [gfx938 profiling：先 source/dispatch，再 counters](../wiki/techniques/technique-profile-gfx938.md) `[wiki-technique]` arch:gfx938
 - [把一行或一段 K 拆到多个 CTA：额外 launch、清零与合并的代价](../wiki/techniques/technique-split-reduction-cost.md) `[wiki-technique]` arch:gfx938
 - [Wave64 上的归约：子组宽度、partials 与实际 shuffle 指令](../wiki/techniques/technique-wave-reduction.md) `[wiki-technique]` arch:gfx938
 
-## mmac (7 pages)
+## mmac (8 pages)
 
 - [Triton dot input types and precision controls](../sources/docs/doc-triton-dot-precision.md) `[source-doc]` arch:
 - [BF16 raw-bit inputs preserve tested subnormals on two gfx938 GEMM routes](../sources/experiments/exp-bf16-numerical-20261007.md) `[source-experiment]` arch:gfx938
@@ -63,6 +64,7 @@
 - [严格 FP32 MoE：混合输入与专家链精度](../wiki/kernels/kernel-bw-moe-fp32.md) `[wiki-kernel]` arch:gfx938
 - [FP32 dot 很慢或 native LDS0：先核对实际 lowering](../wiki/patterns/pattern-fp32-staging.md) `[wiki-pattern]` arch:gfx938
 - [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md) `[wiki-technique]` arch:gfx938
+- [HCU 布局契约：跨仓库收拢的 swizzle、重排与 tile 词汇](../wiki/techniques/technique-hcu-layout-contracts.md) `[wiki-technique]` arch:gfx938
 
 ## scratch-memory (4 pages)
 

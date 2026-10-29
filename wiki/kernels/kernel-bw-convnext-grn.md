@@ -13,7 +13,8 @@ confidence: experimental
 sources:
 - exp-community-baselines
 - exp-admission
-date: '2026-10-05'
+- doc-hygon-pytorch-int4mm-and-llvm-intrinsics
+date: '2026-10-31'
 description: ConvNeXtV2/GRN的优化空间来自卷积、归约与缩放之间的中间数据和调用边界。
 kernel_types:
 - conv
@@ -36,3 +37,11 @@ ConvNeXtV2/GRN的优化空间来自卷积、归约与缩放之间的中间数据
 
 ## 本机范围
 已有timm block资格，cache路径故障属于环境问题。这里不填写尚未确认的融合收益；后续应按完整block计时。
+
+## 社区对照（源码，非本机实测）
+52 个 HYGON-AI 社区仓库扫描里**没有**视觉域（ConvNeXt/GRN 类）的
+专门实现（收尾扫描见
+doc-hygon-pytorch-int4mm-and-llvm-intrinsics：TurboPhysAI 仅一个
+upsample kernel，spconv-das 只有 builtin 别名 shim）。本题在社区
+基线里没有直接对标物——GRN 归约、卷积 tile 化都要按本页机制自行
+设计，只能借用通用机制层（MMAC/LDS 布局契约）。

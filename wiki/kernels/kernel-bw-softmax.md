@@ -16,7 +16,8 @@ sources:
 - doc-triton-exp-lowering
 - exp-exp-route-20261007
 - exp-softmax-fusion-20261007
-date: '2026-10-07'
+- doc-hygon-flashmla-sparse-mla
+date: '2026-10-31'
 description: 覆盖概率尾部、stride/wave映射与padded输出回写的完整调用边界。
 kernel_types: [normalization, reduction]
 languages: [triton-rocm, python]
@@ -79,3 +80,12 @@ exp-output-layout-20261007进一步固定S256输入，把输出也改成stride25
 
 若下游只消费每行目标类别的负log概率，则见kernel-bw-cross-entropy与exp-cross-entropy-20261007：
 这是另一个明确的消费者合同，可以避免整张log概率写出，不能作为本页完整softmax输出任务的少输出替代。
+
+## 社区对照（源码，非本机实测）
+海光社区没有独立的"行 softmax 加速库"可对标；softmax 在社区实现里
+全部以**在线统计量形态**活在 attention kernel 内部（FlashMLA DSA
+的在线 softmax 统计 + fp32 split accum/combine，见
+doc-hygon-flashmla-sparse-mla）。对本题的含义：裸行 softmax 的
+优化空间要在"通用 reduction + host 开销"这条轴上找（本页已有四-pass
+vs 融合对照），而 attention 内的 softmax 融合属另一任务家族
+（kernel-bw-vision-attention），两者的数值合同不可互借。

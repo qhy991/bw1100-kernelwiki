@@ -6,7 +6,7 @@
 - [CK LDS banks and instruction phases](../sources/docs/doc-ck-lds-phases.md) `[source-doc]` arch:cdna3
 - [ROCm profiler LDS metric meaning](../sources/docs/doc-rocprof-lds-metrics.md) `[source-doc]` arch:cdna3
 
-## gfx938 (151 pages)
+## gfx938 (152 pages)
 
 - [海光 AITER FLA HIP 实现：chunk/decode gated delta rule 的源码契约](../sources/community/doc-hygon-aiter-fla-hip-source.md) `[source-doc]` arch:gfx938
 - [海光 composable_kernel-das：CK/ck_tile 的 HCU 适配层（MLS atom、WASP pipeline、abarrier）](../sources/community/doc-hygon-ck-templates.md) `[source-doc]` arch:gfx938
@@ -146,6 +146,7 @@
 - [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md) `[wiki-technique]` arch:gfx938
 - [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md) `[wiki-technique]` arch:gfx938
 - [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md) `[wiki-technique]` arch:gfx938
+- [HCU 布局契约：跨仓库收拢的 swizzle、重排与 tile 词汇](../wiki/techniques/technique-hcu-layout-contracts.md) `[wiki-technique]` arch:gfx938
 - [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md) `[wiki-technique]` arch:gfx938
 - [索引常量专门化：保留整数语义，再判断完整调用收益](../wiki/techniques/technique-index-specialization.md) `[wiki-technique]` arch:gfx938
 - [BW1100 底层优化入口：来源、探针与适用边界](../wiki/techniques/technique-lowlevel-research-map.md) `[wiki-technique]` arch:gfx938

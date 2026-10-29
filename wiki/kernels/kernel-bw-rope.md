@@ -12,7 +12,8 @@ confidence: experimental
 sources:
 - exp-community-baselines
 - exp-register-values
-date: '2026-10-05'
+- doc-hygon-lightop-fused-ops
+date: '2026-10-31'
 description: RoPE cos/sin生成的优化重点是复用公共metadata、选择合适执行路线，并避免额外布局搬运。
 kernel_types:
 - rope
@@ -40,3 +41,13 @@ compiled路线有初始化/JIT成本，eager路线有较多host和kernel调用�
 ## 本机范围
 Transformers公开size dispatcher有原workload资格；旧handwritten cache是不同分母。
 一个小shape的BF16copy证明已有access maps能表达该映射，不等于完整RoPE或任意register permutation已获得收益。
+
+## 社区对照（源码，非本机实测）
+海光 lightop 库的 RoPE 全部以**融合形态**存在（见
+doc-hygon-lightop-fused-ops）：`fuse_rmsnorm_rope_qkv` /
+`fuse_rmsnorm_rope_quant_qkv` / `fuse_gammarmsnorm_rope_qkv` 等，
+QKV 切分 + q/k RMSNorm + RoPE + KV store 量化一个 kernel；单独的
+裸 RoPE kernel 不在社区提供面上。这佐证本题的优化方向：RoPE 单
+算子收益有限，社区把它当 epilogue 融进邻居算子。注意 lightop 的
+fused writer 曾用已废弃的 split-K/V cache ABI，现版本保留计算融合、
+写入走原生 HIPC op——KV 写入 ABI 必须与本机 vllm-plugin 绑定核对。

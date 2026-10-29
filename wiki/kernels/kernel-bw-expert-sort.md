@@ -14,7 +14,8 @@ sources:
 - exp-community-baselines
 - exp-register-values
 - exp-night-exclusions
-date: '2026-10-05'
+- doc-hygon-moe-aiter-backend
+date: '2026-10-31'
 description: 稳定专家分桶可以把通用排序代价换成对专家值域的专门处理，但必须保留原顺序。
 kernel_types:
 - reduction
@@ -40,3 +41,14 @@ permutation和offset是离散输出，必须exact。INT32 prefix不应先转FP32
 
 ## 本机范围
 已有native sort/search与histogram/prefix composition的具体资格和比较。旧graph候选的storage行为需要单独验证，不从搜索分数推通用推荐。
+
+## 社区对照（源码，非本机实测）
+MoE 手写后端把 sorting 当成 GEMM 的前置强约束而非独立算子
+（见 doc-hygon-moe-aiter-backend）：INT8 强制 CK sorting、W4A8
+强制 moe_align、FP8 两者皆可，约束写成 TORCH_CHECK 而非静默回退；
+排序后的 token ids 用"低 24 bit token id + 高 8 bit topk id"压缩
+编码，GEMM 主循环里 `inline_buffer_load_dword` 预取后展开为 A 行
+地址。真实 sorting kernel 在 aiter/CK 侧（Moe 仓库内的
+`moe_sorting_fwd` 只是 Python 模拟器，语义一致性未逐行核对）。
+本题若走"排序换专门分桶"路线，社区的压缩编码 + 预取展开是现成
+参照。

@@ -1,7 +1,7 @@
 # Page Manifest
 
 
-206 pages. Machine-readable form: [pages.json](pages.json).
+207 pages. Machine-readable form: [pages.json](pages.json).
 
 
 ## source-doc (66)
@@ -210,7 +210,7 @@
 - `pattern-storage-rebinding` — [CUDA graph 缓存：同一 Tensor 换 storage 仍要重算](../wiki/patterns/pattern-storage-rebinding.md)
 - `pattern-version-comparison` — [同3小时的 Compiler–kernel 协同进步怎样比较](../wiki/patterns/pattern-version-comparison.md)
 
-## wiki-technique (21)
+## wiki-technique (22)
 
 - `technique-aot-alignment-pipeline` — [AOT 对齐合同与 GEMM 流水：先确认实际 lowering](../wiki/techniques/technique-aot-alignment-pipeline.md)
 - `technique-atomic-precision-boundary` — [浮点 atomics：性能选择前先固定数值与 memory scope](../wiki/techniques/technique-atomic-precision-boundary.md)
@@ -220,6 +220,7 @@
 - `technique-gfx938-instruction-audit` — [从 HIP/Triton 到 gfx938：检查指令、等待和资源](../wiki/techniques/technique-gfx938-instruction-audit.md)
 - `technique-global-lds-transpose` — [Global 合并访存与 LDS 转置：分别验证两层地址映射](../wiki/techniques/technique-global-lds-transpose.md)
 - `technique-grouped-program-order` — [Grouped program ordering：先改变复用距离，再测缓存收益](../wiki/techniques/technique-grouped-program-order.md)
+- `technique-hcu-layout-contracts` — [HCU 布局契约：跨仓库收拢的 swizzle、重排与 tile 词汇](../wiki/techniques/technique-hcu-layout-contracts.md)
 - `technique-host-entry` — [host 入口成本：固定 kernel 才能归因](../wiki/techniques/technique-host-entry.md)
 - `technique-index-specialization` — [索引常量专门化：保留整数语义，再判断完整调用收益](../wiki/techniques/technique-index-specialization.md)
 - `technique-lowlevel-research-map` — [BW1100 底层优化入口：来源、探针与适用边界](../wiki/techniques/technique-lowlevel-research-map.md)
